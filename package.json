@@ -1,0 +1,32 @@
+{
+	"name": "online-adventur.es",
+	"description": " Code for the website http://www.online-adventur.es",
+	"author": "Offirmo <offirmo.net@gmail.com>",
+	"version": "0.0.1",
+	"private": true,
+	"main": "server.js",
+	"scripts": {
+		"postinstall": "bower prune; bower install; bower update",
+		"lint": "echo TODO linting",
+		"i": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm install",
+		"b": "bower prune; bower install; bower update"
+	},
+	"dependencies": {
+		"amdefine":                 "latest",
+		"async":                    "latest",
+		"bower":                    "latest",
+		"consolidate":              "latest",
+		"dustjs-linkedin":          "latest",
+		"express":                  "~4",
+		"forky":                    "latest",
+		"lodash":                   "latest",
+		"serve-favicon":            "latest",
+		"webkit-devtools-agent":    "latest"
+	},
+	"devDependencies": {
+		"pre-commit":          "0.0.9"
+	},
+	"pre-commit": [
+		"lint"
+	]
+}
