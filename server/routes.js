@@ -22,9 +22,6 @@ router.get('/page1', function (req, res) {
 	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale });
 });
 
-router.get('/page2', function (req, res) {
-	res.render('page2', { tpl: 'page2', title: 'Express', lang: req.locale });
-
 router.get('/runtime_error', function (req, res) {
 	// bad
 	res.send(500, 'something blew up ! (handled from the middleware, error handlers not used)');
@@ -57,13 +54,13 @@ router.get('/timeout/:duration_in_sec', function (req, res) {
 	}
 });
 
-router.get("/locale_test", function(req, res) {
-	res.header("Content-Type", "text/plain");
+router.get('/locale_test', function(req, res) {
+	res.header('Content-Type', 'text/plain');
 	res.send(
-			"You asked for: " + req.headers['accept-language'] + "\n" +
-			"We support: " + config.supported_locales + "\n" +
-			"Our default is: " + locale.Locale['default'] + "\n" +
-			"The best match is: " + req.locale + "\n"
+			'You asked for: ' + req.headers['accept-language'] + '\n' +
+			'We support: ' + config.supported_locales + '\n' +
+			'Our default is: ' + locale.Locale['default'] + '\n' +
+			'The best match is: ' + req.locale + '\n'
 	);
 });
 
@@ -72,7 +69,7 @@ router.get('/toto/', function (req, res) {
 	res.send('correct /toto/ !');
 });
 
-// "catch all" = default / 404 for a webapp
+// 'catch all' = default / 404 for a webapp
 // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode
 // http://briantford.com/blog/angular-express
 // Several cases :

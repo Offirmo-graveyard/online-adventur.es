@@ -13,6 +13,7 @@
 		"extended-exceptions.js":   "latest",
 		"html5shiv":                "latest",
 		"javascript-state-machine": "latest",
+		"jquery":                   "latest",
 		"lodash":                   "latest",
 		"pace":                     "latest",
 		"please-wait":              "latest",

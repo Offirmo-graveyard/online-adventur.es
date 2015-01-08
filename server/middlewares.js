@@ -12,6 +12,7 @@ module.exports = {
 	logging: require('morgan'),
 
 	// https://github.com/expressjs/serve-favicon
+	// favicon serving middleware
 	// (static-favicon is an alias)
 	serving_favicon: require('serve-favicon'),
 
@@ -23,18 +24,20 @@ module.exports = {
 
 
 	// https://github.com/expressjs/serve-static
+	// Serve static files
 	serving_static_files: require('express').static,
 
 	// https://github.com/expressjs/serve-index
+	// Serve directory listings
 	serving_directory_listing: require('serve-index'),
 
-	// adds a X-Response-Time header to responses.
 	// https://github.com/expressjs/response-time
+	// adds a X-Response-Time header to responses.
 	adding_XResponseTime_header: require('response-time'),
 
 
-	// locale negotiation
 	// https://github.com/jed/locale
+	// locale negotiation
 	detecting_best_locale: require('locale'),
 
 };

@@ -4,8 +4,7 @@
 
 var cluster = require('cluster');
 var _ = require('lodash');
-var shutdown = require('../../--mini_incubator/shutdown');
-var pretty_signals = require('../../../incubator/node_and_common/pretty_signals');
+var shutdown = require('./incubator/shutdown');
 var forky = require('forky');
 
 
@@ -34,7 +33,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 		return callback(undefined, 'OK : no cluster master'); // not applicable
 	if(! err)
 		return callback(undefined, 'OK : no need to tell cluster master'); // no need to tell master.
-		                                                         // It's most likely him who asked us to exit !
+		                                                                   // It's most likely him who asked us to exit !
 
 	console.log('X Fatal error detected : signaling it to cluster master...', err);
 	//cluster.worker.disconnect();
@@ -75,12 +74,14 @@ if(cluster.worker) cluster.worker.on('disconnect', function() {
 });
 
 // on signal
+/*
 pretty_signals.set_exit_function(function(suggested_exit_code, signal_description) {
 	shutdown.start(undefined, suggested_exit_code, {
 		signal: signal_description.name,
 		pretty_signal_description: signal_description
 	});
 });
+*/
 
 // on domain
 

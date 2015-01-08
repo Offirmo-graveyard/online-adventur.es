@@ -11,3 +11,11 @@ Exec
 ```
 foreman start
 ```
+
+```
+nodemon
+```
+
+```
+npm start
+```

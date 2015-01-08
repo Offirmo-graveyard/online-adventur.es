@@ -31,14 +31,13 @@ process.on('uncaughtException', function(err) {
 });
 
 // trace received signals
-require('../../../incubator/node_and_common/pretty_signals').install_verbose_handlers();
-
+// (TODO)
 
 
 ///////////////////// Activate features /////////////////////
 
 // make console calls display their originating pid
-require('../../../incubator/node_and_common/assuming_console').install();
+//require('../../../incubator/node_and_common/assuming_console').install();
 console.log('Hello world from web server !');
 
 // activate long stack traces
@@ -50,7 +49,7 @@ require('clarify');
 
 
 
-
+// make forky log
 // https://github.com/brianc/node-forky/blob/master/examples/master.js
 var forky = require('forky');
 forky.log = function() { console.log.apply(console, arguments); };

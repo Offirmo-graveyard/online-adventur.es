@@ -13,11 +13,12 @@ var _ = require('lodash');
 var path = require('path');
 
 var middleware = require('./middlewares');
-var app = require('./express-app');
-var utils = require('./utils');
-var shutdown = require('./shutdown');
+var app        = require('./express-app');
+var utils      = require('./utils');
+var shutdown   = require('./shutdown');
+var routes     = require('./routes');
 
-var config = require('./config');
+var config     = require('./config');
 console.log('[web server] config =', config);
 
 
@@ -92,14 +93,11 @@ app.use(middleware.logging('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
 // to avoid processing any other middleware if we already know the request is for /favicon.ico
-app.use(middleware.serving_favicon('../../client/favicon.ico'));
+app.use(middleware.serving_favicon(path.join(__dirname, '../client/favicon.ico')));
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
 app.use(middleware.serving_static_files(path.join(__dirname, '../client')));
-app.use(middleware.serving_static_files(path.join(__dirname, '../../../client')));
-app.use('/incubator',
-	middleware.serving_static_files(path.join(__dirname, '../../../incubator')));
 
 // TOREVIEW
 //app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));
@@ -126,7 +124,6 @@ require('express-debug')(app, {/* settings */});
 
 
 /********************************** routes **************************************/
-var routes = require('./routes');
 app.use(routes);
 
 

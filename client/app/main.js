@@ -24,22 +24,17 @@ window.main = function()
 
 	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
 	console.log('\n\n' +
-		' _____ _                  ___      _   _                        _ _         _                \n' +
-		'| __  |_|___ ___      ___|  _|    | |_| |_ ___      ___ ___ ___| |_|___ ___| |_ ___ ___ ___  \n' +
-		"|    -| |_ -| -_|    | . |  _|    |  _|   | -_|    |  _| -_| . | | |  _| .'|  _| . |  _|_ -| \n" +
-		'|__|__|_|___|___|    |___|_|      |_| |_|_|___|    |_| |___|  _|_|_|___|__,|_| |___|_| |___| \n' +
-		'                                                           |_|                               \n' +
+		' _____       _  _              _____    _                 _                        \n' +
+		'|     | ___ | ||_| ___  ___   |  _  | _| | _ _  ___  ___ | |_  _ _  ___  ___  ___  \n' +
+		'|  |  ||   || || ||   || -_|  |     || . || | || -_||   ||  _|| | ||  _|| -_||_ -| \n' +
+		'|_____||_|_||_||_||_|_||___|  |__|__||___| \\_/ |___||_|_||_|  |___||_|  |___||___| \n' +
+		'                                                                                   \n' +
 		' So you are curious ?\n\n ');
 
-	requirejs(
+requirejs(
 		[
 			'lodash',
-			'logator',
-			//'webworker_helper',
-			//'ng/directives/test',
-			'ror/core/server',
-			'ror/core/client',
-			'ng/directives/ror/client',
+			//'logator',
 			'angular',
 			'angular-ui-router',
 			'angular-bootstrap'
