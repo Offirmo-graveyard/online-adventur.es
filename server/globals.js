@@ -5,6 +5,7 @@
 
 var cluster = require('cluster');
 
+var env = process.env.NODE_ENV | 'development';
 
 
 ///////////////////// Basic, very important traces /////////////////////
@@ -40,12 +41,13 @@ process.on('uncaughtException', function(err) {
 //require('../../../incubator/node_and_common/assuming_console').install();
 console.log('Hello world from web server !');
 
-// activate long stack traces
-require('trace');
+if(env === 'development') {
+	// activate long stack traces
+	require('trace');
 
-// Exclude node internal calls from the stack traces
-require('clarify');
-
+	// Exclude node internal calls from the stack traces
+	require('clarify');
+}
 
 
 
