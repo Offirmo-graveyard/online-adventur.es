@@ -6,11 +6,15 @@
 	"private": true,
 	"main": "server.js",
 	"scripts": {
-		"postinstall": "bower prune; bower install; bower update",
+		"postinstall": "bower prune && bower install && bower update",
 		"note about start": "no need, root server.js will be used, that's ok",
 		"lint": "echo TODO linting",
 		"i": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm install",
-		"b": "bower prune; bower install; bower update"
+		"b": "bower prune && bower install && bower update",
+		"cd": "rm -rf node_modules && rm -rf client/bower_components"
+	},
+	"engines": {
+		"node": ">=0.10.0"
 	},
 	"dependencies": {
 		"amdefine":                 "latest",
