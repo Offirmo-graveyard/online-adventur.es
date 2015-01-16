@@ -19,7 +19,7 @@ if(false || env === 'Production') {
 	// https://github.com/brianc/node-forky/blob/master/examples/master.js
 	forky.log = function() { console.log.apply(console, arguments) };
 
-	forky(__dirname + '/server/index');
+	forky(__dirname + '/server/web/index');
 }
 else {
 	// normal, plain launch (one instance)
