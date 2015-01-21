@@ -31,11 +31,13 @@
 		"locale":                   "latest",
 		"lodash":                   "latest",
 		"morgan":                   "latest",
+		"node-mandrill":            "latest",
 		"response-time":            "latest",
 		"serve-index":              "latest",
 		"serve-favicon":            "latest",
 		"serve-static":             "latest",
 		"trace":                    "~0",
+		"when":                     "latest",
 
 		"webkit-devtools-agent":    "latest"
 	},

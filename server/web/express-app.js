@@ -18,8 +18,8 @@ app.engine('dust', consolidated_templates.dust); // .dust will be rendered with.
 // default template engine
 app.set('view engine', 'dust'); // default extension to use when omitted
 
-// views directory : default to /views
-app.set('views', 'server/views'); // default extension to use when omitted
+// views directory : from base dir, defaults to /views
+app.set('views', 'server/web/views'); // default extension to use when omitted
 
 
 // Because you're the type of developer who cares about this sort of thing!
@@ -47,5 +47,3 @@ app.disable('x-powered-by'); // default true
  if (config.env === 'development') {
  app.use(errorhandler());
  }*/
-
-

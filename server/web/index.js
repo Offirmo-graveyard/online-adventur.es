@@ -7,7 +7,7 @@
 
 /************************************************************************/
 
-require('./globals');
+require('../common/globals');
 
 var _ = require('lodash');
 var path = require('path');
@@ -51,7 +51,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 	if(cluster.worker)
 		return callback(undefined, '[Shutdown step : close http server] OK : have a cluster master'); // not applicable
 
-	console.log('* [shutdown server step] shutting down http server...', err);
+	console.log('* [shutdown server step] shutting down http server…', err);
 	server.close(function() {
 		return callback(undefined, '[Shutdown step : close http server] OK : server has closed.');
 	});
@@ -96,11 +96,11 @@ app.use(middleware.logging('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
 // to avoid processing any other middleware if we already know the request is for /favicon.ico
-app.use(middleware.serving_favicon(path.join(__dirname, '../client/favicon.ico')));
+app.use(middleware.serving_favicon(path.join(__dirname, '../../client/favicon.ico')));
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
-app.use(middleware.serving_static_files(path.join(__dirname, '../client')));
+app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 
 // TOREVIEW
 //app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));

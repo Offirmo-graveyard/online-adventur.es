@@ -24,5 +24,5 @@ if(false || env === 'Production') {
 else {
 	// normal, plain launch (one instance)
 	console.log('* [cluster master] SIMPLE launch…');
-	require('./server/index');
+	require('./server/web/index');
 }
