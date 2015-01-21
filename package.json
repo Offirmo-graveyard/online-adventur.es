@@ -1,52 +1,53 @@
 {
-	"name": "online-adventur.es",
-	"description": " Code for the website http://www.online-adventur.es",
-	"author": "Offirmo <offirmo.net@gmail.com>",
-	"version": "0.0.1",
-	"private": true,
-	"main": "server.js",
-	"scripts": {
-		"postinstall": "bower prune && bower install && bower update",
-		"note about start": "no need, root server.js will be used, that's ok",
-		"lint": "echo TODO linting",
-		"i": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm install",
-		"b": "bower prune && bower install && bower update",
-		"cd": "rm -rf node_modules && rm -rf client/bower_components"
-	},
-	"engines": {
-		"node": ">=0.10.0"
-	},
-	"dependencies": {
-		"amdefine":                 "latest",
-		"async":                    "latest",
-		"bower":                    "latest",
-		"clarify":                  "latest",
-		"consolidate":              "latest",
-		"domain-middleware":        "latest",
-		"dustjs-linkedin":          "latest",
-		"express":                  "~4",
-		"express-debug":            "latest",
-		"express-slash":            "latest",
-		"forky":                    "latest",
-		"locale":                   "latest",
-		"lodash":                   "latest",
-		"morgan":                   "latest",
-		"node-mandrill":            "latest",
-		"response-time":            "latest",
-		"serve-index":              "latest",
-		"serve-favicon":            "latest",
-		"serve-static":             "latest",
-		"trace":                    "~0",
-		"when":                     "latest",
+  "name": "online-adventur.es",
+  "description": " Code for the website http://www.online-adventur.es",
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "version": "0.0.1",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "bower prune && bower install && bower update",
+    "note about start": "no need, root server.js will be used, that's ok",
+    "lint": "eslint .",
+    "i": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm install",
+    "b": "bower prune && bower install && bower update",
+    "cd": "rm -rf node_modules && rm -rf client/bower_components"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "amdefine":                 "latest",
+    "async":                    "latest",
+    "bower":                    "latest",
+    "clarify":                  "latest",
+    "consolidate":              "latest",
+    "domain-middleware":        "latest",
+    "dustjs-linkedin":          "latest",
+    "express":                  "~4",
+    "express-debug":            "latest",
+    "express-slash":            "latest",
+    "forky":                    "latest",
+    "locale":                   "latest",
+    "lodash":                   "latest",
+    "morgan":                   "latest",
+    "node-mandrill":            "latest",
+    "response-time":            "latest",
+    "serve-index":              "latest",
+    "serve-favicon":            "latest",
+    "serve-static":             "latest",
+    "trace":                    "~0",
+    "when":                     "latest",
 
-		"webkit-devtools-agent":    "latest"
-	},
-	"devDependencies": {
-		"express-livereload":       "latest",
-		"nodemon":                  "latest",
-		"pre-commit":               "0.0.9"
-	},
-	"pre-commit": [
-		"lint"
-	]
+    "webkit-devtools-agent":    "latest"
+  },
+  "devDependencies": {
+    "eslint":                   "latest",
+    "express-livereload":       "latest",
+    "nodemon":                  "latest",
+    "pre-commit":               "0.0.9"
+  },
+  "xpre-commit": [
+    "lint"
+  ]
 }

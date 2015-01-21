@@ -1,0 +1,34 @@
+{
+	"env": {
+		"amd": true,
+		"browser": true,
+		"mocha": true,
+		"node": true,
+	},
+	"ecmaFeatures": {
+
+	},
+	// http://eslint.org/docs/rules/
+	"rules": {
+		// Possible Errors
+		"no-comma-dangle": 0, // don't care about IE8
+		"no-cond-assign": [2, "always"],
+		"no-console": 2,
+		// Best Practices
+		"eqeqeq": 2,
+		"yoda": 2,
+		// Strict Mode
+		// Variables
+		// Node.js
+		// Stylistic Issues
+		"camelcase": 0, // snake rules !
+		"key-spacing": 0, // be free to align or not
+		"new-cap": 2,
+		"no-mixed-spaces-and-tabs": 0, // allow it
+		"no-multiple-empty-lines": [1, {max: 3}],  // Maximum of n empty lines
+		"no-trailing-spaces": 2,
+		"quotes": [2, "single"],
+		// ECMAScript 6
+		// Legacy
+	}
+}
