@@ -9,7 +9,7 @@
     "postinstall": "bower prune && bower install && bower update",
     "note about start": "no need, root server.js will be used, that's ok",
     "lint": "eslint .",
-    "i": "npm install --global nodemon puer; npm update -g nodemon puer; npm prune; npm install",
+    "i": "npm install --global nodemon puer && npm update -g nodemon puer && npm prune && npm install && cd common/incubator/carnet && npm prune && npm install",
     "b": "bower prune && bower install && bower update",
     "cd": "rm -rf node_modules && rm -rf client/bower_components"
   },

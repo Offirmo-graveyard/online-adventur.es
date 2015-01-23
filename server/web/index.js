@@ -7,7 +7,9 @@
 
 /************************************************************************/
 
-require('../common/globals');
+var logger = require('../../common/incubator/carnet')({enhanced: true});
+
+require('../common/globals')(logger);
 
 var _ = require('lodash');
 var path = require('path');
