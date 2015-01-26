@@ -35,7 +35,8 @@ window.main = function()
 		'lodash',
 		'carnet',
 		'angular-ui-router',
-		'angular-strap'
+		'angular-strap',
+		'css!global'
 	],
 	function(_, Carnet) {
 		console.log('main require done.');

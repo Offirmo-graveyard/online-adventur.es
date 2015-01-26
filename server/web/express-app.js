@@ -19,7 +19,7 @@ app.engine('dust', consolidated_templates.dust); // .dust will be rendered with.
 app.set('view engine', 'dust'); // default extension to use when omitted
 
 // views directory : from base dir, defaults to /views
-app.set('views', 'server/web/views'); // default extension to use when omitted
+app.set('views', 'client/views'); // default extension to use when omitted
 
 
 // Because you're the type of developer who cares about this sort of thing!

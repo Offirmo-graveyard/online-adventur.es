@@ -66,20 +66,20 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
 // (install itself in all env except production)
-if(false && config.env === 'development') {
-	console.log('* configuring express-livereload to watch "' + process.cwd() + '"…');
+if(true && config.env === 'development') {
+	console.log('* configuring express-livereload to watch "' + process.cwd() + '/client"…');
 	require('express-livereload')(app, {
-		watchDir:  process.cwd(), // optim
+		watchDir:  process.cwd() + '/client', // optim
 		// https://github.com/napcs/node-livereload#api-options
 		debug: true,
 		port: config.livereload_port,
 		exts: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
-		exclusions: [
+		/*exclusions: [
 			'server/',
 			'common/',
 			'node modules/',
 			'client/bower_components/',
-		]
+		]*/
 	});
 }
 
@@ -111,6 +111,7 @@ app.use(middleware.serving_favicon(path.join(__dirname, '../../client/favicon.ic
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
 app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
 app.use(middleware.serving_static_files(path.join(__dirname, '../../common')));
+app.use('/bower_components', middleware.serving_static_files(path.join(__dirname, '../../bower_components')));
 
 // TOREVIEW
 //app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));

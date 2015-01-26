@@ -18,4 +18,4 @@ coverage
 
 # Dependency directory
 node_modules
-client/bower_components
+bower_components

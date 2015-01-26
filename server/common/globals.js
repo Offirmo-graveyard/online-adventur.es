@@ -28,10 +28,9 @@ if (env === 'development') {
 ///////////////////// Setup traces /////////////////////
 module.exports = function setup(logger, rapport) {
 
-
 	rapport.ready.then(function() {
 		var message = prettyjson.render(rapport.base);
-		console.log(message);
+		//console.log(message);
 
 		if (!process.env.MANDRILL_API_KEY) {
 			console.error('Please set a mandrill API key : export MANDRILL_API_KEY="..."');

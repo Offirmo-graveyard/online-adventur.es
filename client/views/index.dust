@@ -20,14 +20,20 @@
 	<!-- style -->
 	<link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
 	<style>
-		/*...*/
-		body {
+		/*@font-face {
+			font-family: 'RobotoRegular';
+			src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		div#content {
 			padding: 10px;
 			font-size: 14px;
 			background-color: black;
 			color: deepskyblue;
 			font-family: 'RobotoRegular';
-		}
+		}*/
 	</style>
 
 	<!-- js -->
@@ -42,7 +48,7 @@
 
 	<div id="content">
 
-		Hello world !
+		Offirmo's online adventures
 
 	</div>
 
