@@ -6,10 +6,13 @@
 
 
 /************************************************************************/
-
 var logger = require('../../common/incubator/carnet')({enhanced: true});
+var rapport = require('../../common/incubator/rapport').make_new();
 
-require('../common/globals')(logger);
+require('../common/globals')(logger, rapport);
+
+var config     = require('./config');
+rapport.base.config = config;
 
 var _ = require('lodash');
 var path = require('path');
@@ -20,7 +23,6 @@ var utils      = require('./utils');
 var shutdown   = require('./shutdown');
 var routes     = require('./routes');
 
-var config     = require('./config');
 console.log('[web server] config =', config);
 
 

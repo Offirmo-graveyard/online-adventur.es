@@ -16,6 +16,9 @@ var when_node = require('when/node');
 var mandrill = when_node.lift(require('node-mandrill')(process.env.MANDRILL_API_KEY));
 var config = require('./config');
 var env = process.env.NODE_ENV || 'development';
+var prettyjson = require('prettyjson');
+var htmlize = require('json-htmlize').toHtml;
+
 
 ///////////////////// Activate features /////////////////////
 if (env === 'development') {
@@ -29,40 +32,50 @@ if (env === 'development') {
 
 
 ///////////////////// Setup traces /////////////////////
-module.exports = function setup(logger) {
-	var start_subject = cluster.isWorker ?
-	'worker ' + cluster.worker.id + ' started' :
-	'standalone started';
-	var start_msg = 'Just to let you know.';
+module.exports = function setup(logger, rapport) {
 
-	mandrill('/messages/send', {
-		message: {
-			to: [
-				{email: config.admin_email, name: 'online-adventur.es admin'}
-			],
-			from_email: config.agent_email,
-			subject: start_subject,
-			text: start_msg
-		}
-	}, function (error, responses) {
-		//uh oh, there was an error
-		if (error) {
-			logger.error("XXX mandrill error : " + JSON.stringify(error));
-		}
-		else {
-			if (!_.isArray(responses))
-				responses = [ responses ];
+	rapport.ready.then(function() {
+		var message = prettyjson.render(rapport.base);
+		console.log(message);
 
-			_.forEach(responses, function (response) {
-				if (response.status === 'invalid') {
-					logger.error("XXX mandrill ERROR : ", response);
-				}
-				else {
-					//everything's good, lets see what mandrill said
-					logger.log("mandrill SUCCESS", response);
-				}
-			});
-		}
+		var start_subject = cluster.isWorker ?
+			'worker ' + cluster.worker.id + ' started' :
+			'standalone started';
+		start_subject += ' @' + rapport.base.host.hostname;
+		start_subject += ' [' + rapport.base.host.local_ips[0] + ']';
+
+		var start_msg = 'Just to let you know.<br />\n' + htmlize(rapport.base);
+
+		mandrill('/messages/send', {
+			message: {
+				to: [
+					{email: config.admin_email, name: 'online-adventur.es admin'}
+				],
+				from_email: config.agent_email,
+				subject: start_subject,
+				//text: start_msg,
+				html: start_msg,
+			}
+		}, function (error, responses) {
+			//uh oh, there was an error
+			if (error) {
+				logger.error("XXX mandrill error : " + JSON.stringify(error));
+			}
+			else {
+				if (!_.isArray(responses))
+					responses = [ responses ];
+
+				_.forEach(responses, function (response) {
+					if (response.status === 'invalid') {
+						logger.error("XXX mandrill ERROR : ", response);
+					}
+					else {
+						//everything's good, lets see what mandrill said
+						logger.log("mandrill SUCCESS", response);
+					}
+				});
+			}
+		});
 	});
 
 
