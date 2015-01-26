@@ -40,8 +40,9 @@ module.exports = function setup(logger, rapport) {
 
 		var start_subject = cluster.isWorker ?
 			'worker ' + cluster.worker.id + ' started' :
-			'standalone started';
+			'master started in ' + rapport.base.config.env + ' mode';
 		start_subject += ' @' + rapport.base.host.hostname;
+		start_subject += ' ' + rapport.base.host.local_ips[0];
 		start_subject += ' ' + rapport.base.host.local_ips[0];
 
 		var start_msg = 'Just to let you know.<br />\n' + htmlize(rapport.base);

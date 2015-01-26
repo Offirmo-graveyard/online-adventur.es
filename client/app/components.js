@@ -39,8 +39,8 @@ requirejs.config({
 	/////////////////////
 	packages: [
 		{
-			name : 'logator',
-			location: '../incubator/logator'
+			name : 'carnet',
+			location: 'incubator/carnet'
 		},
 		{
 			name : 'when',
@@ -91,7 +91,7 @@ requirejs.config({
 		'json2'                    : 'bower_components/json2/json2',
 		'jsoneditor'               : 'bower_components/jsoneditor/jsoneditor',
 		'isotope'                  : 'bower_components/isotope/jquery.isotope',
-		'lodash'                   : 'bower_components/lodash/dist/lodash',
+		'lodash'                   : 'bower_components/lodash/lodash',
 		'magnific-popup'           : 'bower_components/magnific-popup/dist/jquery.magnific-popup',
 		'mocha'                    : 'bower_components/mocha/mocha',
 		'moment'                   : 'bower_components/momentjs/moment',

@@ -105,6 +105,7 @@ app.use(middleware.serving_favicon(path.join(__dirname, '../../client/favicon.ic
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
 app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
+app.use(middleware.serving_static_files(path.join(__dirname, '../../common')));
 
 // TOREVIEW
 //app.use('/ht', middleware.serving_directory_listing('../../client', {'icons': true}));
@@ -126,7 +127,8 @@ app.use(middleware.detecting_best_locale(config.supported_locales));
 
 // "express debug toolbar"
 // https://github.com/devoidfury/express-debug
-require('express-debug')(app, {/* settings */});
+if(config.env === 'development')
+	require('express-debug')(app, {/* settings */});
 
 
 

@@ -31,76 +31,32 @@ window.main = function()
 		'                                                                                   \n' +
 		' So you are curious ?\n\n ');
 
-requirejs(
-		[
-			'lodash',
-			//'logator',
-			'angular',
-			'angular-ui-router',
-			'angular-bootstrap'
-		],
-		function(_, Logator, RorServer, RorClient) {
-			console.log('main require done.');
+	requirejs([
+		'lodash',
+		'carnet',
+		'angular',
+		'angular-ui-router',
+		'angular-bootstrap'
+	],
+	function(_, Carnet) {
+		console.log('main require done.');
 
-			// build this app logger
-			var logger = Logator.make_new({enhanced: true});
-			logger.info('App is bootstrapping…');
+		// build this app logger
+		var logger = Carnet.make_new({enhanced: true});
+		logger.info('App is bootstrapping…');
 
-			// server
-			var server = RorServer.make_new({
-				logger: logger
-			});
-
-			var client = RorClient.make_new(server, {
-				logger: logger
-			});
-			// expose it as global
-			window.client = client;
-
-			// ui
-			global_ng_module
-			.controller('LandingCtrl', function($scope, $document) {
-				$scope.lang = $document[0].documentElement.lang;
-				logger.info('detected lang :', $document[0].documentElement.lang);
-
-				$scope.client = client;
-			});
-
-			// angular manual initialisation since we use a script loader
-			// cf. http://docs.angularjs.org/guide/bootstrap
-			console.log('Bootstrapping angular...');
-			angular.element(document).ready(function() {
-				angular.bootstrap(document, ['global_ng_module']);
-			});
+		// ui
+		global_ng_module
+		.controller('LandingCtrl', function($scope, $document) {
+			$scope.lang = $document[0].documentElement.lang;
+			logger.info('detected lang :', $document[0].documentElement.lang);
 		});
 
-
-	if(false) {
-		/*
-		var worker = new Worker('ror_worker.js');
-
-		// immediately start listening to worker
-		var worker_ready = false;
-
-		function send_to_worker(m) {
-			worker.postMessage(m);
-			console.log("Msg sent to worker : " + m);
-		}
-
-		worker.onerror = function (e) {
-			// Log the error message, including worker filename and line number
-			console.log("Error at " + e.filename + ":" + e.lineno + ": " + e.message, e);
-		};
-		worker.onmessage = function (e) {
-			//console.log("Msg received from worker : ", e.data);
-			if (!worker_ready) {
-				worker_ready = true;
-				send_to_worker('Hello from page !');
-			}
-
-			if (WebworkerHelper.process_log_message(e)) return;
-
-			console.error("Unknown msg received from worker : ", e.data);
-		};*/
-	}
+		// angular manual initialisation since we use a script loader
+		// cf. http://docs.angularjs.org/guide/bootstrap
+		console.log('Bootstrapping angular...');
+		angular.element(document).ready(function() {
+			angular.bootstrap(document, ['global_ng_module']);
+		});
+	});
 };
