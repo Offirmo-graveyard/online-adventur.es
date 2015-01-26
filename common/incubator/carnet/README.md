@@ -17,6 +17,8 @@ Story :
 
 A logger core.
 
+Interface : DEBUG variable, like https://github.com/visionmedia/debug
+
 Design principles :
 
 * log should be easy

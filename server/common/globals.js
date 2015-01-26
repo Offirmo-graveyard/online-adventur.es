@@ -3,12 +3,6 @@
  */
 'use strict';
 
-
-if (!process.env.MANDRILL_API_KEY) {
-	console.error('Please set a mandrill API key : export MANDRILL_API_KEY="..."');
-	process.exit(1);
-}
-
 var cluster = require('cluster');
 
 var _ = require('lodash');
@@ -34,9 +28,15 @@ if (env === 'development') {
 ///////////////////// Setup traces /////////////////////
 module.exports = function setup(logger, rapport) {
 
+
 	rapport.ready.then(function() {
 		var message = prettyjson.render(rapport.base);
 		console.log(message);
+
+		if (!process.env.MANDRILL_API_KEY) {
+			console.error('Please set a mandrill API key : export MANDRILL_API_KEY="..."');
+			return;
+		}
 
 		var start_subject = cluster.isWorker ?
 			'worker ' + cluster.worker.id + ' started' :

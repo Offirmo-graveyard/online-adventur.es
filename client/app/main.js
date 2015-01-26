@@ -15,7 +15,7 @@ window.main = function()
 			if(global_module_instance) return global_module_instance; // already OK
 			console.log('building');
 			global_module_instance = angular.module('global_ng_module', [
-				'ui.bootstrap'
+				'mgcrea.ngStrap'
 			]);
 			return global_module_instance;
 		}
@@ -34,9 +34,8 @@ window.main = function()
 	requirejs([
 		'lodash',
 		'carnet',
-		'angular',
 		'angular-ui-router',
-		'angular-bootstrap'
+		'angular-strap'
 	],
 	function(_, Carnet) {
 		console.log('main require done.');
@@ -54,7 +53,7 @@ window.main = function()
 
 		// angular manual initialisation since we use a script loader
 		// cf. http://docs.angularjs.org/guide/bootstrap
-		console.log('Bootstrapping angular...');
+		console.log('Bootstrapping angular 2...');
 		angular.element(document).ready(function() {
 			angular.bootstrap(document, ['global_ng_module']);
 		});

@@ -66,15 +66,20 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
 // (install itself in all env except production)
-if(config.env === 'development') {
-	console.log('* configuring express-livereload to watch "' + process.cwd() + '/client"…');
+if(false && config.env === 'development') {
+	console.log('* configuring express-livereload to watch "' + process.cwd() + '"…');
 	require('express-livereload')(app, {
-		watchDir:  process.cwd() + '/client', // optim
+		watchDir:  process.cwd(), // optim
 		// https://github.com/napcs/node-livereload#api-options
 		debug: true,
 		port: config.livereload_port,
 		exts: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
-		exclusions: [ 'bower_components', 'other_components' ]
+		exclusions: [
+			'server/',
+			'common/',
+			'node modules/',
+			'client/bower_components/',
+		]
 	});
 }
 

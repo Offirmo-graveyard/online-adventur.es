@@ -34,3 +34,12 @@ npm start
 ```bash
 git push heroku master
 ```
+
+
+
+Notes
+=====
+
+Modèles :
+http://www.mainichi.me/
+
