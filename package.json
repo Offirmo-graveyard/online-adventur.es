@@ -14,12 +14,13 @@
     "cd": "rm -rf node_modules && rm -rf client/bower_components"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "^0.10.0"
   },
   "dependencies": {
     "amdefine":                 "latest",
     "async":                    "latest",
     "bower":                    "latest",
+    "chalk":                    "~0.5",
     "clarify":                  "latest",
     "consolidate":              "latest",
     "domain-middleware":        "latest",
