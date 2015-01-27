@@ -56,7 +56,7 @@ window.main = function()
 		// cf. http://docs.angularjs.org/guide/bootstrap
 		console.log('Bootstrapping angular 2...');
 		angular.element(document).ready(function() {
-			angular.bootstrap(document, ['global_ng_module']);
+			angular.bootstrap(document.body, ['global_ng_module']);
 		});
 	});
 };
