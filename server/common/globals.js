@@ -11,7 +11,7 @@ var mandrill = when_node.lift(require('node-mandrill')(process.env.MANDRILL_API_
 var config = require('./config');
 var env = process.env.NODE_ENV || 'development';
 var prettyjson = require('prettyjson');
-var htmlize = require('json-htmlize').toHtml;
+var htmlize = require('json-htmlize');
 
 
 ///////////////////// Activate features /////////////////////
@@ -44,7 +44,7 @@ module.exports = function setup(logger, rapport) {
 		start_subject += ' ' + rapport.base.host.local_ips[0];
 		start_subject += ' ' + rapport.base.host.local_ips[0];
 
-		var start_msg = 'Just to let you know.<br />\n' + htmlize(rapport.base);
+		var start_msg = 'Just to let you know.<br />\n' + htmlize.toHtmlString(rapport.base);
 
 		mandrill('/messages/send', {
 			message: {
