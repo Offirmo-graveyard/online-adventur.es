@@ -38,7 +38,7 @@ module.exports = function setup(logger, rapport) {
 		}
 
 		var start_subject = cluster.isWorker ?
-			'worker ' + cluster.worker.id + ' started' :
+			'worker ' + cluster.worker.id + ' started in ' + rapport.base.config.env + ' mode' :
 			'master started in ' + rapport.base.config.env + ' mode';
 		start_subject += ' @' + rapport.base.host.hostname;
 		start_subject += ' ' + rapport.base.host.local_ips[0];
