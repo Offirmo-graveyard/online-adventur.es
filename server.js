@@ -10,7 +10,7 @@ console.log('\n\n*** Hello from cluster master ! ***');
 var env = process.env.NODE_ENV || 'development';
 console.log('* [cluster master] env = ' + env);
 
-if(env === 'Production') {
+if(env === 'production') {
 	// cluster launch, heroku compatible and with nice features
 	// https://github.com/brianc/node-forky
 	console.log('* [cluster master] CLUSTER launch…');
