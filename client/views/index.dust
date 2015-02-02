@@ -1,7 +1,5 @@
-{>layout/}
+{>"layout/layout" /}
+
 {<content}
-	This is loaded from a partial.
-
-	Offirmo's online adventures
-
+	Offirmo's online adventures (coming soon...)
 {/content}

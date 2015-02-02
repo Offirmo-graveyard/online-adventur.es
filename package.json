@@ -11,28 +11,28 @@
     "lint": "eslint .",
     "i": "npm install --global nodemon puer && npm update -g nodemon puer && npm prune && npm install && cd common/incubator/carnet && npm prune && npm install",
     "b": "bower prune && bower install && bower update",
-    "cd": "rm -rf node_modules && rm -rf client/bower_components"
+    "cd": "rm -rf node_modules && rm -rf bower_components"
   },
   "engines": {
     "node": "^0.10.0"
   },
   "dependencies": {
-    "amdefine": "latest",
-    "async": "latest",
-    "bower": "latest",
+    "amdefine": "~0.1",
+    "async": "~0.9",
+    "bower": "~1.3",
     "chalk": "~0.5",
-    "clarify": "latest",
-    "consolidate": "latest",
-    "domain-middleware": "latest",
-    "dustjs-linkedin": "latest",
+    "clarify": "~1",
+    "consolidate": "~0.10",
+    "domain-middleware": "~0.1",
+    "dustjs-helpers": "latest",
+    "dustjs-linkedin": "~2.5",
     "express": "~4",
-    "express-debug": "latest",
     "express-slash": "latest",
     "forky": "latest",
-    "jsdom": "^3.1.0",
+    "jsdom": "^3",
     "json-htmlize": "git://github.com/Offirmo/json-htmlize",
     "locale": "latest",
-    "lodash": "latest",
+    "lodash": "^3",
     "morgan": "latest",
     "node-mandrill": "latest",
     "prettyjson": "latest",
@@ -45,10 +45,11 @@
     "when": "latest"
   },
   "devDependencies": {
-    "eslint": "latest",
+    "eslint": "^0.13",
+    "express-debug": "latest",
     "express-livereload": "latest",
     "nodemon": "latest",
-    "pre-commit": "0.0.9"
+    "pre-commit": "^0.0"
   },
   "xpre-commit": [
     "lint"

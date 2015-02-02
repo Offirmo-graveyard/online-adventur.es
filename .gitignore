@@ -16,6 +16,6 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
-# Dependency directory
+# Dependency directories
 node_modules
 bower_components

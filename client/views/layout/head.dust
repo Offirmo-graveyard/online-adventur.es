@@ -1,0 +1,7 @@
+{>"layout/head-metas" /}
+
+<title>Offirmo's online adventures</title>
+
+{>"layout/head-favicon" /}
+{>"layout/head-style" /}
+{>"layout/head-js" /}

@@ -1,0 +1,12 @@
+<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Offirmo's online adventures">
+<meta property="og:site_name" content="Offirmo's online adventures">
+<meta property="og:url" content="http://www.online-adventur.es/">
+<meta property="og:description" content="Home of Offirmo's adventure games.">
+<meta property="og:image" content="link_to_image1200x630">
+<meta property="article:author" content="https://www.facebook.com/TODO">
+
+<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">

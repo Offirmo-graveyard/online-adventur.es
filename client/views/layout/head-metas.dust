@@ -1,0 +1,12 @@
+{>"layout/head-metas-tech" /}
+
+<!-- thank you http://www.groovymeta.com/ -->
+<!-- thank you http://www.sitepoint.com/meta-tags-html-basics-best-practices/ -->
+
+<meta name="description" content="Home of Offirmo's adventure games.">
+<meta name="keywords" content="game, rpg, adventure" >
+<meta name="author" content="Offirmo">
+
+{>"layout/head-metas-facebook" /}
+{>"layout/head-metas-twitter" /}
+{>"layout/head-metas-google" /}

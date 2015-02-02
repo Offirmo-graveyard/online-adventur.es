@@ -1,0 +1,9 @@
+<!-- https://dev.twitter.com/cards/overview -->
+<!-- https://dev.twitter.com/cards/types/summary -->
+<meta name="twitter:card" content="summary">
+<meta property="twitter:url" content="http://www.online-adventur.es/">
+
+<meta name="twitter:title" content="Offirmo's online adventures">
+<meta name="twitter:description" content="Home of Offirmo's adventure games.">
+<meta property="twitter:image" content="">
+<meta name="twitter:creator" content="@">
