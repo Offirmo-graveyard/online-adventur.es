@@ -1,5 +1,10 @@
 'use strict';
 
+// Load and use polyfill for ECMA-402.
+if (!global.Intl) {
+	global.Intl = require('intl');
+}
+
 var express = require('express');
 
 // http://expressjs.com/4x/api.html
@@ -12,6 +17,8 @@ module.exports = app;
 var consolidated_templates = require('consolidate'); // always needed
 // now require all templating engines we wish to use
 var dust = require('dustjs-linkedin'); // http://dejanglozic.com/2014/01/27/dust-js-such-templating/
+var DustIntl = require('dust-intl'); // http://formatjs.io/dust/
+DustIntl.registerWith(dust);
 require('dustjs-helpers'); // also
 dust.optimizers.format = function(ctx, node) { return node; }; // https://github.com/linkedin/dustjs/wiki/Dust-Tutorial#controlling-whitespace-suppression
 app.engine('dust', consolidated_templates.dust); // .dust will be rendered with...

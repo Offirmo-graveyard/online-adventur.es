@@ -5,6 +5,7 @@ var path = require('path');
 var express = require('express');
 var router = express.Router();
 var utils = require('./utils');
+var config = require('./config');
 
 
 module.exports = router;
@@ -15,11 +16,25 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 });*/
 
 router.get('/', function (req, res) {
-	res.render('index', { tpl: 'index', title: 'Express', lang: req.locale });
+	res.render('index', {
+		tpl: 'index',
+		lang: req.locale,
+		intl: {
+			locales: req.locale,
+			messages: config.messages[req.locale],
+		},
+
+		title: 'Express',
+
+		num      : 42000,
+		completed: 0.9,
+		price    : 100.95,
+		date: new Date()
+	});
 });
 
 router.get('/page1', function (req, res) {
-	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale });
+	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale, intl: {'locales': req.locale} });
 });
 
 router.get('/runtime_error', function (req, res) {

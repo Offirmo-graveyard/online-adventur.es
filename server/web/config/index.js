@@ -11,6 +11,12 @@ var defaults = {
 	livereload_port: 35730, //< note : official default is 35729
 	supported_locales: [ 'en', 'fr' ],
 };
+defaults.messages = _.zipObject(
+	defaults.supported_locales,
+	defaults.supported_locales.map(function(locale) {
+		return require('../../../client/i18n/' + locale);
+	})
+);
 
 var from_env = {
 	listening_port: process.env.PORT,

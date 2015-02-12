@@ -38,6 +38,7 @@ module.exports = {
 
 	// https://github.com/jed/locale
 	// locale negotiation
+	// TODO replace with a more subtile one (handling facebook etc.)
 	detecting_best_locale: require('locale'),
 
 };

@@ -14,6 +14,7 @@
 		"extended-exceptions.js":   "latest",
 		"javascript-state-machine": "latest",
 		"jquery":                   "latest",
+		"intl":                     "latest",
 		"lodash":                   "latest",
 		"pace":                     "latest",
 		"please-wait":              "latest",
