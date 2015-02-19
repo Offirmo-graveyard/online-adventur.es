@@ -55,6 +55,19 @@ nodemon   <-- will read package.json
 nodemon server
 
 
+Contributing
+============
+https://github.com/blog/1943-how-to-write-the-perfect-pull-request
+
+
+
+Notes
+=====
+
+http://www.subtraction.com/2015/02/12/is-design-bound-to-get-cheaper/
+modèle ? http://phaser.io/
+
+
 base : (important client experience)
 - [ ] base security http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
 - [x] all UTF-8
