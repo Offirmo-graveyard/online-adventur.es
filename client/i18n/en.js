@@ -5,7 +5,7 @@ define(function() {
 	'use strict';
 
 	return {
-		title: 'Offirmo\'s online adventures',
+		title: 'Offirmo’s online adventures',
 		coming_soon: 'coming soon',
 	};
 });

@@ -16,4 +16,5 @@
 <script>
 	console.log('Hello from body.');
 </script>
+
 <script src="app/main.js"></script>

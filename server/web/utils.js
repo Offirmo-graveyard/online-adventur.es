@@ -22,7 +22,7 @@ module.exports = {
 	// try to figure out if this request is a page request by a user
 	// or if it's an internal (xhr) request.
 	is_internal_request: function(req) {
-		return     req.xhr // caller manually told us it was a xhr
+		return    req.xhr // caller manually told us it was a xhr
 		       || (!req.accepts('html')); // most likely not a browser asset
 	},
 
