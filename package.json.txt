@@ -1,0 +1,4 @@
+Notes :
+=======
+
+jsdom@3 is a mandatory dependency of json-htmlize on node.js
