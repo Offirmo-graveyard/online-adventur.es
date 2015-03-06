@@ -71,11 +71,12 @@ modèle ? http://phaser.io/
 base : (important client experience)
 - [ ] HTTPS
 - [ ] base security http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
-- [x] all UTF-8
 - [x] static files
 - [x] root page (~index.html)
 - [x] / defaults to index
 - [x] other/multiple pages
+- [x] favicon
+- [x] all UTF-8
 - [x] templating
 - [x] server side 404
 - [x] nice 404 for pages, normal 404 for assets
@@ -83,11 +84,12 @@ base : (important client experience)
 - [ ] nice server runtime error (uncaught exceptions) (and app stay accessible !)
 - [ ] should close OTHER pending requests on uncaught (or not ? or wait ?)
 - [x] base auto-restart : nothing to do ! should be handled by the platform (ex. heroku)
-- [x] favicon
 - [x] basic logging
+- [ ] basic remote logging http://blog.gospodarets.com/track_javascript_angularjs_and_jquery_errors_with_google_analytics/
 
 advanced :
 - [ ] localization +++ "speak style" (alternative localizations for the same language)
+- [x] language recognition/hinting and i18n
 - [ ] safari / mobile icons
 - [x] facebook preview / graph
 - [ ] utility pages http://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
@@ -98,7 +100,7 @@ advanced :
 - [x] modular routing
 - [x] layered/splitted templating
 - [ ] client side 404 for SPA !
-- [x] language recognition/hinting and i18n
+- [ ] correct score http://gtmetrix.com/
 - [ ] compression  https://github.com/expressjs/compression
 - [ ] check response time
 - [ ] timeouts  https://github.com/expressjs/timeout
