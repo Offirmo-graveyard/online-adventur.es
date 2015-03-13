@@ -32,6 +32,7 @@ console.log('[web server] config =', config);
 // cf. http://expressjs.com/4x/api.html#app.listen
 var server = require('http').createServer(app);
 
+// onflight requests counter (experimental)
 var onflight_count = 0;
 server.on('request', function(request, response) {
 	onflight_count++;
@@ -74,9 +75,8 @@ if(true && config.env === 'development') {
 		debug: true,
 		port: config.livereload_port,
 		exts: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
+		// cool, our new file structure makes exclusions useless ;)
 		/*exclusions: [
-			'server/',
-			'common/',
 			'node modules/',
 			'client/bower_components/',
 		]*/

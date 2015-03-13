@@ -24,7 +24,6 @@ if (env === 'development') {
 }
 
 
-
 ///////////////////// Setup traces /////////////////////
 module.exports = function setup(logger, rapport) {
 

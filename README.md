@@ -90,6 +90,10 @@ base : (important client experience)
 advanced :
 - [ ] localization +++ "speak style" (alternative localizations for the same language)
 - [x] language recognition/hinting and i18n
+- [ ] hotlinking prevention
+- [ ] https://github.com/yahoo/node-info
+- [ ] https://github.com/yahoo/node-limits
+- [ ] https://github.com/yahoo/node-restrict
 - [ ] safari / mobile icons
 - [x] facebook preview / graph
 - [ ] utility pages http://www.simpleentrepreneur.com/2007/07/10/les-pages-a-ne-pas-oublier-lorsquon-cree-un-site/
