@@ -43,6 +43,8 @@ Notes
 Modèles :
 http://www.mainichi.me/
 
+http://html5up.net/parallelism
+
 
 
 Server
@@ -64,9 +66,11 @@ https://github.com/blog/1943-how-to-write-the-perfect-pull-request
 Notes
 =====
 
-http://www.subtraction.com/2015/02/12/is-design-bound-to-get-cheaper/
-modèle ? http://phaser.io/
+http://abonnes.lemonde.fr/les-decodeurs/article/2014/10/17/5-chiffres-flatteurs-sur-le-jeu-video-a-prendre-avec-des-pincettes_4508234_4355770.html
 
+inspiration ? http://www.subtraction.com/2015/02/12/is-design-bound-to-get-cheaper/
+
+modèle ? http://phaser.io/
 
 base : (important client experience)
 - [ ] HTTPS
@@ -135,6 +139,7 @@ advanced :
 - [ ] detect too busy https://hacks.mozilla.org/2013/01/building-a-node-js-server-that-wont-melt-a-node-js-holiday-season-part-5/
 - [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
 - [ ] unit tests
+- [ ] robots http://www.wpbeginner.com/wp-tutorials/how-to-optimize-your-wordpress-robots-txt-for-seo/
 
 
 http://javascriptplayground.com/blog/2014/07/testing-express-routes/
