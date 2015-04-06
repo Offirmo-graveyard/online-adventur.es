@@ -11,10 +11,13 @@ var defaults = {
 	livereload_port: 35730, //< note : official default is 35729
 	supported_locales: [ 'en', 'fr' ],
 };
+
+var en_messages = require('../../../client/i18n/en');
+
 defaults.messages = _.zipObject(
 	defaults.supported_locales,
 	defaults.supported_locales.map(function(locale) {
-		return require('../../../client/i18n/' + locale);
+		return _.defaults(require('../../../client/i18n/' + locale), en_messages);
 	})
 );
 

@@ -1,6 +1,6 @@
 {>"layout/head-metas" /}
 
-<title>Offirmo's online adventures</title>
+<title ng-bind="title">{@formatMessage _key="title"/}</title>
 
 {>"layout/head-favicon" /}
 {>"layout/head-style" /}

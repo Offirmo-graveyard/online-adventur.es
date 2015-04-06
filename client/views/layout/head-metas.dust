@@ -3,9 +3,9 @@
 <!-- thank you http://www.groovymeta.com/ -->
 <!-- thank you http://www.sitepoint.com/meta-tags-html-basics-best-practices/ -->
 
-<meta name="description" content="Home of Offirmo's adventure games.">
-<meta name="keywords" content="game, rpg, adventure" >
-<meta name="author" content="Offirmo">
+<meta name="description" content="{@formatMessage _key="meta_description"/}">
+<meta name="keywords" content="{@formatMessage _key="meta_keywords"/}" >
+<meta name="author" content="{@formatMessage _key="meta_author"/}">
 
 {>"layout/head-metas-facebook" /}
 {>"layout/head-metas-twitter" /}

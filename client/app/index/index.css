@@ -1,0 +1,77 @@
+
+/* http://docs.angularjs.org/api/ng.directive:ngCloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+/*
+@font-face {
+	font-family: 'RobotoRegular';
+	src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+
+/* global and bootstrap adjustments */
+/*body {
+	background-color: black !important;
+	color: deepskyblue !important;
+	font-family: 'RobotoRegular' !important;
+}
+
+div#content {
+	padding: 10px;
+}*/
+
+/*
+.navbar-inverse .navbar-link {
+	color: lightskyblue;
+}
+.navbar-inverse .navbar-brand {
+	color: lightskyblue;
+}
+*/
+/*
+a, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	color: deepskyblue;
+}
+
+.directive-ror-client .btn-default {
+	background-color: black;
+	border-color: lightsteelblue;
+	color: deepskyblue;
+}
+
+.directive-ror-client .btn-default:hover {
+	background-color: #333;
+	color: lightsteelblue;
+}
+
+.navbar {
+	position: relative;
+	min-height: 50px;
+	margin-bottom: 20px;
+}
+
+.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
+	background-color: #333;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background-color: #333;
+	color: deepskyblue;
+}*/
+
+
+
+/* our stuff */
+/*.directive-ror-client {
+	background-color: black;
+	color: deepskyblue;
+}
+
+.directive-ror-client > .content{
+	padding: 10px;
+}*/

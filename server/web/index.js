@@ -23,7 +23,7 @@ var utils      = require('./utils');
 var shutdown   = require('./shutdown');
 var routes     = require('./routes');
 
-console.log('[web server] config =', config);
+logger.log('[web server] config =', config);
 
 
 /************************************************************************/
@@ -34,20 +34,20 @@ var server = require('http').createServer(app);
 
 // onflight requests counter (experimental)
 var onflight_count = 0;
-server.on('request', function(request, response) {
+server.on('request', function(req, res) {
 	onflight_count++;
-	console.log('* seen server.request', onflight_count);
-	response.once('finish', function() {
+	logger.log('* seen server.request "' + req.originalUrl + '", on flight =' + onflight_count);
+	res.once('finish', function() {
 		onflight_count--;
-		console.log('* seen response.finish', onflight_count);
+		logger.log('* seen response.finish, on flight =' + onflight_count);
 	});
-	response.once('close', function() {
+	res.once('close', function() {
 		onflight_count--;
-		console.log('* seen response.close', onflight_count);
+		logger.log('* seen response.close, on flight =' + onflight_count);
 	});
 });
 server.on('close', function() {
-	console.log('* seen server.close', onflight_count);
+	logger.log('* seen server.close, on flight =' + onflight_count);
 });
 
 // shutdown our server at exit
@@ -56,7 +56,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 	if(cluster.worker)
 		return callback(undefined, '[Shutdown step : close http server] OK : have a cluster master'); // not applicable
 
-	console.log('* [shutdown server step] shutting down http server…', err);
+	logger.log('* [shutdown server step] shutting down http server…', err);
 	server.close(function() {
 		return callback(undefined, '[Shutdown step : close http server] OK : server has closed.');
 	});
@@ -68,7 +68,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 // https://www.npmjs.org/package/express-livereload
 // (install itself in all env except production)
 if(true && config.env === 'development') {
-	console.log('* configuring express-livereload to watch "' + process.cwd() + '/client"…');
+	logger.log('* configuring express-livereload to watch "' + process.cwd() + '/client"…');
 	require('express-livereload')(app, {
 		watchDir:  process.cwd() + '/client', // optim
 		// https://github.com/napcs/node-livereload#api-options
@@ -91,7 +91,7 @@ app.use(middleware.using_domains({
 	server: server,
 	killTimeout: config.kill_timeout_s * 1000,
 	onError: function onErrorDefault(req, res, next, err, options) {
-		console.log('using_domains onError');
+		logger.log('using_domains onError');
 		// trigger shutdown
 		shutdown.start(err);
 
@@ -121,7 +121,7 @@ app.use('/bower_components', middleware.serving_static_files(path.join(__dirname
 app.use(middleware.adding_XResponseTime_header());
 
 // detect and pick the best locale
-app.use(middleware.detecting_best_locale(config.supported_locales));
+app.use(middleware.detecting_best_locale(config.supported_locales, {logger: logger}));
 
 
 //app.use(bodyParser.json());
@@ -148,7 +148,7 @@ app.use(routes);
 //  below any other app.use() calls"
 // http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
-	console.log('1st error handler', err, err['stack']);
+	logger.log('1st error handler', err, err['stack']);
 	//logger.exception(err);
 
 	// so we have an error. Do we have a status ?
@@ -180,7 +180,7 @@ app.use(function (err, req, res, next) {
 		res.render('error', { tpl: 'error', error: err });
 	}
 	catch(e) {
-		console.error('The error template didn´t work :', e);
+		logger.error('The error template didn´t work :', e);
 		res.send(500, 'Something broke and the nice error template didn´t work !');
 	}
 });
@@ -189,9 +189,9 @@ app.use(function (err, req, res, next) {
 
 /************************************************************************/
 server.listen(config.listening_port, function() {
-	console.log('* Now listening on :');
+	logger.log('* Now listening on :');
 	_.forEach(utils.get_local_ips(), function(ip) {
-		console.log('  http://' + ip + ':' + config.listening_port);
+		logger.log('  http://' + ip + ':' + config.listening_port);
 	});
-	console.log('(Ctrl+C to stop)');
+	logger.log('(Ctrl+C to stop)');
 });

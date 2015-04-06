@@ -1,16 +1,21 @@
 
+/* http://docs.angularjs.org/api/ng.directive:ngCloak */
+/*[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}*/
 
+/*
 @font-face {
 	font-family: 'RobotoRegular';
 	src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
-
+*/
 
 
 /* global and bootstrap adjustments */
-body {
+/*body {
 	background-color: black !important;
 	color: deepskyblue !important;
 	font-family: 'RobotoRegular' !important;
@@ -18,7 +23,7 @@ body {
 
 div#content {
 	padding: 10px;
-}
+}*/
 
 /*
 .navbar-inverse .navbar-link {
@@ -28,7 +33,7 @@ div#content {
 	color: lightskyblue;
 }
 */
-
+/*
 a, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	color: deepskyblue;
 }
@@ -57,16 +62,16 @@ a, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
 	background-color: #333;
 	color: deepskyblue;
-}
+}*/
 
 
 
 /* our stuff */
-.directive-ror-client {
+/*.directive-ror-client {
 	background-color: black;
 	color: deepskyblue;
 }
 
 .directive-ror-client > .content{
 	padding: 10px;
-}
+}*/

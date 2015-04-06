@@ -1,20 +1,11 @@
-<div id="content">
-	{+content /}
-</div>
-
 <noscript>
-	Your browser either does not support JavaScript, or has it turned off.
+	{@formatMessage _key="warning_nojs"/}
 </noscript>
 
 <!--[if lt IE 8]>
 <p class="browsehappy">
-	You are using an <strong>outdated</strong> browser.
-	Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	{@formatMessage _key="warning_lowie"/}
 </p>
 <![endif]-->
 
-<script>
-	console.log('Hello from body.');
-</script>
-
-<script src="app/main.js"></script>
+{+content /}

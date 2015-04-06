@@ -13,7 +13,7 @@ console.log('* [cluster master] env = ' + env);
 if(env === 'production') {
 	// cluster launch, heroku compatible and with nice features
 	// https://github.com/brianc/node-forky
-	console.log('* [cluster master] CLUSTER launch…');
+	console.log('* [cluster master] CLUSTER launch...');
 	var forky = require('forky');
 
 	// https://github.com/brianc/node-forky/blob/master/examples/master.js
@@ -23,6 +23,6 @@ if(env === 'production') {
 }
 else {
 	// normal, plain launch (one instance)
-	console.log('* [cluster master] SIMPLE launch…');
+	console.log('* [cluster master] SIMPLE launch...');
 	require('./server/web/index');
 }

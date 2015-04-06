@@ -9,6 +9,7 @@ requirejs.config({
 	// base URL from which component files will be searched
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to *the calling html* !
+	// NOTE 3 : "self" stuff is for handling web workers
 	baseUrl: (self ? self.requirejs_baseurl : undefined) || '.',
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
@@ -25,17 +26,17 @@ requirejs.config({
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
 			'rdust': 'bower_components/require-dust/rdust',
-			//'rdust': 'other_components/require-dust/require-dust',
 			// an extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
 			'ngload': 'bower_components/angularAMD/ngload',
 			// transparently replace undercore with lodash
-			'underscore' : 'lodash',
+			'underscore' : 'lodash'
 		}
 	},
 
 	/////////////////////
+	// multi-files modules
 	packages: [
 		{
 			name : 'carnet',
@@ -50,13 +51,16 @@ requirejs.config({
 
 	/////////////////////
 	paths: {
-		// AMD plugins (dirs or direct)
+		/////// AMD plugins (dirs or direct)
 		//'base-objects'             : '../incubator/base-objects.js', // dir
 		//'extended-exceptions'      : '../incubator/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		//'jquery'                   : 'bower_components/jquery/dist/jquery',
+		'jquery'                   : 'other_components/html5up-parallelism/js/jquery.min',
+		'jquery.poptrox'           : 'other_components/html5up-parallelism/js/jquery.poptrox.min',
 		'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
-		// shim plugins
+
+		/////// shim plugins
 		'angular'                  : 'bower_components/angular/angular',
 		'angular-bootstrap'        : 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
 		'angular-strap'            : 'bower_components/angular-strap/dist/angular-strap.tpl',
@@ -64,25 +68,42 @@ requirejs.config({
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
 		'angularAMD'               : 'bower_components/angularAMD/angularAMD',
-		//'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
-		// dust-full : this plugin should be aliased 'dust' for rdust to work properly
+		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly :
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
+		'html5up-parallelism'      : 'other_components/html5up-parallelism/js/init',
+		'intl-format-cache'        : 'bower_components/intl-format-cache/index',
+		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
+		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
 		'lodash'                   : 'bower_components/lodash/lodash',
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
-		'spin'                     : 'bower_components/spin.js/spin',
-		//'underscore'  -> replaced by lodash, see above
+		'spin'                     : 'bower_components/spin.js/spin'
+		//'underscore'  -> replaced by lodash, see "map" section above.
 	},
 
 
 	/////////////////////
 	shim: {
+		/////// require.js extensions
+		'ngload': ['angularAMD'],
+		'rdust' : {
+			deps: [ 'dust-helpers' ]
+		},
+
+		/////// AMD plugins
+		'famous.angular': {
+			deps: [
+				'css!bower_components/famous-angular/dist/famous-angular'
+			]
+		},
+
+		/////// shim plugins
 		'angular': {
-			//deps: [ 'jquery' ], // angular has its own jQlite, but will use main jQuery if already available
+			deps: [ 'jquery' ], // angular has its own jQlite, but will use main jQuery if already available
 			exports: 'angular'
 		},
 		'angular-bootstrap': {
@@ -93,7 +114,7 @@ requirejs.config({
 				'css!bower_components/bootstrap-css/css/bootstrap'
 			]
 		},
-		// 2 stage due to double file
+		// 2 stage due to double file :
 		'angular-strap': {
 			deps: [ 'angular-strap-base' ]
 		},
@@ -101,7 +122,7 @@ requirejs.config({
 			deps: [
 				'angular',
 				// angular-strap replaces bootstrap js, it only needs bootstrap css
-				'css!bower_components/bootstrap-css/css/bootstrap',
+				'css!bower_components/bootstrap-css/css/bootstrap'
 			]
 		},
 		'angular-ui-router': {
@@ -113,52 +134,43 @@ requirejs.config({
 		'angularAMD': {
 			deps: [ 'angular' ]
 		},
-		/*'bootstrap': {
-			// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
-			deps: [ 'jquery',
-			        'css!bower_components/bootstrap-css/css/bootstrap' ]
-		},*/
-		'dust' : {
+		'dust': {
 			// no deps
 			exports: 'dust'
 		},
-		'dust-helpers' : {
+		'dust-helpers': {
 			deps: [ 'dust' ],
 			exports: 'dust'
 		},
-		'famous.angular': {
+		'html5up-parallelism': {
 			deps: [
-				'css!bower_components/famous-angular/dist/famous-angular'
-			]
-		},
-		'fullpage' : {
-			deps: [
-				'jquery',
-				'css!other_components/fullpage/jquery.fullPage'
+				'css!other_components/html5up-parallelism/css/skel.css',
+				'css!other_components/html5up-parallelism/css/style.css',
+				'css!other_components/html5up-parallelism/css/style-desktop.css',
+				'css!other_components/html5up-parallelism/css/style-noscript.css',
+				'jquery.poptrox',
+				'other_components/html5up-parallelism/js/skel.min'
 			]
 		},
 		'javascript-state-machine' : {
 			// no deps
 			exports: 'StateMachine'
 		},
-		'ngload': ['angularAMD'],
-		'rdust' : {
-			deps: [ 'dust-helpers' ]
-		},
-		'spin' : {
-			exports: 'Spinner'
+		'jquery.poptrox': {
+			deps: [ 'jquery' ]
 		},
 		'lodash': {
 			exports: '_'
+		},
+		'spin': {
+			exports: 'Spinner'
 		}
 	},
 
 	/////////////////////
 	config: {
-		'toto': {
-			size: 'large'
-		}
-	},
+		// TODO one day
+	}
 
 	/////////////////////
 	//deps: ['app']
@@ -167,13 +179,6 @@ requirejs.config({
 console.log('require.js config done.');
 
 if(typeof window !== "undefined") { // not available in a web worker for ex.
-	// Start the main app logic.
-
-	// not optimal to wait for the full DOM but good for sharing this file amongst sandbox files
-	console.log('Waiting for DOM before starting app…');
-	requirejs(['domReady!'],
-	function () {
-		console.log('DOM ready : starting application logic…');
-		window.main();
-	});
+	console.log('starting application logic…');
+	window.main();
 }

@@ -1,8 +1,7 @@
-window.main = function()
-{
+window.main = function() {
 	'use strict';
 
-	console.log('Starting page main js...');
+	console.log('Starting index main js...');
 
 	// angular modules simplified ;-)
 	var global_module_instance;
@@ -15,7 +14,7 @@ window.main = function()
 			if(global_module_instance) return global_module_instance; // already OK
 			console.log('building');
 			global_module_instance = angular.module('global_ng_module', [
-				'mgcrea.ngStrap'
+				//'mgcrea.ngStrap'
 			]);
 			return global_module_instance;
 		}
@@ -35,8 +34,9 @@ window.main = function()
 		'lodash',
 		'carnet',
 		'angular-ui-router',
-		'angular-strap',
-		'css!global'
+		//'angular-strap',
+		//'css!app/index/index.css',
+		'html5up-parallelism'
 	],
 	function(_, Carnet) {
 		console.log('main require done.');
@@ -46,17 +46,39 @@ window.main = function()
 		logger.info('App is bootstrapping…');
 
 		// ui
-		global_ng_module
-		.controller('LandingCtrl', function($scope, $document) {
+		global_ng_module.controller('LandingCtrl', function($scope, $document) {
+			logger.info('LandingCtrl…');
+			$scope.title = 'OA';
+			$scope.scoped_angular = angular;
+
+			// TOREVIEW
 			$scope.lang = $document[0].documentElement.lang;
 			logger.info('detected lang :', $document[0].documentElement.lang);
+			parallelism.init();
+			$scope.pready = true;
 		});
+
+		// http://angular-ui.github.io/bootstrap/#/alert
+		global_ng_module.controller('AlertCtrl', ['$scope', '$document', function($scope, $document) {
+			$scope.alerts = [
+				{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+			];
+
+			$scope.add_alert = function(msg) {
+				$scope.alerts.push({'msg': msg});
+			};
+
+			$scope.close_alert = function(index) {
+				$scope.alerts.splice(index, 1);
+			};
+		}]);
 
 		// angular manual initialisation since we use a script loader
 		// cf. http://docs.angularjs.org/guide/bootstrap
-		console.log('Bootstrapping angular 2...');
+		console.log('Bootstrapping angular...');
+		// we must bind on document to encompass page title
 		angular.element(document).ready(function() {
-			angular.bootstrap(document.body, ['global_ng_module']);
+			angular.bootstrap(document, ['global_ng_module']);
 		});
 	});
 };

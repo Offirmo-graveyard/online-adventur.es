@@ -39,12 +39,7 @@ git push heroku master
 
 Notes
 =====
-
-Modèles :
-http://www.mainichi.me/
-
-http://html5up.net/parallelism
-
+’
 
 
 Server
