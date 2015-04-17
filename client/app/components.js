@@ -53,7 +53,7 @@ requirejs.config({
 	paths: {
 		/////// AMD plugins (dirs or direct)
 		//'base-objects'             : '../incubator/base-objects.js', // dir
-		//'extended-exceptions'      : '../incubator/extended-exceptions.js/extended_exceptions', // direct
+		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		//'jquery'                   : 'bower_components/jquery/dist/jquery',
 		'jquery'                   : 'other_components/html5up-parallelism/js/jquery.min',

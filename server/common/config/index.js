@@ -4,19 +4,23 @@
 
 var _ = require('lodash');
 
+////////////////////////////////////
 var parent_config = require('../../../common/config');
 
-var defaults = {
-	agent_email: 'offirmo.net+onlineadventures-server@gmail.com',
-	env: 'development',
-	kill_timeout_s: 30,  //< max time we give ourselves to shutdown
+////////////////////////////////////
+var default_config = require('./defaults');
+
+////////////////////////////////////
+var env_vars_config = require('./env');
+
+////////////////////////////////////
+var env_specific_config = {};
+try {
+	env_specific_config = require('./' + (env_vars_config.env || default_config.env));
+}
+catch(err) {
+	// swallow, ok.
 };
 
-var from_env = {
-	env: process.env.NODE_ENV,
-};
-
-// TODO require environment-specific config
-var env_specific = {};
-
-module.exports = _.merge({}, parent_config, defaults, from_env, env_specific);
+// priority matters
+module.exports = _.merge({}, parent_config, default_config, env_vars_config, env_specific_config);

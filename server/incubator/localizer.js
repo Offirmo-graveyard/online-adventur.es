@@ -5,8 +5,9 @@ module.exports = localizer_factory;
 var _ = require('lodash');
 
 /**
- * Render page middleware.
- * Expose a renderApp method on the result.
+ * Locale negociator middleware.
+ * Amongst supported locales, choose the best one for current user.
+ * More advanced than other MW : Handles facebook, query string...
  */
 
 function localizer_factory(supported_locales, options) {
@@ -18,8 +19,9 @@ function localizer_factory(supported_locales, options) {
 	if(! _.isObject(options)) throw new Error('localizer.js : if defined, options must be an object !');
 	var logger = options.logger || console;
 
-	var Intl = global.Intl;
-	(function polyfill_intl() { // taken from formatjs/guides/runtime-environments/#server
+	// taken from formatjs/guides/runtime-environments/#server
+	/*var Intl = global.Intl;
+	(function polyfill_intl() {
 		if (! Intl) {
 			// No `Intl`, so use and load the polyfill.
 			Intl = require('intl');
@@ -39,7 +41,7 @@ function localizer_factory(supported_locales, options) {
 				Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 			}
 		}
-	})();
+	})();*/
 
 	/** validate that given locale is a correct "BCP 47 locale code" and try to fix it if needed.
 	 * returns undef if not valid.
@@ -48,7 +50,9 @@ function localizer_factory(supported_locales, options) {
 		if(! locale) return;
 		if(! _.isString(locale)) return;
 		if(! locale.length >= 2) return;
+
 		// TODO more, one day ;-)
+
 		return locale;
 	}
 
@@ -62,9 +66,10 @@ function localizer_factory(supported_locales, options) {
 				return supported === locale;
 			}) !== -1;
 	}
+
 	//var system_locale = process.env.LANG || 'en_US';
 
-	logger.log('supported_locales :', supported_locales);
+	//logger.log('supported_locales :', supported_locales);
 
 	return function (req, res, next) {
 
@@ -99,7 +104,7 @@ function localizer_factory(supported_locales, options) {
 			req.locale_choice = 'no match and/or no info, defaulted to the first supported language';
 		}
 
-		logger.log('localizer : picked "' + req.locale +'" (' + req.locale_choice + ')');
+		//logger.log('localizer : picked "' + req.locale +'" (' + req.locale_choice + ')');
 
 		return next();
 	};

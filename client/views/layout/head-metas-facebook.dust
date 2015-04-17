@@ -3,7 +3,7 @@
 <meta property="og:title" content="{@formatMessage _key="title"/}">
 <meta property="og:site_name" content="{@formatMessage _key="title"/}">
 <meta property="og:url" content="{@formatMessage _key="canonical_url"/}">
-<meta property="og:description" content="{@formatMessage _key="meta_description"/}">
+<meta property="og:description" content="{@formatMessage _key="description"/}">
 <meta property="og:image" content="todo_link_to_image1200x630">
 <meta property="article:author" content="{@formatMessage _key="facebook_page"/}">
 

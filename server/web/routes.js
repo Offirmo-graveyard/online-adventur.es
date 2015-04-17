@@ -15,14 +15,20 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
+function build_intl(locale) {
+	return {
+		locales: locale,
+		messages: config.messages[locale],
+	};
+}
+
+
+
 router.get('/', function (req, res) {
 	res.render('index', {
 		tpl: 'index',
 		lang: req.locale,
-		intl: {
-			locales: req.locale,
-			messages: config.messages[req.locale],
-		},
+		intl: build_intl(req.locale),
 
 		title: 'Express',
 
@@ -37,13 +43,22 @@ router.get('/page1', function (req, res) {
 	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale, intl: {'locales': req.locale} });
 });
 
+router.get('/ror', function (req, res) {
+	res.render('ror', {
+		tpl: 'ror',
+		lang: req.locale,
+		intl: build_intl(req.locale),
+	});
+});
+
 router.get('/locale_test', function(req, res) {
 	res.header('Content-Type', 'text/plain');
 	res.send(
-			'You asked for: ' + req.headers['accept-language'] + '\n' +
-			'We support: ' + config.supported_locales + '\n' +
-			'Our default is: ' + locale.Locale['default'] + '\n' +
-			'The best match is: ' + req.locale + '\n'
+		'You asked for: ' + req.headers['accept-language'] + '\n' +
+		'We support: ' + config.supported_locales + '\n' +
+		'Our default is: ' + config.supported_locales[0] + '\n' +
+		'The best match is: ' + req.locale + '\n' +
+		'Choice reason: ' + req.locale_choice + '\n'
 	);
 });
 
