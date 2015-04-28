@@ -9,6 +9,7 @@
 
 	},
 	// http://eslint.org/docs/rules/
+	// http://elijahmanor.github.io/talks/js-smells/#/1/8
 	"rules": {
 		// Possible Errors
 		"no-comma-dangle": 0, // don't care about IE8
@@ -30,5 +31,13 @@
 		"quotes": [2, "single"],
 		// ECMAScript 6
 		// Legacy
+		// tosort
+
+		"max-statements": [2, 16],
+		"max-depth": [2, 5],
+		"complexity": [2, 7],
+		"max-len": [2, 65],
+		"max-params": [2, 1],
+		"max-nested-callbacks": [2, 0],
 	}
 }

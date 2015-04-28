@@ -70,6 +70,7 @@ modèle ? http://phaser.io/
 base : (important client experience)
 - [ ] HTTPS
 - [ ] base security http://scottksmith.com/blog/2014/09/21/protect-your-node-apps-noggin-with-helmet/
+                    https://github.com/analog-nico/hpp
 - [x] static files
 - [x] root page (~index.html)
 - [x] / defaults to index
@@ -135,7 +136,7 @@ advanced :
 - [ ] checklist http://sandinmyjoints.github.io/towards-100-pct-uptime/#/27
 - [ ] unit tests
 - [ ] robots http://www.wpbeginner.com/wp-tutorials/how-to-optimize-your-wordpress-robots-txt-for-seo/
-
+- [ ] websockets http://www.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
 
 http://javascriptplayground.com/blog/2014/07/testing-express-routes/
 https://www.joyent.com/blog/risingstack-writing-testable-apis-the-basics
@@ -181,3 +182,5 @@ http://thejackalofjavascript.com/architecting-a-restful-node-js-app/
 http://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web
 
 http://scottksmith.com/blog/2014/10/05/twitatron-building-a-production-web-app-with-node/
+
+http://www.donotlink.com/
