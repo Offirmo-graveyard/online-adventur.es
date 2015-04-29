@@ -27,7 +27,7 @@ window.main = function() {
 		'carnet',
 		'angular-ui-router',
 		'angular-strap',
-		'css!app/index/index.css',
+		'css!app/jeudunombre/index.css',
 	],
 	function(_, Carnet) {
 		console.log('main require done.');
