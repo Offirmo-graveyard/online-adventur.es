@@ -1,8 +1,6 @@
 window.main = function() {
 	'use strict';
 
-	console.log('Starting index main js...');
-
 	// angular modules simplified ;-)
 	var global_module_instance;
 	Object.defineProperty(window, 'global_ng_module', {
@@ -14,7 +12,7 @@ window.main = function() {
 			if(global_module_instance) return global_module_instance; // already OK
 			console.log('building');
 			global_module_instance = angular.module('global_ng_module', [
-				//'mgcrea.ngStrap'
+				'mgcrea.ngStrap'
 			]);
 			return global_module_instance;
 		}
@@ -22,13 +20,7 @@ window.main = function() {
 
 
 	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
-	console.log('\n\n' +
-		' _____       _  _              _____    _                 _                        \n' +
-		'|     | ___ | ||_| ___  ___   |  _  | _| | _ _  ___  ___ | |_  _ _  ___  ___  ___  \n' +
-		'|  |  ||   || || ||   || -_|  |     || . || | || -_||   ||  _|| | ||  _|| -_||_ -| \n' +
-		'|_____||_|_||_||_||_|_||___|  |__|__||___| \\_/ |___||_|_||_|  |___||_|  |___||___| \n' +
-		'                                                                                   \n' +
-		' So you are curious ?\n\n ');
+	console.log('\n\nLe jeu du nombre\n\n ');
 
 	requirejs([
 		'lodash',
@@ -47,7 +39,7 @@ window.main = function() {
 		// ui
 		global_ng_module.controller('LandingCtrl', function($scope, $document) {
 			logger.info('LandingCtrl…');
-			$scope.title = 'OA';
+			$scope.title = 'Le jeu du nombre';
 			$scope.scoped_angular = angular;
 
 			// TOREVIEW

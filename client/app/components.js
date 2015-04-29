@@ -55,9 +55,7 @@ requirejs.config({
 		//'base-objects'             : '../incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
 		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
-		//'jquery'                   : 'bower_components/jquery/dist/jquery',
-		'jquery'                   : 'other_components/html5up-parallelism/js/jquery.min',
-		'jquery.poptrox'           : 'other_components/html5up-parallelism/js/jquery.poptrox.min',
+		'jquery'                   : 'bower_components/jquery/dist/jquery',
 		'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
 
 		/////// shim plugins
@@ -72,7 +70,6 @@ requirejs.config({
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
-		'html5up-parallelism'      : 'other_components/html5up-parallelism/js/init',
 		'intl-format-cache'        : 'bower_components/intl-format-cache/index',
 		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
@@ -141,16 +138,6 @@ requirejs.config({
 		'dust-helpers': {
 			deps: [ 'dust' ],
 			exports: 'dust'
-		},
-		'html5up-parallelism': {
-			deps: [
-				'css!other_components/html5up-parallelism/css/skel.css',
-				'css!other_components/html5up-parallelism/css/style.css',
-				'css!other_components/html5up-parallelism/css/style-desktop.css',
-				'css!other_components/html5up-parallelism/css/style-noscript.css',
-				'jquery.poptrox',
-				'other_components/html5up-parallelism/js/skel.min'
-			]
 		},
 		'javascript-state-machine' : {
 			// no deps

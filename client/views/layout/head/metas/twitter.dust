@@ -1,0 +1,10 @@
+<!-- https://dev.twitter.com/cards/overview -->
+<!-- https://dev.twitter.com/cards/types/summary -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="{@formatMessage _key="twitter_account"/}">
+<meta property="twitter:url" content="{@formatMessage _key="canonical_url"/}">
+
+<meta name="twitter:title" content="{@formatMessage _key="title"/}">
+<meta name="twitter:description" content="{@formatMessage _key="description"/}">
+<meta property="twitter:image" content="todo">
+<meta name="twitter:creator" content="{@formatMessage _key="author"/}">

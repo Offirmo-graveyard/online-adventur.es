@@ -1,0 +1,7 @@
+{>"layout/head/metas/index" /}
+
+<title ng-bind="title">{@formatMessage _key="title"/}</title>
+
+{>"layout/head/head-favicon" /}
+{>"layout/head/head-style" /}
+{>"layout/head/head-js" /}

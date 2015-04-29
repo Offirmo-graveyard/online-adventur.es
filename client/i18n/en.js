@@ -10,6 +10,8 @@ define(function() {
 
 		canonical_url: 'http://www.online-adventur.es/',
 		facebook_page: 'https://www.facebook.com/TODO',
+		twitter_account: '@offirmo',
+		tab_color: '#181712',
 
 		title: 'Offirmo’s online adventures',
 		description: 'Offirmo’s handmade or recommended online adventures games.',

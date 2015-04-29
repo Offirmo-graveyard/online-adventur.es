@@ -1,0 +1,28 @@
+<!-- modern encoding specification -->
+<meta charset="utf-8">
+<!-- old encoding specification, for compatibility -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- http://stackoverflow.com/questions/14637943/what-is-x-ua-compatible-when-it-references-ie-edge-chrome-1 -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
+<meta name="fragment" content="!">
+<!-- https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
+     http://a11yproject.com/posts/never-use-maximum-scale/ -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ... -->
+<link rel="canonical" href="{@formatMessage _key="canonical_url"/}">
+
+
+<!-- thank you http://www.groovymeta.com/ -->
+<!-- thank you http://www.sitepoint.com/meta-tags-html-basics-best-practices/ -->
+
+<meta name="description" content="{@formatMessage _key="description"/}">
+<meta name="keywords" content="{@formatMessage _key="keywords"/}" >
+<meta name="author" content="{@formatMessage _key="author"/}">
+
+{>"layout/head/metas/facebook" /}
+{>"layout/head/metas/twitter" /}
+{>"layout/head/metas/google" /}
+{>"layout/head/metas/mobile" /}
+{>"layout/head/metas/app" /}

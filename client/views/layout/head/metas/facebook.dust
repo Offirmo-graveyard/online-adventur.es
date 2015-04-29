@@ -1,0 +1,12 @@
+<!-- https://developers.facebook.com/docs/sharing/best-practices#tags -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{@formatMessage _key="title"/}">
+<meta property="og:site_name" content="{@formatMessage _key="title"/}">
+<meta property="og:url" content="{@formatMessage _key="canonical_url"/}">
+<meta property="og:description" content="{@formatMessage _key="description"/}">
+<meta property="og:image" content="todo_link_to_image1200x630 and repeat this line xtimes">
+<meta property="article:author" content="{@formatMessage _key="facebook_page"/}">
+
+<!-- https://developers.facebook.com/docs/opengraph/guides/internationalization?locale=fr_FR -->
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">

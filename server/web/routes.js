@@ -43,6 +43,10 @@ router.get('/page1', function (req, res) {
 	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale, intl: {'locales': req.locale} });
 });
 
+router.get('/jdn', function (req, res) {
+	res.render('jdn', { tpl: 'jdn', title: 'Express', lang: req.locale, intl: build_intl(req.locale) });
+});
+
 router.get('/ror', function (req, res) {
 	res.render('ror', {
 		tpl: 'ror',

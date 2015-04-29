@@ -11,7 +11,8 @@
     "lint": "eslint .",
     "i": "npm install --global nodemon puer && npm update -g nodemon puer && npm prune && npm install && cd common/incubator/carnet && npm prune && npm install",
     "b": "bower prune && bower install && bower update",
-    "cd": "rm -rf node_modules && rm -rf bower_components"
+    "cleardeps": "rm -rf node_modules && rm -rf bower_components",
+    "nodemon": "nodemon"
   },
   "engines": {
     "node": "^0.10.0"
@@ -19,16 +20,16 @@
   "dependencies": {
     "amdefine": "~0.1",
     "async": "~0.9",
-    "bower": "~1.3",
+    "bower": "^1",
     "chalk": "~1.0",
     "clarify": "~1",
     "compression": "~1.4",
-    "consolidate": "~0.11",
+    "consolidate": "~0.12",
     "domain-middleware": "~0.1",
     "dust-intl": "latest",
     "dustjs-helpers": "~1.7",
     "dustjs-linkedin": "~2.7",
-    "express": "~4",
+    "express": "^4",
     "express-slash": "latest",
     "forky": "latest",
     "jsdom": "^3",
@@ -48,7 +49,7 @@
     "when": "latest"
   },
   "devDependencies": {
-    "eslint": "^0.15",
+    "eslint": "^0.20",
     "eslint-plugin-angular": "0.0.7",
     "express-debug": "latest",
     "express-livereload": "latest",

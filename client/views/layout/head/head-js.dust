@@ -1,0 +1,7 @@
+<!-- js -->
+<!-- live reload script -->{LRScript|s}
+<script src="bower_components/pace/pace.min.js"></script>
+<script>
+	//...
+</script>
+<script data-main="app/components.js" src="bower_components/requirejs/require.js"></script>

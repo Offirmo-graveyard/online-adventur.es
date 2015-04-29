@@ -1,0 +1,7 @@
+<!-- style -->
+<link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" />
+<style>
+	/* Only for loading style.
+	 * see global.css for definitive style.
+	 */
+</style>

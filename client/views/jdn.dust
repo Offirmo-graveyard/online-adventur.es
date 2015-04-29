@@ -1,11 +1,7 @@
 {>"layout/layout" /}
 {<content}
 
-<script src="app/index/index.js"></script>
-
-<script>
-    console.log('Hello from index body.');
-</script>
+<script src="app/jeudunombre/index.js"></script>
 
 <div id="content">
     {@formatMessage _key="title"/} ({@formatMessage _key="coming_soon"/})

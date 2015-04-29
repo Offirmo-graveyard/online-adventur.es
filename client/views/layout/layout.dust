@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingCtrl">
 	<head>
-		{>"layout/head" /}
+		{>"layout/head/index" /}
 	</head>
 	<body>
 		{>"layout/body" /}
