@@ -1,0 +1,5 @@
+<!-- browser adjustments -->
+
+<!-- http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android -->
+<meta name="theme-color" content="{@formatMessage _key="tab_color"/}">
+

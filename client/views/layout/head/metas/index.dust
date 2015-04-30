@@ -24,5 +24,5 @@
 {>"layout/head/metas/facebook" /}
 {>"layout/head/metas/twitter" /}
 {>"layout/head/metas/google" /}
-{>"layout/head/metas/mobile" /}
-{>"layout/head/metas/app" /}
+{>"layout/head/metas/browsers" /}
+{>"layout/head/metas/pinnable" /}
