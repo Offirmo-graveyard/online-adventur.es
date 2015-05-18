@@ -1,12 +1,9 @@
 'use strict';
 
-
-var path = require('path');
 var express = require('express');
 var router = express.Router();
 var utils = require('./utils');
 var config = require('./config');
-
 
 module.exports = router;
 
@@ -25,13 +22,27 @@ function build_intl(locale) {
 
 
 router.get('/', function (req, res) {
+
+
+
+	canonical_url: 'http://www.online-adventur.es/',
+		twitter_account: '@offirmo',
+		tab_color: '#181712',
+		author: 'Offirmo'
+
+	canonical_url: 'http://www.online-adventur.es/',
+		facebook_page: 'https://www.facebook.com/TODO',
+		tab_color: '#181712',
+
+
 	res.render('index', {
 		tpl: 'index',
+
 		lang: req.locale,
+
 		intl: build_intl(req.locale),
 
 		title: 'Express',
-
 		num      : 42000,
 		completed: 0.9,
 		price    : 100.95,
@@ -40,11 +51,21 @@ router.get('/', function (req, res) {
 });
 
 router.get('/page1', function (req, res) {
-	res.render('page1', { tpl: 'page1', title: 'Express', lang: req.locale, intl: {'locales': req.locale} });
+	res.render('page1', {
+		tpl: 'page1',
+		title: 'Express',
+		lang: req.locale,
+		intl: {'locales': req.locale}
+	});
 });
 
 router.get('/jdn', function (req, res) {
-	res.render('jdn', { tpl: 'jdn', title: 'Express', lang: req.locale, intl: build_intl(req.locale) });
+	res.render('jdn', {
+		tpl: 'jdn',
+		title: 'Express',
+		lang: req.locale,
+		intl: build_intl(req.locale)
+	});
 });
 
 router.get('/ror', function (req, res) {

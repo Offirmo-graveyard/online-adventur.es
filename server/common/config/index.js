@@ -19,8 +19,8 @@ try {
 	env_specific_config = require('./' + (env_vars_config.env || default_config.env));
 }
 catch(err) {
-	// swallow, ok.
-};
+	// no file, nevermind, swallow the error.
+}
 
 // priority matters
 module.exports = _.merge({}, parent_config, default_config, env_vars_config, env_specific_config);

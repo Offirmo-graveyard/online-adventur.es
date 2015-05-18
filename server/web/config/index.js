@@ -9,7 +9,7 @@ var parent_config = require('../../common/config');
 var defaults = {
 	listening_port: 3000,
 	livereload_port: 35730, //< note : official default is 35729
-	supported_locales: [ 'en', 'fr' ],
+	supported_locales: [ 'en', 'fr' ]
 };
 
 var en_messages = require('../../../client/i18n/en');
