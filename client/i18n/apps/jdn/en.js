@@ -6,12 +6,12 @@ define(function(require) {
 
 	var _ = require('lodash');
 
-	var parent_messages = require('../../common.fr');
+	var parent_messages = require('../../common.en');
 
 	var messages = {
-		title: 'Jeux d’aventures en ligne par Offirmo',
-		description: 'Jeux d’aventures en ligne par Offirmo',
-		keywords: 'jeu, jeu vidéo, rpg, aventure',
+		title: 'Offirmo’s simple number guessing game',
+		description: 'a simple number guessing game',
+		keywords: 'game',
 	};
 
 	return _.defaults(messages, parent_messages);

@@ -5,6 +5,11 @@ var router = express.Router();
 var utils = require('./utils');
 var config = require('./config');
 
+var apps = {
+	index: require('./apps/index'),
+	jdn: require('./apps/jdn'),
+};
+
 module.exports = router;
 
 /*
@@ -12,44 +17,11 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
-function build_intl(locale) {
-	return {
-		locales: locale,
-		messages: config.messages[locale],
-	};
-}
 
+router.get('/', apps.index);
+router.get('/jdn', apps.jdn);
 
-
-router.get('/', function (req, res) {
-
-
-
-	canonical_url: 'http://www.online-adventur.es/',
-		twitter_account: '@offirmo',
-		tab_color: '#181712',
-		author: 'Offirmo'
-
-	canonical_url: 'http://www.online-adventur.es/',
-		facebook_page: 'https://www.facebook.com/TODO',
-		tab_color: '#181712',
-
-
-	res.render('index', {
-		tpl: 'index',
-
-		lang: req.locale,
-
-		intl: build_intl(req.locale),
-
-		title: 'Express',
-		num      : 42000,
-		completed: 0.9,
-		price    : 100.95,
-		date: new Date()
-	});
-});
-
+// TODO
 router.get('/page1', function (req, res) {
 	res.render('page1', {
 		tpl: 'page1',
@@ -59,15 +31,7 @@ router.get('/page1', function (req, res) {
 	});
 });
 
-router.get('/jdn', function (req, res) {
-	res.render('jdn', {
-		tpl: 'jdn',
-		title: 'Express',
-		lang: req.locale,
-		intl: build_intl(req.locale)
-	});
-});
-
+// TODO
 router.get('/ror', function (req, res) {
 	res.render('ror', {
 		tpl: 'ror',
@@ -86,7 +50,6 @@ router.get('/locale_test', function(req, res) {
 		'Choice reason: ' + req.locale_choice + '\n'
 	);
 });
-
 
 router.get('/toto/', function (req, res) {
 	res.send('correct /toto/ !');
