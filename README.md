@@ -184,3 +184,11 @@ http://offirmo.net/wiki/index.php?title=Check-list_d%27un_site_web
 http://scottksmith.com/blog/2014/10/05/twitatron-building-a-production-web-app-with-node/
 
 http://www.donotlink.com/
+
+
+Apps ideas
+==========
+MBTI https://www.quora.com/What-are-some-insights-on-the-INTJ-personality-type
+7 min workout
+
+
