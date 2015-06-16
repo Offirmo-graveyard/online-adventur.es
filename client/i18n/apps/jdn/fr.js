@@ -6,7 +6,7 @@ define(function(require) {
 
 	var _ = require('lodash');
 
-	var parent_messages = require('../../common.en');
+	var parent_messages = require('../../common.fr');
 
 	var messages = {
 		title: 'Le jeu du nombre par Offirmo',

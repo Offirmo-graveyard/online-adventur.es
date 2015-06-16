@@ -47,8 +47,7 @@ app.disable('x-powered-by'); // default true
  edt(app, {
  // settings
  });
- });*/
-
+});*/
 
 /*
  var errorhandler = require('errorhandler'); // https://github.com/expressjs/errorhandler

@@ -17,9 +17,13 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
+router.get('/l2', function(req, res) {
+	res.header('Content-Type', 'text/plain');
+	res.send('Level 2 OK');
+});
 
-router.get('/', apps.index);
-router.get('/jdn', apps.jdn);
+router.use('/', apps.index);
+router.use('/jdn', apps.jdn);
 
 // TODO
 router.get('/page1', function (req, res) {

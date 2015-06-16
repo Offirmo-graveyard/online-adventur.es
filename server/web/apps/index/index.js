@@ -5,7 +5,7 @@ var express = require('express');
 
 var config = require('../../config');
 
-var app = module.exports = new express.Router();
+var router = module.exports = new express.Router();
 
 // builds { en: {…}, fr: {…}, …}
 var messages = _.zipObject(
@@ -25,8 +25,12 @@ function build_intl(locale) {
 	};
 }
 
+router.get('/l3', function(req, res) {
+	res.header('Content-Type', 'text/plain');
+	res.send('Level 3 OK');
+});
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res) {
 	/*
 	 canonical_url: 'http://www.online-adventur.es/',
 	 twitter_account: '@offirmo',

@@ -139,6 +139,10 @@ if(config.env === 'development')
 
 
 /********************************** routes **************************************/
+app.get('/l1', function(req, res) {
+	res.header('Content-Type', 'text/plain');
+	res.send('Level 1 OK');
+});
 app.use(routes);
 
 
