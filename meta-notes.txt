@@ -1,4 +1,0 @@
-
-## node modules
-* webkit-devtools-agent : must be present for allowing some debugs just in case
-

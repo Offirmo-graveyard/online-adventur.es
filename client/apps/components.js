@@ -165,7 +165,25 @@ requirejs.config({
 
 console.log('require.js config done.');
 
-if(typeof window !== "undefined") { // not available in a web worker for ex.
+if(typeof window !== 'undefined') { // not available in a web worker for ex.
 	console.log('starting application logic…');
+
+	// angular modules simplified ;-)
+	var global_module_instance;
+	Object.defineProperty(window, 'global_ng_module', {
+		enumerable: true, // why not ?
+		set: function() {
+			throw new Error('You can’t assign window.global_ng_module !');
+		},
+		get: function() {
+			if(global_module_instance) return global_module_instance; // already OK
+			console.log('building');
+			global_module_instance = angular.module('global_ng_module', [
+				//'mgcrea.ngStrap'
+			]);
+			return global_module_instance;
+		}
+	});
+
 	window.main();
 }

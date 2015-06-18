@@ -9,9 +9,7 @@ define(function(require) {
 	var parent_messages = require('../../common.en');
 
 	var messages = {
-		title: 'OA', //'Offirmo’s online adventures',
-		description: 'Offirmo’s handmade or recommended online adventures games.',
-		keywords: 'game, videogame, rpg, adventure',
+		hello_world: 'Hello world !'
 	};
 
 	return _.defaults(messages, parent_messages);

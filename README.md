@@ -192,3 +192,12 @@ MBTI https://www.quora.com/What-are-some-insights-on-the-INTJ-personality-type
 7 min workout
 
 
+Marketing
+=========
+https://budgamesfr.wordpress.com/
+
+
+Misc
+====
+http://www.steven-obrien.net/#home
+

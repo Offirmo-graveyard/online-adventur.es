@@ -3,15 +3,6 @@ window.main = function() {
 
 	console.log('Starting index main js...');
 
-	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
-	console.log('\n\n' +
-		' _____       _  _              _____    _                 _                        \n' +
-		'|     | ___ | ||_| ___  ___   |  _  | _| | _ _  ___  ___ | |_  _ _  ___  ___  ___  \n' +
-		'|  |  ||   || || ||   || -_|  |     || . || | || -_||   ||  _|| | ||  _|| -_||_ -| \n' +
-		'|_____||_|_||_||_||_|_||___|  |__|__||___| \\_/ |___||_|_||_|  |___||_|  |___||___| \n' +
-		'                                                                                   \n' +
-		' So you are curious ?\n\n ');
-
 	requirejs([
 		'lodash',
 		'carnet',

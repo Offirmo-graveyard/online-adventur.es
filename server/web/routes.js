@@ -8,6 +8,7 @@ var config = require('./config');
 var apps = {
 	index: require('./apps/index'),
 	jdn: require('./apps/jdn'),
+	helloworld: require('./apps/helloworld'),
 };
 
 module.exports = router;
@@ -24,6 +25,7 @@ router.get('/l2', function(req, res) {
 
 router.use('/', apps.index);
 router.use('/jdn', apps.jdn);
+router.use('/helloworld', apps.helloworld);
 
 // TODO
 router.get('/page1', function (req, res) {

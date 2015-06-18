@@ -1,0 +1,22 @@
+{>"layout/layout" /}
+{<content}
+
+<script src="app/helloworld/index.js"></script>
+
+<script>
+	console.log('Hello from index body.');
+</script>
+
+<div id="content">
+	{@formatMessage _key="hello_world"/}
+
+	<ul>
+		<li>{intl.locales}</li>
+		<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}</li>
+		<li>{@formatNumber val=num/}</li>
+		<li>{@formatNumber val=completed style="percent"/}</li>
+		<li>{@formatNumber val=price style="currency" currency="USD"/}</li>
+	</ul>
+</div>
+
+{/content}
