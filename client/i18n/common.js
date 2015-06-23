@@ -9,7 +9,7 @@ define(function() {
 		canonical_url: 'http://www.online-adventur.es/',
 		facebook_page: 'https://www.facebook.com/TODO',
 		twitter_account: '@offirmo',
-		tab_color: '#181712',
-		author: 'Offirmo'
+		author: 'Offirmo',
+		tab_color: '#181712', // http://bit.ly/theme-color-in-Chrome-for-Android
 	};
 });
