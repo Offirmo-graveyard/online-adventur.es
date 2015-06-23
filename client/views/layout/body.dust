@@ -2,7 +2,7 @@
 	{@formatMessage _key="warning_nojs"/}
 </noscript>
 
-<!--[if lt IE 8]>
+<!--[if lt IE 9]>
 <p class="browsehappy">
 	{@formatMessage _key="warning_lowie"/}
 </p>

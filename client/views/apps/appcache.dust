@@ -1,0 +1,9 @@
+{>"layout/layout" /}
+{<content}
+
+<script src="apps/appcache/index.js"></script>
+<script data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+
+<content id="content"></content>
+
+{/content}

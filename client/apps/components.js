@@ -66,6 +66,7 @@ requirejs.config({
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
 		'angularAMD'               : 'bower_components/angularAMD/angularAMD',
+		'appcache-nanny'           : 'bower_components/appcache-nanny/appcache-nanny',
 		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly :
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',

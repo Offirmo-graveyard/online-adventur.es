@@ -1,0 +1,31 @@
+CACHE MANIFEST
+## 201506230206
+
+CACHE:
+/bower_components/requirejs/require.js
+/bower_components/requirejs-text/text.js
+/apps/appcache/index.js
+/apps/components.js
+/apps/appcache/content.html
+
+/incubator/carnet/main.js
+/bower_components/appcache-nanny/appcache-nanny.js
+/bower_components/lodash/lodash.js
+/bower_components/jquery/dist/jquery.js
+/incubator/carnet/lib/core.js
+/incubator/carnet/lib/logger_default.js
+/bower_components/angular/angular.js
+/incubator/carnet/lib/sink_plain_console.js
+/incubator/carnet/lib/sink_enhanced_console.js
+/incubator/carnet/lib/utils.js
+/incubator/carnet/lib/enricher_console_affinity.js
+/incubator/carnet/lib/enricher_color_affinity.js
+/incubator/carnet/lib/enricher_timestamp_string.js
+/incubator/carnet/lib/enricher_cluster_worker_id.js
+
+# online whitelist
+# it isn't cached, and references to this file will bypass the cache,
+# always hitting the network (or trying to, if the user is offline).
+NETWORK:
+livereload.js
+*

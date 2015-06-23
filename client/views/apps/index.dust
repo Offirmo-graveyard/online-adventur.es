@@ -4,19 +4,18 @@
 <script src="app/index/index.js"></script>
 
 <script>
-    console.log('Hello from index body.');
+	console.log('Hello from index body.');
 </script>
 
 <div id="content">
-    {@formatMessage _key="title"/}
+	{@formatMessage _key="title"/}
 
-    <ul>
-        <li>{intl.locales}</li>
-        <li>{@formatDate val=date month="long" day="numeric" year="numeric"/}</li>
-        <li>{@formatNumber val=num/}</li>
-        <li>{@formatNumber val=completed style="percent"/}</li>
-        <li>{@formatNumber val=price style="currency" currency="USD"/}</li>
-    </ul>
+	<ul>
+		<li><a href="/helloworld">/helloworld</a></li>
+		<li><a href="/appcache">/appcache</a></li>
+		<li><a href="/jdn">/jdn</a></li>
+		<li><a href="/ror">/ror</a></li>
+	</ul>
 </div>
 
 {/content}

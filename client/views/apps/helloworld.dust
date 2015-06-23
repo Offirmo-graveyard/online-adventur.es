@@ -8,7 +8,8 @@
 </script>
 
 <div id="content">
-	{@formatMessage _key="hello_world"/}
+	<h1>{@formatMessage _key="hello_world"/}</h1>
+	<p><b>abstract :</b> This app in an i18n enabled hello world app.</p>
 
 	<ul>
 		<li>{intl.locales}</li>
