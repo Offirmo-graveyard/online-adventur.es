@@ -1,18 +1,25 @@
 {>"layout/layout" /}
 {<content}
 
+<!-- order matters -->
 <script src="apps/appcache/index.js"></script>
-<script data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+
 
 <div id="content" content-directive>
+
+
 	<div id="splash">
-		<div id="logo">
-			Offirmo’s online adventures
-		</div>
-		<div id="loader">
-			<progress />
+		<div id="splash">
+			<div id="logo">
+				Offirmo’s online adventures
+			</div>
+			<div id="loader">
+				<progress />
+			</div>
 		</div>
 	</div>
+
 </div>
 
 {/content}

@@ -12,7 +12,8 @@
     "i": "npm install --global nodemon puer && npm update -g nodemon puer && npm prune && npm install && cd common/incubator/carnet && npm prune && npm install",
     "b": "bower prune && bower install && bower update",
     "cleardeps": "rm -rf node_modules && rm -rf bower_components",
-    "nodemon": "nodemon"
+    "nodemon": "nodemon",
+    "env": "environmentalist"
   },
   "engines": {
     "node": "^0.10.0"
@@ -29,6 +30,7 @@
     "dust-intl": "latest",
     "dustjs-helpers": "~1.7",
     "dustjs-linkedin": "~2.7",
+    "environmentalist":
     "express": "^4",
     "express-slash": "latest",
     "forky": "latest",

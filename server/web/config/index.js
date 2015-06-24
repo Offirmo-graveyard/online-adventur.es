@@ -7,6 +7,7 @@ var _ = require('lodash');
 var parent_config = require('../../common/config');
 
 var defaults = {
+	canonical_url: 'http://www.online-adventur.es/',
 	listening_port: 3000,
 	livereload_port: 35730, //< note : official default is 35729
 	supported_locales: [ 'en', 'fr' ]

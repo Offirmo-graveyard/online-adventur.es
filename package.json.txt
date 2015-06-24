@@ -2,7 +2,9 @@ Notes :
 =======
 
 jsdom@3 is a mandatory dependency of json-htmlize on node.js
-        it must not be upgraded to v5
+        it must NOT be upgraded to v5
 
-webkit-devtools-agent : must be present for allowing some debugs, just in case
+webkit-devtools-agent : must be present for allowing some debugs, just in case.
 
+environmentalist : a tool to list needed env vars
+                   https://byteofbits.com/solving-the-environmental-variable-problem/
