@@ -1,7 +1,7 @@
 {>"layout/layout" /}
 {<content}
 
-<script src="app/index/index.js"></script>
+<script src="apps/index/index.js"></script>
 
 <script>
 	console.log('Hello from index body.');

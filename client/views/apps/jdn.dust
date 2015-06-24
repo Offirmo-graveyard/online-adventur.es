@@ -3,7 +3,7 @@
 
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
-<script src="app/jeudunombre/index.js"></script>
+<script src="apps/jeudunombre/index.js"></script>
 
 <div id="content">
 	{@formatMessage _key="title"/} ({@formatMessage _key="coming_soon"/})

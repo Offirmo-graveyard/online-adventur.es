@@ -4,6 +4,15 @@
 <script src="apps/appcache/index.js"></script>
 <script data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
 
-<content id="content"></content>
+<div id="content" content-directive>
+	<div id="splash">
+		<div id="logo">
+			Offirmo’s online adventures
+		</div>
+		<div id="loader">
+			<progress />
+		</div>
+	</div>
+</div>
 
 {/content}

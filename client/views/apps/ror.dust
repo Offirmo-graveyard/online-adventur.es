@@ -1,7 +1,7 @@
 {>"layout/layout" /}
 {<content}
 
-<script src="app/ror/ror.js"></script>
+<script src="apps/ror/ror.js"></script>
 
 <script>
 	console.log('Hello from ror body.');
