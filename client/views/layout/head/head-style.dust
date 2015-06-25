@@ -1,37 +1,5 @@
 <!-- style -->
 <!-- <link href="bower_components/pace/themes/blue/pace-theme-flash.css" rel="stylesheet" /> -->
 <style>
-	/* Only for loading style.
-	 * see global.css for definitive style.
-	 */
-	body
-	{
-		/* needed for correct positionning */
-		position:absolute;
-		margin: 0;
-		padding: 0;
-
-		/* needed for container min-height */
-		height: 100%;
-		width: 100%;
-	}
-	#content {
-		background-color: #101112;
-		color: #7B7F88;
-		position:absolute;
-		/* vertical centering technique http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
-		height: 100%;
-		width: 100%;
-		-webkit-transform-style: preserve-3d;
-		-moz-transform-style: preserve-3d;
-		transform-style: preserve-3d;
-	}
-	#splash {
-		font-size: 20px; /* Yes I know what I do */
-		font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-		text-align: center;
-	}
+	{+inline_style /}
 </style>

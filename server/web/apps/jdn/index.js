@@ -33,7 +33,8 @@ router.get('/l3', function(req, res) {
 });
 
 router.get('/', function (req, res) {
-	res.render('apps/jdn', {
+	// REM : path relative to template root
+	res.render('../apps/jeudunombre/view', {
 		tpl: 'jdn',
 		lang: req.locale,
 		intl: build_intl(req.locale),

@@ -31,7 +31,8 @@ router.get('/l3', function(req, res) {
 });
 
 router.get('/', function (req, res) {
-	res.render('apps/helloworld', {
+	// REM : path relative to template root
+	res.render('../apps/helloworld/view', {
 		tpl: 'index',
 		lang: req.locale,
 		intl: build_intl(req.locale),

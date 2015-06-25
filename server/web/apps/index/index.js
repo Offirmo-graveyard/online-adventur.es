@@ -42,7 +42,8 @@ router.get('/', function (req, res) {
 		tab_color: '#181712',
 */
 
-	res.render('apps/index', {
+	// REM : path relative to template root
+	res.render('../apps/index/view', {
 		tpl: 'index',
 		lang: req.locale,
 		intl: build_intl(req.locale),

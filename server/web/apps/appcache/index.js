@@ -31,9 +31,10 @@ router.get('/l3', function(req, res) {
 });
 
 router.get('/', function (req, res) {
-	res.render('apps/appcache', {
+	// REM : path relative to template root
+	res.render('../apps/appcache/view', {
 		tpl: 'index',
-		appcache_manifest: 'apps/appcache/manifest.appcache',
+		appcache_manifest: 'apps/appcache/manifest.appcacheX',
 		lang: req.locale,
 		intl: build_intl(req.locale),
 	});

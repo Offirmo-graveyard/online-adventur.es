@@ -30,7 +30,7 @@
     "dust-intl": "latest",
     "dustjs-helpers": "~1.7",
     "dustjs-linkedin": "~2.7",
-    "environmentalist":
+    "environmentalist": "latest",
     "express": "^4",
     "express-slash": "latest",
     "forky": "latest",
