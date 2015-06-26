@@ -6,12 +6,17 @@ window.main = function() {
 	requirejs([
 		'lodash',
 		'carnet',
+		'screenfull',
 		'angular-ui-router',
 		'angular-strap',
 		'css!app/index/index.css',
 	],
-	function(_, Carnet) {
+	function(_, Carnet, screenfull) {
 		console.log('main require done.');
+
+		if (screenfull.enabled) {
+			screenfull.request();
+		}
 
 		// build this app logger
 		var logger = Carnet.make_new({enhanced: true});

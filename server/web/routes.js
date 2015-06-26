@@ -5,12 +5,14 @@ var router = express.Router();
 var utils = require('./utils');
 var config = require('./config');
 
+var app_router = require('./app_router');
+/*
 var apps = {
 	index: require('./apps/index'),
 	helloworld: require('./apps/helloworld'),
 	appcache: require('./apps/appcache'),
 	jdn: require('./apps/jdn'),
-};
+};*/
 
 module.exports = router;
 
@@ -24,10 +26,24 @@ router.get('/l2', function(req, res) {
 	res.send('Level 2 OK');
 });
 
+/*
 router.use('/', apps.index);
 router.use('/helloworld', apps.helloworld);
 router.use('/appcache', apps.appcache);
 router.use('/jdn', apps.jdn);
+*/
+router.use('/', app_router('index', '/'));
+router.use('/', app_router('helloworld', undefined, {
+	title: 'Express',
+	num      : 42000,
+	completed: 0.9,
+	price    : 100.95,
+	date: new Date()
+}));
+router.use('/', app_router('appcache'));
+router.use('/', app_router('base-famous-app'));
+router.use('/', app_router('jdn'));
+router.use('/', app_router('ror'));
 
 // TODO
 router.get('/page1', function (req, res) {

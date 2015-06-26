@@ -1,6 +1,17 @@
 {>"layout/layout" /}
-{<content}
 
+{<inline_style}
+/* Only for loading style.
+ * see global.css for definitive style.
+ */
+body
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+}
+{/inline_style}
+
+
+{<content}
 <script src="apps/index/index.js"></script>
 
 <script>
@@ -8,14 +19,16 @@
 </script>
 
 <div id="content">
+	<p>[<b>abstract :</b> hobby site, in progress, <a href="https://github.com/Offirmo/online-adventur.es">https://github.com/Offirmo/online-adventur.es</a>]</p>
 	{@formatMessage _key="title"/}
 
 	<ul>
-		<li><a href="/helloworld">/helloworld</a></li>
-		<li><a href="/appcache">/appcache</a></li>
-		<li><a href="/jdn">/jdn</a></li>
-		<li><a href="/ror">/ror</a></li>
+		<li><a href="/helloworld">/helloworld</a> (<a href="/helloworld-no-appcache">no appcache</a>)
+		<li><a href="/appcache">/appcache</a> (<a href="/appcache-no-appcache">no appcache</a>)
+		<li><a href="/appcache">/base-famous-app</a> (<a href="/base-famous-app-no-appcache">no appcache</a>)
+		<li><a href="/jdn">/jdn</a> (<a href="/jdn-no-appcache">no appcache</a>)
+		<li><a href="/ror">/ror</a> (<a href="/ror-no-appcache">no appcache</a>)
+		<li>REM chrome appcache control : chrome://appcache-internals/
 	</ul>
 </div>
-
 {/content}

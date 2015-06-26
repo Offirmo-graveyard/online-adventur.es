@@ -7,8 +7,9 @@
 <!-- http://code.google.com/web/ajaxcrawling/docs/specification.html -->
 <meta name="fragment" content="!">
 <!-- https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag
-     http://a11yproject.com/posts/never-use-maximum-scale/ -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+     http://a11yproject.com/posts/never-use-maximum-scale/
+     http://stackoverflow.com/a/25840284/587407 -->
+<meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1">
 
 <!-- ... -->
 <link rel="canonical" href="{@formatMessage _key="canonical_url"/}">

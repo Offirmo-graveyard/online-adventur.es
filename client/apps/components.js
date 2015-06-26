@@ -79,6 +79,7 @@ requirejs.config({
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
+		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
 		'spin'                     : 'bower_components/spin.js/spin'
 		//'underscore'  -> replaced by lodash, see "map" section above.
 	},
@@ -149,6 +150,9 @@ requirejs.config({
 		},
 		'lodash': {
 			exports: '_'
+		},
+		'screenfull': {
+			exports: 'screenfull'
 		},
 		'spin': {
 			exports: 'Spinner'
