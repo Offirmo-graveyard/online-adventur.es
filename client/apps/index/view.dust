@@ -23,11 +23,11 @@ body
 	{@formatMessage _key="title"/}
 
 	<ul>
-		<li><a href="/helloworld">/helloworld</a> (<a href="/helloworld-no-appcache">no appcache</a>)
-		<li><a href="/appcache">/appcache</a> (<a href="/appcache-no-appcache">no appcache</a>)
-		<li><a href="/appcache">/base-famous-app</a> (<a href="/base-famous-app-no-appcache">no appcache</a>)
-		<li><a href="/jdn">/jdn</a> (<a href="/jdn-no-appcache">no appcache</a>)
-		<li><a href="/ror">/ror</a> (<a href="/ror-no-appcache">no appcache</a>)
+		<li><a href="/helloworld"     >/helloworld     </a> (<a      href="/helloworld-no-appcache">no appcache</a>)
+		<li><a href="/appcache"       >/appcache       </a> (<a        href="/appcache-no-appcache">no appcache</a>)
+		<li><a href="/base-famous-app">/base-famous-app</a> (<a href="/base-famous-app-no-appcache">no appcache</a>)
+		<li><a href="/jdn"            >/jdn            </a> (<a             href="/jdn-no-appcache">no appcache</a>)
+		<li><a href="/ror"            >/ror            </a> (<a             href="/ror-no-appcache">no appcache</a>)
 		<li>REM chrome appcache control : chrome://appcache-internals/
 	</ul>
 </div>

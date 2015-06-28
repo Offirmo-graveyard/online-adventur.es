@@ -1,26 +1,42 @@
 CACHE MANIFEST
-## 201506262244
+## 201506290053
 
 CACHE:
-/apps/appcache/style.css
+
+#style sheets
+/apps/base-famous-app/style.css
+/bower_components/famous-angular/dist/famous-angular.css
+/bower_components/messenger/build/css/messenger-theme-future.css
+/bower_components/messenger/build/css/messenger.css
+/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
+#https://fonts.googleapis.com/css?family=Roboto:400,700
+
+#style sheet images
+
+#javascript files
 /apps/components.js
+/bower_components/jquery/dist/jquery.js
 /incubator/carnet/main.js
 /bower_components/appcache-nanny/appcache-nanny.js
-/bower_components/requirejs-text/text.js
 /bower_components/require-css/css.js
 /bower_components/lodash/lodash.js
-/bower_components/jquery/dist/jquery.js
+/bower_components/screenfull/dist/screenfull.js
+/bower_components/famous/dist/famous-global.js
+/bower_components/angular/angular.js
 /incubator/carnet/lib/core.js
 /incubator/carnet/lib/logger_default.js
-/bower_components/angular/angular.js
 /incubator/carnet/lib/sink_plain_console.js
 /incubator/carnet/lib/sink_enhanced_console.js
+/bower_components/messenger/build/js/messenger.js
+/bower_components/bootstrap-css/js/bootstrap.js
+/bower_components/famous-angular/dist/famous-angular.js
 /incubator/carnet/lib/utils.js
 /incubator/carnet/lib/enricher_console_affinity.js
 /incubator/carnet/lib/enricher_color_affinity.js
 /incubator/carnet/lib/enricher_timestamp_string.js
 /incubator/carnet/lib/enricher_cluster_worker_id.js
-/apps/appcache/index.js
+/bower_components/messenger/build/js/messenger-theme-future.js
+/apps/base-famous-app/index.js
 /bower_components/requirejs/require.js
 
 /apps/appcache/content.html
@@ -59,5 +75,5 @@ CACHE:
 # it isn't cached, and references to this file will bypass the cache,
 # always hitting the network (or trying to, if the user is offline).
 NETWORK:
-/livereload.js
-*
+http://192.168.88.88:35730/livereload.js
+#*

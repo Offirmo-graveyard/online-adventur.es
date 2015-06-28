@@ -9,8 +9,7 @@ define(function(require) {
 	var parent_messages = require('../../../i18n/common.en');
 
 	var messages = {
-		hello_world: 'Hello world !',
-		title: 'An hello world web app'
+		title: 'Test of a famous-based web app'
 	};
 
 	return _.defaults(messages, parent_messages);

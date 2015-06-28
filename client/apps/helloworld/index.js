@@ -1,3 +1,5 @@
+window.global_ng_module_dependencies = [];
+
 window.main = function() {
 	'use strict';
 

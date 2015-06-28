@@ -4,6 +4,8 @@
 
 console.log('Starting require js config…');
 
+var min = '';
+
 requirejs.config({
 
 	// base URL from which component files will be searched
@@ -54,7 +56,6 @@ requirejs.config({
 		/////// AMD plugins (dirs or direct)
 		//'base-objects'             : '../incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
-		'famous.angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'jquery'                   : 'bower_components/jquery/dist/jquery',
 		'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
 
@@ -67,15 +68,22 @@ requirejs.config({
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
 		'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'appcache-nanny'           : 'bower_components/appcache-nanny/appcache-nanny',
-		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly :
+		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
+		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
+		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
+		'famous'                   : 'bower_components/famous/dist/famous',
+		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
+		'famous-global'            : 'bower_components/famous/dist/famous-global',
 		'intl-format-cache'        : 'bower_components/intl-format-cache/index',
 		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
 		'lodash'                   : 'bower_components/lodash/lodash',
+		'messenger'                : 'bower_components/messenger/build/js/messenger' + min,
+		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
 		'moment'                   : 'bower_components/momentjs/moment',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
@@ -94,11 +102,6 @@ requirejs.config({
 		},
 
 		/////// AMD plugins
-		'famous.angular': {
-			deps: [
-				'css!bower_components/famous-angular/dist/famous-angular'
-			]
-		},
 
 		/////// shim plugins
 		'angular': {
@@ -133,6 +136,20 @@ requirejs.config({
 		'angularAMD': {
 			deps: [ 'angular' ]
 		},
+		'bootstrap': {
+			deps: [
+				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				'jquery',
+				'css!bower_components/bootstrap-css/css/bootstrap'
+			]
+		},
+		'bootstrap-with-cyborg-theme': {
+			deps: [
+				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
+				'jquery',
+				'css!other_components/bootswatch/cyborg/cyborg-bootstrap.min'
+			]
+		},
 		'dust': {
 			// no deps
 			exports: 'dust'
@@ -140,6 +157,26 @@ requirejs.config({
 		'dust-helpers': {
 			deps: [ 'dust' ],
 			exports: 'dust'
+		},
+		'famous': {
+			deps: [
+				'famous-global',
+				'css!bower_components/famous/dist/famous'
+			]
+		},
+		'famous-angular': {
+			deps: [
+				'famous-global',
+				'angular',
+				'css!bower_components/famous-angular/dist/famous-angular'
+			],
+			init: function (famous) {
+				// famous-angular needs famous as a global var...
+				window.famous = famous;
+			}
+		},
+		'famous-global': {
+			//exports: 'famous'
 		},
 		'javascript-state-machine' : {
 			// no deps
@@ -150,6 +187,19 @@ requirejs.config({
 		},
 		'lodash': {
 			exports: '_'
+		},
+		'messenger': {
+			deps: [
+				'jquery',
+				'css!bower_components/messenger/build/css/messenger'
+			]
+		},
+		'messenger-theme-future': {
+			deps: [
+				'messenger',
+				'css!bower_components/messenger/build/css/messenger-theme-future'
+			],
+			exports: 'Messenger'
 		},
 		'screenfull': {
 			exports: 'screenfull'
@@ -183,9 +233,7 @@ if(typeof window !== 'undefined') { // not available in a web worker for ex.
 		get: function() {
 			if(global_module_instance) return global_module_instance; // already OK
 			console.log('building');
-			global_module_instance = angular.module('global_ng_module', [
-				//'mgcrea.ngStrap'
-			]);
+			global_module_instance = angular.module('global_ng_module', window.global_ng_module_dependencies);
 			return global_module_instance;
 		}
 	});

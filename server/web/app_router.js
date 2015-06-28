@@ -57,21 +57,27 @@ module.exports = function(app_radix, app_route, extra_view_data) {
 		};
 	}
 
-	function serve(req, res) {
+	router.get(app_route, function serve_with_appcache(req, res) {
 		// REM : path relative to template root
 		res.render('../apps/' + app_radix + '/view', _.defaults({
 			tpl: app_radix,
-			appcache_manifest: '', // None !
+			appcache_manifest: 'apps/' + app_radix + '/manifest.appcache',
 			lang: req.locale,
 			intl: build_intl(req.locale)
 		}, extra_view_data));
-	}
-
-	router.get(app_route, serve);
+	});
 
 	// useful for dev
 	var no_appcache_route = ((app_route === '/') ? ('/' + app_radix) : app_route) + '-no-appcache';
-	router.get(no_appcache_route, serve);
+	router.get(no_appcache_route, function serve_without_appcache(req, res) {
+		// REM : path relative to template root
+		res.render('../apps/' + app_radix + '/view', _.defaults({
+			tpl: app_radix,
+			appcache_manifest: '', //<<<<  None !
+			lang: req.locale,
+			intl: build_intl(req.locale)
+		}, extra_view_data));
+	});
 
 	return router;
 };

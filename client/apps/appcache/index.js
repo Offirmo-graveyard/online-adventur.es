@@ -15,7 +15,7 @@ window.main = function() {
 	],
 	function(_, Carnet, AppCacheNanny, screenfull, tpl) {
 		console.log('main require done.');
-		screenfull.request();
+		//screenfull.request();
 
 		AppCacheNanny.on('downloading', function() {
 			console.log('downloading', arguments);

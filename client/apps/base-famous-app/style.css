@@ -1,4 +1,4 @@
-#content {
+#xxxcontent {
 	background-color: #e8faff;
 	color: #101112;
 	position:absolute;
@@ -9,4 +9,30 @@
 	-moz-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	/* http://frontendhq.com/css/text-shadow */
+}
+
+#root {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.panel {
+	text-align: center;
+	font-size: 20px;
+}
+.panel.header {
+	line-height: 75px;
+	border-bottom: solid 1px gray;
+}
+.panel.content {
+	padding: 10px;
+}
+.content > .xmessenger {
+//display: block;
+}
+.panel.footer {
+	border-top: solid 1px gray;
+	line-height: 50px;
 }
