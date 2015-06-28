@@ -1,8 +1,39 @@
 <div>
-	<p>[<b>abstract :</b> This app aims at testing a pinnable famous app]</p>
-	<ul>
-		<li>version : 201506262244
-		<li>update available ? {{update_available}} <button ng-click="check_update()">check</button> <button ng-if="update_available" ng-click="update()">update</button>
-		<li><button ng-click="fullscreen()">go fullscreen</button>
-	</ul>
+	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
+
+		<!-- header -->
+		<fa-surface class="panel header">
+			Le jeu du nombre
+		</fa-surface>
+
+
+		<!-- content -->
+		<fa-surface class="panel content">
+			<p>Trouvez le nombre entre 1 et 100.</p>
+			<p>Nombre de tentatives : {{state.nTries}}</p>
+
+			<form role="form" name="game" ng-show="state.playing">
+
+				<div class="form-group" ng-class="{ 'has-error': game.guess.$invalid }">
+					<label class="control-label" for="guess">Votre choix :</label>
+					<input required type="number" class="form-control"
+					       name="guess"
+					       placeholder="un nombre entre 1 et 100"
+					       ng-model="state.guess" />
+				</div>
+
+				<button type="submit" class="btn btn-primary"
+				        ng-disabled="game.$invalid"
+				        ng-click="haveAGuess()">Tenter</button>
+
+			</form>
+
+		</fa-surface>
+
+		<!-- footer -->
+		<fa-surface class="panel footer">
+			Par Offirmo
+		</fa-surface>
+
+	</fa-header-footer-layout>
 </div>

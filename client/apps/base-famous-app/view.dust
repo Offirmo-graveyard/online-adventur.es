@@ -1,7 +1,48 @@
 {>"layout/layout" /}
 
 {<inline_style}
+/* Only for loading style.
+* see global.css for definitive style.
+*/
+body
+{
+/* needed for correct positionning */
+position:absolute;
+margin: 0;
+padding: 0;
 
+/* needed for container min-height */
+height: 100%;
+width: 100%;
+
+/* */
+font-size: 20px; /* Yes I know what I do */
+font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+}
+#splash {
+background-color: #101112;
+color: #7B7F88;
+position:absolute;
+
+/* vertical centering technique - parent
+* http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+*/
+height: 100%;
+width: 100%;
+-webkit-transform-style: preserve-3d;
+-moz-transform-style: preserve-3d;
+transform-style: preserve-3d;
+}
+#splash-content {
+/* vertical centering technique - child
+*/
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+text-align: center;
+}
+#splash .logo {
+}
 {/inline_style}
 
 
@@ -12,45 +53,22 @@
 
 
 <div id="root" fa-app>
+	<div content-directive>
 
-	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
+		<!-- splash screen with loader, only displayed while angular isn't ready -->
+		<div id="splash">
+			<div id="splash-content">
+				<p class="logo">
+					Offirmo’s online adventures
+				</p>
+				<p id="loader">
+					<progress />
+				</p>
+				201506290115
+			</div>
+		</div>
 
-		<!-- header -->
-		<fa-surface class="panel header">
-			Le jeu du nombre
-		</fa-surface>
-
-
-		<!-- content -->
-		<fa-surface class="panel content">
-			<p>Trouvez le nombre entre 1 et 100.</p>
-			<p>Nombre de tentatives : {{state.nTries}}</p>
-
-			<form role="form" name="game" ng-show="state.playing">
-
-				<div class="form-group" ng-class="{ 'has-error': game.guess.$invalid }">
-					<label class="control-label" for="guess">Votre choix :</label>
-					<input required type="number" class="form-control"
-					       name="guess"
-					       placeholder="un nombre entre 1 et 100"
-					       ng-model="state.guess" />
-				</div>
-
-				<button type="submit" class="btn btn-primary"
-				        ng-disabled="game.$invalid"
-				        ng-click="haveAGuess()">Tenter</button>
-
-			</form>
-
-		</fa-surface>
-
-		<!-- footer -->
-		<fa-surface class="panel footer">
-			Par Offirmo
-		</fa-surface>
-
-	</fa-header-footer-layout>
-
+	</div>
 </div>
 
 {/content}

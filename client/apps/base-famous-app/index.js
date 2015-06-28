@@ -15,7 +15,7 @@ window.main = function() {
 		'screenfull',
 		'famous-global',
 		'messenger-theme-future',
-		//'text!apps/' + app_radix + '/content.html',
+		'text!apps/' + app_radix + '/content.html',
 		'css!apps/' + app_radix + '/style.css',
 		'angular',
 		'famous-angular',
@@ -28,12 +28,12 @@ window.main = function() {
 		var logger = Carnet.make_new({enhanced: true});
 
 		// ui
-		/*global_ng_module.directive('contentDirective', function client() {
+		global_ng_module.directive('contentDirective', function client() {
 			return {
 				template: tpl,
 				replace: true
 			};
-		});*/
+		});
 
 		global_ng_module.controller('LandingCtrl', ['$q', '$scope', '$document', function($q, $scope, $document) {
 			logger.info('LandingCtrl…');
