@@ -8,3 +8,5 @@ webkit-devtools-agent : must be present for allowing some debugs, just in case.
 
 environmentalist : a tool to list needed env vars
                    https://byteofbits.com/solving-the-environmental-variable-problem/
+
+trace must be kept in ~0.2.1 unless we switch to node 0.12 https://www.npmjs.com/package/trace
