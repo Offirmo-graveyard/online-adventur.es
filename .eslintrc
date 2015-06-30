@@ -1,43 +1,64 @@
 {
+	// http://eslint.org/docs/rules/
+	// http://bl.ocks.org/cletusw/e01a85e399ab563b1236
+
 	"env": {
 		"amd": true,
 		"browser": true,
 		"mocha": true,
 		"node": true,
 	},
-	"ecmaFeatures": {
 
+	"ecmaFeatures": {
 	},
-	// http://eslint.org/docs/rules/
+
+	"globals": {
+		"angular": true,
+		"define": true,
+		"global_ng_module": true,
+		"requirejs": true,
+	},
+
+	"plugins": [
+		"angular"
+	],
+
 	// http://elijahmanor.github.io/talks/js-smells/#/1/8
 	"rules": {
-		// Possible Errors
-		"no-comma-dangle": 0, // don't care about IE8
+
+		////////// Possible Errors //////////
+		"comma-dangle": 0,
+		"no-comma-dangle": 0, // don't care about IE8 (only one who can choke at this)
 		"no-cond-assign": [2, "always"],
 		"no-console": 2,
-		// Best Practices
+
+		////////// Best Practices //////////
 		"eqeqeq": 2,
 		"yoda": 2,
 		// Strict Mode
 		// Variables
 		// Node.js
-		// Stylistic Issues
+
+		////////// Stylistic Issues //////////
 		"camelcase": 0, // snake rules !
 		"key-spacing": 0, // be free to align or not
+		"max-nested-callbacks": [2, 3],
 		"new-cap": 2,
 		"no-mixed-spaces-and-tabs": 0, // allow it
 		"no-multiple-empty-lines": [1, {max: 3}],  // Maximum of n empty lines
 		"no-trailing-spaces": 2,
 		"quotes": [2, "single"],
 		// ECMAScript 6
-		// Legacy
-		// tosort
 
-		"max-statements": [2, 16],
+		////////// Legacy //////////
 		"max-depth": [2, 5],
+		"max-len": [2, 140],
+		"max-params": 0, // disabled due to requirejs false positives
+		"max-statements": [2, 16],
+
+		// tosort
 		"complexity": [2, 7],
-		"max-len": [2, 65],
-		"max-params": [2, 1],
-		"max-nested-callbacks": [2, 0],
+		"angular/ng_window_service": 1,
+		"angular/ng_typecheck_function": 1,
 	}
 }

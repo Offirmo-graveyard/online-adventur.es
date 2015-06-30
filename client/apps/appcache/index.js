@@ -2,7 +2,7 @@ window.main = function() {
 	'use strict';
 
 	console.log('Starting index main js...');
-	var server_title = document.title;
+	//var server_title = document.title;
 
 	requirejs([
 		'lodash',
@@ -37,15 +37,16 @@ window.main = function() {
 		var logger = Carnet.make_new({enhanced: true});
 
 		// ui
-		global_ng_module.directive('contentDirective', function client() {
+		global_ng_module
+		.directive('contentDirective', function client() {
 			return {
 				template: tpl,
 				replace: true
 			};
-		});
-
-		global_ng_module.controller('LandingCtrl', function($scope, $document) {
+		})
+		.controller('LandingCtrl', function($scope, $document) {
 			logger.info('LandingCtrl…');
+			var server_title = $document.title;
 			$scope.title = server_title;
 			$scope.update_available = false;
 
@@ -53,7 +54,7 @@ window.main = function() {
 				console.log('updateready');
 				$scope.$apply(function() {
 					$scope.update_available = true;
-				})
+				});
 			});
 
 			// check for an update immediately
@@ -62,7 +63,7 @@ window.main = function() {
 				return document.location.reload();
 			}
 			// and program periodic update checks
-			AppCacheNanny.start({checkInterval: 60*60*1000}); // ms
+			AppCacheNanny.start({checkInterval: 60 * 60 * 1000}); // ms
 
 			$scope.check_update = function() {
 				console.log('check');

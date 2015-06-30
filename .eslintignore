@@ -1,3 +1,4 @@
 # node_modules ignored by default
-client/bower_components
+bower_components
+client/other_components
 common/incubator/carnet/node_modules
