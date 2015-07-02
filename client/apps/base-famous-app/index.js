@@ -1,10 +1,10 @@
 window.global_ng_module_dependencies = ['famous.angular'];
-var app_radix = 'base-famous-app';
 
 window.main = function() {
 	'use strict';
 
-	console.log('Starting index main js...');
+	var app_radix = 'base-famous-app';
+	console.log('Starting ' + app_radix + ' main js...');
 	var server_title = document.title;
 
 	requirejs([
@@ -16,7 +16,7 @@ window.main = function() {
 		'famous-global',
 		'messenger-theme-future',
 		'text!apps/' + app_radix + '/content.html',
-		'css!apps/' + app_radix + '/style.css',
+		'css!apps/' + app_radix + '/index.css',
 		'angular',
 		'famous-angular',
 		'bootstrap-with-cyborg-theme'
@@ -35,8 +35,8 @@ window.main = function() {
 			};
 		});
 
-		global_ng_module.controller('LandingCtrl', ['$q', '$scope', '$document', function($q, $scope, $document) {
-			logger.info('LandingCtrl…');
+		global_ng_module.controller('LandingController', ['$q', '$scope', '$document', function($q, $scope, $document) {
+			logger.info('LandingController…');
 			$scope.title = server_title;
 			$scope.update_available = false;
 
@@ -125,7 +125,7 @@ window.main = function() {
 				});
 			});
 
-			logger.info('LandingCtrl initialized.');
+			logger.info('LandingController initialized.');
 		}]);
 
 		// angular manual initialisation since we use a script loader

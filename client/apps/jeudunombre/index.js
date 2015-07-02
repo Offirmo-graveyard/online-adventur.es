@@ -20,8 +20,8 @@ window.main = function() {
 		logger.info('App is bootstrapping…');
 
 		// ui
-		global_ng_module.controller('LandingCtrl', function($scope, $document) {
-			logger.info('LandingCtrl…');
+		global_ng_module.controller('LandingController', function($scope, $document) {
+			logger.info('LandingController…');
 			$scope.title = 'Le jeu du nombre';
 			$scope.scoped_angular = angular;
 

@@ -3,53 +3,34 @@ window.global_ng_module_dependencies = [];
 window.main = function() {
 	'use strict';
 
-	console.log('Starting index main js...');
+	var app_radix = 'helloworld';
+	console.log('Starting ' + app_radix + ' main js...');
+	var server_title = document.title;
 
 	requirejs([
 		'lodash',
 		'carnet',
-		'screenfull',
 		'angular-ui-router',
 		'angular-strap',
-		'css!app/index/index.css',
+		'css!apps/' + app_radix + '/index.css',
 	],
-	function(_, Carnet, screenfull) {
+	function(_, Carnet) {
 		console.log('main require done.');
-
-		if (screenfull.enabled) {
-			screenfull.request();
-		}
 
 		// build this app logger
 		var logger = Carnet.make_new({enhanced: true});
 		logger.info('App is bootstrapping…');
 
 		// ui
-		global_ng_module.controller('LandingCtrl', function($scope, $document) {
-			logger.info('LandingCtrl…');
-			$scope.title = 'OA';
-			$scope.scoped_angular = angular;
+		global_ng_module.controller('LandingController', function($scope, $document) {
+			logger.info('LandingController…');
+			$scope.title = server_title;
 
 			// TOREVIEW
 			$scope.lang = $document[0].documentElement.lang;
 			logger.info('detected lang :', $document[0].documentElement.lang);
 			$scope.pready = true;
 		});
-
-		// http://angular-ui.github.io/bootstrap/#/alert
-		global_ng_module.controller('AlertCtrl', ['$scope', '$document', function($scope, $document) {
-			$scope.alerts = [
-				{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-			];
-
-			$scope.add_alert = function(msg) {
-				$scope.alerts.push({'msg': msg});
-			};
-
-			$scope.close_alert = function(index) {
-				$scope.alerts.splice(index, 1);
-			};
-		}]);
 
 		// angular manual initialisation since we use a script loader
 		// cf. http://docs.angularjs.org/guide/bootstrap

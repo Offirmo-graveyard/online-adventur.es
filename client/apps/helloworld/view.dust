@@ -1,7 +1,16 @@
 {>"layout/layout" /}
+
+{<inline_style}
+body
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+}
+{/inline_style}
+
 {<content}
 
 <script src="apps/helloworld/index.js"></script>
+<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
 
 <script>
 	console.log('Hello from index body.');
@@ -11,13 +20,23 @@
 	<h1>{@formatMessage _key="hello_world"/}</h1>
 	<p><b>abstract :</b> This app in an i18n enabled hello world app.</p>
 
-	<ul>
-		<li>{intl.locales}</li>
-		<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}</li>
-		<li>{@formatNumber val=num/}</li>
-		<li>{@formatNumber val=completed style="percent"/}</li>
-		<li>{@formatNumber val=price style="currency" currency="USD"/}</li>
-	</ul>
+	<p>
+		Server-side i18n :
+		<ul>
+			<li>{intl.locales}
+			<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}
+			<li>{@formatNumber val=num/}
+			<li>{@formatNumber val=completed style="percent"/}
+			<li>{@formatNumber val=price style="currency" currency="USD"/}
+		</ul>
+	</p>
+
+	<p>
+		Client-side i18n :
+		<ul>
+			<li>TODO !!!!!
+		</ul>
+	</p>
 </div>
 
 {/content}

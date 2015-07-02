@@ -2,7 +2,7 @@
 
 {<inline_style}
 /* Only for loading style.
-* see global.css for definitive style.
+* see index.css for definitive style.
 */
 body
 {

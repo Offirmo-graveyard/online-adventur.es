@@ -1,16 +1,19 @@
+window.global_ng_module_dependencies = [];
+
 window.main = function() {
 	'use strict';
 
-	console.log('Starting index main js...');
-	//var server_title = document.title;
+	var app_radix = 'appcache';
+	console.log('Starting ' + app_radix + ' main js...');
+	var server_title = document.title;
 
 	requirejs([
 		'lodash',
 		'carnet',
 		'appcache-nanny',
 		'screenfull',
-		'text!apps/appcache/content.html',
-		'css!apps/appcache/style.css',
+		'text!apps/' + app_radix + '/content.html',
+		'css!apps/' + app_radix + '/index.css',
 		'angular'
 	],
 	function(_, Carnet, AppCacheNanny, screenfull, tpl) {
@@ -44,9 +47,8 @@ window.main = function() {
 				replace: true
 			};
 		})
-		.controller('LandingCtrl', function($scope, $document) {
-			logger.info('LandingCtrl…');
-			var server_title = $document.title;
+		.controller('LandingController', function($scope, $document) {
+			logger.info('LandingController…');
 			$scope.title = server_title;
 			$scope.update_available = false;
 
@@ -79,7 +81,7 @@ window.main = function() {
 				screenfull.request();
 			};
 
-			logger.info('LandingCtrl initialized.');
+			logger.info('LandingController initialized.');
 		});
 
 		// angular manual initialisation since we use a script loader

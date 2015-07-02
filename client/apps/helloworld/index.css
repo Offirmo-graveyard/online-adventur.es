@@ -1,0 +1,18 @@
+/* client\app\index\index.css */
+
+/* http://docs.angularjs.org/api/ng.directive:ngCloak */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+@font-face {
+	font-family: 'RobotoRegular';
+	src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body
+{
+	font-family: "RobotoRegular", "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+}

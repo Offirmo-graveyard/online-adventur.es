@@ -70,7 +70,7 @@ window.main = function() {
 
 		//global_ng_module.value('$locale', {id: $document[0].documentElement.lang});
 
-		global_ng_module.controller('LandingCtrl', function($scope, $document, $locale) {
+		global_ng_module.controller('LandingController', function($scope, $document, $locale) {
 
 			$scope.title = 'OA';
 			$scope.scoped_angular = angular;

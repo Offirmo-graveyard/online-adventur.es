@@ -6,12 +6,10 @@ define(function(require) {
 
 	var _ = require('lodash');
 
-	var parent_messages = require('../../../i18n/common.en');
+	var parent_messages = require('../../../i18n/common.fr');
 
 	var messages = {
-		title: 'Offirmo’s online adventures',
-		description: 'Offirmo’s handmade or recommended online adventures games.',
-		keywords: 'game, videogame, rpg, adventure',
+		title: 'Une web app qui fonctionne hors-ligne'
 	};
 
 	return _.defaults(messages, parent_messages);

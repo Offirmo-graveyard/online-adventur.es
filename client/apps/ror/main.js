@@ -63,7 +63,7 @@ window.main = function() {
 
 			// ui
 			global_ng_module
-			.controller('LandingCtrl', function($scope, $document) {
+			.controller('LandingController', function($scope, $document) {
 				$scope.lang = $document[0].documentElement.lang;
 				logger.info('detected lang :', $document[0].documentElement.lang);
 

@@ -9,7 +9,7 @@ define(function(require) {
 	var parent_messages = require('../../../i18n/common.fr');
 
 	var messages = {
-		title: 'OA', //Jeux d’aventures en ligne par Offirmo',
+		title: 'Jeux d’aventures en ligne par Offirmo',
 		description: 'Jeux d’aventures en ligne par Offirmo',
 		keywords: 'jeu, jeu vidéo, rpg, aventure',
 	};

@@ -3,9 +3,11 @@ window.global_ng_module_dependencies = [];
 window.main = function() {
 	'use strict';
 
-	console.log('Starting index main js...');
+	var app_radix = 'index';
+	console.log('Starting ' + app_radix + ' main js...');
+	var server_title = document.title;
 
-	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Rise%20%20of%20%20the%20%20replicators
+	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Online%20%20Adventures
 	console.log('\n\n' +
 		' _____       _  _              _____    _                 _                        \n' +
 		'|     | ___ | ||_| ___  ___   |  _  | _| | _ _  ___  ___ | |_  _ _  ___  ___  ___  \n' +
@@ -19,7 +21,7 @@ window.main = function() {
 		'carnet',
 		'angular-ui-router',
 		'angular-strap',
-		'css!app/index/index.css',
+		'css!apps/' + app_radix + '/index.css',
 	],
 	function(_, Carnet) {
 		console.log('main require done.');
@@ -29,8 +31,9 @@ window.main = function() {
 		logger.info('App is bootstrapping…');
 
 		// ui
-		global_ng_module.controller('LandingCtrl', function($scope, $document) {
-			logger.info('LandingCtrl…');
+		global_ng_module.controller('LandingController', function($scope, $document) {
+			logger.info('LandingController…');
+			$scope.title = server_title;
 			$scope.title = 'OA';
 			$scope.scoped_angular = angular;
 
