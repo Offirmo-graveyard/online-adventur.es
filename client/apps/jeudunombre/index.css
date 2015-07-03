@@ -1,9 +1,4 @@
-
-/* http://docs.angularjs.org/api/ng.directive:ngCloak */
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-	display: none !important;
-}
-
+@import '../common.css';
 
 #root {
 	position: fixed;

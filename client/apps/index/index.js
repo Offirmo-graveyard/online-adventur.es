@@ -21,7 +21,7 @@ window.main = function() {
 		'carnet',
 		'angular-ui-router',
 		'angular-strap',
-		'css!apps/' + app_radix + '/index.css',
+		'css!client/apps/' + app_radix + '/index.css',
 	],
 	function(_, Carnet) {
 		console.log('main require done.');

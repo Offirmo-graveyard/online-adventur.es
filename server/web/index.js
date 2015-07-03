@@ -23,7 +23,7 @@ var utils      = require('./utils');
 var shutdown   = require('./shutdown');
 var routes     = require('./routes');
 
-logger.log('[web server] config =', config);
+//logger.log('[web server] config =', config);
 
 
 /************************************************************************/
@@ -109,8 +109,8 @@ app.use(middleware.serving_favicon(path.join(__dirname, '../../client/favicon.ic
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
-app.use(middleware.serving_static_files(path.join(__dirname, '../../client')));
-app.use(middleware.serving_static_files(path.join(__dirname, '../../common')));
+app.use('/client', middleware.serving_static_files(path.join(__dirname, '../../client')));
+app.use('/common', middleware.serving_static_files(path.join(__dirname, '../../common')));
 app.use('/bower_components', middleware.serving_static_files(path.join(__dirname, '../../bower_components')));
 
 // TOREVIEW

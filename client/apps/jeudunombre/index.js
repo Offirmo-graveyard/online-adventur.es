@@ -15,8 +15,8 @@ window.main = function() {
 		'screenfull',
 		'famous-global',
 		'messenger-theme-future',
-		'text!apps/' + app_radix + '/content.html',
-		'css!apps/' + app_radix + '/index.css',
+		'text!client/apps/' + app_radix + '/content.html',
+		'css!client/apps/' + app_radix + '/index.css',
 		'angular',
 		'famous-angular',
 		'bootstrap-with-cyborg-theme'

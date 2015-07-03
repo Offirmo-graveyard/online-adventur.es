@@ -1,19 +1,11 @@
-/* Require.js definitions
- */
-'use strict';
+// http://requirejs.org/docs/optimization.html
+// https://github.com/jrburke/r.js/blob/master/build/example.build.js
 
-console.log('Starting require js config…');
-
-requirejs.config({
-
-	// base URL from which component files will be searched
-	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
-	// NOTE 2 : relative baseUrl base refers to *the calling html* !
-	// NOTE 3 : "self" stuff is for handling web workers
-	baseUrl: (self ? self.requirejs_baseurl : undefined) || '../..',
-
-	// http://requirejs.org/docs/api.html#config-enforceDefine
-	enforceDefine: false,
+({
+	baseUrl: './',
+	xxmainConfigFile: 'client/apps/components.js',
+	name: 'client/apps/jeudunombre/index.js',
+	out: 'main-built.js',
 
 	// require.js extensions (plugins)
 	map: {
@@ -40,7 +32,7 @@ requirejs.config({
 	packages: [
 		{
 			name : 'carnet',
-			location: 'common/incubator/carnet'
+			location: 'incubator/carnet'
 		},
 		{
 			name : 'when',
@@ -55,7 +47,7 @@ requirejs.config({
 		//'base-objects'             : '../incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
 		'jquery'                   : 'bower_components/jquery/dist/jquery',
-		//'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
+		'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
 
 		/////// shim plugins
 		'angular'                  : 'bower_components/angular/angular',
@@ -205,36 +197,6 @@ requirejs.config({
 		'spin': {
 			exports: 'Spinner'
 		}
-	},
-
-	/////////////////////
-	config: {
-		// TODO one day
 	}
 
-	/////////////////////
-	//deps: ['app']
-});
-
-console.log('require.js config done.');
-
-if(typeof window !== 'undefined') { // not available in a web worker for ex.
-	console.log('starting application logic…');
-
-	// angular modules simplified ;-)
-	var global_module_instance;
-	Object.defineProperty(window, 'global_ng_module', {
-		enumerable: true, // why not ?
-		set: function() {
-			throw new Error('You can’t assign window.global_ng_module !');
-		},
-		get: function() {
-			if(global_module_instance) return global_module_instance; // already OK
-			console.log('building');
-			global_module_instance = angular.module('global_ng_module', window.global_ng_module_dependencies);
-			return global_module_instance;
-		}
-	});
-
-	window.main();
-}
+})

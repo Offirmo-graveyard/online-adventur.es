@@ -9,8 +9,8 @@ body
 
 {<content}
 
-<script src="apps/helloworld/index.js"></script>
-<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+<script src="client/apps/helloworld/index.js"></script>
+<script async data-main="client/apps/components.js" src="bower_components/requirejs/require.js"></script>
 
 <script>
 	console.log('Hello from index body.');

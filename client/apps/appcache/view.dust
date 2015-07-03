@@ -48,8 +48,8 @@ body
 
 {<content}
 <!-- order matters -->
-<script src="apps/appcache/index.js"></script>
-<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+<script src="client/apps/appcache/index.js"></script>
+<script async data-main="client/apps/components.js" src="bower_components/requirejs/require.js"></script>
 
 
 <div id="content" content-directive>

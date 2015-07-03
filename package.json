@@ -12,7 +12,8 @@
     "b": "bower prune && bower install && bower update",
     "cleardeps": "rm -rf node_modules && rm -rf bower_components",
     "nodemon": "nodemon",
-    "env": "environmentalist"
+    "env": "environmentalist",
+    "build": "r.js -o build.js"
   },
   "engines": {
     "node": "^0.10.0"
@@ -55,7 +56,8 @@
     "express-debug": "^1",
     "express-livereload": "^0",
     "nodemon": "^1",
-    "pre-commit": "^1"
+    "pre-commit": "^1",
+    "requirejs": "latest"
   },
   "xpre-commit": [
     "lint"

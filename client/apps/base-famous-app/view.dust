@@ -50,8 +50,8 @@ font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
 
 {<content}
 <!-- order matters -->
-<script src="apps/base-famous-app/index.js"></script>
-<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
+<script src="client/apps/base-famous-app/index.js"></script>
+<script async data-main="client/apps/components.js" src="bower_components/requirejs/require.js"></script>
 
 
 <div id="root" fa-app>
