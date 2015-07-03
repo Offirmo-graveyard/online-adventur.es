@@ -1,14 +1,22 @@
 CACHE MANIFEST
-## 201506262244
+## 201507030152
 
 CACHE:
-/apps/appcache/style.css
+
+#style sheets
+/apps/appcache/index.css
+
+#style sheet images
+
+
+#javascript files
 /apps/components.js
 /incubator/carnet/main.js
 /bower_components/appcache-nanny/appcache-nanny.js
 /bower_components/requirejs-text/text.js
 /bower_components/require-css/css.js
 /bower_components/lodash/lodash.js
+/bower_components/screenfull/dist/screenfull.js
 /bower_components/jquery/dist/jquery.js
 /incubator/carnet/lib/core.js
 /incubator/carnet/lib/logger_default.js
@@ -59,5 +67,5 @@ CACHE:
 # it isn't cached, and references to this file will bypass the cache,
 # always hitting the network (or trying to, if the user is offline).
 NETWORK:
-/livereload.js
+http://192.168.88.88:35730/livereload.js
 *

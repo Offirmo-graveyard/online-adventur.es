@@ -1,49 +1,131 @@
-window.global_ng_module_dependencies = [];
+window.global_ng_module_dependencies = ['famous.angular'];
 
 window.main = function() {
 	'use strict';
 
-	console.log('\n\nLe jeu du nombre\n\n ');
+	var app_radix = 'jeudunombre';
+	console.log('Starting ' + app_radix + ' main js...');
+	var server_title = document.title;
 
 	requirejs([
 		'lodash',
+		'jquery',
 		'carnet',
-		'angular-ui-router',
-		'angular-strap',
-		'css!app/jeudunombre/index.css',
+		'appcache-nanny',
+		'screenfull',
+		'famous-global',
+		'messenger-theme-future',
+		'text!apps/' + app_radix + '/content.html',
+		'css!apps/' + app_radix + '/index.css',
+		'angular',
+		'famous-angular',
+		'bootstrap-with-cyborg-theme'
 	],
-	function(_, Carnet) {
+	function(_, jq, Carnet, AppCacheNanny, screenfull, famous, Messenger, tpl) {
 		console.log('main require done.');
 
 		// build this app logger
 		var logger = Carnet.make_new({enhanced: true});
-		logger.info('App is bootstrapping…');
 
 		// ui
-		global_ng_module.controller('LandingController', function($scope, $document) {
-			logger.info('LandingController…');
-			$scope.title = 'Le jeu du nombre';
-			$scope.scoped_angular = angular;
-
-			// TOREVIEW
-			$scope.lang = $document[0].documentElement.lang;
-			logger.info('detected lang :', $document[0].documentElement.lang);
-			$scope.pready = true;
+		global_ng_module.directive('contentDirective', function client() {
+			return {
+				template: tpl,
+				replace: true
+			};
 		});
 
-		// http://angular-ui.github.io/bootstrap/#/alert
-		global_ng_module.controller('AlertCtrl', ['$scope', '$document', function($scope, $document) {
-			$scope.alerts = [
-				{ type: 'success', msg: 'Well done! You successfully read this important alert message.' }
-			];
+		global_ng_module.controller('LandingController', ['$q', '$scope', '$document', function($q, $scope, $document) {
+			logger.info('LandingController…');
+			$scope.title = server_title;
+			$scope.update_available = false;
 
-			$scope.add_alert = function(msg) {
-				$scope.alerts.push({'msg': msg});
+			// https://github.com/gr2m/appcache-nanny
+			// check for an update immediately
+			AppCacheNanny.update();
+			if(AppCacheNanny.hasUpdate()) {
+				// reload immediately if needed
+				return document.location.reload();
+			}
+			// and program periodic update checks
+			AppCacheNanny.on('updateready', function handleUpdateready() {
+				console.log('updateready');
+				$scope.$apply(function() {
+					$scope.update_available = true;
+				})
+			});
+			AppCacheNanny.start({checkInterval: 60*60*1000}); // ms
+
+
+			var startMsg;
+
+			var state = $scope.state = {
+				playing: false,
+				nTries: 0,
+				guess: 50,
+				target: undefined
 			};
 
-			$scope.close_alert = function(index) {
-				$scope.alerts.splice(index, 1);
+			function newGame() {
+				console.log('starting a new game...');
+				state.nTries = 0;
+				state.target = _.random(1, 100);
+				state.playing = true;
+				startMsg.update({
+					message: 'Je pense à un nombre...',
+					type: 'info',
+					actions: false
+				});
+				$scope.$digest();
+			}
+
+			$scope.haveAGuess = function() {
+				state.nTries++;
+				if(state.guess == state.target) {
+					startMsg.update({
+						message: 'Vous avez trouvé !',
+						type: 'success',
+						actions: {
+							start: {
+								label: 'Nouvelle partie',
+								action: newGame
+							}
+						}
+					});
+				}
+				else {
+					Messenger().error({
+						message: '' + state.guess + ' : ' + (state.guess < state.target ? 'trop petit' : 'trop grand')
+					});
+				}
 			};
+
+			console.log('hello 1');
+
+			setTimeout(function() {
+				console.log('hello 2');
+				Messenger.options = {
+					parentLocations: ['.content'],
+					messageDefaults: {
+					 hideAfter: 0 // disable auto-hide
+					},
+					extraClasses: 'messenger-fixed messenger-on-bottom',
+					theme: 'future'
+				};
+
+				startMsg = Messenger().success({
+					message: 'Bonjour',
+					hideAfter: 0,
+					actions: {
+						start: {
+							label: 'Nouvelle partie',
+							action: newGame
+						}
+					}
+				});
+			}, 250); // to wait for angular to settle down
+
+			logger.info('LandingController initialized.');
 		}]);
 
 		// angular manual initialisation since we use a script loader
@@ -51,7 +133,7 @@ window.main = function() {
 		console.log('Bootstrapping angular...');
 		// we must bind on document to encompass page title
 		angular.element(document).ready(function() {
-			angular.bootstrap(document, ['global_ng_module']);
+			angular.bootstrap(document, ['global_ng_module'], {strictDi: true});
 		});
 	});
 };

@@ -9,19 +9,17 @@ window.main = function() {
 
 	requirejs([
 		'lodash',
-		'jquery',
 		'carnet',
 		'appcache-nanny',
 		'screenfull',
 		'famous-global',
-		'messenger-theme-future',
 		'text!apps/' + app_radix + '/content.html',
 		'css!apps/' + app_radix + '/index.css',
 		'angular',
 		'famous-angular',
 		'bootstrap-with-cyborg-theme'
 	],
-	function(_, jq, Carnet, AppCacheNanny, screenfull, famous, Messenger, tpl) {
+	function(_, Carnet, AppCacheNanny, screenfull, famous, tpl) {
 		console.log('main require done.');
 
 		// build this app logger
@@ -55,75 +53,6 @@ window.main = function() {
 				})
 			});
 			AppCacheNanny.start({checkInterval: 60*60*1000}); // ms
-
-
-			var startMsg;
-
-			var state = $scope.state = {
-				playing: false,
-				nTries: 0,
-				guess: 50,
-				target: undefined
-			};
-
-			function newGame() {
-				console.log('starting a new game...');
-				state.nTries = 0;
-				state.target = _.random(1, 100);
-				state.playing = true;
-				startMsg.update({
-					message: 'Je pense à un nombre...',
-					type: 'info',
-					actions: false
-				});
-				$scope.$digest();
-			}
-
-			$scope.haveAGuess = function() {
-				state.nTries++;
-				if(state.guess == state.target) {
-					startMsg.update({
-						message: 'Vous avez trouvé !',
-						type: 'success',
-						actions: {
-							start: {
-								label: 'Nouvelle partie',
-								action: newGame
-							}
-						}
-					});
-				}
-				else {
-					Messenger().error({
-						message: '' + state.guess + ' : ' + (state.guess < state.target ? 'trop petit' : 'trop grand')
-					});
-				}
-			};
-
-			console.log('hello 1');
-
-			setTimeout(function() {
-				console.log('hello 2');
-				Messenger.options = {
-					parentLocations: ['.content'],
-					/*messageDefaults: {
-					 //hideAfter: 0 // disable auto-hide
-					 },*/
-					extraClasses: 'messenger-fixed messenger-on-bottom',
-					theme: 'future'
-				};
-
-				startMsg = Messenger().success({
-					message: 'Bonjour',
-					hideAfter: 0,
-					actions: {
-						start: {
-							label: 'Nouvelle partie',
-							action: newGame
-						}
-					}
-				});
-			});
 
 			logger.info('LandingController initialized.');
 		}]);

@@ -4,64 +4,26 @@
 	display: none !important;
 }
 
-/* global and bootstrap adjustments */
-body {
-	background-color: black !important;
-	color: deepskyblue !important;
-	font-family: 'Roboto', sans-serif !important;
-}
 
-div#content {
+#root {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.panel {
+	text-align: center;
+	font-size: 20px;
+}
+.panel.header {
+	line-height: 75px;
+	border-bottom: solid 1px gray;
+}
+.panel.content {
 	padding: 10px;
 }
-
-/*
-.navbar-inverse .navbar-link {
-	color: lightskyblue;
+.panel.footer {
+	border-top: solid 1px gray;
+	line-height: 50px;
 }
-.navbar-inverse .navbar-brand {
-	color: lightskyblue;
-}
-*/
-/*
-a, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	color: deepskyblue;
-}
-
-.directive-ror-client .btn-default {
-	background-color: black;
-	border-color: lightsteelblue;
-	color: deepskyblue;
-}
-
-.directive-ror-client .btn-default:hover {
-	background-color: #333;
-	color: lightsteelblue;
-}
-
-.navbar {
-	position: relative;
-	min-height: 50px;
-	margin-bottom: 20px;
-}
-
-.table-hover > tbody > tr:hover > td, .table-hover > tbody > tr:hover > th {
-	background-color: #333;
-}
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	background-color: #333;
-	color: deepskyblue;
-}*/
-
-
-
-/* our stuff */
-/*.directive-ror-client {
-	background-color: black;
-	color: deepskyblue;
-}
-
-.directive-ror-client > .content{
-	padding: 10px;
-}*/

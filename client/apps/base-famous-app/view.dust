@@ -20,26 +20,28 @@ font-size: 20px; /* Yes I know what I do */
 font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
 }
 #splash {
-background-color: #101112;
-color: #7B7F88;
-position:absolute;
+	background-color: #101112;
+	color: #7B7F88;
+	position:absolute;
 
-/* vertical centering technique - parent
-* http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-*/
-height: 100%;
-width: 100%;
--webkit-transform-style: preserve-3d;
--moz-transform-style: preserve-3d;
-transform-style: preserve-3d;
+	/* vertical centering technique - parent
+	 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+	 */
+	height: 100%;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
 }
 #splash-content {
-/* vertical centering technique - child
-*/
-position: relative;
-top: 50%;
-transform: translateY(-50%);
-text-align: center;
+	font-size: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+	/* vertical centering technique - child
+	 */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
 }
 #splash .logo {
 }
@@ -64,7 +66,7 @@ text-align: center;
 				<p id="loader">
 					<progress />
 				</p>
-				201506290115
+				<p><small>201507030147</small></p>
 			</div>
 		</div>
 

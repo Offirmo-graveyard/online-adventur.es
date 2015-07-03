@@ -1,12 +1,72 @@
 {>"layout/layout" /}
+
+{<inline_style}
+/* Only for loading style.
+* see index.css for definitive style.
+*/
+body
+{
+	/* needed for correct positionning */
+	position:absolute;
+	margin: 0;
+	padding: 0;
+
+	/* needed for container min-height */
+	height: 100%;
+	width: 100%;
+}
+#splash {
+	background-color: #101112;
+	color: #7B7F88;
+	position:absolute;
+
+	/* vertical centering technique - parent
+	 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
+	 */
+	height: 100%;
+	width: 100%;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+#splash-content {
+	font-size: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+	/* vertical centering technique - child
+	 */
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	text-align: center;
+}
+#splash .logo {
+}
+{/inline_style}
+
+
 {<content}
-
-<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-
+<!-- order matters -->
 <script src="apps/jeudunombre/index.js"></script>
+<script async data-main="apps/components.js" src="bower_components/requirejs/require.js"></script>
 
-<div id="content">
-	{@formatMessage _key="title"/} ({@formatMessage _key="coming_soon"/})
+
+<div id="root" fa-app>
+	<div content-directive>
+
+		<!-- splash screen with loader, only displayed while angular isn't ready -->
+		<div id="splash">
+			<div id="splash-content">
+				<p class="logo">
+					Offirmo’s online adventures
+				</p>
+				<p id="loader">
+					<progress />
+				</p>
+				<p><small>201507030147</small></p>
+			</div>
+		</div>
+
+	</div>
 </div>
 
 {/content}
