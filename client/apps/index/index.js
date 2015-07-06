@@ -1,10 +1,7 @@
-window.global_ng_module_dependencies = [];
-
 window.main = function() {
 	'use strict';
 
-	var app_radix = 'index';
-	console.log('Starting ' + app_radix + ' main js...');
+	console.log('Starting index main js...');
 	var server_title = document.title;
 
 	// thank you http://patorjk.com/software/taag/#p=display&h=3&v=0&f=Rectangles&t=Online%20%20Adventures
@@ -21,7 +18,7 @@ window.main = function() {
 		'carnet',
 		'angular-ui-router',
 		'angular-strap',
-		'css!client/apps/' + app_radix + '/index.css',
+		'css!client/apps/index/index.css',
 	],
 	function(_, Carnet) {
 		console.log('main require done.');

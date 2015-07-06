@@ -13,7 +13,8 @@
     "cleardeps": "rm -rf node_modules && rm -rf bower_components",
     "nodemon": "nodemon",
     "env": "environmentalist",
-    "build": "r.js -o build.js"
+    "build-appcache": "r.js -o client/apps/appcache/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
+    "build": "npm run build-appcache"
   },
   "engines": {
     "node": "^0.10.0"

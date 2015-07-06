@@ -2,7 +2,7 @@
 
 {<inline_style}
 /* Only for loading style.
- * see index.css for definitive style.
+ * See index.css for definitive style.
  */
 body
 {
@@ -47,9 +47,6 @@ body
 
 
 {<content}
-<!-- order matters -->
-<script src="client/apps/appcache/index.js"></script>
-<script async data-main="client/apps/components.js" src="bower_components/requirejs/require.js"></script>
 
 
 <div id="content" content-directive>
@@ -68,4 +65,26 @@ body
 	</div>
 
 </div>
+
+<!-- order matters -->
+<!--
+<script src="client/apps/appcache/all_js.concat+min.js"></script>
+<script>
+	require(['app-appcache']);
+</script>
+-->
+
+<script src="bower_components/requirejs/require.js"></script>
+<script>
+	require([
+	 'client/apps/requirejs-config'
+	 ], function() {
+		 // Configuration loaded now, safe to do other require calls that depend on that config.
+		 require([
+		   'app-appcache',
+		   //'css!client/apps/appcache/index.css',
+		 ]);
+	 });
+</script>
+
 {/content}

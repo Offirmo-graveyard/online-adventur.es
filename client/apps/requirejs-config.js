@@ -1,8 +1,11 @@
-/* Require.js definitions
+/** require.js config
+ *
+ * Note : for the optimizer to work correctly :
+ *  - no "code"
+ *  - no extra stuff
  */
-'use strict';
 
-console.log('Starting require js config…');
+console.log('Loading require js config…');
 
 requirejs.config({
 
@@ -10,7 +13,8 @@ requirejs.config({
 	// NOTE 1 : non-rsrc url below may not be affected by baseUrl
 	// NOTE 2 : relative baseUrl base refers to *the calling html* !
 	// NOTE 3 : "self" stuff is for handling web workers
-	baseUrl: (self ? self.requirejs_baseurl : undefined) || '../..',
+	//baseUrl: (self ? self.requirejs_baseurl : undefined) || '../..',
+	baseUrl: '../..',
 
 	// http://requirejs.org/docs/api.html#config-enforceDefine
 	enforceDefine: false,
@@ -19,9 +23,9 @@ requirejs.config({
 	map: {
 		'*': {
 			// an extension to be able to load any kind of text
-			'text': 'bower_components/requirejs-text/text',
+			//'text': 'requirejs-text',
 			// an extension to be able to load css with require.js
-			'css':  'bower_components/require-css/css',
+			//'css':  'requirejs-css',
 			// an extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
@@ -30,7 +34,7 @@ requirejs.config({
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
 			'ngload': 'bower_components/angularAMD/ngload',
-			// transparently replace undercore with lodash
+			// transparently replace underscore with lodash
 			'underscore' : 'lodash'
 		}
 	},
@@ -46,16 +50,31 @@ requirejs.config({
 			name : 'when',
 			location: 'bower_components/when',
 			main: 'when.js'
+		},
+		{
+			name : 'when',
+			location: 'bower_components/when',
+			main: 'when.js'
 		}
 	],
 
 	/////////////////////
 	paths: {
+		// require.js extensions (plugins)
+		// an extension to be able to load css
+		'css'                      :  'bower_components/require-css/css.min',
+		// an extension to be able to load any kind of text
+		'text'                     : 'bower_components/requirejs-text/text',
+
 		/////// AMD plugins (dirs or direct)
 		//'base-objects'             : '../incubator/base-objects.js', // dir
 		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
 		'jquery'                   : 'bower_components/jquery/dist/jquery',
 		//'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
+
+		/////// our apps
+		'offirmo-app-bootstrap'    : 'client/apps/offirmo-app-bootstrap',
+		'app-appcache'             : 'client/apps/appcache/index',
 
 		/////// shim plugins
 		'angular'                  : 'bower_components/angular/angular',
@@ -208,33 +227,10 @@ requirejs.config({
 	},
 
 	/////////////////////
-	config: {
-		// TODO one day
-	}
+	// config: {},
 
 	/////////////////////
-	//deps: ['app']
+	//deps: []
 });
 
-console.log('require.js config done.');
-
-if(typeof window !== 'undefined') { // not available in a web worker for ex.
-	console.log('starting application logic…');
-
-	// angular modules simplified ;-)
-	var global_module_instance;
-	Object.defineProperty(window, 'global_ng_module', {
-		enumerable: true, // why not ?
-		set: function() {
-			throw new Error('You can’t assign window.global_ng_module !');
-		},
-		get: function() {
-			if(global_module_instance) return global_module_instance; // already OK
-			console.log('building');
-			global_module_instance = angular.module('global_ng_module', window.global_ng_module_dependencies);
-			return global_module_instance;
-		}
-	});
-
-	window.main();
-}
+console.log('require js config parsed.');

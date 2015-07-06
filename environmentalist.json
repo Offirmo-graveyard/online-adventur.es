@@ -5,9 +5,9 @@
 		"required": false
 	},
 	{
-		"name": "LOG_LEVEL",
-		"description": "Sets the level that will be logged by the system",
-		"default": "info",
+		"name": "NODE_ENV",
+		"description": "The server mode",
+		"default": "development",
 		"required": false
 	}
 ]
