@@ -8,7 +8,7 @@ define([
 	'appcache-nanny',
 	'screenfull',
 	'text!client/apps/appcache/content.html',
-	//'css!client/apps/appcache/index.css',
+	'css!client/apps/appcache/index',
 ],
 function(offirmo_app, _, angular, Carnet, AppCacheNanny, screenfull, tpl) {
 	console.log('executing main...');

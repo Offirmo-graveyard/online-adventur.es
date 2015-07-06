@@ -1,4 +1,4 @@
-@import '../common.css';
+@import '/client/apps/common.css';
 
 #content {
 	background-color: #e8faff;

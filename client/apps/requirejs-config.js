@@ -42,6 +42,12 @@ requirejs.config({
 	/////////////////////
 	// multi-files modules
 	packages: [
+		// require.js extensions (plugin) to be able to load css with require.js
+		{
+			name : 'css',
+			location: 'bower_components/require-css/',
+			main: 'css.js'
+		},
 		{
 			name : 'carnet',
 			location: 'common/incubator/carnet'
@@ -55,25 +61,13 @@ requirejs.config({
 			name : 'when',
 			location: 'bower_components/when',
 			main: 'when.js'
-		}
+		},
 	],
 
 	/////////////////////
 	paths: {
-		// require.js extensions (plugins)
-		// an extension to be able to load css
-		'css'                      :  'bower_components/require-css/css.min',
-		// an extension to be able to load any kind of text
-		'text'                     : 'bower_components/requirejs-text/text',
 
-		/////// AMD plugins (dirs or direct)
-		//'base-objects'             : '../incubator/base-objects.js', // dir
-		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions', // direct
-		'jquery'                   : 'bower_components/jquery/dist/jquery',
-		//'webworker_helper'         : '../incubator/node_and_common/webworker_helper/webworker_helper', // direct
-
-		/////// our apps
-		'offirmo-app-bootstrap'    : 'client/apps/offirmo-app-bootstrap',
+		/////// our apps, as modules
 		'app-appcache'             : 'client/apps/appcache/index',
 
 		/////// shim plugins
@@ -91,6 +85,7 @@ requirejs.config({
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
+		'extended-exceptions'      : 'bower_components/extended-exceptions.js/extended_exceptions',
 		'famous'                   : 'bower_components/famous/dist/famous',
 		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'famous-global'            : 'bower_components/famous/dist/famous-global',
@@ -98,14 +93,18 @@ requirejs.config({
 		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
+		'jquery'                   : 'bower_components/jquery/dist/jquery',
 		'lodash'                   : 'bower_components/lodash/lodash',
 		'messenger'                : 'bower_components/messenger/build/js/messenger',
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
 		'moment'                   : 'bower_components/momentjs/moment',
+		'offirmo-app-bootstrap'    : 'client/apps/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
-		'spin'                     : 'bower_components/spin.js/spin'
+		'spin'                     : 'bower_components/spin.js/spin',
+		// require.js extensions (plugin) to be able to load any kind of text with require.js
+		'text'                     : 'bower_components/requirejs-text/text',
 		//'underscore'  -> replaced by lodash, see "map" section above.
 	},
 
