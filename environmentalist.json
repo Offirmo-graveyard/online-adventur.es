@@ -1,17 +1,13 @@
 [
 	{
-		"name": "PASSWORD_HASH_SECRET",
-		"description": "Used to compute the password hash of users",
-		"default": "ABCDEFGHIJKLMOP",
-		"required": true
+		"name": "MANDRILL_API_KEY",
+		"description": "Secret API key allowing to send emails via mailchimp saas",
+		"required": false
 	},
 	{
 		"name": "LOG_LEVEL",
 		"description": "Sets the level that will be logged by the system",
 		"default": "info",
 		"required": false
-	},
-	{
-		"name": "CRAZY_VARIABLE"
 	}
 ]

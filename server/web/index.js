@@ -105,10 +105,11 @@ app.use(middleware.logging('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
 // to avoid processing any other middleware if we already know the request is for /favicon.ico
-app.use(middleware.serving_favicon(path.join(__dirname, '../../client/favicon.ico')));
+app.use(middleware.serving_favicon(path.join(__dirname, '../../client/root-expected-files/favicon.ico')));
 
 // then static files which doesn't require special processing
 // Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
+app.use('/', middleware.serving_static_files(path.join(__dirname, '../../client/root-expected-files')));
 app.use('/client', middleware.serving_static_files(path.join(__dirname, '../../client')));
 app.use('/common', middleware.serving_static_files(path.join(__dirname, '../../common')));
 app.use('/bower_components', middleware.serving_static_files(path.join(__dirname, '../../bower_components')));
