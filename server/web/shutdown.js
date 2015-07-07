@@ -4,7 +4,7 @@
 
 var cluster = require('cluster');
 var _ = require('lodash');
-var shutdown = require('../incubator/shutdown');
+var shutdown = require('../common/incubator/shutdown');
 var forky = require('forky');
 
 
