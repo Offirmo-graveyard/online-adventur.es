@@ -39,3 +39,8 @@ router.get('/timeout/:duration_in_sec', function (req, res) {
 		}, timeout*1000);
 	}
 });
+
+
+router.get('/toto/', function (req, res) {
+	res.send('correct /toto/ !');
+});

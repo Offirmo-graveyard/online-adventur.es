@@ -7,6 +7,8 @@ if (!global.Intl) {
 
 var express = require('express');
 
+var config = require('./config');
+
 // http://expressjs.com/4x/api.html
 var app = express();
 
@@ -27,7 +29,7 @@ app.engine('dust', consolidated_templates.dust); // .dust will be rendered with.
 app.set('view engine', 'dust'); // default extension to use when omitted
 
 // views directory : from base dir, defaults to /views
-app.set('views', 'client/views'); // default extension to use when omitted
+app.set('views', config.dust_views_dir); // default extension to use when omitted
 
 
 // Because you're the type of developer who cares about this sort of thing!

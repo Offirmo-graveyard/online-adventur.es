@@ -36,7 +36,7 @@ module.exports = function(app_radix, app_route, extra_view_data) {
 			// maybe there is no i18n at all ?
 			try {
 				//console.log('trying ' + '../../client/i18n/common.' + locale);
-				if(! messages) messages = require('../../client/i18n/common.' + locale);
+				if(! messages) messages = require('../../client/common/i18n/common.' + locale);
 			} catch(e) {
 				console.error('Couldn’t event find the common locale for ' + locale + ' !', e);
 			}
@@ -57,9 +57,26 @@ module.exports = function(app_radix, app_route, extra_view_data) {
 		};
 	}
 
+	// production route
+
+	// production route without appcache (precisely to build the appcach)
+
+	// dev route
+
+
 	router.get(app_route, function serve_with_appcache(req, res) {
 		// REM : path relative to template root
-		res.render('../apps/' + app_radix + '/view', _.defaults({
+		res.render('../../apps/' + app_radix + '/view', _.defaults({
+			tpl: app_radix,
+			appcache_manifest: 'apps/' + app_radix + '/manifest.appcache',
+			lang: req.locale,
+			intl: build_intl(req.locale)
+		}, extra_view_data));
+	});
+
+	router.get(app_route, function serve_with_appcache(req, res) {
+		// REM : path relative to template root
+		res.render('../../apps/' + app_radix + '/view', _.defaults({
 			tpl: app_radix,
 			appcache_manifest: 'apps/' + app_radix + '/manifest.appcache',
 			lang: req.locale,
@@ -71,7 +88,7 @@ module.exports = function(app_radix, app_route, extra_view_data) {
 	var no_appcache_route = ((app_route === '/') ? ('/' + app_radix) : app_route) + '-no-appcache';
 	router.get(no_appcache_route, function serve_without_appcache(req, res) {
 		// REM : path relative to template root
-		res.render('../apps/' + app_radix + '/view', _.defaults({
+		res.render('../../apps/' + app_radix + '/view', _.defaults({
 			tpl: app_radix,
 			appcache_manifest: '', //<<<<  None !
 			lang: req.locale,

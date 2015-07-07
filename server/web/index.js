@@ -66,20 +66,14 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
-// (install itself in all env except production)
-if(true && config.env === 'development') {
-	logger.log('* configuring express-livereload to watch "' + process.cwd() + '/client"…');
+if(config.livereload.enabled) {
+	logger.log('* configuring express-livereload to watch "' + config.livereload.watched_dir + '"…');
 	require('express-livereload')(app, {
-		watchDir:  process.cwd() + '/client', // optim
 		// https://github.com/napcs/node-livereload#api-options
-		debug: true,
-		port: config.livereload_port,
-		exts: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
-		// cool, our new file structure makes exclusions useless ;)
-		/*exclusions: [
-			'node modules/',
-			'client/bower_components/',
-		]*/
+		watchDir: config.livereload.watched_dir,
+		debug:    config.livereload.debug,
+		port:     config.livereload.port,
+		exts:     config.livereload.watched_extensions
 	});
 }
 
@@ -105,11 +99,12 @@ app.use(middleware.logging('dev'));
 
 // Typically this middleware will come very early in your stack (maybe even first)
 // to avoid processing any other middleware if we already know the request is for /favicon.ico
-app.use(middleware.serving_favicon(path.join(__dirname, '../../client/root-expected-files/favicon.ico')));
+app.use(middleware.serving_favicon(
+	path.join(config.favicons_dir, '/favicon.ico')
+));
 
-// then static files which doesn't require special processing
-// Note : if using a reverse proxy, should never match so may be moved at bottom (or completely removed)
-app.use('/', middleware.serving_static_files(path.join(__dirname, '../../client/root-expected-files')));
+// then static files which doesn't require special processing.
+app.use('/', middleware.serving_static_files( config.favicons_dir ));
 app.use('/client', middleware.serving_static_files(path.join(__dirname, '../../client')));
 app.use('/common', middleware.serving_static_files(path.join(__dirname, '../../common')));
 app.use('/bower_components', middleware.serving_static_files(path.join(__dirname, '../../bower_components')));
@@ -134,16 +129,12 @@ app.use(middleware.detecting_best_locale(config.supported_locales, {logger: logg
 
 // "express debug toolbar"
 // https://github.com/devoidfury/express-debug
-if(config.env === 'development')
+if(config.express_debug_enabled)
 	require('express-debug')(app, {/* settings */});
 
 
 
 /********************************** routes **************************************/
-app.get('/l1', function(req, res) {
-	res.header('Content-Type', 'text/plain');
-	res.send('Level 1 OK');
-});
 app.use(routes);
 
 
@@ -153,7 +144,7 @@ app.use(routes);
 //  below any other app.use() calls"
 // http://stackoverflow.com/questions/6528876/how-to-redirect-404-errors-to-a-page-in-expressjs
 app.use(function (err, req, res, next) {
-	logger.log('1st error handler', err, err['stack']);
+	logger.log('1st error handler', err, err.stack);
 	//logger.exception(err);
 
 	// so we have an error. Do we have a status ?

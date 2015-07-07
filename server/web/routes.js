@@ -14,11 +14,6 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
-router.get('/l2', function(req, res) {
-	res.header('Content-Type', 'text/plain');
-	res.send('Level 2 OK');
-});
-
 router.use('/', app_router('index', '/'));
 router.use('/', app_router('helloworld', undefined, {
 	title: 'Express',
@@ -30,7 +25,7 @@ router.use('/', app_router('helloworld', undefined, {
 router.use('/', app_router('appcache'));
 router.use('/', app_router('base-famous-app'));
 router.use('/', app_router('jeudunombre'));
-router.use('/', app_router('ror'));
+//router.use('/', app_router('ror'));
 
 // TODO
 router.get('/page1', function (req, res) {
@@ -39,15 +34,6 @@ router.get('/page1', function (req, res) {
 		title: 'Express',
 		lang: req.locale,
 		intl: {'locales': req.locale}
-	});
-});
-
-// TODO
-router.get('/ror', function (req, res) {
-	res.render('ror', {
-		tpl: 'ror',
-		lang: req.locale,
-		intl: build_intl(req.locale),
 	});
 });
 
@@ -60,10 +46,6 @@ router.get('/locale_test', function(req, res) {
 		'The best match is: ' + req.locale + '\n' +
 		'Choice reason: ' + req.locale_choice + '\n'
 	);
-});
-
-router.get('/toto/', function (req, res) {
-	res.send('correct /toto/ !');
 });
 
 // 'catch all' = default / 404 for a webapp

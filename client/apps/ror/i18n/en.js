@@ -6,7 +6,7 @@ define(function(require) {
 
 	var _ = require('lodash');
 
-	var parent_messages = require('../../../i18n/common.en');
+	var parent_messages = require('../../../common/i18n/common.en');
 
 	var messages = {
 		hello_world: 'Hello world !'

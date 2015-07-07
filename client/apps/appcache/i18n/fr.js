@@ -6,7 +6,7 @@ define(function(require) {
 
 	var _ = require('lodash');
 
-	var parent_messages = require('../../../i18n/common.fr');
+	var parent_messages = require('../../../common/i18n/common.fr');
 
 	var messages = {
 		title: 'Une web app qui fonctionne hors-ligne'

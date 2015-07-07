@@ -1,1 +1,10 @@
 ’
+
+About file structure :
+
+We like auto reload/relaunch of our app. However, watching node_modules or bower_components put a strain.
+Even if those dirs can be excluded, they are excluded by a software filter but still watched by the fs.
+Our dir structure outlines a clear server/ client/ common/.
+Everything that should cause a client reload should be in /client or /common (including server dust templates)
+Everything that should cause a server restart should be in /server or /common
+We can then instruct

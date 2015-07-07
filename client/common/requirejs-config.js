@@ -98,7 +98,7 @@ requirejs.config({
 		'messenger'                : 'bower_components/messenger/build/js/messenger',
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
 		'moment'                   : 'bower_components/momentjs/moment',
-		'offirmo-app-bootstrap'    : 'client/apps/offirmo-app-bootstrap',
+		'offirmo-app-bootstrap'    : 'client/common/incubator/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		'rdust'                    : 'bower_components/require-dust/rdust',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',

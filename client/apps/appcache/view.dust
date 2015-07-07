@@ -77,7 +77,7 @@ body
 <script src="bower_components/requirejs/require.js"></script>
 <script>
 	require([
-	 'client/apps/requirejs-config'
+	 'client/common/requirejs-config'
 	 ], function() {
 		 // Configuration loaded now, safe to do other require calls that depend on that config.
 		 require([
