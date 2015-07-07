@@ -14,7 +14,9 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
-router.use('/', app_router('index', '/'));
+router.use('/', app_router('index', '/', {
+	apps: ['helloworld', 'appcache', 'base-famous-app', 'jeudunombre']
+}));
 router.use('/', app_router('helloworld', undefined, {
 	title: 'Express',
 	num      : 42000,
