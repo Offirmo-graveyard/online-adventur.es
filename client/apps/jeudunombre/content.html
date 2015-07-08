@@ -11,6 +11,9 @@
 		<fa-surface class="panel content">
 			<p>Trouvez le nombre entre 1 et 100.</p>
 			<p>Nombre de tentatives : {{state.nTries}}</p>
+			{{surfs.length}}
+
+
 
 			<form role="form" name="game" ng-show="state.playing">
 
@@ -30,10 +33,20 @@
 
 		</fa-surface>
 
+		<fa-scroll-view fa-pipe-from="enginePipe" fa-pipe-to="scrollListener" fa-options="{direction: 0}">
+				<fa-surface
+					ng-repeat="surf in surfs"
+					fa-size="[30, 50]"
+					fa-pipe-to="enginePipe"
+					fa-background-color="surf.bgColor">
+					[{{$index}}]{{surf.content}}
+				</fa-surface>
+		</fa-scroll-view>
+
 		<!-- footer -->
-		<fa-surface class="panel footer">
+		<!-- <fa-surface class="panel footer">
 			Par Offirmo
-		</fa-surface>
+		</fa-surface> -->
 
 	</fa-header-footer-layout>
 </div>

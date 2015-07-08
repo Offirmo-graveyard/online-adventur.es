@@ -9,7 +9,7 @@ var parent_config = require('../../common/config');
 
 var defaults = {
 	canonical_url: 'http://www.online-adventur.es', // without trailing /, important for concat
-	listening_port: 3000,
+	listening_port: 7000,
 	supported_locales: [ 'en', 'fr' ],
 	// https://www.npmjs.org/package/express-livereload
 	livereload: {

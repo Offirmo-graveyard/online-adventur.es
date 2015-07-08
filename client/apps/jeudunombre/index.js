@@ -30,9 +30,18 @@ function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
 			replace: true
 		};
 	})
-	.controller('LandingController', ['$scope', function($scope) {
+	.controller('LandingController', ['$scope', '$famous', function($scope, $famous) {
 		logger.info('LandingController…');
+
+		var EventHandler = $famous['famous/core/EventHandler'];
+
 		$scope.title = offirmo_app.server_title;
+
+		$scope.scrollListener = new EventHandler();
+
+		$scope.scrollListener.on('update', function(evt){
+			console.log('scroll started');
+		});
 
 		var startMsg;
 
@@ -42,6 +51,16 @@ function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
 			guess: 50,
 			target: undefined
 		};
+
+
+		$scope.surfs = [];
+		for(var i=0; i < 100; i++) {
+			$scope.surfs.push({
+				content: i + 1,
+				bgColor: '#9E9B8C'
+			});
+		}
+			console.log($scope.surfs);
 
 		function newGame() {
 			console.log('starting a new game...');
