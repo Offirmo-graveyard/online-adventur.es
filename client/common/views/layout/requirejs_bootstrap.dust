@@ -1,0 +1,21 @@
+
+{! Different code for prod and dev mode !}
+{?jsminification_enabled}
+<script src="{minified_js}"></script>
+<script>
+	require(['{app_requirejs_module_name}']);
+</script>
+{:else}
+<script src="bower_components/requirejs/require.js"></script>
+<script>
+	require([
+		'client/common/requirejs-config'
+	], function() {
+		// Configuration loaded now, safe to do other require calls that depend on that config.
+		require([
+			'{app_requirejs_module_name}'
+			//'css!client/apps/appcache/index.css',
+		]);
+	});
+</script>
+{/jsminification_enabled}

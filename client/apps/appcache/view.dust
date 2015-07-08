@@ -47,44 +47,41 @@ body
 
 
 {<content}
+	<div id="content" content-directive>
 
-
-<div id="content" content-directive>
-
-	<!-- splash screen with loader, only displayed while angular isn't ready -->
-	<div id="splash">
-		<div id="splash-content">
-			<div class="logo">
-				Offirmo’s online adventures
+		<!-- splash screen with loader, only displayed while angular isn't ready -->
+		<div id="splash">
+			<div id="splash-content">
+				<div class="logo">
+					Offirmo’s online adventures
+				</div>
+				<div id="loader">
+					<progress />
+				</div>
+				<p><small>201507030152</small></p>
 			</div>
-			<div id="loader">
-				<progress />
-			</div>
-			<p><small>201507030152</small></p>
 		</div>
+
 	</div>
 
-</div>
 
+	{! Different code for prod and dev mode !}
 
-<!--
-<script src="client/apps/appcache/all_js.concat+min.js"></script>
-<script>
-	require(['app-appcache']);
-</script>
--->
+	<script src="client/apps/appcache/all_js.concat+min.js"></script>
+	<script>
+		require(['app-appcache']);
+	</script>
 
-<script src="bower_components/requirejs/require.js"></script>
-<script>
-	require([
-	 'client/common/requirejs-config'
-	 ], function() {
-		 // Configuration loaded now, safe to do other require calls that depend on that config.
-		 require([
-		   'app-appcache',
-		   //'css!client/apps/appcache/index.css',
-		 ]);
-	 });
-</script>
-
+	<script src="bower_components/requirejs/require.js"></script>
+	<script>
+		require([
+		 'client/common/requirejs-config'
+		 ], function() {
+			 // Configuration loaded now, safe to do other require calls that depend on that config.
+			 require([
+			   'app-appcache'
+			   //'css!client/apps/appcache/index.css',
+			 ]);
+		 });
+	</script>
 {/content}

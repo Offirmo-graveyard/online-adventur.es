@@ -1,0 +1,11 @@
+<div id="splash">
+	<div id="splash-content">
+		<div class="logo">
+			Offirmo’s online adventures
+		</div>
+		<div id="loader">
+			<progress />
+		</div>
+		<p><small>201507030152</small></p>
+	</div>
+</div>

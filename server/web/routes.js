@@ -14,18 +14,24 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
 
-router.use('/', app_router('index', '/', {
-	apps: ['helloworld', 'appcache', 'base-famous-app', 'jeudunombre']
+router.use('/', app_router('index', {
+	custom_route: '/',
+	custom_template: '../../apps/index/view', // REM : path relative to template root
+	template_data: {
+		apps: ['index', 'helloworld', 'appcache', 'famous-base', 'jeudunombre']
+	}
 }));
-router.use('/', app_router('helloworld', undefined, {
-	title: 'Express',
-	num      : 42000,
-	completed: 0.9,
-	price    : 100.95,
-	date: new Date()
+router.use('/', app_router('helloworld', {
+	template_data: {
+		title: 'Express',
+		num      : 42000,
+		completed: 0.9,
+		price    : 100.95,
+		date: new Date()
+	}
 }));
 router.use('/', app_router('appcache'));
-router.use('/', app_router('base-famous-app'));
+router.use('/', app_router('famous-base'));
 router.use('/', app_router('jeudunombre'));
 //router.use('/', app_router('ror'));
 
@@ -59,7 +65,7 @@ router.get('/locale_test', function(req, res) {
 //   - internal (API, auto fetch of rsrc, non page-rsrc...)
 // - a correct page, but unknown from the server since will be resolved client-side by ui-router
 router.get('*', function (req, res) {
-	console.log('fallback "catch all" route triggered for url "' + req.url + '"');
+	console.error('fallback "catch all" route triggered for url "' + req.url + '"');
 
 	// so what ?
 	if(utils.is_internal_request(req)) {
@@ -93,7 +99,7 @@ router.get('*', function (req, res) {
 		//res.sendFile('index.html', {root: './public'});
 	}
 	else {
-		console.log('404 page for :', req.url);
+		console.error('404 page for :', req.url);
 		return res.render('404', { tpl: '404', url: req.url, lang: req.locale });
 		// if rendering fail, will go to error handler.
 	}

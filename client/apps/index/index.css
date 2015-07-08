@@ -1,4 +1,6 @@
-@import '../common.css';
+@import '/client/common/common.css';
+
+XXX not used for now, to rework XXX
 
 /* global and bootstrap adjustments */
 body {

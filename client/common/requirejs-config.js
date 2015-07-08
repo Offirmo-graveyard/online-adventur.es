@@ -67,8 +67,13 @@ requirejs.config({
 	/////////////////////
 	paths: {
 
-		/////// our apps, as modules
+		/////// our apps, as modules, so that we can reference them when inside the concat+min js
+		'app-index'                : 'client/apps/index/index',
+		'app-helloworld'           : 'client/apps/helloworld/index',
 		'app-appcache'             : 'client/apps/appcache/index',
+		'app-famous-base'          : 'client/apps/famous-base/index',
+		'app-jeudunombre'          : 'client/apps/jeudunombre/index',
+		'app-ror'                  : 'client/apps/ror/index',
 
 		/////// shim plugins
 		'angular'                  : 'bower_components/angular/angular',

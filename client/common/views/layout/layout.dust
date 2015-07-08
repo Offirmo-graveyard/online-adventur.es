@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingController" manifest="{appcache_manifest}">
+<html lang="{lang}" xmlns:ng="http://angularjs.org" ng-controller="LandingController" {?appcache_enabled}manifest="{appcache_manifest}"{/appcache_enabled}>
 	<head>
 		{>"layout/head/index" /}
 	</head>

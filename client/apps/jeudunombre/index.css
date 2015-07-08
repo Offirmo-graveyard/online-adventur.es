@@ -1,4 +1,4 @@
-@import '../common.css';
+@import '/client/common/common.css';
 
 #root {
 	position: fixed;

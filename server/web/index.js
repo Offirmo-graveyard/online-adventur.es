@@ -32,24 +32,6 @@ var routes     = require('./routes');
 // cf. http://expressjs.com/4x/api.html#app.listen
 var server = require('http').createServer(app);
 
-// onflight requests counter (experimental)
-var onflight_count = 0;
-server.on('request', function(req, res) {
-	onflight_count++;
-	logger.log('* seen server.request "' + req.originalUrl + '", on flight =' + onflight_count);
-	res.once('finish', function() {
-		onflight_count--;
-		logger.log('* seen response.finish, on flight =' + onflight_count);
-	});
-	res.once('close', function() {
-		onflight_count--;
-		logger.log('* seen response.close, on flight =' + onflight_count);
-	});
-});
-server.on('close', function() {
-	logger.log('* seen server.close, on flight =' + onflight_count);
-});
-
 // shutdown our server at exit
 var cluster = require('cluster');
 shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {

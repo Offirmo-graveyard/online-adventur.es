@@ -3,7 +3,7 @@
 
 ({
 	baseUrl: '../../..',
-	mainConfigFile: '../requirejs-config.js',
+	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-appcache',
 	out: 'all_js.concat+min.js',
 })

@@ -1,5 +1,5 @@
 <!-- js -->
-<!-- live reload script -->{LRScript|s}
+{?livereload_enabled}{LRScript|s}{/livereload_enabled}
 <!--<script src="bower_components/pace/pace.min.js"></script>-->
 <script>
 	//...
