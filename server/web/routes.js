@@ -22,6 +22,7 @@ router.use('/', app_router('index', {
 	}
 }));
 router.use('/', app_router('helloworld', {
+	custom_template: '../../apps/helloworld/view', // REM : path relative to template root
 	template_data: {
 		title: 'Express',
 		num      : 42000,
@@ -31,8 +32,12 @@ router.use('/', app_router('helloworld', {
 	}
 }));
 router.use('/', app_router('appcache'));
-router.use('/', app_router('famous-base'));
-router.use('/', app_router('jeudunombre'));
+router.use('/', app_router('famous-base', {
+	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
+}));
+router.use('/', app_router('jeudunombre', {
+	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
+}));
 //router.use('/', app_router('ror'));
 
 // TODO

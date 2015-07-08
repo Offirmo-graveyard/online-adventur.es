@@ -168,7 +168,7 @@ requirejs.config({
 			deps: [
 				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 				'jquery',
-				'css!other_components/bootswatch/cyborg/cyborg-bootstrap.min'
+				'css!client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
 			]
 		},
 		'dust': {

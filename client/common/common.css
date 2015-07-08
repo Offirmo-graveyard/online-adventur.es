@@ -6,7 +6,7 @@
 
 @font-face {
 	font-family: 'RobotoRegular';
-	src: url('/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
+	src: url('/client/common/other_components/Roboto_Hinted_20111129/Roboto-Regular.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

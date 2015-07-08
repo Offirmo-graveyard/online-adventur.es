@@ -4,3 +4,7 @@ body
 {
 	font-family: "RobotoRegular", "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
 }
+
+div#content {
+	padding: 0px 10px;
+}

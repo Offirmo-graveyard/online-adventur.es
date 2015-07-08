@@ -7,10 +7,11 @@ define(function(require) {
 	var _ = require('lodash');
 
 	var parent_messages = require('../../../common/i18n/common.fr');
+	var fallback_messages = require('./en.fr');
 
 	var messages = {
 		title: 'Une web app qui fonctionne hors-ligne'
 	};
 
-	return _.defaults(messages, parent_messages);
+	return _.defaults(messages, parent_messages, fallback_messages);
 });

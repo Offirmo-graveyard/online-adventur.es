@@ -11,6 +11,8 @@ define([
 	'css!client/apps/appcache/index',
 ],
 function(offirmo_app, _, angular, Carnet, AppCacheNanny, screenfull, tpl) {
+	'use strict';
+
 	console.log('executing main...');
 
 	offirmo_app.global_ng_module_dependencies = [];

@@ -8,15 +8,15 @@ body
 	/* needed for container min-height */
 	height: 100%;
 	width: 100%;
-
-	/* */
-	font-size: 20px; /* Yes I know what I do */
-	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
 }
 #splash {
 	background-color: #101112;
 	color: #7B7F88;
 	position:absolute;
+
+	/* */
+	font-size: 20px; /* Yes I know what I do */
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
 
 	/* vertical centering technique - parent
 	 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/

@@ -1,46 +1,30 @@
 CACHE MANIFEST
-## 201507030147
+## 201507082210
 
 CACHE:
 
+#images
+
+
+#internal HTML documents
+
+
 #style sheets
-/apps/jeudunombre/index.css
 /bower_components/famous-angular/dist/famous-angular.css
 /bower_components/messenger/build/css/messenger-theme-future.css
 /bower_components/messenger/build/css/messenger.css
-/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
+/client/apps/jeudunombre/index.css
+/client/common/common.css
+/client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
 
 #style sheet images
 
 
 #javascript files
-/apps/components.js
-/bower_components/jquery/dist/jquery.js
-/incubator/carnet/main.js
-/bower_components/appcache-nanny/appcache-nanny.js
-/bower_components/requirejs-text/text.js
-/bower_components/require-css/css.js
-/bower_components/lodash/lodash.js
-/bower_components/screenfull/dist/screenfull.js
-/bower_components/famous/dist/famous-global.js
-/incubator/carnet/lib/core.js
-/incubator/carnet/lib/logger_default.js
-/bower_components/angular/angular.js
-/incubator/carnet/lib/sink_plain_console.js
-/incubator/carnet/lib/sink_enhanced_console.js
-/bower_components/famous-angular/dist/famous-angular.js
-/bower_components/bootstrap-css/js/bootstrap.js
-/bower_components/messenger/build/js/messenger.js
-/incubator/carnet/lib/utils.js
-/incubator/carnet/lib/enricher_console_affinity.js
-/incubator/carnet/lib/enricher_color_affinity.js
-/incubator/carnet/lib/enricher_timestamp_string.js
-/incubator/carnet/lib/enricher_cluster_worker_id.js
-/bower_components/messenger/build/js/messenger-theme-future.js
-/apps/jeudunombre/index.js
-/bower_components/requirejs/require.js
+/client/apps/jeudunombre/all_js.concat+min.js
 
-/apps/jeudunombre/content.html
+
+/appcache-loader.html
 
 ## special files, conditional loading depending on platform
 /android-chrome-144x144.png
@@ -76,6 +60,5 @@ CACHE:
 # it isn't cached, and references to this file will bypass the cache,
 # always hitting the network (or trying to, if the user is offline).
 NETWORK:
-http://192.168.88.88:35730/livereload.js
 https://fonts.googleapis.com/css?family=Roboto:400,700
 #*

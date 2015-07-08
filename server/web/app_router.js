@@ -54,9 +54,13 @@ module.exports = function(app_radix, options) {
 		})
 	);
 
+
+	// REM : path relative to template root
+	var template_path = options.custom_template || 'single-page_webapp';
+
 	// common data
 	var common_view_data = _.defaults({
-		//tpl: app_radix,
+		template_path: template_path, //< for debug
 
 		// app radix, needed for some paths
 		app_radix: app_radix,
@@ -70,10 +74,6 @@ module.exports = function(app_radix, options) {
 		// path to the minified js
 		minified_js: 'client/apps/' + app_radix + '/all_js.concat+min.js',
 	}, options.template_data);
-
-
-	// REM : path relative to template root
-	var app_view_path = options.custom_template || 'single-page_webapp';
 
 	/////// routes ///////
 
@@ -89,7 +89,7 @@ module.exports = function(app_radix, options) {
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
 		console.log('template data', template_data);
-		res.render(app_view_path, template_data);
+		res.render(template_path, template_data);
 	});
 
 	// nearly-production route without appcache (to build or debug the appcache)
@@ -104,7 +104,7 @@ module.exports = function(app_radix, options) {
 			lang: req.locale,
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
-		res.render(app_view_path, template_data);
+		res.render(template_path, template_data);
 	});
 
 	// dev route
@@ -119,7 +119,7 @@ module.exports = function(app_radix, options) {
 			lang: req.locale,
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
-		res.render(app_view_path, template_data);
+		res.render(template_path, template_data);
 	});
 
 	// custom route (if any)
@@ -136,7 +136,7 @@ module.exports = function(app_radix, options) {
 				intl: formatJS_intls[req.locale]
 			}, common_view_data);
 			console.log('template data', template_data);
-			res.render(app_view_path, template_data);
+			res.render(template_path, template_data);
 		});
 	}
 

@@ -1,42 +1,30 @@
 {>"layout/layout" /}
 
-{<inline_style}
-body
-{
-	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
-}
-{/inline_style}
-
 {<content}
 
-<script src="client/apps/helloworld/index.js"></script>
-<script async data-main="client/apps/components.js" src="bower_components/requirejs/require.js"></script>
+	<div id="content">
+		<h1>{@formatMessage _key="hello_world"/}</h1>
+		<p>[<b>abstract :</b> an i18n enabled hello world test app]</p>
 
-<script>
-	console.log('Hello from index body.');
-</script>
+		<p>
+			{@formatMessage _key="server_side_i18n"/} :
+			<ul>
+				<li>{intl.locales}
+				<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}
+				<li>{@formatNumber val=num/}
+				<li>{@formatNumber val=completed style="percent"/}
+				<li>{@formatNumber val=price style="currency" currency="USD"/}
+			</ul>
+		</p>
 
-<div id="content">
-	<h1>{@formatMessage _key="hello_world"/}</h1>
-	<p><b>abstract :</b> This app in an i18n enabled hello world app.</p>
+		<p>
+			{@formatMessage _key="client_side_i18n"/} :
+			<ul>
+				<li>TODO !!!!!
+			</ul>
+		</p>
+	</div>
 
-	<p>
-		Server-side i18n :
-		<ul>
-			<li>{intl.locales}
-			<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}
-			<li>{@formatNumber val=num/}
-			<li>{@formatNumber val=completed style="percent"/}
-			<li>{@formatNumber val=price style="currency" currency="USD"/}
-		</ul>
-	</p>
-
-	<p>
-		Client-side i18n :
-		<ul>
-			<li>TODO !!!!!
-		</ul>
-	</p>
-</div>
+	{>"layout/requirejs_bootstrap" /}
 
 {/content}

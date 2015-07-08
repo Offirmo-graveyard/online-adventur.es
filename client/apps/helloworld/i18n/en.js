@@ -10,7 +10,10 @@ define(function(require) {
 
 	var messages = {
 		hello_world: 'Hello world !',
-		title: 'An hello world web app'
+		title: 'An hello world web app',
+
+		server_side_i18n: 'Server-side i18n',
+		client_side_i18n: 'Client-side i18n',
 	};
 
 	return _.defaults(messages, parent_messages);
