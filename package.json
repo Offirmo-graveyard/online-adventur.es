@@ -6,18 +6,24 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "bower": "bower prune && bower install && bower update",
-    "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
+    "bower": "bower install",
+
+    "postinstall": "npm run bower && cd common/incubator/carnet && npm install",
+
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules",
 
-    "postinstall": "npm run install_globals && npm prune && npm update && npm run bower && cd common/incubator/carnet && npm prune && npm install && npm update",
+    "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
+    "devinstall": "npm run install_globals && npm prune && npm install && npm update && bower prune && bower install && bower update && cd common/incubator/carnet && npm prune && npm install && npm update",
 
     "lint": "eslint .",
     "nodemon": "nodemon",
     "env": "environmentalist",
 
+    "nodeupdate": "nvm install ",
+
     "b": "npm run bower",
     "c": "npm run cleardeps",
+    "ii": "npm run devinstall",
 
     "build-appcache": "r.js -o client/apps/appcache/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
 
