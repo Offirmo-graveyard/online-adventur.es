@@ -1,6 +1,16 @@
 Notes :
 =======
 
+
+Scripts/tasks :
+
+start: no need, default mode running root server.js will be used, that's ok
+
+nodemon : used to run local nodemon in case it's not installed in global
+
+
+Dependencies :
+
 jsdom@3 is a mandatory dependency of json-htmlize on node.js
         it must NOT be upgraded to v5
 
@@ -10,3 +20,4 @@ environmentalist : a tool to list needed env vars
                    https://byteofbits.com/solving-the-environmental-variable-problem/
 
 trace must be kept in ~0.2.1 unless we switch to node 0.12 https://www.npmjs.com/package/trace
+

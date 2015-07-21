@@ -33,7 +33,7 @@ requirejs.config({
 			// an extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
-			'ngload': 'bower_components/angularAMD/ngload',
+			//'ngload': 'bower_components/angularAMD/ngload',
 			// transparently replace underscore with lodash
 			'underscore' : 'lodash'
 		}
@@ -82,7 +82,7 @@ requirejs.config({
 		'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
-		'angularAMD'               : 'bower_components/angularAMD/angularAMD',
+		//'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'appcache-nanny'           : 'bower_components/appcache-nanny/appcache-nanny',
 		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
@@ -117,7 +117,7 @@ requirejs.config({
 	/////////////////////
 	shim: {
 		/////// require.js extensions
-		'ngload': ['angularAMD'],
+		//'ngload': ['angularAMD'],
 		'rdust' : {
 			deps: [ 'dust-helpers' ]
 		},
@@ -154,9 +154,9 @@ requirejs.config({
 		'angular-ui-router-extras': {
 			deps: [ 'angular-ui-router' ]
 		},
-		'angularAMD': {
-			deps: [ 'angular' ]
-		},
+		//'angularAMD': {
+		//	deps: [ 'angular' ]
+		//},
 		'bootstrap': {
 			deps: [
 				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
