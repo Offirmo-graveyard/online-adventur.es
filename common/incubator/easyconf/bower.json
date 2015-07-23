@@ -1,0 +1,27 @@
+{
+  "name": "easyconf",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Offirmo <offirmo.net@gmail.com>"
+  ],
+  "description": "A configuration utility like nconf, for node and browser",
+  "moduleType": [
+    "amd",
+    "node"
+  ],
+  "keywords": [
+    "config",
+    "configuration",
+    "node",
+    "browser"
+  ],
+  "license": "The unlicense",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "name": "easyconf",
+  "version": "0.0.1",
+  "description": "A configuration utility like nconf, for node and browser",
+  "main": "index.js",
+  "scripts": {
+    "bower": "bower update --config.interactive=false",
+    "postinstall": "npm run bower",
+    "lint": "eslint .",
+    "nsp": "nsp audit-package",
+    "test": "mocha --debug --check-leaks --require tests/init.js lib/*.spec.js"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "keywords": [
+    "config",
+    "configuration",
+    "node",
+    "browser"
+  ],
+  "author": "Offirmo <offirmo.net@gmail.com>",
+  "license": "The unlicense",
+  "dependencies": {
+    "amdefine": "^1.0.0",
+    "lodash": "~3.10.0"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "chai": "^3.2.0",
+    "eslint": "^0.24.1",
+    "karma": "^0.13.2",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.2.0",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "karma-requirejs": "^0.2.2",
+    "mocha": "^2.2.5",
+    "nsp": "^1.0.3",
+    "phantomjs": "^1.9.17",
+    "pre-commit": "^1.0.10",
+    "requirejs": "^2.1.19"
+  }
+}
