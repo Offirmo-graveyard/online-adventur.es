@@ -109,6 +109,7 @@ function(_, get_set, path, callsite) {
 
 		// get env
 		var env = this.get('env') || process.env.NODE_ENV || 'development';
+		console.log('detecting env from easyconf (c,p,f)', this.get('env'), process.env.NODE_ENV, env);
 
 
 		// load the candidates
