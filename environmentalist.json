@@ -1,5 +1,12 @@
 [
 	{
+		"name": "PORT",
+		"description": "The TCP port to listen to. Heroku platform set it.",
+		"default": 7000,
+		"required": false,
+		"easyconf_alias": "listening_port"
+	},
+	{
 		"name": "MANDRILL_API_KEY",
 		"description": "Secret API key allowing to send emails via mailchimp saas",
 		"required": false
@@ -8,6 +15,7 @@
 		"name": "NODE_ENV",
 		"description": "The server mode",
 		"default": "development",
-		"required": false
+		"required": false,
+		"easyconf_alias": "env"
 	}
 ]

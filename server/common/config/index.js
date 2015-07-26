@@ -1,26 +1,16 @@
-/** one day, I'll use a nice node config module ;)
- */
 'use strict';
 
-var _ = require('lodash');
+var easyconfig = require('../../../common/incubator/easyconf');
 
-////////////////////////////////////
-var parent_config = require('../../../common/config');
+var config = easyconfig.create()
 
-////////////////////////////////////
-var default_config = require('./defaults');
+	// parent
+	.add('../../../common/config')
 
-////////////////////////////////////
-var env_vars_config = require('./env');
+	// us
+	.add('./config.js', {pattern: 'env+local'})
 
-////////////////////////////////////
-var env_specific_config = {};
-try {
-	env_specific_config = require('./' + (env_vars_config.env || default_config.env));
-}
-catch(err) {
-	// no file, nevermind, swallow the error.
-}
+	// env vars
+	.add('../../../environmentalist.json');
 
-// priority matters
-module.exports = _.merge({}, parent_config, default_config, env_vars_config, env_specific_config);
+module.exports = config.get();

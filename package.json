@@ -13,7 +13,7 @@
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules",
 
     "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
-    "devinstall": "npm run install_globals && npm prune && npm install && npm update && bower prune && bower install && bower update && cd common/incubator/carnet && npm prune && npm install && npm update",
+    "devinstall": "npm run install_globals && npm prune && npm install && npm update && bower prune && bower install && bower update && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../easyconf && npm prune && npm install && npm update",
 
     "lint": "eslint .",
     "nodemon": "nodemon",

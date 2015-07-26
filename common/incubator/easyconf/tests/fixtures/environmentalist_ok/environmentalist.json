@@ -1,0 +1,14 @@
+[
+	{
+		"name": "FOO_API_KEY",
+		"description": "Secret API key allowing to call the foo service",
+		"required": false
+	},
+	{
+		"name": "NODE_ENV",
+		"description": "The server mode",
+		"default": "development",
+		"required": false,
+		"easyconf_alias": "env"
+	}
+]

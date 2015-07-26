@@ -1,1 +1,2 @@
-console.log('Hello from init.js');
+// mocha/chai unit tests
+expect = require('chai').expect;

@@ -2,7 +2,9 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define({
-	'common/config/index.js': 'sourced', //< config debug
-
-	admin_email: 'offirmo.net+onlineadventures-admin@gmail.com'
+	"defaultUrl": {
+		"port": 9101,
+		"protocol": "http",
+		"hostname": "localhost"
+	}
 });

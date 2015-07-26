@@ -3,6 +3,8 @@ Easy config.
 Real story
 - duplicate
 - comments
+- nconf not clear
+- allow relative file (avoid path manipulations)
 
 
 1. use .js for storing data

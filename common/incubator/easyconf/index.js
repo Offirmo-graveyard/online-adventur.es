@@ -1,3 +1,3 @@
 // node-only file
 
-require('./lib');
+module.exports = require('./lib/easyconf');

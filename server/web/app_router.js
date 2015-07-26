@@ -135,7 +135,7 @@ module.exports = function(app_radix, options) {
 				lang: req.locale,
 				intl: formatJS_intls[req.locale]
 			}, common_view_data);
-			console.log('template data', template_data);
+			//console.log('template data', template_data);
 			res.render(template_path, template_data);
 		});
 	}
