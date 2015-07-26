@@ -8,7 +8,7 @@
   "scripts": {
     "bower": "bower update --config.interactive=false",
 
-    "postinstall": "npm run bower && cd common/incubator/carnet && npm install",
+    "postinstall": "npm run bower && cd common/incubator/carnet && npm install && cd ../easyconf && npm install",
 
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules",
 
