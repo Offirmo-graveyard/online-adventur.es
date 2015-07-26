@@ -4,13 +4,14 @@
   "author": "Offirmo <offirmo.net@gmail.com>",
   "version": "0.0.1",
   "private": true,
+  "license": "Unlicense",
   "main": "server.js",
   "scripts": {
     "bower": "bower update --config.interactive=false",
 
     "postinstall": "npm run bower && cd common/incubator/carnet && npm install && cd ../easyconf && npm install",
 
-    "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules",
+    "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/easyconf/node_modules",
 
     "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
     "devinstall": "npm run install_globals && npm prune && npm install && npm update && bower prune && bower install && bower update && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../easyconf && npm prune && npm install && npm update",
@@ -36,7 +37,7 @@
     "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre"
   },
   "engines": {
-    "node": "^0.10.0"
+    "node": "^0.12"
   },
   "dependencies": {
     "amdefine": "~0.1.1",
@@ -67,7 +68,6 @@
     "serve-index": "~1.7",
     "serve-static": "~1.10",
     "trace": "~0.2",
-    "webkit-devtools-agent": "~0.3",
     "when": "~3.7"
   },
   "devDependencies": {

@@ -137,6 +137,45 @@ describe('easyconf', function () {
 
 					expect(config_child.get()).to.deep.equal(test_data);
 				});
+
+				it('should import stores 1 by 1 when accepting another instance of easyconfig', function () {
+					var test_data = {
+						foo: {
+							bar: 42
+						}
+					};
+					var test_data2 = {
+						foo: {
+							bar: 33
+						}
+					};
+
+					var config_parent = easyconf
+						.create()
+						.add(test_data)
+						.add('../tests/fixtures/case01_oldschool/config.json');
+
+					var config_child = easyconf
+						.create()
+						.add(config_parent)
+						.add(test_data2);
+
+					expect(config_child.get()).to.deep.equal({
+						foo: {
+							bar: 33
+						},
+						"defaultUrl": {
+							"port": 9101,
+							"protocol": "http",
+							"hostname": "localhost"
+						}
+					});
+
+					// inspect internals
+					expect(config_child._stores).to.have.length(3);
+					expect(config_child._stores[0]).to.deep.equal(config_parent._stores[0]);
+					expect(config_child._stores[1]).to.deep.equal(config_parent._stores[1]);
+				});
 			});
 
 			describe('with files', function () {
@@ -241,6 +280,10 @@ describe('easyconf', function () {
 								"hostname": "localhost"
 							}
 						});
+					});
+
+					it.skip('should recognize an exported easyconf and add it as such', function () {
+						// TODO
 					});
 				});
 

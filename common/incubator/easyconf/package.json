@@ -20,7 +20,7 @@
     "browser"
   ],
   "author": "Offirmo <offirmo.net@gmail.com>",
-  "license": "The unlicense",
+  "license": "Unlicense",
   "dependencies": {
     "amdefine": "~1.0.0",
     "callsite": "~1.0.0",

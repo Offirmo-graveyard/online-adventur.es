@@ -13,7 +13,7 @@
 		"color"
 	],
 	"author": "Offirmo <offirmo.net@gmail.com>",
-	"license": "public domain",
+	"license": "Unlicense",
 	"dependencies": {
 		"amdefine": "~0.1",
 		"lodash": "~2",

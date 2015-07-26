@@ -1,8 +1,14 @@
 // if node.js : use amdefine (add it with npm)
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
-define({
-	'common/config/index.js': 'sourced', //< config debug
+define([
+	'../incubator/easyconf'
+], function(easyconf) {
 
-	admin_email: 'offirmo.net+onlineadventures-admin@gmail.com'
+	var config = easyconf.create()
+		.add({
+			admin_email: 'offirmo.net+onlineadventures-admin@gmail.com'
+		});
+
+	return config;
 });

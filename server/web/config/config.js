@@ -6,8 +6,6 @@
 var path = require('path');
 
 module.exports = {
-	__filename: 'sourced', // config debug
-
 	canonical_url: 'http://www.online-adventur.es', // without trailing /, important for concat
 	listening_port: 7000,
 	supported_locales: [ 'en', 'fr' ],
