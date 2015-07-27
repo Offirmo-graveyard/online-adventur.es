@@ -60,7 +60,7 @@ function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
 				bgColor: '#9E9B8C'
 			});
 		}
-			console.log($scope.surfs);
+		console.log($scope.surfs);
 
 		function newGame() {
 			console.log('starting a new game...');

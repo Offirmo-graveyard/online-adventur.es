@@ -22,8 +22,8 @@
 
     "nodeupdate": "nvm install ",
 
-    "b": "npm run bower",
-    "c": "npm run cleardeps",
+    "bb": "npm run bower",
+    "cc": "npm run cleardeps",
     "ii": "npm run devinstall",
 
     "build-appcache": "r.js -o client/apps/appcache/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
