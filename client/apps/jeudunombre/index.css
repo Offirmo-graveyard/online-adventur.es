@@ -24,8 +24,17 @@
 }
 
 .choice {
-	font-size: 33px;
-	line-height: 150px;
 	text-align: center;
+	font-size: 33px;
+	line-height: 75px;
 	border-right: solid 1px gray;
+	overflow: hidden;
+}
+.choice button {
+	font-size: 12px;
+	line-height: 12px;
+	height: 35px;
+	width: 110px;
+	position: relative;
+	left: -5px;
 }

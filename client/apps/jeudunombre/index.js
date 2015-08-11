@@ -50,51 +50,51 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 			try_count: 0,
 			to_guess: undefined, //< number to guess
 			playing: false,
+			messages: []
 		};
 
 		$scope.choices = [];
 		for(var i=0; i < state.guess_limit; i++) {
 			$scope.choices.push({
-				title: '' + (i + 1),
+				guess: i + 1,
 				bg_color: 'lightgrey'
 			});
 		}
-		console.log($scope.choices);
 
 		$scope.new_game = function() {
 			console.log('starting a new game...');
 			state.try_count = 0;
 			state.to_guess = _.random(1, state.guess_limit);
 			state.playing = true;
+			for(var i=0; i < state.guess_limit; i++) {
+				$scope.choices[i].bg_color = '#505050';
+			}
+			state.messages.unshift('Je pense à un nombre entre 1 et ' + state.guess_limit + '…');
 		};
 
 		$scope.abort_game = function() {
-			console.log('aborting game...');
+			if (state.try_count)
+				state.messages.unshift('Partie abandonnée au bout de ' + state.try_count + ' coups.');
 			state.playing = false;
 		};
 
-		$scope.have_a_guess = function() {
+		$scope.have_a_guess = function(guess) {
 			state.try_count++;
-			if(state.guess == state.target) {
-				startMsg.update({
-					message: 'Vous avez trouvé !',
-					type: 'success',
-					actions: {
-						start: {
-							label: 'Nouvelle partie',
-							action: newGame
-						}
-					}
-				});
+			if(guess === state.to_guess) {
+				state.messages.unshift('Bravo ! Deviné en ' + state.try_count + ' coups.');
+				state.playing = false;
+				$scope.choices[guess-1].bg_color = 'green';
 			}
 			else {
-				Messenger().error({
-					message: '' + state.guess + ' : ' + (state.guess < state.target ? 'trop petit' : 'trop grand')
-				});
+				$scope.choices[guess-1].bg_color = '#801212';
+				state.messages.unshift(
+					'' + guess + ' : ' + (guess < state.to_guess ? 'Trop petit !' : 'Trop grand !')
+				);
 			}
 		};
 
 		logger.info('LandingController initialized.');
+		$scope.new_game(); // debug
 	}]);
 
 	// angular manual initialisation since we use a script loader

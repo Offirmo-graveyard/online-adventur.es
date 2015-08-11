@@ -1,5 +1,5 @@
 CACHE MANIFEST
-## 201507082210
+#version 1.0 8-11-2015
 
 CACHE:
 
@@ -11,8 +11,6 @@ CACHE:
 
 #style sheets
 /bower_components/famous-angular/dist/famous-angular.css
-/bower_components/messenger/build/css/messenger-theme-future.css
-/bower_components/messenger/build/css/messenger.css
 /client/apps/jeudunombre/index.css
 /client/common/common.css
 /client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
@@ -24,6 +22,9 @@ CACHE:
 /client/apps/jeudunombre/all_js.concat+min.js
 
 
+# manual adds
+/bower_components/messenger/build/css/messenger-theme-future.css
+/bower_components/messenger/build/css/messenger.css
 /appcache-loader.html
 
 ## special files, conditional loading depending on platform

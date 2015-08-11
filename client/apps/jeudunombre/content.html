@@ -12,7 +12,7 @@
 		<fa-container-surface fa-options="{}">
 			<fa-modifier fa-opacity="1">
 
-				<fa-surface class="panel content"
+				<fa-surface class="panel content" fa-size="[undefined, 300]"
 				ng-hide="state.playing">
 					<p><strong>Trouvez le nombre entre 1 et {{state.guess_limit}} !</strong></p>
 					<button ng-click="new_game()">Nouvelle partie</button>
@@ -26,24 +26,29 @@
 				</fa-surface>
 
 				<fa-modifier fa-translate="[0, 150, 0]" fa-size="[undefined, 150]">
-					<fa-scroll-view  ng-show="state.playing"
+					<fa-scroll-view  ng-if="state.playing"
+					fa-start-index="47"
 					fa-pipe-from="choices_scrollview_eventHandler"
 					fa-options="{direction: 0}">
 						<fa-view ng-repeat="choice in choices">
-							<fa-surface class="choice"
-							fa-size="[100, 150]"
-							fa-pipe-to="choices_surfaces_eventHandler"
-							fa-background-color="choice.bg_color">
-								{{choice.title}}
-							</fa-surface>
+							<fa-modifier fa-size="[100, 150]">
+								<fa-surface class="choice"
+								fa-pipe-to="choices_surfaces_eventHandler"
+								fa-background-color="choice.bg_color">
+									{{choice.guess}}<br/>
+									<button ng-click="have_a_guess(choice.guess)">Tenter</button>
+								</fa-surface>
+							</fa-modifier>
 						</fa-view>
 					</fa-scroll-view>
 					</fa-modifier>
 				</fa-modifier>
 
 				<fa-modifier fa-translate="[0, 300, 0]">
-					<fa-surface class="panel content" ng-show="state.playing">
-						messages...
+					<fa-surface class="panel content">
+						<p ng-repeat="message in state.messages track by $index | limitTo: 10">
+							{{message}}
+						</p>
 					</fa-surface>
 				</fa-modifier>
 
