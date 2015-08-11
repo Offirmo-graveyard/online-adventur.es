@@ -2,51 +2,61 @@
 	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
 
 		<!-- header -->
-		<fa-surface class="panel header">
-			Le jeu du nombre
-		</fa-surface>
-
+		<fa-container-surface fa-options="{}">
+			<fa-surface class="panel header">
+				<h2>Le jeu du nombre</h2>
+			</fa-surface>
+		</fa-container-surface>
 
 		<!-- content -->
-		<fa-surface class="panel content">
-			<p>Trouvez le nombre entre 1 et 100.</p>
-			<p>Nombre de tentatives : {{state.nTries}}</p>
-			{{surfs.length}}
+		<fa-container-surface fa-options="{}">
+			<fa-modifier fa-opacity="1">
 
-
-
-			<form role="form" name="game" ng-show="state.playing">
-
-				<div class="form-group" ng-class="{ 'has-error': game.guess.$invalid }">
-					<label class="control-label" for="guess">Votre choix :</label>
-					<input required type="number" class="form-control"
-					       name="guess"
-					       placeholder="un nombre entre 1 et 100"
-					       ng-model="state.guess" />
-				</div>
-
-				<button type="submit" class="btn btn-primary"
-				        ng-disabled="game.$invalid"
-				        ng-click="haveAGuess()">Tenter</button>
-
-			</form>
-
-		</fa-surface>
-
-		<fa-scroll-view fa-pipe-from="enginePipe" fa-pipe-to="scrollListener" fa-options="{direction: 0}">
-				<fa-surface
-					ng-repeat="surf in surfs"
-					fa-size="[30, 50]"
-					fa-pipe-to="enginePipe"
-					fa-background-color="surf.bgColor">
-					[{{$index}}]{{surf.content}}
+				<fa-surface class="panel content"
+				ng-hide="state.playing">
+					<p><strong>Trouvez le nombre entre 1 et {{state.guess_limit}} !</strong></p>
+					<button ng-click="new_game()">Nouvelle partie</button>
 				</fa-surface>
-		</fa-scroll-view>
+
+				<fa-surface class="panel content" fa-size="[undefined, 150]"
+				ng-show="state.playing">
+					<p><strong>Je pense à un nombre entre 1 et {{state.guess_limit}}...</strong></p>
+					<p>Nombre de tentatives : {{state.try_count}}</p>
+					<button ng-click="abort_game()">Abandonner la partie</button>
+				</fa-surface>
+
+				<fa-modifier fa-translate="[0, 150, 0]" fa-size="[undefined, 150]">
+					<fa-scroll-view  ng-show="state.playing"
+					fa-pipe-from="choices_scrollview_eventHandler"
+					fa-options="{direction: 0}">
+						<fa-view ng-repeat="choice in choices">
+							<fa-surface class="choice"
+							fa-size="[100, 150]"
+							fa-pipe-to="choices_surfaces_eventHandler"
+							fa-background-color="choice.bg_color">
+								{{choice.title}}
+							</fa-surface>
+						</fa-view>
+					</fa-scroll-view>
+					</fa-modifier>
+				</fa-modifier>
+
+				<fa-modifier fa-translate="[0, 300, 0]">
+					<fa-surface class="panel content" ng-show="state.playing">
+						messages...
+					</fa-surface>
+				</fa-modifier>
+
+			</fa-modifier>
+			</fa-modifier>
+		</fa-container-surface>
 
 		<!-- footer -->
-		<!-- <fa-surface class="panel footer">
-			Par Offirmo
-		</fa-surface> -->
+		<fa-container-surface fa-options="{}">
+			<fa-surface class="panel footer">
+				Par Offirmo
+			</fa-surface>
+		</fa-container-surface>
 
 	</fa-header-footer-layout>
 </div>

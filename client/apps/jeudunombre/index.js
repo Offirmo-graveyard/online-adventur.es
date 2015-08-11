@@ -6,18 +6,17 @@ define([
 	'carnet',
 	'screenfull',
 	'famous-global',
-	'messenger-theme-future',
 	'text!client/apps/jeudunombre/content.html',
 	'css!client/apps/jeudunombre/index.css',
 	'angular',
 	'famous-angular',
-	'bootstrap-with-cyborg-theme'
+	//'bootstrap',
+	'bootstrap-with-cyborg-theme',
 ],
-function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
+function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 	'use strict';
 
 	console.log('executing main...');
-
 	offirmo_app.global_ng_module_dependencies = ['famous.angular'];
 
 	// build this app logger
@@ -33,50 +32,49 @@ function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
 	.controller('LandingController', ['$scope', '$famous', function($scope, $famous) {
 		logger.info('LandingController…');
 
+		// famo.us stuff
 		var EventHandler = $famous['famous/core/EventHandler'];
-
+		var MouseSync    = $famous['famous/inputs/MouseSync'];
 		$scope.title = offirmo_app.server_title;
+		$scope.choices_scrollview_eventHandler = new EventHandler();
+		$scope.choices_surfaces_eventHandler = new EventHandler();
 
-		$scope.scrollListener = new EventHandler();
-
-		$scope.scrollListener.on('update', function(evt){
-			console.log('scroll started');
-		});
-
-		var startMsg;
+		// http://stackoverflow.com/questions/24229238/how-can-i-scroll-a-scrollview-using-a-mouse-drag-with-famo-us
+		$scope.choices_surfaces_eventHandler.pipe($scope.choices_scrollview_eventHandler); // direct for taps
+		var choices_scrollview_MouseSync = new MouseSync({direction:0});
+		$scope.choices_surfaces_eventHandler.pipe(choices_scrollview_MouseSync); // to this one for clicks
+		choices_scrollview_MouseSync.pipe($scope.choices_scrollview_eventHandler); // then to sw
 
 		var state = $scope.state = {
+			guess_limit: 100, //< guess the number between 1 and this
+			try_count: 0,
+			to_guess: undefined, //< number to guess
 			playing: false,
-			nTries: 0,
-			guess: 50,
-			target: undefined
 		};
 
-
-		$scope.surfs = [];
-		for(var i=0; i < 100; i++) {
-			$scope.surfs.push({
-				content: i + 1,
-				bgColor: '#9E9B8C'
+		$scope.choices = [];
+		for(var i=0; i < state.guess_limit; i++) {
+			$scope.choices.push({
+				title: '' + (i + 1),
+				bg_color: 'lightgrey'
 			});
 		}
-		console.log($scope.surfs);
+		console.log($scope.choices);
 
-		function newGame() {
+		$scope.new_game = function() {
 			console.log('starting a new game...');
-			state.nTries = 0;
-			state.target = _.random(1, 100);
+			state.try_count = 0;
+			state.to_guess = _.random(1, state.guess_limit);
 			state.playing = true;
-			startMsg.update({
-				message: 'Je pense à un nombre...',
-				type: 'info',
-				actions: false
-			});
-			$scope.$digest();
-		}
+		};
 
-		$scope.haveAGuess = function() {
-			state.nTries++;
+		$scope.abort_game = function() {
+			console.log('aborting game...');
+			state.playing = false;
+		};
+
+		$scope.have_a_guess = function() {
+			state.try_count++;
 			if(state.guess == state.target) {
 				startMsg.update({
 					message: 'Vous avez trouvé !',
@@ -95,31 +93,6 @@ function(offirmo_app, _, Carnet, screenfull, famous, Messenger, tpl) {
 				});
 			}
 		};
-
-		console.log('hello 1');
-
-		setTimeout(function() {
-			console.log('hello 2');
-			Messenger.options = {
-				parentLocations: ['.content'],
-				messageDefaults: {
-					hideAfter: 0 // disable auto-hide
-				},
-				extraClasses: 'messenger-fixed messenger-on-bottom',
-				theme: 'future'
-			};
-
-			startMsg = Messenger().success({
-				message: 'Bonjour',
-				hideAfter: 0,
-				actions: {
-					start: {
-						label: 'Nouvelle partie',
-						action: newGame
-					}
-				}
-			});
-		}, 250); // to wait for angular to settle down
 
 		logger.info('LandingController initialized.');
 	}]);

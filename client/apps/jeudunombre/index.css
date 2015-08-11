@@ -22,3 +22,10 @@
 	border-top: solid 1px gray;
 	line-height: 50px;
 }
+
+.choice {
+	font-size: 33px;
+	line-height: 150px;
+	text-align: center;
+	border-right: solid 1px gray;
+}

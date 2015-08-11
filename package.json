@@ -8,33 +8,24 @@
   "main": "server.js",
   "scripts": {
     "bower": "bower update --config.interactive=false",
-
     "postinstall": "npm run bower && cd common/incubator/carnet && npm install && cd ../easyconf && npm install",
-
-    "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/easyconf/node_modules",
-
-    "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
-    "devinstall": "npm run install_globals && npm prune && npm install && npm update && bower prune && bower install && bower update && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../easyconf && npm prune && npm install && npm update",
-
     "lint": "eslint .",
     "nodemon": "nodemon",
     "env": "environmentalist",
-
-    "nodeupdate": "nvm install ",
-
-    "bb": "npm run bower",
-    "cc": "npm run cleardeps",
-    "ii": "npm run devinstall",
-
     "build-appcache": "r.js -o client/apps/appcache/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
-
     "build-helloworld": "r.js -o client/apps/helloworld/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
-
     "build-famous-base": "r.js -o client/apps/famous-base/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
-
     "build-jeudunombre": "r.js -o client/apps/jeudunombre/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
+    "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre",
 
-    "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre"
+    "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/easyconf/node_modules",
+    "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",
+    "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run devbower && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../easyconf && npm prune && npm install && npm update",
+    "devbower": "bower prune && bower install && bower update",
+
+    "bb": "npm run devbower",
+    "cc": "npm run cleardeps",
+    "ii": "npm run devinstall"
   },
   "engines": {
     "node": "^0.12"
