@@ -73,6 +73,7 @@ requirejs.config({
 		'app-appcache'             : 'client/apps/appcache/index',
 		'app-famous-base'          : 'client/apps/famous-base/index',
 		'app-jeudunombre'          : 'client/apps/jeudunombre/index',
+		'app-boringrpg'            : 'client/apps/boringrpg/index',
 		'app-ror'                  : 'client/apps/ror/index',
 
 		/////// shim plugins

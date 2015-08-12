@@ -18,7 +18,7 @@ router.use('/', app_router('index', {
 	custom_route: '/',
 	custom_template: '../../apps/index/view', // REM : path relative to template root
 	template_data: {
-		apps: ['index', 'helloworld', 'appcache', 'famous-base', 'jeudunombre']
+		apps: ['index', 'helloworld', 'appcache', 'famous-base', 'jeudunombre', 'boringrpg']
 	}
 }));
 router.use('/', app_router('helloworld', {
@@ -36,6 +36,9 @@ router.use('/', app_router('famous-base', {
 	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
 }));
 router.use('/', app_router('jeudunombre', {
+	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
+}));
+router.use('/', app_router('boringrpg', {
 	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
 }));
 //router.use('/', app_router('ror'));

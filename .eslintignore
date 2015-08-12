@@ -1,4 +1,5 @@
 # node_modules ignored by default
 bower_components
-client/other_components
+client/common/other_components
 common/incubator/carnet/node_modules
+common/incubator/easyconf/node_modules

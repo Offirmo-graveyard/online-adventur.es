@@ -16,7 +16,8 @@
     "build-helloworld": "r.js -o client/apps/helloworld/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
     "build-famous-base": "r.js -o client/apps/famous-base/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
     "build-jeudunombre": "r.js -o client/apps/jeudunombre/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
-    "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre",
+    "build-boringrpg": "r.js -o client/apps/boringrpg/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib",
+    "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre && npm run build-boringrpg",
 
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/easyconf/node_modules",
     "install_globals": "npm install --global nodemon puer bower && npm update -g nodemon puer bower",

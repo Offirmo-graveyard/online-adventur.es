@@ -11,7 +11,7 @@ define([
 	'angular',
 	'famous-angular',
 	//'bootstrap',
-	'bootstrap-with-cyborg-theme',
+	'bootstrap-with-cyborg-theme'
 ],
 function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 	'use strict';
@@ -32,9 +32,9 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 	.controller('LandingController', ['$scope', '$famous', function($scope, $famous) {
 		logger.info('LandingController…');
 
-		// famo.us stuff
 		var EventHandler = $famous['famous/core/EventHandler'];
 		var MouseSync    = $famous['famous/inputs/MouseSync'];
+
 		$scope.title = offirmo_app.server_title;
 		$scope.choices_scrollview_eventHandler = new EventHandler();
 		$scope.choices_surfaces_eventHandler = new EventHandler();
@@ -94,7 +94,6 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 		};
 
 		logger.info('LandingController initialized.');
-		$scope.new_game(); // debug
 	}]);
 
 	// angular manual initialisation since we use a script loader

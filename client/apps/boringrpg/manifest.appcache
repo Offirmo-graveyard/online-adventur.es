@@ -1,0 +1,64 @@
+CACHE MANIFEST
+#version 1.0 8-11-2015
+
+CACHE:
+
+#images
+
+
+#internal HTML documents
+
+
+#style sheets
+/bower_components/famous-angular/dist/famous-angular.css
+/client/apps/boringrpg/index.css
+/client/common/common.css
+/client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
+
+#style sheet images
+
+
+#javascript files
+/client/apps/boringrpg/all_js.concat+min.js
+
+
+# manual adds
+/bower_components/messenger/build/css/messenger-theme-future.css
+/bower_components/messenger/build/css/messenger.css
+/appcache-loader.html
+
+## special files, conditional loading depending on platform
+/android-chrome-144x144.png
+/android-chrome-192x192.png
+/android-chrome-36x36.png
+/android-chrome-48x48.png
+/android-chrome-72x72.png
+/android-chrome-96x96.png
+/apple-touch-icon-114x114.png
+/apple-touch-icon-120x120.png
+/apple-touch-icon-144x144.png
+/apple-touch-icon-152x152.png
+/apple-touch-icon-180x180.png
+/apple-touch-icon-57x57.png
+/apple-touch-icon-60x60.png
+/apple-touch-icon-72x72.png
+/apple-touch-icon-76x76.png
+/apple-touch-icon.png
+/apple-touch-icon-precomposed.png
+/browserconfig.xml
+/favicon-16x16.png
+/favicon-32x32.png
+/favicon-96x96.png
+/favicon.ico
+/manifest.json
+/mstile-144x144.png
+/mstile-150x150.png
+/mstile-310x150.png
+/mstile-310x310.png
+/mstile-70x70.png
+
+# online whitelist
+# it isn't cached, and references to this file will bypass the cache,
+# always hitting the network (or trying to, if the user is offline).
+NETWORK:
+#*
