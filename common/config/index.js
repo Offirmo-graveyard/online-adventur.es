@@ -1,14 +1,9 @@
-// if node.js : use amdefine (add it with npm)
-if (typeof define !== 'function') { var define = require('amdefine')(module); }
+'use strict';
 
-define([
-	'../incubator/easyconf'
-], function(easyconf) {
+var easyconf = require('../incubator/easyconf');
 
-	var config = easyconf.create()
-		.add({
-			admin_email: 'offirmo.net+onlineadventures-admin@gmail.com'
-		});
+var config = easyconf.create()
+	// us
+	.add('./config.js');
 
-	return config;
-});
+module.exports = config; // exports easyconf

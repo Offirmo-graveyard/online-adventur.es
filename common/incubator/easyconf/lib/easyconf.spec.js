@@ -4,7 +4,7 @@ var easyconf = require('./easyconf');
 describe('easyconf', function () {
 
 	describe('creation', function () {
-
+		// TODO
 	});
 
 	describe('read', function () {
@@ -59,7 +59,6 @@ describe('easyconf', function () {
 
 					expect(config.get('bar')).to.be.undefined;
 				});
-
 			});
 
 			describe('with a deep key', function () {
