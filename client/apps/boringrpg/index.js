@@ -7,16 +7,17 @@ define([
 	'screenfull',
 	'famous-global',
 	'text!client/apps/boringrpg/content.html',
+	'client/apps/boringrpg/i18n/index',
 	'css!client/apps/boringrpg/index.css',
 	'angular',
 	'famous-angular',
-	//'bootstrap',
-	'bootstrap-with-cyborg-theme'
+	'bootstrap'
 ],
-function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
+function(offirmo_app, _, Carnet, screenfull, famous, tpl, langs) {
 	'use strict';
 
 	console.log('executing main...');
+	console.log('lang', langs);
 	offirmo_app.global_ng_module_dependencies = ['famous.angular'];
 
 	// build this app logger

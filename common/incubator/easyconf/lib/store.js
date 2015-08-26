@@ -35,7 +35,7 @@ function(_, path, callsite) {
 	}
 
 	Store.prototype.explain = function(name) {
-		console.log('store ' + name, this.description, this.options);
+		console.log('store ' + name + ' ' + this.description + (this.file_full_path || ''));
 		console.log('store ' + name, this.data);
 	};
 

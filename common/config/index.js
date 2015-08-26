@@ -6,4 +6,4 @@ var config = easyconf.create()
 	// us
 	.add('./config.js');
 
-module.exports = config; // exports easyconf
+module.exports = config; // exports easyconf since we're an intermediate config

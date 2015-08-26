@@ -1,4 +1,4 @@
-// common strings, language-independant
+// common strings, language-independent
 
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
