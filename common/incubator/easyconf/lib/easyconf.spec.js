@@ -119,7 +119,7 @@ describe('easyconf', function () {
 					expect(config.get('foo')).to.not.equal(test_data.foo); // not the same object, was copied
 				});
 
-				it('should accept another instance of easyconfig', function () {
+				it('should accept another instance of easyconf', function () {
 					var test_data = {
 						foo: {
 							bar: 42
@@ -137,7 +137,7 @@ describe('easyconf', function () {
 					expect(config_child.get()).to.deep.equal(test_data);
 				});
 
-				it('should import stores 1 by 1 when accepting another instance of easyconfig', function () {
+				it('when accepting another instance of easyconf, should import stores 1 by 1', function () {
 					var test_data = {
 						foo: {
 							bar: 42
@@ -171,9 +171,11 @@ describe('easyconf', function () {
 					});
 
 					// inspect internals
-					expect(config_child._stores).to.have.length(3);
-					expect(config_child._stores[0]).to.deep.equal(config_parent._stores[0]);
-					expect(config_child._stores[1]).to.deep.equal(config_parent._stores[1]);
+					expect(config_child._stores, 'stores count').to.have.length(3);
+					expect(config_child._stores[0].data, 'inherited store #1')
+						.to.deep.equal(config_parent._stores[0].data);
+					expect(config_child._stores[1].data, 'inherited store #2')
+						.to.deep.equal(config_parent._stores[1].data);
 				});
 			});
 
@@ -212,25 +214,21 @@ describe('easyconf', function () {
 						});
 					});
 
-					it('should be able to load it with a env+local pattern - case 1 "production"', function () {
+					it('should be able to load it with a env+local pattern - case 1 "development" by default', function () {
 						var config = easyconf
 							.create()
-							.add({
-								env: 'production'
-							})
 							.add('../tests/fixtures/case01_oldschool/config.json', {pattern: 'env+local'});
 
 						expect(config.get()).to.deep.equal({
-							env: 'production',
 							"defaultUrl": {
-								"port": 9101,
-								"protocol": "https",
-								"hostname": "acme.eu"
+								"port": 8101,
+								"protocol": "http",
+								"hostname": "192.168.3.1"
 							}
 						});
 					});
 
-					it('should be able to load it with a env+local pattern - case 2 "development"', function () {
+					it('should be able to load it with a env+local pattern - case 2 "development" explicit', function () {
 						var config = easyconf
 							.create()
 							.add({
@@ -244,6 +242,24 @@ describe('easyconf', function () {
 								"port": 8101,
 								"protocol": "http",
 								"hostname": "192.168.3.1"
+							}
+						});
+					});
+
+					it('should be able to load it with a env+local pattern - case 3 "production" explicit', function () {
+						var config = easyconf
+							.create()
+							.add({
+								env: 'production'
+							})
+							.add('../tests/fixtures/case01_oldschool/config.json', {pattern: 'env+local'});
+
+						expect(config.get()).to.deep.equal({
+							env: 'production',
+							"defaultUrl": {
+								"port": 9101,
+								"protocol": "https",
+								"hostname": "acme.eu"
 							}
 						});
 					});
@@ -267,22 +283,31 @@ describe('easyconf', function () {
 						});
 					});
 
-					it('should be able to load it with relative path', function () {
-						var config = easyconf
-							.create()
-							.add('../tests/fixtures/case02_js_node/config.js');
+					it('should be able to load it from an intermediate module', function () {
+						var config = require('../tests/fixtures/case04_js_node_intermediate_config');
 
 						expect(config.get()).to.deep.equal({
 							"defaultUrl": {
-								"port": 9101,
+								"port": 8101,
 								"protocol": "http",
-								"hostname": "localhost"
+								"hostname": "192.168.3.1"
 							}
 						});
 					});
 
-					it.skip('should recognize an exported easyconf and add it as such', function () {
-						// TODO
+					it('should recognize an exported easyconf and add it as such', function () {
+						var config = easyconf
+							.create()
+							.add('../tests/fixtures/case04_js_node_intermediate_config');
+
+						var temp = config.get();
+						expect(config.get()).to.deep.equal({
+							"defaultUrl": {
+								"port": 8101,
+								"protocol": "http",
+								"hostname": "192.168.3.1"
+							}
+						});
 					});
 				});
 
@@ -319,19 +344,21 @@ describe('easyconf', function () {
 					});
 				});
 
+				//< Note : FOO_API_KEY & BAR_API_KEY env vars should have been set before calling ths test file !
+				// (see npm test in package.json)
 				describe('with environmentalist spec file', function () {
 					it('should be able to load it with full path', function () {
-						var config = easyconf
-							.create()
-							.add(path.join(
+						var config = easyconf.create();
+						config.add(path.join(
 								__dirname,
 								'../tests/fixtures/environmentalist_ok/environmentalist.json'
 							));
 
+						var temp = config.get();
 						expect(config.get()).to.deep.equal({
-							FOO_API_KEY: '27A13', //< NOTE : should have been set as an env var before calling ths test file ! (see npm test)
-							NODE_ENV: 'development',
-							env: 'development' // alias of NODE_ENV
+							FOO_API_KEY: '27A13',
+							BAR_API_KEY: 'A312',
+							bar_api_key: 'A312' // alias of BAR_API_KEY
 						});
 					});
 
@@ -341,9 +368,9 @@ describe('easyconf', function () {
 							.add('../tests/fixtures/environmentalist_ok/environmentalist.json');
 
 						expect(config.get()).to.deep.equal({
-							FOO_API_KEY: '27A13', //< NOTE : should have been set as an env var before calling ths test file ! (see npm test)
-							NODE_ENV: 'development',
-							env: 'development' // alias of NODE_ENV
+							FOO_API_KEY: '27A13',
+							BAR_API_KEY: 'A312',
+							bar_api_key: 'A312' // alias of BAR_API_KEY
 						});
 					});
 
@@ -354,7 +381,7 @@ describe('easyconf', function () {
 								.add('../tests/fixtures/environmentalist_nok/environmentalist.json');
 						}
 
-						expect(test_expression).to.throw('easyconf : Missing required env vars !');
+						expect(test_expression).to.throw('easyconf store : Missing required env vars !');
 					});
 
 					it('should report missing env vars but not throw if asked not to', function () {

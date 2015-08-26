@@ -1,6 +1,5 @@
 var _ = require('lodash');
 var get_set = require('./get-set');
-console.log(get_set);
 
 describe('get-set', function () {
 

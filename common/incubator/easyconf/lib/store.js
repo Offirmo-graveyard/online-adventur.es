@@ -49,12 +49,12 @@ function(_, path, callsite) {
 		}
 		else if(_.isString(this.source)) {
 			// most likely a file
-			console.log('working on file :', this.source, this.options.calldir);
+			//console.log('working on file :', this.source, this.options.calldir);
 
 			// harmonize path
 			var target_absolute_path = this.source;
 			if(! path.isAbsolute(target_absolute_path)) {
-				var caller_site = callsite()[1 + (this.options.callSiteShift || 0)];
+				var caller_site = callsite()[2 + (this.options.callsite_shift || 0)];
 				var calldir = this.options.calldir || path.dirname(caller_site.getFileName());
 				target_absolute_path = path.join( calldir, target_absolute_path );
 			}
@@ -66,7 +66,7 @@ function(_, path, callsite) {
 				this._load_from_file();
 		}
 		else {
-			throw new Error('easyconfig store load() : unrecognized source !');
+			throw new Error('easyconf store load() : unrecognized source !');
 		}
 	};
 
@@ -79,8 +79,15 @@ function(_, path, callsite) {
 
 	Store.prototype._load_from_file = function() {
 		var data = non_throwing_require(this.file_full_path);
-		if(data === null)
-			throw new Error('easyconf store : couldn’t find the given file "' + this.file_full_path + '" !');
+		if(data === null) {
+			var err = new Error('easyconf store : couldn’t find the given file "' + this.file_full_path + '" !');
+			if (! this.options.nothrow)
+				throw err;
+			else {
+				this.error = err;
+				return;
+			}
+		}
 
 		if(data instanceof Store) {
 			this._load_from_another_store(data);
@@ -89,39 +96,8 @@ function(_, path, callsite) {
 
 		this.data = _.cloneDeep(data);
 		this.description = 'direct file';
-
-		// is there a pattern hinting at more optional files ?
-		/*if(this.options.pattern)
-			this._addPatternFiles();*/
 	};
-/*
-	Store.prototype._addPatternFiles = function() {
-		if(this.options.pattern !== 'env+local')
-			throw new Error('easyconf : unknown pattern "' + this.options.pattern + '" !');
 
-		// extract the extension
-		var extension = path.extname(this.);
-
-		// get the basename (without extension)
-		var confRadix = confPath.slice(0, -extension.length);
-
-		// get env
-		var env = this.get('env') || process.env.NODE_ENV || 'development';
-		console.log('detecting env from easyconf (c,p,f)', this.get('env'), process.env.NODE_ENV, env);
-
-
-		// load the candidates
-		var envConfPath = confRadix + '.' + env + extension;
-		var env_data = non_throwing_require(envConfPath);
-		//if(env_data === null) console.warn('easyconf : couldn’t find the given file "' + envConfPath + '" either in absolute or in relative !');
-		if(env_data !== null) this._addStore( env_data, 'patterned file "' + envConfPath + '"', options);
-
-		var envLocalConfPath = confRadix + '.' + env + '.local' + extension;
-		var env_local_data = non_throwing_require(envLocalConfPath);
-		//if(env_local_data === null) console.warn('easyconf : couldn’t find the given file "' + envLocalConfPath + '" either in absolute or in relative !');
-		if(env_local_data !== null) this._addStore( env_local_data, 'patterned file "' + envLocalConfPath + '"', options);
-	};
-*/
 	Store.prototype._load_from_env = function() {
 		var required_missing = false; // missing required entries, empty so far
 		var data = {};
@@ -143,8 +119,14 @@ function(_, path, callsite) {
 			}
 		});
 
-		if(required_missing /*&& ! this.options.nothrow*/) {
-			throw new Error('easyconf store : Missing required env vars !');
+		if(required_missing) {
+			var err = new Error('easyconf store : Missing required env vars !');
+			if (! this.options.nothrow)
+				throw err;
+			else {
+				this.error = err;
+				return;
+			}
 		}
 
 		this.data = data;

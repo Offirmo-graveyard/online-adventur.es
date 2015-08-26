@@ -1,7 +1,7 @@
 var path = require('path');
 var Store = require('./store');
 
-describe('easyconf store', function () {
+describe('Store', function () {
 
 	var nominal_cases = [
 
@@ -107,12 +107,16 @@ describe('easyconf store', function () {
 		},
 
 		// environmentalist spec file
+		//< Note : FOO_API_KEY & BAR_API_KEY env vars should have been set before calling ths test file !
+		// (see npm test in package.json)
 		{
 			title: 'an environmentalist spec file referenced by absolute path',
 			source: path.join(__dirname, '../tests/fixtures/environmentalist_ok/environmentalist.json'),
 			options: undefined,
 			expected_data: {
-				FOO_API_KEY: '27A13', //< NOTE : should have been set as an env var before calling ths test file ! (see npm test)
+				FOO_API_KEY: '27A13',
+				BAR_API_KEY: 'A312',
+				bar_api_key: 'A312', // alias of BAR_API_KEY
 				NODE_ENV: undefined,
 				env: undefined // alias of NODE_ENV
 			},
@@ -123,7 +127,9 @@ describe('easyconf store', function () {
 			source: '../tests/fixtures/environmentalist_ok/environmentalist.json',
 			options: undefined,
 			expected_data: {
-				FOO_API_KEY: '27A13', //< NOTE : should have been set as an env var before calling ths test file ! (see npm test)
+				FOO_API_KEY: '27A13',
+				BAR_API_KEY: 'A312',
+				bar_api_key: 'A312', // alias of BAR_API_KEY
 				NODE_ENV: undefined,
 				env: undefined // alias of NODE_ENV
 			},
@@ -155,71 +161,61 @@ describe('easyconf store', function () {
 
 	describe('with environmentalist spec file', function () {
 
-		it('should report missing env vars and throw', function () {
+		it('should report missing env vars by throwing', function () {
 			function test_expression () {
-				var store = new Store('../tests/fixtures/environmentalist_nok/environmentalist.json');
+				var store = new Store(
+					'../tests/fixtures/environmentalist_nok/environmentalist.json'
+				);
 			}
 
 			expect(test_expression).to.throw('easyconf store : Missing required env vars !');
 		});
 
-		/*it('should report missing env vars but not throw if asked not to', function () {
+		it('when asked not to throw, should report missing env vars through an error property', function () {
+			var store;
 			function test_expression () {
-				var store = new Store(
+				store = new Store(
 					'../tests/fixtures/environmentalist_nok/environmentalist.json',
 					{ nothrow: true }
 				);
 			}
 
 			expect(test_expression).to.not.throw;
-		});*/
+			test_expression();
+			expect(store.error).to.exist;
+			expect(store.error.message).to.equal('easyconf store : Missing required env vars !');
+		});
 
 	});
 
-/*
 
-	describe('with files', function () {
+	describe('on a missing file', function () {
 
-		describe('with config as .json', function () {
+		it('should report missing file by throwing', function () {
+			function test_expression () {
+				var store = new Store(
+					'foo/bar'
+				);
+			}
 
-			it('should be able to load it with a env+local pattern - case 1 "production"', function () {
-				var config = easyconf
-					.create()
-					.add({
-						env: 'production'
-					})
-					.add('../tests/fixtures/case01_oldschool/config.json', {pattern: 'env+local'});
-
-				expect(config.get()).to.deep.equal({
-					env: 'production',
-					"defaultUrl": {
-						"port": 9101,
-						"protocol": "https",
-						"hostname": "acme.eu"
-					}
-				});
-			});
-
-			it('should be able to load it with a env+local pattern - case 2 "development"', function () {
-				var config = easyconf
-					.create()
-					.add({
-						env: 'development'
-					})
-					.add('../tests/fixtures/case01_oldschool/config.json', {pattern: 'env+local'});
-
-				expect(config.get()).to.deep.equal({
-					env: 'development',
-					"defaultUrl": {
-						"port": 8101,
-						"protocol": "http",
-						"hostname": "192.168.3.1"
-					}
-				});
-			});
+			expect(test_expression).to.throw(/easyconf store : couldn’t find the given file/);
 		});
 
+		it('when asked not to throw, should report missing file through an error property', function () {
+			var store;
+			function test_expression () {
+				store = new Store(
+					'foo/bar',
+					{ nothrow: true }
+				);
+			}
 
-*/
+			expect(test_expression).to.not.throw;
+			test_expression();
+			expect(store.error).to.exist;
+			expect(store.error.message).to.match(/easyconf store : couldn’t find the given file/);
+		});
+
+	});
 
 });
