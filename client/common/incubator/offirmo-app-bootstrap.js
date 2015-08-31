@@ -26,7 +26,7 @@ define([
 		},
 		get: function() {
 			if(global_module_instance) return global_module_instance; // already OK
-			console.log('building');
+			console.log('building global ng module...');
 			global_module_instance = angular.module(
 				'global_ng_module',
 				window.offirmo_app.global_ng_module_dependencies

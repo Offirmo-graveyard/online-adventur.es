@@ -9,9 +9,9 @@ define(function(require) {
 	var parent_messages = require('../../../common/i18n/common.en');
 
 	var messages = {
-		title: 'Offirmo’s Boring RPG',
-		description: 'A very simple RPG',
-		keywords: 'game, RPG',
+		title: 'The Boring RPG reloaded',
+		description: 'The most simple RPG',
+		keywords: 'game, RPG, adventure',
 	};
 
 	return _.defaults(messages, parent_messages);

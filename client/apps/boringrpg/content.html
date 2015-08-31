@@ -1,30 +1,28 @@
 <div>
-	<fa-header-footer-layout fa-options="{headerSize: 75, footerSize: 50}">
+	<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 60}">
 
 		<!-- header -->
-		<fa-container-surface fa-options="{}">
-			<fa-surface class="panel header">
-				<h2>The Boring RPG</h2>
-			</fa-surface>
-		</fa-container-surface>
+		<fa-view>
+			<header></header>
+		</fa-view>
 
 		<!-- content -->
-		<fa-container-surface fa-options="{}">
+		<fa-view>
 			<fa-modifier fa-opacity="1">
 
 				<fa-surface class="panel content">
-					<p><strong>Coming soon.</strong></p>
+					<p>Coming soon.</p>
+					<span class="icomoon-home3"/>
+					<span class="icomoon-treasure-map"/>
 				</fa-surface>
 
 			</fa-modifier>
-		</fa-container-surface>
+		</fa-view>
 
 		<!-- footer -->
-		<fa-container-surface fa-options="{}">
-			<fa-surface class="panel footer">
-				Par Offirmo
-			</fa-surface>
-		</fa-container-surface>
+		<fa-view>
+			<footer></footer>
+		</fa-view>
 
 	</fa-header-footer-layout>
 </div>

@@ -9,9 +9,9 @@ define(function(require) {
 	var parent_messages = require('../../../common/i18n/common.fr');
 
 	var messages = {
-		title: 'Le jeu du nombre par Offirmo',
-		description: 'un jeu de nombre à deviner',
-		keywords: 'jeu',
+		title: 'Le JDR barbant, de retour !',
+		description: 'Un RPG ultra-simple',
+		keywords: 'jeu, jdr, rpg, aventure',
 	};
 
 	return _.defaults(messages, parent_messages);
