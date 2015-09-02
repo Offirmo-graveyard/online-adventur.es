@@ -28,16 +28,15 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl, langs) {
 	// and now that bootstrap & famo.us are ready, load our override css
 	require([
 		'css!client/apps/boringrpg/index.css',
-		'client/apps/boringrpg/ng/directives/footer/footer',
-		'client/apps/boringrpg/ng/directives/header/header',
+		'client/apps/boringrpg/ng/directives/content-directive/content-directive'
 	], function() {
 		offirmo_app.global_ng_module
-		.directive('contentDirective', function client() {
+		/*.directive('contentDirective', function client() {
 			return {
 				template: tpl,
 				replace: true
 			};
-		})
+		})*/
 		.controller('LandingController', ['$scope', '$famous', function($scope, $famous) {
 			logger.info('LandingController…');
 

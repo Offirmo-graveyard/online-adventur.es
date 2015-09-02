@@ -1,0 +1,21 @@
+.app-header {
+	text-align: center;
+	line-height: 60px;
+	background: #292830;
+}
+
+.app-header-left {
+	font-size: 50px;
+}
+
+.app-header-center {
+	font-size: 20px;
+}
+
+.app-header-right {
+	font-size: 33px;
+}
+
+.app-footer-element.selected {
+	background: #543d46;
+}

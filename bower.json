@@ -7,6 +7,7 @@
     "angular-strap": "~2.3",
     "angular-ui-router": "~0.2",
     "appcache-nanny": "~1.0",
+    "baobab": "latest",
     "bootstrap-css": "~3.3",
     "dustjs-linkedin": "~2.7",
     "dustjs-linkedin-helpers": "~1.7",

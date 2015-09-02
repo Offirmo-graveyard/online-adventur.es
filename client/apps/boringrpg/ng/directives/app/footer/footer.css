@@ -1,0 +1,10 @@
+.app-footer-element {
+	text-align: center;
+	font-size: 50px;
+	line-height: 60px;
+	background: #292830;
+}
+
+.app-footer-element.selected {
+	background: #543d46;
+}
