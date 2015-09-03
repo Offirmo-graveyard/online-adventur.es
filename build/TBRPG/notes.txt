@@ -1,0 +1,6 @@
+
+meta black   #292830
+ui brown     #543d46
+content blue #5da7ae
+font yellow  #ffebbc
+

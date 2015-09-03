@@ -11,10 +11,9 @@ function(offirmo_app, _, tpl) {
 	.directive('appFooter', ['$famous', function ($famous) {
 		return {
 			restrict: 'E', // element,
-			scope: {
-			},
+			scope: {},
 			template: tpl,
-			controller: ['$scope', function link($scope) {
+			controller: ['$scope', function ($scope) {
 
 				$scope.buttons = [
 					{

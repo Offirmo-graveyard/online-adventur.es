@@ -4,7 +4,7 @@ define([
 	'text!client/apps/boringrpg/ng/directives/layout/layout.html',
 	//'css!client/apps/boringrpg/ng/directives/layout/layout.css',
 	'client/apps/boringrpg/ng/directives/app/layout/layout',
-	//'client/apps/boringrpg/ng/directives/meta/layout/layout'
+	'client/apps/boringrpg/ng/directives/meta/layout/layout'
 ],
 function(offirmo_app, _, tpl) {
 	'use strict';
