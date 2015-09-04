@@ -4,17 +4,18 @@
   "dependencies": {
     "angular": "~1.4",
     "angular-bootstrap": "~0.13",
+    "angular-rx": "~0.0.14",
     "angular-strap": "~2.3",
     "angular-ui-router": "~0.2",
     "appcache-nanny": "~1.0",
-    "baobab": "latest",
+    "baobab": "~1.1.2",
     "bootstrap-css": "~3.3",
     "dustjs-linkedin": "~2.7",
     "dustjs-linkedin-helpers": "~1.7",
     "eventemitter2": "~0.4",
     "extended-exceptions.js": "~2.1",
-    "famous": "latest",
-    "famous-angular": "latest",
+    "famous": "~0.3.5",
+    "famous-angular": "~0.5.2",
     "intl": "~1",
     "intl-format-cache": "yahoo/intl-format-cache#~2.0",
     "intl-messageformat": "yahoo/intl-messageformat#~1.1",
@@ -24,9 +25,7 @@
     "lodash": "^3",
     "messenger": "~1.4",
     "pace": "~1.0",
-    "please-wait": "latest",
     "require-css": "~0.1",
-    "require-dust": "latest",
     "requirejs": "^2",
     "requirejs-domready": "~2.0",
     "requirejs-i18n": "~2.0",
@@ -34,12 +33,15 @@
     "requirejs-text": "~2.0",
     "screenfull": "~2.0",
     "spinkit": "~1.2",
-    "ui-router-extras": "latest",
     "when": "^3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+  },
   "commented_out": {
-    "angularAMD": "latest"
+    "angularAMD": "latest",
+    "please-wait": "latest",
+    "require-dust": "latest",
+    "ui-router-extras": "latest"
   },
   "resolutions": {
     "angular": "~1.4",

@@ -29,7 +29,7 @@ requirejs.config({
 			// an extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// an extension to be able to load dust.js templates easily
-			'rdust': 'bower_components/require-dust/rdust',
+			//'rdust': 'bower_components/require-dust/rdust',
 			// an extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
@@ -106,7 +106,7 @@ requirejs.config({
 		'moment'                   : 'bower_components/momentjs/moment',
 		'offirmo-app-bootstrap'    : 'client/common/incubator/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
-		'rdust'                    : 'bower_components/require-dust/rdust',
+		//'rdust'                    : 'bower_components/require-dust/rdust',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
 		'spin'                     : 'bower_components/spin.js/spin',
 		// require.js extensions (plugin) to be able to load any kind of text with require.js
