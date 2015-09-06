@@ -10,12 +10,14 @@ function(offirmo_app, _, tpl) {
 	offirmo_app.global_ng_module
 	.directive('appHeader', function () {
 		return {
-			template: tpl
-		};
-	})/*
-	.controller('HeaderController', ['$scope', '$famous', function($scope, $famous) {
-		logger.info('HeaderController…');
+			template: tpl,
+			controller: ['$scope', 'stateTree', function($scope, state_tree) {
+				var layout_state_cursor = state_tree.select('view', 'layout');
 
-		logger.info('HeaderController initialized.');
-	}])*/;
+				$scope.request_meta = function(event) {
+					layout_state_cursor.set('state', 'meta');
+				};
+			}]
+		};
+	});
 });

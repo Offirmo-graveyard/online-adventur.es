@@ -1,4 +1,19 @@
 <div>
-	<app-layout></app-layout>
-	<xmeta-layout></xmeta-layout>
+	<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- mandatory for a correct flipping -->
+		<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect-->
+			<fa-flipper class="meta-switcher">
+
+				<!-- app area (displayed first) -->
+				<fa-modifier>
+					<app-layout></app-layout>
+				</fa-modifier>
+
+				<!-- meta area -->
+				<fa-modifier>
+					<meta-layout></meta-layout>
+				</fa-modifier>
+
+			</fa-flipper>
+		</fa-modifier>
+	</fa-modifier>
 </div>

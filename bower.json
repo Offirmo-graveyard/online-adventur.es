@@ -31,6 +31,7 @@
     "requirejs-i18n": "~2.0",
     "requirejs-plugins": "~1.0",
     "requirejs-text": "~2.0",
+    "rxjs": "~3.1",
     "screenfull": "~2.0",
     "spinkit": "~1.2",
     "when": "^3"

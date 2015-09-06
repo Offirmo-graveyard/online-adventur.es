@@ -83,11 +83,13 @@ requirejs.config({
 		'angular-strap-base'       : 'bower_components/angular-strap/dist/angular-strap',
 		'angular-ui-router'        : 'bower_components/angular-ui-router/release/angular-ui-router',
 		'angular-ui-router-extras' : 'bower_components/ui-router-extras/release/ct-ui-router-extras',
+		'angular-rx'               : 'bower_components/angular-rx/dist/rx.angular',
 		//'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'appcache-nanny'           : 'bower_components/appcache-nanny/appcache-nanny',
-		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
+		'baobab'                   : 'bower_components/baobab/build/baobab.min',
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
 		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',
+		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
 		'eventemitter2'            : 'bower_components/eventemitter2/lib/eventemitter2',
@@ -107,6 +109,7 @@ requirejs.config({
 		'offirmo-app-bootstrap'    : 'client/common/incubator/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		//'rdust'                    : 'bower_components/require-dust/rdust',
+		'rx'                       : 'bower_components/rxjs/dist/rx.all',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
 		'spin'                     : 'bower_components/spin.js/spin',
 		// require.js extensions (plugin) to be able to load any kind of text with require.js
@@ -133,8 +136,7 @@ requirejs.config({
 		'angular-bootstrap': {
 			deps: [
 				'angular',
-				// angular-bootstrap replaces bootstrap js, it only needs bootstrap css
-				//'bootstrap', No !
+				//'bootstrap', XXX No ! angular-bootstrap replaces bootstrap js, it only needs bootstrap css
 				'css!bower_components/bootstrap-css/css/bootstrap'
 			]
 		},
@@ -154,6 +156,9 @@ requirejs.config({
 		},
 		'angular-ui-router-extras': {
 			deps: [ 'angular-ui-router' ]
+		},
+		'angular-rx': {
+			deps: [ 'angular' ]
 		},
 		//'angularAMD': {
 		//	deps: [ 'angular' ]

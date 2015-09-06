@@ -57,6 +57,7 @@
     "node-mandrill": "~1.0",
     "prettyjson": "~1.1",
     "response-time": "~2.3",
+    "rx": "~3.1",
     "serve-favicon": "~2.3",
     "serve-index": "~1.7",
     "serve-static": "~1.10",

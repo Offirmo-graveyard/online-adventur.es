@@ -6,20 +6,18 @@ define([
 	'carnet',
 	'screenfull',
 	'famous-global',
-	'text!client/apps/boringrpg/content.html',
 	'client/apps/boringrpg/i18n/index',
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'angular',
 	'famous-angular',
 	'bootstrap'
 ],
-function(offirmo_app, _, Carnet, screenfull, famous, tpl, langs) {
+function(offirmo_app, _, Carnet, screenfull, famous, langs) {
 	'use strict';
 
 	console.log('executing main...');
 	console.log('lang', langs);
 	offirmo_app.global_ng_module_dependencies = ['famous.angular'];
-	offirmo_app.global_ng_module;
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});
@@ -27,17 +25,12 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl, langs) {
 	// now that global module is ready, load ng modules
 	// and now that bootstrap & famo.us are ready, load our override css
 	require([
+		'client/apps/boringrpg/ng/services/state-tree/state-tree', // to load it into angular
 		'css!client/apps/boringrpg/index.css',
 		'client/apps/boringrpg/ng/directives/content-directive/content-directive'
 	], function() {
 		offirmo_app.global_ng_module
-		/*.directive('contentDirective', function client() {
-			return {
-				template: tpl,
-				replace: true
-			};
-		})*/
-		.controller('LandingController', ['$scope', '$famous', function($scope, $famous) {
+		.controller('LandingController', ['$scope', function($scope) {
 			logger.info('LandingController…');
 
 			$scope.title = offirmo_app.server_title;

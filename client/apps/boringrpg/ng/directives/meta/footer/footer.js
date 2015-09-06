@@ -8,14 +8,9 @@ function(offirmo_app, _, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('metaFooter', ['$famous', function ($famous) {
+	.directive('metaFooter', [function () {
 		return {
-			restrict: 'E', // element,
-			scope: {},
-			template: tpl,
-			controller: ['$scope', function ($scope) {
-
-			}]
+			template: tpl
 		};
 	}]);
 });
