@@ -52,7 +52,6 @@ function(offirmo_app, _, Rx, tpl) {
 				dynamic_source.distinctUntilChanged().subscribe(on_state_change);
 
 				function on_state_change(new_state) {
-					console.log('switching to state', new_state);
 					switch (new_state) {
 						case 'meta':
 							go_to_meta();

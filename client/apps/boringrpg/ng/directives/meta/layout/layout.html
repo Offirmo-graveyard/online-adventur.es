@@ -1,19 +1,27 @@
-<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 0}">
+<div>
 
-	<!-- header -->
-	<fa-view>
-		<meta-header></meta-header>
-	</fa-view>
+	<!-- this surface which take all the space
+	     helps fill the small leaks which sometime happen between elements -->
+	<fa-surface class="meta-background"></fa-surface>
 
-	<!-- content -->
-	<fa-view>
-		<meta-content></meta-content>
-	</fa-view>
+	<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 0}">
 
-	<!-- footer -->
-	<fa-view>
-		<meta-footer></meta-footer>
-	</fa-view>
+		<!-- header -->
+		<fa-view>
+			<meta-header></meta-header>
+		</fa-view>
 
-</fa-header-footer-layout>
+		<!-- content -->
+		<fa-view>
+			<meta-content></meta-content>
+		</fa-view>
+
+		<!-- footer -->
+		<fa-view>
+			<meta-footer></meta-footer>
+		</fa-view>
+
+	</fa-header-footer-layout>
+
+</div>
 

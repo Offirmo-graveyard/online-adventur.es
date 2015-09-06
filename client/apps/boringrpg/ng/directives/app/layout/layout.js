@@ -2,7 +2,7 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'text!client/apps/boringrpg/ng/directives/app/layout/layout.html',
-	//'css!client/apps/boringrpg/ng/directives/app/layout/layout.css',
+	'css!client/apps/boringrpg/ng/directives/app/layout/layout.css',
 	'client/apps/boringrpg/ng/directives/app/header/header',
 	'client/apps/boringrpg/ng/directives/app/content/content',
 	'client/apps/boringrpg/ng/directives/app/footer/footer',

@@ -1,3 +1,21 @@
-.app-content {
+.app-content-background {
 	background: #5da7ae;
+}
+
+.app-content-stats {
+	padding: 7px;
+	background: #543d46;
+}
+
+.app-content-dialog {
+	padding: 7px;
+	color: #292830;
+	border: solid 3px #292830;
+	background: #ffebbc;
+}
+
+.app-content-button {
+	padding: 7px;
+	border: solid 3px #ffebbc;
+	background: #543d46;
 }
