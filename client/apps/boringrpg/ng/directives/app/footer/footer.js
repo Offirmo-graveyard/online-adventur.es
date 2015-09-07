@@ -14,6 +14,7 @@ function(offirmo_app, _, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function ($scope) {
+				$scope.Transform = $famous['famous/core/Transform'];
 
 				$scope.buttons = [
 					{
@@ -42,7 +43,7 @@ function(offirmo_app, _, tpl) {
 					},
 				];
 
-				$scope.flexibleLayoutOptions = {
+				$scope.flexible_layout_options = {
 					ratios: _.map($scope.buttons, function(){return 1;}), // everyone equal (for now)
 					direction: 0 // FlexibleLayout.DIRECTION_X
 				};

@@ -22,25 +22,8 @@ body, body.famous-root {
 }
 
 
-/* xxxxx */
-/*
-.panel {
-	text-align: center;
-	font-size: 20px;
-}
-.panel.header {
-	border-radius: 0px;
-	background: #292830;
-	line-height: 60px;
-}
-.panel.content {
-	border-radius: 0px;
-	background: #5da7ae;
-	padding: 10px;
-}
-.panel.footer {
-	border-radius: 0px;
-	background: #292830;
-	line-height: 60px;
+/** famous debugging
+.famous-surface {
+	border: solid 1px red;
 }
 */

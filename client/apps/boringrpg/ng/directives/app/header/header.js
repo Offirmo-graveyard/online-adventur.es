@@ -8,10 +8,12 @@ function(offirmo_app, _, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('appHeader', function () {
+	.directive('appHeader', ['$famous', 'stateTree', function ($famous, state_tree) {
 		return {
 			template: tpl,
-			controller: ['$scope', 'stateTree', function($scope, state_tree) {
+			controller: ['$scope', function($scope) {
+				$scope.Transform = $famous['famous/core/Transform'];
+
 				var layout_state_cursor = state_tree.select('view', 'layout');
 
 				$scope.request_meta = function(event) {
@@ -19,5 +21,5 @@ function(offirmo_app, _, tpl) {
 				};
 			}]
 		};
-	});
+	}]);
 });

@@ -1,10 +1,19 @@
 <div>
-	<fa-flexible-layout fa-options="flexibleLayoutOptions">
-		<fa-surface class="app-footer-element selected"><span class="icomoon-treasure-map"></span></fa-surface>
-		<fa-surface class="app-footer-element"><span class="icomoon-battle-gear"></span></fa-surface>
-		<fa-surface class="app-footer-element"><span class="icomoon-death-note"></span></fa-surface>
-		<fa-surface class="app-footer-element"><span class="icomoon-eagle-emblem"></span></fa-surface>
-		<fa-surface class="app-footer-element"><span class="icomoon-laurel-crown"></span></fa-surface>
-		<fa-surface class="app-footer-element"><span class="icomoon-conversation"></span></fa-surface>
-	</fa-flexible-layout>
+
+	<!-- this surface which take all the space
+	     helps fill the small leaks which sometime happen between flexible layout elements -->
+	<fa-modifier fa-translate="[0,0,-1]">
+		<fa-surface class="app-footer-background"></fa-surface>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="[0,0,1]">
+		<fa-flexible-layout fa-options="flexible_layout_options">
+			<fa-surface class="app-footer-element selected"><span class="icomoon-treasure-map"></span></fa-surface>
+			<fa-surface class="app-footer-element"><span class="icomoon-battle-gear"></span></fa-surface>
+			<fa-surface class="app-footer-element"><span class="icomoon-death-note"></span></fa-surface>
+			<fa-surface class="app-footer-element"><span class="icomoon-eagle-emblem"></span></fa-surface>
+			<fa-surface class="app-footer-element"><span class="icomoon-laurel-crown"></span></fa-surface>
+			<fa-surface class="app-footer-element"><span class="icomoon-conversation"></span></fa-surface>
+		</fa-flexible-layout>
+	</fa-modifier>
 </div>

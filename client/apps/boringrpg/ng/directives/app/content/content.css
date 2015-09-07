@@ -15,7 +15,9 @@
 }
 
 .app-content-button {
-	padding: 7px;
 	border: solid 3px #ffebbc;
 	background: #543d46;
+	text-align: center;
+	line-height: 54px;
+	font-size: 18px;
 }
