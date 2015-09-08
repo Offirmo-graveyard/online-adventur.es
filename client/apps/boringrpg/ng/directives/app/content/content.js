@@ -18,7 +18,7 @@ function(offirmo_app, _, tpl) {
 			}],
 			link: function postLink($scope) {
 
-				$scope.STATS_PANEL_HEIGHT = 130;
+				$scope.STATS_PANEL_HEIGHT = 120;
 
 				$scope.dialog_position = [10, 10];
 				$scope.dialog_size = [ 300, 200 ];
@@ -37,7 +37,6 @@ function(offirmo_app, _, tpl) {
 					var background_element = $(background_isolate.renderNode._element);
 					var content_size = [background_element.width(), background_element.height()];
 					var world_size = [content_size[0], content_size[1] - $scope.STATS_PANEL_HEIGHT];
-					console.log('world size', world_size);
 
 					// are we constrained vertically or horizontally ?
 
@@ -50,14 +49,14 @@ function(offirmo_app, _, tpl) {
 					var vertical_button_margin = Math.min(40, remaining_side_size);
 					var margin_unit = vertical_button_margin / 2;
 
-					//var DIALOG_IDEAL_WIDTH = 640;
-					//var DIALOG_IDEAL_HEIGHT = 440;
-					var DIALOG_IDEAL_WIDTH = 320;
-					var DIALOG_IDEAL_HEIGHT = 240;
-					if(world_size[0] > 720) {
+					var DIALOG_IDEAL_WIDTH = 640;
+					var DIALOG_IDEAL_HEIGHT = 440;
+					//var DIALOG_IDEAL_WIDTH = 320;
+					//var DIALOG_IDEAL_HEIGHT = 240;
+					/*if(world_size[0] > 720) {
 						DIALOG_IDEAL_WIDTH = DIALOG_IDEAL_WIDTH * 2;
 						DIALOG_IDEAL_HEIGHT = DIALOG_IDEAL_HEIGHT * 2;
-					}
+					}*/
 
 					var dialog_size = $scope.dialog_size = [
 						Math.min(DIALOG_IDEAL_WIDTH, world_size[0] - margin_unit * 2),

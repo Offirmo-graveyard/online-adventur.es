@@ -8,10 +8,10 @@ function(offirmo_app, _, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('metaHeader', function () {
+	.directive('metaHeader', ['stateTree', function (state_tree) {
 		return {
 			template: tpl,
-			controller: ['$scope', 'stateTree', function($scope, state_tree) {
+			controller: ['$scope', function($scope) {
 				var layout_state_cursor = state_tree.select('view', 'layout');
 
 				$scope.request_app = function(event) {
@@ -19,5 +19,5 @@ function(offirmo_app, _, tpl) {
 				};
 			}]
 		};
-	});
+	}]);
 });

@@ -1,5 +1,13 @@
 <div>
+
 	<fa-surface class="meta-content">
-		TODO
+		<ol class="meta-content-container">
+			<li class="meta-content-item" ng-repeat="item in items"
+			ng-click="item.on_click()">
+				<span ng-class="item.icon" aria-hidden="true"></span>
+				<p>{{item.label}}</p>
+			</li>
+		</ol>
 	</fa-surface>
+
 </div>

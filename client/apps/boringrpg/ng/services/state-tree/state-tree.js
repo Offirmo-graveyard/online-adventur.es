@@ -6,9 +6,10 @@ define([
 	'jquery',
 	'baobab',
 	'rx',
+	'screenfull',
 	'css!client/apps/boringrpg/ng/directives/app/content/content.css'
 ],
-function(offirmo_app, _, $, Baobab, Rx) {
+function(offirmo_app, _, $, Baobab, Rx, screenfull) {
 	'use strict';
 
 	offirmo_app.global_ng_module
@@ -32,11 +33,11 @@ function(offirmo_app, _, $, Baobab, Rx) {
 		var state_tree = new Baobab({
 			version: '0.0.1',
 			view: {
+				lang: 'en',
+				fullscreen: undefined,
+				screen_size: [0, 0],
 				STATES: ['loading', 'loaded'],
 				state: 'loading',
-				// lang
-				lang: 'en',
-				screen_size: [0, 0],
 				// global layout
 				layout: {
 					STATES: ['loader', 'app', 'meta'],
@@ -72,9 +73,21 @@ function(offirmo_app, _, $, Baobab, Rx) {
 			.debounce(250 /* ms */)
 			.distinctUntilChanged()
 			.subscribe(function(new_screen_size) {
-				console.log('new screen size detected :', new_screen_size);
+				//console.log('new screen size detected :', new_screen_size);
 				view_cursor.set('screen_size', new_screen_size);
 			});
+
+
+			if (screenfull.enabled) {
+				document.addEventListener(screenfull.raw.fullscreenchange, function () {
+					//console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
+					view_cursor.set('fullscreen', screenfull.isFullscreen);
+				});
+				document.addEventListener(screenfull.raw.fullscreenerror, function (event) {
+					console.error('Failed to enable fullscreen', event);
+				});
+			}
+			view_cursor.set('fullscreen', screenfull.isFullscreen);
 
 		return state_tree;
 	});
