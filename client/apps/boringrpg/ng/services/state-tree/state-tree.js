@@ -13,7 +13,7 @@ function(offirmo_app, _, $, Baobab, Rx, screenfull) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.service('stateTree', function () {
+	.service('stateTree', ['$rootScope', function ($rootScope) {
 
 		function debug_observable(observable, name) {
 			observable.subscribe(
@@ -73,8 +73,11 @@ function(offirmo_app, _, $, Baobab, Rx, screenfull) {
 			.debounce(250 /* ms */)
 			.distinctUntilChanged()
 			.subscribe(function(new_screen_size) {
-				//console.log('new screen size detected :', new_screen_size);
+				console.log('new screen size detected :', new_screen_size);
 				view_cursor.set('screen_size', new_screen_size);
+				// not pretty but will do it for now
+				// try to help famo.us to correctly repaint the screen
+				$rootScope.$apply();
 			});
 
 
@@ -90,5 +93,5 @@ function(offirmo_app, _, $, Baobab, Rx, screenfull) {
 			view_cursor.set('fullscreen', screenfull.isFullscreen);
 
 		return state_tree;
-	});
+	}]);
 });

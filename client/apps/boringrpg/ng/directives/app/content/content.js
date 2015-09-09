@@ -86,6 +86,8 @@ function(offirmo_app, _, tpl) {
 					];
 
 					// TODO scale dialog font so that it fits
+
+					$scope.$digest();
 				}
 				//on_screen_size_update();
 				screen_size_cursor.on('update', on_screen_size_update);

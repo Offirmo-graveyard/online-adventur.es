@@ -205,6 +205,12 @@ requirejs.config({
 		'famous-global': {
 			//exports: 'famous'
 		},
+		'intl-messageformat': {
+			exports: 'IntlMessageFormat'
+		},
+		'intl-relativeformat': {
+			exports: 'IntlRelativeFormat'
+		},
 		'javascript-state-machine' : {
 			// no deps
 			exports: 'StateMachine'

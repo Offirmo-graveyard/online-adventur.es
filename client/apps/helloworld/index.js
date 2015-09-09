@@ -5,9 +5,12 @@ define([
 	'lodash',
 	'angular',
 	'carnet',
+	'client/apps/helloworld/i18n/index',
+	'client/common/ng/services/i18n-data/i18n-data',
+	'client/common/ng/directives/i18n-content/i18n-content',
 	'css!client/apps/helloworld/index'
 ],
-function(offirmo_app, _, angular, Carnet) {
+function(offirmo_app, _, angular, Carnet, i18n_messages) {
 	'use strict';
 
 	console.log('executing main...');
@@ -18,14 +21,28 @@ function(offirmo_app, _, angular, Carnet) {
 	var logger = Carnet.make_new({enhanced: true});
 
 	offirmo_app.global_ng_module
-	.controller('LandingController', ['$scope', '$document', function($scope, $document) {
+	.controller('LandingController', ['$scope', '$document', 'i18nData', function($scope, $document, i18nData) {
 		logger.info('LandingController…');
 		$scope.title = offirmo_app.server_title;
 
 		// TOREVIEW
-		$scope.lang = $document[0].documentElement.lang;
+		//$scope.lang = $document[0].documentElement.lang;
 		logger.info('detected lang :', $document[0].documentElement.lang);
 		$scope.pready = true;
+
+		_.merge($scope, {
+			name: 'Mary',
+			gender: 'female',
+			numCats: 2,
+			percentBlackCats: 0.33,
+			now: new Date(),
+			taxableArea: true,
+			taxRate: 0.21,
+			itemCount1: 0,
+			itemCount2: 1,
+			catAge: 3,
+			price: 3
+		});
 
 		logger.info('LandingController initialized.');
 	}]);

@@ -4,22 +4,30 @@
 
 	<div id="content">
 		<h1>{@formatMessage _key="hello_world"/}</h1>
-		<p>[<b>abstract :</b> an i18n enabled hello world test app]</p>
+		<p>[
+			<b>abstract :</b> an i18n enabled hello world test app.
+			see <a href="http://offirmo.net/wiki/index.php?title=FormatJS">FormatJS</a>
+		]</p>
 
 		<p>
-			{@formatMessage _key="server_side_i18n"/} :
+			{@formatMessage _key="server_side_i18n"/} : [lang = {lang} = {intl.locales}]
+			[<a href="?lang=fr">force to fr</a>]
+			[<a href="?lang=en">force to en</a>]
 			<ul>
-				<li>{intl.locales}
 				<li>{@formatDate val=date month="long" day="numeric" year="numeric"/}
 				<li>{@formatNumber val=num/}
 				<li>{@formatNumber val=completed style="percent"/}
+				<li>{@formatNumber val=price style="currency" currency="EUR"/}
 				<li>{@formatNumber val=price style="currency" currency="USD"/}
 			</ul>
 		</p>
 
 		<p>
-			{@formatMessage _key="client_side_i18n"/} :
+			<span i18n-content="client_side_i18n"></span> :
+			[<a href="#" ng-click="switch_lang('fr')">switch to fr</a>]
+			[<a href="#" ng-click="switch_lang('en')">switch to en</a>]
 			<ul>
+				<li i18n-content="no_key">TODO !!!!!
 				<li>TODO !!!!!
 			</ul>
 		</p>
