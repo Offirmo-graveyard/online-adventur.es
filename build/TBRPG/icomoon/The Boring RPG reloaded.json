@@ -8,12 +8,82 @@
 		{
 			"selection": [
 				{
+					"order": 74,
+					"id": 1,
+					"prevSize": 32,
+					"code": 58884,
+					"name": "icon_4780",
+					"tempChar": ""
+				},
+				{
+					"order": 75,
+					"id": 0,
+					"prevSize": 32,
+					"code": 58885,
+					"name": "icon_4780_mod",
+					"tempChar": ""
+				}
+			],
+			"id": 2,
+			"metadata": {
+				"name": "Noon",
+				"importSize": {
+					"width": 96,
+					"height": 65
+				}
+			},
+			"height": 1024,
+			"prevSize": 32,
+			"icons": [
+				{
+					"id": 1,
+					"paths": [
+						"M1039.754 617.125c0 50.696-41.102 91.798-91.813 91.798h-399.265c-50.712 0-91.813-41.102-91.813-91.798v-226.005c0-50.696 41.102-91.798 91.813-91.798h399.265c50.712 0 91.813 41.102 91.813 91.798v226.005z",
+						"M441.108 346.585v-179.184l-63.52 63.882-73.618-73.744-51.909 52.051 73.791 73.114-64.544 63.882z",
+						"M1055.508 346.585h179.137l-63.835-63.52 73.712-73.618-52.066-51.909-73.098 73.728-63.85-64.528z",
+						"M441.108 661.662h-179.184l63.882 63.567-73.744 73.539 52.098 51.94 73.082-73.807 63.866 64.575z",
+						"M1055.508 677.415v163.399l63.551-63.85 73.555 73.712 51.972-52.066-73.76-65.205 64.559-55.989z",
+						"M1397.587 1024h-1285.435c-63.283 0-112.152-56.777-112.152-120.092v-780.461c0-63.267 48.868-123.447 112.152-123.447h1285.435c63.299 0 114.783 60.18 114.783 123.447v780.461c0 63.315-51.484 120.092-114.783 120.092zM1465.108 116.122c0-38.030-30.83-68.86-68.86-68.86h-1280.126c-38.030 0-68.86 30.83-68.86 68.86v791.757c0 38.030 30.83 68.86 68.86 68.86h1280.126c38.030 0 68.86-30.83 68.86-68.86v-791.757z"
+					],
+					"attrs": [],
+					"isMulticolor": false,
+					"width": 1512,
+					"grid": 0,
+					"tags": [
+						"icon_4780"
+					]
+				},
+				{
+					"id": 0,
+					"paths": [
+						"M1039.754 617.125c0 50.696-41.102 91.798-91.813 91.798h-399.265c-50.712 0-91.813-41.102-91.813-91.798v-226.005c0-50.696 41.102-91.798 91.813-91.798h399.265c50.712 0 91.813 41.102 91.813 91.798v226.005z",
+						"M431.86 157.538h-179.799v179.184l63.52-63.882 73.618 73.744 51.909-52.051-73.791-73.114z",
+						"M1244.522 337.384v-179.846h-179.137l63.835 63.52-73.712 73.618 52.066 51.909 73.098-73.728z",
+						"M252.062 670.893v179.814h179.184l-63.882-63.567 73.744-73.539-52.098-51.94-73.082 73.807z",
+						"M1064.708 850.676h179.877v-163.399l-63.551 63.85-73.555-73.712-51.972 52.066 73.76 65.205z",
+						"M1397.587 1024h-1285.435c-63.283 0-112.152-56.777-112.152-120.092v-780.461c0-63.267 48.868-123.447 112.152-123.447h1285.435c63.299 0 114.783 60.18 114.783 123.447v780.461c0 63.315-51.484 120.092-114.783 120.092zM1465.108 116.122c0-38.030-30.83-68.86-68.86-68.86h-1280.126c-38.030 0-68.86 30.83-68.86 68.86v791.757c0 38.030 30.83 68.86 68.86 68.86h1280.126c38.030 0 68.86-30.83 68.86-68.86v-791.757z"
+					],
+					"attrs": [],
+					"isMulticolor": false,
+					"width": 1512,
+					"grid": 0,
+					"tags": [
+						"icon_4780_mod"
+					]
+				}
+			],
+			"colorThemes": [],
+			"invisible": false
+		},
+		{
+			"selection": [
+				{
 					"order": 57,
 					"id": 6,
 					"prevSize": 32,
 					"name": "laurel-crown",
 					"code": 58880,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 58,
@@ -21,7 +91,7 @@
 					"prevSize": 32,
 					"name": "death-note",
 					"code": 58881,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 59,
@@ -29,7 +99,7 @@
 					"prevSize": 32,
 					"name": "conversation",
 					"code": 58886,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 60,
@@ -37,7 +107,7 @@
 					"prevSize": 32,
 					"name": "crossed-swords",
 					"code": 58887,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 61,
@@ -45,7 +115,7 @@
 					"prevSize": 32,
 					"name": "eagle-emblem",
 					"code": 58912,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 62,
@@ -53,7 +123,7 @@
 					"prevSize": 32,
 					"name": "treasure-map",
 					"code": 58913,
-					"tempChar": ""
+					"tempChar": ""
 				},
 				{
 					"order": 63,
@@ -61,7 +131,7 @@
 					"prevSize": 32,
 					"name": "battle-gear",
 					"code": 58914,
-					"tempChar": ""
+					"tempChar": ""
 				}
 			],
 			"id": 1,
@@ -186,7 +256,7 @@
 					"id": 52,
 					"order": 36,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "home3, house3",
 					"name": "home3",
 					"code": 58915
@@ -305,11 +375,12 @@
 				},
 				{
 					"id": 114,
-					"order": 0,
+					"order": 64,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "music, song",
-					"name": ""
+					"name": "music",
+					"code": 58894
 				},
 				{
 					"id": 120,
@@ -619,7 +690,7 @@
 					"id": 256,
 					"order": 4,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "qrcode",
 					"name": "qrcode",
 					"code": 58882
@@ -724,7 +795,7 @@
 					"id": 305,
 					"order": 5,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "envelop, mail",
 					"name": "envelop",
 					"code": 58883
@@ -859,7 +930,7 @@
 				},
 				{
 					"id": 353,
-					"order": 6,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "display, screen",
@@ -876,7 +947,7 @@
 				},
 				{
 					"id": 358,
-					"order": 7,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "mobile, cell-phone",
@@ -893,7 +964,7 @@
 				},
 				{
 					"id": 360,
-					"order": 37,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "tablet, mobile3",
@@ -926,12 +997,12 @@
 				},
 				{
 					"id": 369,
-					"order": 0,
+					"order": 71,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "box-add, box3",
 					"name": "box-add",
-					"code": 58886
+					"code": 58893
 				},
 				{
 					"id": 370,
@@ -960,11 +1031,12 @@
 				},
 				{
 					"id": 376,
-					"order": 0,
+					"order": 66,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "floppy-disk, save2",
-					"name": ""
+					"name": "floppy-disk",
+					"code": 58897
 				},
 				{
 					"id": 379,
@@ -1074,7 +1146,7 @@
 					"id": 427,
 					"order": 40,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "bubbles4, comments4",
 					"name": "bubbles4",
 					"code": 58917
@@ -1083,7 +1155,7 @@
 					"order": 12,
 					"id": 1628,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user, profile2",
 					"name": "user",
 					"code": 58888
@@ -1092,7 +1164,7 @@
 					"id": 476,
 					"order": 13,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "users, group",
 					"name": "users",
 					"code": 58889
@@ -1101,7 +1173,7 @@
 					"id": 478,
 					"order": 10,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user-plus, user2",
 					"name": "user-plus",
 					"code": 58890
@@ -1110,7 +1182,7 @@
 					"id": 480,
 					"order": 11,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user-minus, user3",
 					"name": "user-minus",
 					"code": 58891
@@ -1183,7 +1255,7 @@
 					"id": 513,
 					"order": 14,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "spinner4, loading5",
 					"name": "spinner4",
 					"code": 58892
@@ -1237,12 +1309,13 @@
 					"name": "spinner10"
 				},
 				{
-					"order": 0,
+					"order": 65,
 					"id": 1591,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "spinner11, loading12",
-					"name": "spinner11"
+					"name": "spinner11",
+					"code": 58902
 				},
 				{
 					"id": 525,
@@ -1278,7 +1351,7 @@
 				},
 				{
 					"id": 537,
-					"order": 15,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "enlarge, expand",
@@ -1286,7 +1359,7 @@
 					"code": 58893
 				},
 				{
-					"order": 16,
+					"order": 0,
 					"id": 1644,
 					"prevSize": 32,
 					"tempChar": "",
@@ -1362,7 +1435,7 @@
 					"id": 566,
 					"order": 18,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "equalizer2, sliders2",
 					"name": "equalizer2",
 					"code": 58895
@@ -1371,7 +1444,7 @@
 					"id": 569,
 					"order": 17,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cog, gear",
 					"name": "cog",
 					"code": 58896
@@ -1401,16 +1474,17 @@
 					"name": ""
 				},
 				{
-					"order": 0,
+					"order": 67,
 					"id": 1796,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "aid-kit, health",
-					"name": ""
+					"name": "aid-kit",
+					"code": 58903
 				},
 				{
 					"id": 588,
-					"order": 19,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "bug, virus",
@@ -1453,7 +1527,7 @@
 					"id": 632,
 					"order": 41,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "trophy, cup",
 					"name": "trophy",
 					"code": 58918
@@ -1462,7 +1536,7 @@
 					"id": 618,
 					"order": 20,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "gift, present",
 					"name": "gift",
 					"code": 58898
@@ -1645,11 +1719,12 @@
 				},
 				{
 					"id": 746,
-					"order": 0,
+					"order": 68,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "switch",
-					"name": ""
+					"name": "switch",
+					"code": 58905
 				},
 				{
 					"id": 747,
@@ -1743,7 +1818,7 @@
 					"id": 788,
 					"order": 21,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-download, cloud2",
 					"name": "cloud-download",
 					"code": 58899
@@ -1752,7 +1827,7 @@
 					"id": 789,
 					"order": 22,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-upload, cloud3",
 					"name": "cloud-upload",
 					"code": 58900
@@ -1761,7 +1836,7 @@
 					"order": 23,
 					"id": 1491,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-check, cloud4",
 					"name": "cloud-check",
 					"code": 58901
@@ -1770,7 +1845,7 @@
 					"id": 796,
 					"order": 42,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "download2, save4",
 					"name": "download2",
 					"code": 58919
@@ -1779,7 +1854,7 @@
 					"id": 797,
 					"order": 43,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "upload2, load2",
 					"name": "upload2",
 					"code": 58920
@@ -1914,7 +1989,7 @@
 				},
 				{
 					"id": 863,
-					"order": 24,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "star-empty, rate",
@@ -1923,7 +1998,7 @@
 				},
 				{
 					"id": 864,
-					"order": 25,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "star-half, rate2",
@@ -1956,7 +2031,7 @@
 					"name": ""
 				},
 				{
-					"order": 27,
+					"order": 0,
 					"id": 1652,
 					"prevSize": 32,
 					"tempChar": "",
@@ -1965,7 +2040,7 @@
 					"code": 58905
 				},
 				{
-					"order": 28,
+					"order": 0,
 					"id": 1654,
 					"prevSize": 32,
 					"tempChar": "",
@@ -1974,7 +2049,7 @@
 					"code": 58906
 				},
 				{
-					"order": 29,
+					"order": 0,
 					"id": 1653,
 					"prevSize": 32,
 					"tempChar": "",
@@ -2306,7 +2381,7 @@
 					"id": 949,
 					"order": 30,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "warning, sign",
 					"name": "warning",
 					"code": 58908
@@ -2361,17 +2436,18 @@
 				},
 				{
 					"id": 967,
-					"order": 0,
+					"order": 69,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "blocked, forbidden",
-					"name": ""
+					"name": "blocked",
+					"code": 58906
 				},
 				{
 					"id": 975,
 					"order": 44,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cross, cancel",
 					"name": "cross",
 					"code": 58921
@@ -2556,7 +2632,7 @@
 					"id": 1011,
 					"order": 3,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-high, volume",
 					"name": "volume-high",
 					"code": 58909
@@ -2573,7 +2649,7 @@
 					"id": 1013,
 					"order": 45,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-low, volume3",
 					"name": "volume-low",
 					"code": 58922
@@ -2590,7 +2666,7 @@
 					"id": 1015,
 					"order": 2,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-mute2, volume5",
 					"name": "volume-mute2",
 					"code": 58910
@@ -3285,11 +3361,12 @@
 				},
 				{
 					"id": 1273,
-					"order": 0,
+					"order": 70,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "terminal, console",
-					"name": ""
+					"name": "terminal",
+					"code": 58907
 				},
 				{
 					"id": 1285,
@@ -3383,7 +3460,7 @@
 					"id": 1298,
 					"order": 47,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "facebook2, brand7",
 					"name": "facebook2",
 					"code": 58923
@@ -3406,7 +3483,7 @@
 				},
 				{
 					"id": 1301,
-					"order": 49,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "instagram, brand10",
@@ -3425,7 +3502,7 @@
 					"id": 1303,
 					"order": 48,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "twitter2, brand12",
 					"name": "twitter2",
 					"code": 58925
@@ -3648,7 +3725,7 @@
 				},
 				{
 					"id": 1330,
-					"order": 50,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "steam2, brand37",
@@ -3675,7 +3752,7 @@
 					"order": 32,
 					"id": 1412,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "github, brand40",
 					"name": "github",
 					"code": 58911
@@ -3788,7 +3865,7 @@
 					"id": 1348,
 					"order": 51,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "apple, brand54",
 					"name": "apple",
 					"code": 58927
@@ -3805,7 +3882,7 @@
 					"id": 1350,
 					"order": 52,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "android, brand56",
 					"name": "android",
 					"code": 58928
@@ -3820,7 +3897,7 @@
 				},
 				{
 					"id": 1352,
-					"order": 53,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "windows8, brand58",
@@ -3933,7 +4010,7 @@
 				},
 				{
 					"id": 1365,
-					"order": 54,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "pinterest2, brand72",
@@ -4046,7 +4123,7 @@
 				},
 				{
 					"id": 1384,
-					"order": 55,
+					"order": 0,
 					"prevSize": 32,
 					"tempChar": "",
 					"ligatures": "html5, w3c",
@@ -4097,7 +4174,7 @@
 					"id": 1387,
 					"order": 56,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "chrome, browser",
 					"name": "chrome",
 					"code": 58932
@@ -11126,7 +11203,8 @@
 			"showMetrics": false,
 			"showMetadata": false,
 			"showVersion": true,
-			"resetPoint": 58880
+			"resetPoint": 58880,
+			"autoHost": false
 		},
 		"imagePref": {
 			"prefix": "icomoon-",
@@ -11146,7 +11224,11 @@
 		"showCodes": true,
 		"gridSize": 16,
 		"showGrid": false,
-		"showLiga": true
+		"showLiga": true,
+		"quickUsageToken": {
+			"TheBoringRPGreloaded": "OGNkZTI2YTYwNWYwNWY3YjI0YTRjMGZhOWJjZmMzZDMjMSMxNDQxMTM1OTgxIyMj"
+		},
+		"fontHostingName": false
 	},
 	"uid": -1
 }

@@ -14,13 +14,13 @@
 }
 
 .meta-content-item {
-	width: 100px;
+	width: 80px;
 	height: 100px;
 	text-align: center;
 }
 .meta-content-item span {
-	font-size: 50px;
-	line-height: 78px;
+	font-size: 40px;
+	line-height: 58px;
 }
 .meta-content-item p {
 	font-size: 12px;

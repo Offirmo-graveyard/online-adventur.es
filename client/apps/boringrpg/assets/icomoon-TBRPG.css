@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'icomoon-TBRPG';
-	src:url('icomoon-TBRPG.woff?1bse4b') format('woff');
+	src:url('icomoon-TBRPG.woff?-gssbvf') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -28,6 +28,12 @@
 	-moz-osx-font-smoothing: grayscale;*/
 }
 
+.icomoon-icon_4780:before {
+	content: "\e604";
+}
+.icomoon-icon_4780_mod:before {
+	content: "\e605";
+}
 .icomoon-laurel-crown:before {
 	content: "\e600";
 }
@@ -52,20 +58,20 @@
 .icomoon-home3:before {
 	content: "\e623";
 }
+.icomoon-music:before {
+	content: "\e60e";
+}
 .icomoon-qrcode:before {
 	content: "\e602";
 }
 .icomoon-envelop:before {
 	content: "\e603";
 }
-.icomoon-display:before {
-	content: "\e604";
+.icomoon-box-add:before {
+	content: "\e60d";
 }
-.icomoon-mobile:before {
-	content: "\e605";
-}
-.icomoon-tablet:before {
-	content: "\e624";
+.icomoon-floppy-disk:before {
+	content: "\e611";
 }
 .icomoon-bubbles4:before {
 	content: "\e625";
@@ -85,11 +91,8 @@
 .icomoon-spinner4:before {
 	content: "\e60c";
 }
-.icomoon-enlarge:before {
-	content: "\e60d";
-}
-.icomoon-shrink:before {
-	content: "\e60e";
+.icomoon-spinner11:before {
+	content: "\e616";
 }
 .icomoon-equalizer2:before {
 	content: "\e60f";
@@ -97,14 +100,17 @@
 .icomoon-cog:before {
 	content: "\e610";
 }
-.icomoon-bug:before {
-	content: "\e611";
+.icomoon-aid-kit:before {
+	content: "\e617";
 }
 .icomoon-trophy:before {
 	content: "\e626";
 }
 .icomoon-gift:before {
 	content: "\e612";
+}
+.icomoon-switch:before {
+	content: "\e619";
 }
 .icomoon-cloud-download:before {
 	content: "\e613";
@@ -121,26 +127,14 @@
 .icomoon-upload2:before {
 	content: "\e628";
 }
-.icomoon-star-empty:before {
-	content: "\e616";
-}
-.icomoon-star-half:before {
-	content: "\e617";
-}
 .icomoon-star-full:before {
 	content: "\e618";
 }
-.icomoon-man:before {
-	content: "\e619";
-}
-.icomoon-woman:before {
-	content: "\e61a";
-}
-.icomoon-man-woman:before {
-	content: "\e61b";
-}
 .icomoon-warning:before {
 	content: "\e61c";
+}
+.icomoon-blocked:before {
+	content: "\e61a";
 }
 .icomoon-cross:before {
 	content: "\e629";
@@ -154,17 +148,14 @@
 .icomoon-volume-mute2:before {
 	content: "\e61e";
 }
+.icomoon-terminal:before {
+	content: "\e61b";
+}
 .icomoon-facebook2:before {
 	content: "\e62b";
 }
-.icomoon-instagram:before {
-	content: "\e62c";
-}
 .icomoon-twitter2:before {
 	content: "\e62d";
-}
-.icomoon-steam2:before {
-	content: "\e62e";
 }
 .icomoon-github:before {
 	content: "\e61f";
@@ -174,15 +165,6 @@
 }
 .icomoon-android:before {
 	content: "\e630";
-}
-.icomoon-windows8:before {
-	content: "\e631";
-}
-.icomoon-pinterest2:before {
-	content: "\e632";
-}
-.icomoon-html5:before {
-	content: "\e633";
 }
 .icomoon-chrome:before {
 	content: "\e634";
