@@ -15,8 +15,6 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 
 	console.log('executing main...');
 
-	offirmo_app.global_ng_module_dependencies = [];
-
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});
 

@@ -19,18 +19,13 @@ requirejs.config({
 	// http://requirejs.org/docs/api.html#config-enforceDefine
 	enforceDefine: false,
 
-	// require.js extensions (plugins)
 	map: {
 		'*': {
-			// an extension to be able to load any kind of text
-			//'text': 'requirejs-text',
-			// an extension to be able to load css with require.js
-			//'css':  'requirejs-css',
-			// an extension to be able to load less stylesheets with require.js
+			// a require.js extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
-			// an extension to be able to load dust.js templates easily
+			// a require.js extension to be able to load dust.js templates easily
 			//'rdust': 'bower_components/require-dust/rdust',
-			// an extension to be able to wait for the DOM to be ready
+			// a require.js extension to be able to wait for the DOM to be ready
 			'domReady': 'bower_components/requirejs-domready/domReady',
 			// an extension to lazy load angular components
 			//'ngload': 'bower_components/angularAMD/ngload',
@@ -42,8 +37,7 @@ requirejs.config({
 	/////////////////////
 	// multi-files modules
 	packages: [
-		// require.js extensions (plugin) to be able to load css with require.js
-		{
+		{ // require.js extensions (plugin) to be able to load css with require.js
 			name : 'css',
 			location: 'bower_components/require-css/',
 			main: 'css.js'
@@ -51,11 +45,6 @@ requirejs.config({
 		{
 			name : 'carnet',
 			location: 'common/incubator/carnet'
-		},
-		{
-			name : 'when',
-			location: 'bower_components/when',
-			main: 'when.js'
 		},
 		{
 			name : 'when',
@@ -246,7 +235,8 @@ requirejs.config({
 	// config: {},
 
 	/////////////////////
-	//deps: []
+	// dependencies to load as soon as require.js defines require
+	// deps: [ ]
 });
 
 console.log('require js config parsed.');

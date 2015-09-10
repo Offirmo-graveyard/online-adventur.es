@@ -1,5 +1,7 @@
 console.log('loading famous-base main js...');
 
+window.offirmo_app_global_ng_module_dependencies = ['famous.angular'];
+
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
@@ -16,8 +18,6 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 	'use strict';
 
 	console.log('executing main...');
-
-	offirmo_app.global_ng_module_dependencies = ['famous.angular'];
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});

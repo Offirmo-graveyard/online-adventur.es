@@ -15,8 +15,6 @@ function(offirmo_app, _, angular, Carnet, AppCacheNanny, screenfull, tpl) {
 
 	console.log('executing main...');
 
-	offirmo_app.global_ng_module_dependencies = [];
-
 	AppCacheNanny.on('downloading', function() {
 		console.log('downloading', arguments);
 	});
