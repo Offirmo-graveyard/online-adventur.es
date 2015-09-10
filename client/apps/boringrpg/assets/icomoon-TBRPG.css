@@ -28,10 +28,13 @@
 	-moz-osx-font-smoothing: grayscale;*/
 }
 
-.icomoon-icon_4780:before {
+.icomoon-language-choice:before {
+	content: "\e624";
+}
+.icomoon-exit-fullscreen:before {
 	content: "\e604";
 }
-.icomoon-icon_4780_mod:before {
+.icomoon-enter-fullscreen:before {
 	content: "\e605";
 }
 .icomoon-laurel-crown:before {
@@ -60,6 +63,9 @@
 }
 .icomoon-music:before {
 	content: "\e60e";
+}
+.icomoon-book:before {
+	content: "\e62c";
 }
 .icomoon-qrcode:before {
 	content: "\e602";
@@ -102,6 +108,9 @@
 }
 .icomoon-aid-kit:before {
 	content: "\e617";
+}
+.icomoon-stats-dots:before {
+	content: "\e62e";
 }
 .icomoon-trophy:before {
 	content: "\e626";

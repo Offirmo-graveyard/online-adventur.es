@@ -19,16 +19,16 @@ function(offirmo_app, _, screenfull, tpl) {
 
 				$scope.items = [
 					{
-						icon: 'icomoon-icon_4780_mod',
+						icon: 'icomoon-enter-fullscreen',
 						label: 'Full screen',
 						update: function() {
 							if (fullscreen_cursor.get()) {
-								$scope.items[0].icon = 'icomoon-icon_4780';
-								$scope.items[0].label = 'Full screen : ON';
+								$scope.items[0].icon = 'icomoon-exit-fullscreen';
+								$scope.items[0].label = 'Exit full screen';
 							}
 							else {
-								$scope.items[0].icon = 'icomoon-icon_4780_mod';
-								$scope.items[0].label = 'Full screen : OFF';
+								$scope.items[0].icon = 'icomoon-enter-fullscreen';
+								$scope.items[0].label = 'Go full screen';
 							}
 						},
 						on_click: function() {
@@ -37,22 +37,22 @@ function(offirmo_app, _, screenfull, tpl) {
 					},
 					{
 						icon: 'icomoon-volume-mute2',
-						label: 'Volume',
+						label: 'Change volume',
 					},
 					{
 						icon: 'icomoon-music',
 						label: 'Music',
 					},
 					{
-						icon: 'icomoon-equalizer2',
+						icon: 'icomoon-language-choice',
 						label: 'Language : en',
 					},
 					{
-						icon: 'icomoon-spinner4',
+						icon: 'icomoon-stats-dots',
 						label: 'Statistics',
 					},
 					{
-						icon: 'icomoon-death-note',
+						icon: 'icomoon-book',
 						label: 'Tutorial',
 					},
 					{
@@ -85,8 +85,8 @@ function(offirmo_app, _, screenfull, tpl) {
 						label: 'Save',
 					},
 					{
-						icon: 'icomoon-box-add',
-						label: 'Check updates',
+						icon: 'icomoon-cloud-download',
+						label: 'Update',
 					},
 					{
 						icon: 'icomoon-aid-kit',
