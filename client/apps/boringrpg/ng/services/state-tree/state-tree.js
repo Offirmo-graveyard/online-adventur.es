@@ -1,21 +1,21 @@
 /** This app global state
  */
 define([
+	'module',
 	'offirmo-app-bootstrap',
 	'lodash',
 	'jquery',
 	'baobab',
 	'rx',
 	'screenfull',
-	'css!client/apps/boringrpg/ng/directives/app/content/content.css'
 ],
-function(offirmo_app, _, $, Baobab, Rx, screenfull) {
+function(module, offirmo_app, _, $, Baobab, Rx, screenfull) {
 	'use strict';
 
 	offirmo_app.global_ng_module
 	.service('stateTree', ['$rootScope', function ($rootScope) {
 
-		function debug_observable(observable, name) {
+			function debug_observable(observable, name) {
 			observable.subscribe(
 				function (x) {
 					console.log('@' + name + ' - Next:', x);
@@ -31,7 +31,7 @@ function(offirmo_app, _, $, Baobab, Rx, screenfull) {
 
 		// state, as a baobab tree
 		var state_tree = new Baobab({
-			version: '0.0.1',
+			version: module.config().version,
 			view: {
 				lang: 'en',
 				fullscreen: undefined,

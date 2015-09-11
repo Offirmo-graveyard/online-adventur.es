@@ -7,10 +7,10 @@ if [[ -n $(git status --porcelain) ]]; then
     echo -en "\n\nXXX PLEASE COMMIT YOUR CHANGES FIRST !!!\n\n"
     git status
     echo -en "\n\n"
-    exit 1
+    #exit 1
 fi
 
-./scripts/update_versions.bash
+./scripts/update_common_versions.bash
 
 ./scripts/build_app.bash boringrpg
 ./scripts/update_manifest_version.bash boringrpg

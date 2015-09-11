@@ -1,13 +1,12 @@
 .meta-content {
 	background: #292830;
+	font-family: Helvetica Neue, Helvetica, Arial, 'sans-serif';
 }
 
 .meta-content-container {
 	display: flex;
 	flex-wrap: wrap;
-	xxalign-content: center;
 	justify-content: center;
-	xxalign-items: center;
 
 	list-style-type: none;
 	padding: 0;
@@ -15,7 +14,7 @@
 
 .meta-content-item {
 	width: 80px;
-	height: 100px;
+	height: 92px;
 	text-align: center;
 }
 .meta-content-item span {
@@ -23,5 +22,12 @@
 	line-height: 58px;
 }
 .meta-content-item p {
+	margin: 0px;
 	font-size: 12px;
+	line-height: 14px; /* tighter */
+}
+
+.meta-content-version {
+	text-align: center;
+	margin-top: -12px;
 }

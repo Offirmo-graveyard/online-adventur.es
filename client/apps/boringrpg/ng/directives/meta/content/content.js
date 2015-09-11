@@ -14,21 +14,23 @@ function(offirmo_app, _, screenfull, tpl) {
 			template: tpl,
 			controller: ['$scope', function($scope) {
 
+				var version_cursor = state_tree.select('version');
 				var view_cursor = state_tree.select('view');
 				var fullscreen_cursor = view_cursor.select('fullscreen');
 
+				$scope.version = version_cursor.get();
 				$scope.items = [
 					{
 						icon: 'icomoon-enter-fullscreen',
 						label: 'Full screen',
 						update: function() {
 							if (fullscreen_cursor.get()) {
-								$scope.items[0].icon = 'icomoon-exit-fullscreen';
-								$scope.items[0].label = 'Exit full screen';
+								$scope.items[0].icon = 'icomoon-enter-fullscreen';
+								$scope.items[0].value = 'ON';
 							}
 							else {
-								$scope.items[0].icon = 'icomoon-enter-fullscreen';
-								$scope.items[0].label = 'Go full screen';
+								$scope.items[0].icon = 'icomoon-exit-fullscreen';
+								$scope.items[0].value = 'OFF';
 							}
 						},
 						on_click: function() {
@@ -37,15 +39,18 @@ function(offirmo_app, _, screenfull, tpl) {
 					},
 					{
 						icon: 'icomoon-volume-mute2',
-						label: 'Change volume',
+						label: 'Volume',
+						value: 'OFF'
 					},
 					{
 						icon: 'icomoon-music',
 						label: 'Music',
+						value: 'OFF'
 					},
 					{
 						icon: 'icomoon-language-choice',
-						label: 'Language : en',
+						label: 'Language',
+						value: 'en'
 					},
 					{
 						icon: 'icomoon-stats-dots',
