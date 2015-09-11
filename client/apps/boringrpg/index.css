@@ -2,7 +2,7 @@
 
 @font-face {
 	font-family: 'PixAntiqua';
-	src:url('assets/PixAntiqua.ttf') format('truetype');
+	src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype');
 }
 
 body, body.famous-root {

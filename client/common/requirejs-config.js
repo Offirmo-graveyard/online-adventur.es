@@ -21,6 +21,9 @@ requirejs.config({
 
 	map: {
 		'*': {
+			'css': 'bower_components/require-css/css',
+			'css-builder': 'bower_components/require-css/css-builder',
+			'normalize': 'bower_components/require-css/normalize',
 			// a require.js extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// a require.js extension to be able to load dust.js templates easily
@@ -37,11 +40,11 @@ requirejs.config({
 	/////////////////////
 	// multi-files modules
 	packages: [
-		{ // require.js extensions (plugin) to be able to load css with require.js
+		/*{ // require.js extensions (plugin) to be able to load css with require.js
 			name : 'css',
 			location: 'bower_components/require-css/',
 			main: 'css.js'
-		},
+		},*/
 		{
 			name : 'carnet',
 			location: 'common/incubator/carnet'
@@ -78,6 +81,7 @@ requirejs.config({
 		'baobab'                   : 'bower_components/baobab/build/baobab.min',
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
 		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',
+		//'css'                      : 'bower_components/require-css/css',
 		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
 		'dust-helpers'             : 'bower_components/dustjs-linkedin-helpers/dist/dust-helpers',
@@ -86,6 +90,8 @@ requirejs.config({
 		'famous'                   : 'bower_components/famous/dist/famous',
 		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'famous-global'            : 'bower_components/famous/dist/famous-global',
+		// require.js extensions (plugin) to be able to load i18n bundles
+		'i18n'                     : 'bower_components/requirejs-i18n/i18n',
 		'intl-format-cache'        : 'bower_components/intl-format-cache/index',
 		'intl-messageformat'       : 'bower_components/intl-messageformat/dist/intl-messageformat-with-locales',
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
@@ -104,6 +110,10 @@ requirejs.config({
 		// require.js extensions (plugin) to be able to load any kind of text with require.js
 		'text'                     : 'bower_components/requirejs-text/text',
 		//'underscore'  -> replaced by lodash, see "map" section above.
+
+		//'css': 'bower_components/require-css/css',
+		//"css-builder.js": 'bower_components/require-css/css-builder',
+		//"normalize.js": 'bower_components/require-css/normalize',
 	},
 
 
@@ -232,11 +242,16 @@ requirejs.config({
 	},
 
 	/////////////////////
-	// config: {},
+	config: {
+		// http://requirejs.org/docs/api.html#i18n
+		i18n: {
+			//locale: window.document.documentElement.lang || 'en'
+		}
+	},
 
 	/////////////////////
 	// dependencies to load as soon as require.js defines require
-	// deps: [ ]
+	//deps: [ 'css' ]
 });
 
 console.log('require js config parsed.');

@@ -1,5 +1,7 @@
 'use strict';
 
+var path = require('path');
+
 var express = require('express');
 var router = express.Router();
 var utils = require('./utils');
@@ -13,6 +15,11 @@ module.exports = router;
 router.get('/incubator/node_and_common/webworker_helper.js', function (req, res) {
 	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
 });*/
+
+// help require-css
+router.get('/css.js', function (req, res) {
+	res.sendFile(path.join(__dirname, '../../bower_components/require-css/css.min.js'));
+});
 
 router.use('/', app_router('index', {
 	custom_route: '/',

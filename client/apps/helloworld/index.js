@@ -5,7 +5,8 @@ define([
 	'lodash',
 	'angular',
 	'carnet',
-	'client/apps/helloworld/i18n/index',
+	//'client/apps/helloworld/i18n/index',
+	'i18n!client/apps/helloworld/i18n/nls/base',
 	'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
 	'css!client/apps/helloworld/index'
@@ -25,7 +26,8 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 
 		// TOREVIEW
 		//$scope.lang = $document[0].documentElement.lang;
-		logger.info('detected lang :', $document[0].documentElement.lang);
+		logger.info('detected lang :', window.document.documentElement.lang);
+		logger.info('messages :', i18n_messages);
 		$scope.pready = true;
 
 		_.merge($scope, {
