@@ -1,7 +1,7 @@
 #! /bin/bash
 set -e
 
-echo "* starting app building process for $1..."
+echo "* starting app building process for app $1... [$0]"
 
 ## require.js optimizer
 ./node_modules/.bin/r.js -o client/apps/$1/requirejs-build-config.js paths.requireLib=bower_components/requirejs/require include=requireLib

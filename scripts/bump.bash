@@ -13,6 +13,7 @@ fi
 ./scripts/update_versions.bash
 
 ./scripts/build_app.bash boringrpg
-./scripts/build_app.bash jeudunombre
+./scripts/update_manifest_version.bash boringrpg
 
-exit 0
+./scripts/build_app.bash jeudunombre
+./scripts/update_manifest_version.bash jeudunombre

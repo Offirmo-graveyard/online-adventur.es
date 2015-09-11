@@ -1,5 +1,6 @@
 CACHE MANIFEST
-#version 1.0 8-11-2015
+
+#version 0.0.7
 
 CACHE:
 
@@ -10,10 +11,7 @@ CACHE:
 
 
 #style sheets
-/bower_components/famous-angular/dist/famous-angular.css
-/client/apps/jeudunombre/index.css
 /client/common/common.css
-/client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min.css
 
 #style sheet images
 
@@ -23,9 +21,7 @@ CACHE:
 
 
 # manual adds
-/bower_components/messenger/build/css/messenger-theme-future.css
-/bower_components/messenger/build/css/messenger.css
-/appcache-loader.html
+
 
 ## special files, conditional loading depending on platform
 /android-chrome-144x144.png
@@ -61,5 +57,5 @@ CACHE:
 # it isn't cached, and references to this file will bypass the cache,
 # always hitting the network (or trying to, if the user is offline).
 NETWORK:
-https://fonts.googleapis.com/css?family=Roboto:400,700
+#https://fonts.googleapis.com/css?family=Roboto:400,700
 #*
