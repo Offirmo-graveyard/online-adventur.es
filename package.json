@@ -2,7 +2,7 @@
   "name": "online-adventur.es",
   "description": " Code for the website http://www.online-adventur.es",
   "author": "Offirmo <offirmo.net@gmail.com>",
-  "version": "0.0.2",
+  "version": "0.0.6",
   "private": true,
   "license": "Unlicense",
   "main": "server.js",
@@ -12,17 +12,21 @@
     "lint": "eslint .",
     "nodemon": "nodemon",
     "env": "environmentalist",
+
     "build-appcache": "./scripts/build_app.bash appcache",
     "build-helloworld": "./scripts/build_app.bash helloworld",
     "build-famous-base": "./scripts/build_app.bash famous-base",
     "build-jeudunombre": "./scripts/build_app.bash jeudunombre",
     "build-boringrpg": "./scripts/build_app.bash boringrpg",
     "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre && npm run build-boringrpg",
-    "bump": "mversion patch",
+
+    "bump": "mversion patch -m && ./scripts/bump.bash",
+
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/easyconf/node_modules",
     "install_globals": "npm install --global nodemon && npm update -g nodemon",
     "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run devbower && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../easyconf && npm prune && npm install && npm update",
     "devbower": "bower prune && bower install && bower update",
+
     "bb": "npm run devbower",
     "cc": "npm run cleardeps",
     "ii": "npm run devinstall"

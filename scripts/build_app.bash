@@ -1,4 +1,5 @@
 #! /bin/bash
+set -e
 
 echo "* starting app building process for $1..."
 

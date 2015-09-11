@@ -243,6 +243,7 @@ requirejs.config({
 
 	/////////////////////
 	config: {
+		version: 'v0.0.6',
 		// http://requirejs.org/docs/api.html#i18n
 		i18n: {
 			//locale: window.document.documentElement.lang || 'en'

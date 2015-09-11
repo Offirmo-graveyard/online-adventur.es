@@ -1,8 +1,8 @@
 {
 	"scripts": {
-		"preupdate": "./scripts/mversion_preupdate.bash",
-		"xxprecommit": "npm run build-jeudunombre && npm run build-boringrpg",
-		"postcommit": "git push && git push --tags",
-		"postupdate": "echo 'Updated to version %s in manifest files'"
+		"preupdate": "echo preupdate",
+		"precommit": "echo precommit",
+		"postcommit": "echo postcommit",
+		"postupdate": "echo postupdate"
 	}
 }
