@@ -22,8 +22,8 @@ requirejs.config({
 	map: {
 		'*': {
 			'css': 'bower_components/require-css/css',
-			'css-builder': 'bower_components/require-css/css-builder',
-			'normalize': 'bower_components/require-css/normalize',
+			//'css-builder': 'bower_components/require-css/css-builder',
+			//'normalize': 'bower_components/require-css/normalize',
 			// a require.js extension to be able to load less stylesheets with require.js
 			'less': 'bower_components/require-less/less',
 			// a require.js extension to be able to load dust.js templates easily

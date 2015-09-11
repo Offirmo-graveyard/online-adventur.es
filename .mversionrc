@@ -1,0 +1,8 @@
+{
+	"scripts": {
+		"preupdate": "echo 'Bumping version'",
+		"xxprecommit": "npm run build-jeudunombre && npm run build-boringrpg",
+		"postcommit": "git push && git push --tags",
+		"postupdate": "echo 'Updated to version %s in manifest files'"
+	}
+}

@@ -6,6 +6,8 @@
 		<div id="loader">
 			<progress />
 		</div>
-		<div><small>201507030152 xx TODO</small></div>
+		<div>
+			<small class="version">insert version here</small>
+		</div>
 	</div>
 </div>

@@ -1,6 +1,7 @@
 @font-face {
 	font-family: 'icomoon-TBRPG';
-	src:url('icomoon-TBRPG.woff') format('woff');
+	/* full path to help the minifier */
+	src:url('/client/apps/boringrpg/assets/icomoon-TBRPG.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
