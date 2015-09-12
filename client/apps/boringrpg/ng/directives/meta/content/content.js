@@ -18,6 +18,12 @@ function(offirmo_app, _, screenfull, tpl) {
 				var view_cursor = state_tree.select('view');
 				var fullscreen_cursor = view_cursor.select('fullscreen');
 
+				function angular_debounce(fn) {
+					return _.debounce(function () {
+						$scope.$evalAsync(fn);
+					}, 200, true);
+				}
+
 				$scope.version = version_cursor.get();
 				$scope.items = [
 					{
@@ -33,9 +39,9 @@ function(offirmo_app, _, screenfull, tpl) {
 								$scope.items[0].value = 'OFF';
 							}
 						},
-						on_click: function() {
+						on_click: angular_debounce(function() {
 							screenfull.toggle();
-						}
+						})
 					},
 					{
 						icon: 'icomoon-volume-mute2',
@@ -83,7 +89,9 @@ function(offirmo_app, _, screenfull, tpl) {
 					{
 						icon: 'icomoon-github',
 						label: 'Fork on Github',
-						link: 'https://github.com/Offirmo/online-adventur.es'
+						on_click: angular_debounce(function() {
+							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
+						})
 					},
 					{
 						icon: 'icomoon-floppy-disk',
@@ -96,10 +104,17 @@ function(offirmo_app, _, screenfull, tpl) {
 					{
 						icon: 'icomoon-aid-kit',
 						label: 'Report bugs',
+						on_click: angular_debounce(function() {
+							window.open('https://github.com/Offirmo/online-adventur.es/issues','_blank');
+						})
 					},
 					{
 						icon: 'icomoon-spinner11',
 						label: 'Refresh',
+						on_click: angular_debounce(function() {
+							// http://stackoverflow.com/a/20741110/587407
+							window.location.reload(true);
+						})
 					},
 				];
 				$scope.items[0].update();

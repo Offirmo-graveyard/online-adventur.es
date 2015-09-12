@@ -7,9 +7,8 @@ define([
 	'jquery',
 	'baobab',
 	'rx',
-	'screenfull',
 ],
-function(module, offirmo_app, _, $, Baobab, Rx, screenfull) {
+function(module, offirmo_app, _, $, Baobab, Rx) {
 	'use strict';
 
 	offirmo_app.global_ng_module
@@ -51,46 +50,8 @@ function(module, offirmo_app, _, $, Baobab, Rx, screenfull) {
 				}
 			},
 			model: {
-
 			}
 		});
-
-		var view_cursor = state_tree.select('view');
-
-		var observable_screen_size = Rx.Observable.create(function(observer) {
-			// http://stackoverflow.com/questions/2996431/detect-when-a-window-is-resized-using-javascript
-			var window_elt = $(window);
-
-			// initial value
-			observer.onNext([ window_elt.width(), window_elt.height() ]);
-
-			// dynamic value
-			window_elt.resize(function() {
-				observer.onNext([ window_elt.width(), window_elt.height() ]);
-			});
-		});
-		observable_screen_size
-			.debounce(250 /* ms */)
-			.distinctUntilChanged()
-			.subscribe(function(new_screen_size) {
-				console.log('new screen size detected :', new_screen_size);
-				view_cursor.set('screen_size', new_screen_size);
-				// not pretty but will do it for now
-				// try to help famo.us to correctly repaint the screen
-				$rootScope.$apply();
-			});
-
-
-			if (screenfull.enabled) {
-				document.addEventListener(screenfull.raw.fullscreenchange, function () {
-					//console.log('Am I fullscreen? ' + (screenfull.isFullscreen ? 'Yes' : 'No'));
-					view_cursor.set('fullscreen', screenfull.isFullscreen);
-				});
-				document.addEventListener(screenfull.raw.fullscreenerror, function (event) {
-					console.error('Failed to enable fullscreen', event);
-				});
-			}
-			view_cursor.set('fullscreen', screenfull.isFullscreen);
 
 		return state_tree;
 	}]);
