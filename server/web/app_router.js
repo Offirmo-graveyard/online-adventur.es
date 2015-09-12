@@ -39,12 +39,12 @@ module.exports = function(app_radix, options) {
 				//console.log('trying ' + '../../client/i18n/common.' + locale);
 				if(! messages) messages = require('../../client/common/i18n/common.' + locale);
 			} catch(e) {
-				console.error('Couldn’t event find the common locale for ' + locale + ' !', e);
+				console.error('Couldn’t even find the common locale for ' + locale + ' !', e);
 			}
 
 			messages = _.defaults({
 				canonical_url: config.canonical_url + (options.custom_route || default_route)
-			},messages);
+			}, messages);
 
 			// as expected by formatJS
 			return {

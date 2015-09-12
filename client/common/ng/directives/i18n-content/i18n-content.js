@@ -5,22 +5,26 @@ define([
 	],
 function(offirmo_app, _, IntlMessageFormat) {
 	'use strict';
+	var unique_i18n_content_id = 0;
 
 	console.log('directive i18nContent declaration');
 	offirmo_app.global_ng_module
-	.directive('i18nContent', ['$q', 'i18nData', function ($q, i18nData) {
+	.directive('i18nContent', ['$q', 'i18nData', function ($q, i18n_data) {
 		return {
 			restrict: 'A',
-			template: '<span>Hello</span>',
+			template: '<span>[xxx i18n-content on scope #{{$id}}]</span>',
+			//scope: {},
 			controller: ['$scope', function($scope) {
-				//console.log('i18nContent ctrl');
-
-				//$scope.
-
 			}],
 			link: function postLink($scope, $element, attrs, controller) {
+				var i18n_content_id = unique_i18n_content_id++;
 
-				var id = '[i18n-content #' + $scope.$id + ']';
+				var prefix = '[i18n|';
+				var message = '?';
+				var suffix = '|' + i18n_content_id + '$' + $scope.$id + ']';
+
+				var id = prefix + suffix;
+				var resolved_content = prefix + message + suffix;
 				//console.log(id + ' i18n link', $scope, $element, attrs);
 
 				var key = attrs.i18nContent;
@@ -28,23 +32,32 @@ function(offirmo_app, _, IntlMessageFormat) {
 				var direct_message = attrs.message; // "direct" since messages
 				                                    // are usually passed indirectly via "key"
 
-				if (! key && ! direct_message) {
+				if (! key && ! direct_message)
 					console.error(id + ' error : missing key or direct message !');
+				else {
+					message = (key || direct_message);
+					resolved_content = prefix + message + suffix;
 				}
 
-				i18nData.get_intl()
-				.then(function(intl) {
-					//console.log(id + ' got intl object !');
+				$element.html(resolved_content); // temporarily
+
+				/*i18n_data.get_intl()
+					.then(update_element)
+					.catch(function(err) {
+						console.error(id + ' error !', err);
+					});*/
+				i18n_data.on_locale_change(update_element);
+
+				function update_element(intl) {
+					console.log(id + ' updating...');
 
 					// try to resolve stuff
-					var content = '[i18n error]';
 					resolution : {
 
 						if (! key && ! direct_message) {
 							console.error(id + ' error : missing key or direct message !');
 							break resolution;
 						}
-						content = '[' + (key || direct_message) + ']';
 
 						if (key && direct_message) {
 							console.error(id + ' error : competing key and direct message !');
@@ -56,21 +69,22 @@ function(offirmo_app, _, IntlMessageFormat) {
 							console.error(id + ' error : couldn’t determine locale !');
 							break resolution;
 						}
-						content = '[' + (key || direct_message) + ']';
+
+						prefix = prefix + locale + '|';
+						resolved_content = prefix + message + suffix;
 
 						if (key && ! intl.messages) {
 							console.error(id + ' error : couldn’t resolve key due to missing intl.messages !');
 							break resolution;
-
 						}
 
 						if (key && ! intl.messages[key]) {
 							console.error(id + ' error : couldn’t resolve key "' + key + '" !');
 							break resolution;
-
 						}
-						var message = direct_message || intl.messages[key];
-						content = '[' + message + ']';
+
+						message = direct_message || intl.messages[key];
+						resolved_content = prefix + message + suffix;
 
 						var custom_formats = intl.custom;
 
@@ -95,36 +109,16 @@ function(offirmo_app, _, IntlMessageFormat) {
 						}
 
 						try {
-							content = message_format.format(data);
+							resolved_content = message_format.format(data);
 						}
 						catch(err) {
 							console.error(id + ' error : unable to compile message !', err, debug);
 							break resolution;
 						}
-					};
+					}
 
-					$element.html(content);
-				})
-				.catch(function(err) {
-					console.error(id + ' error !', err);
-				});
-
-				/*var locale = scope.intl.locale;
-				var messages = scope.intl.messages;
-				var data = scope;
-				var custom_formats = scope.intl.custom;
-
-				var msg = messages[key];
-
-				var text;
-				if(_.isUndefined(msg))
-					text = '[' + key + ']';
-				else {
-					var mf =  new IntlMessageFormat(msg, locale, custom_formats);
-					text = mf.format(data);
+					$element.html(resolved_content);
 				}
-
-				element.html(text);*/
 			}
 		};
 	}]);

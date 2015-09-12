@@ -23,12 +23,28 @@
 		</p>
 
 		<p>
-			<span i18n-content="client_side_i18n"></span> :
+			<span i18n-content="client_side_i18n"></span> : [lang = <span i18n-content="lang"></span>]
 			[<a href="#" ng-click="switch_lang('fr')">switch to fr</a>]
 			[<a href="#" ng-click="switch_lang('en')">switch to en</a>]
 			<ul>
-				<li i18n-content="no_key">TODO !!!!!
-				<li>TODO !!!!!
+				<li i18n-content="without_key">SHOULD NOT APPEAR
+				<li i18n-content="simple_key">SHOULD NOT APPEAR
+				<li i18n-content="formatted_number">SHOULD NOT APPEAR
+				<li i18n-content="formatted_number_percent">SHOULD NOT APPEAR
+				<li i18n-content="formatted_date_short">SHOULD NOT APPEAR
+				<li i18n-content="formatted_date_medium">SHOULD NOT APPEAR
+				<li i18n-content="formatted_date_long">SHOULD NOT APPEAR
+				<li i18n-content="formatted_date_full">SHOULD NOT APPEAR
+				<li i18n-content="formatted_time_short">SHOULD NOT APPEAR
+				<li i18n-content="formatted_time_medium">SHOULD NOT APPEAR
+				<li i18n-content="formatted_time_long">SHOULD NOT APPEAR
+				<li i18n-content="formatted_time_full">SHOULD NOT APPEAR
+				<li i18n-content="key_select">SHOULD NOT APPEAR
+				<li i18n-content="key_select_nested">SHOULD NOT APPEAR
+				<li i18n-content="plural">SHOULD NOT APPEAR
+				<li i18n-content="plural_shortcut">SHOULD NOT APPEAR
+				<li i18n-content="ordinal">SHOULD NOT APPEAR
+				<li i18n-content="formatted_number_custom">SHOULD NOT APPEAR
 			</ul>
 		</p>
 	</div>

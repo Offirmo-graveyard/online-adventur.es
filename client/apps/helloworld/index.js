@@ -5,8 +5,7 @@ define([
 	'lodash',
 	'angular',
 	'carnet',
-	//'client/apps/helloworld/i18n/index',
-	'i18n!client/apps/helloworld/i18n/nls/base',
+	'i18n!client/apps/helloworld/i18n/nls/messages',
 	'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
 	'css!client/apps/helloworld/index'
@@ -20,15 +19,36 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 	var logger = Carnet.make_new({enhanced: true});
 
 	offirmo_app.global_ng_module
-	.controller('LandingController', ['$scope', '$document', 'i18nData', function($scope, $document, i18nData) {
+	.controller('LandingController', ['$rootScope', '$scope', '$document', 'i18nData', function($rootScope, $scope, $document, i18n_data) {
 		logger.info('LandingController…');
+
+		$rootScope.$watch(function () {
+			console.warn('~~~ $rootScope $digest ~~~');
+		});
+
+		i18n_data.set_intl(i18n_messages.lang, i18n_messages, i18n_messages.custom_formats);
+		// expose service for debug
+		$scope.i18n_data = i18n_data;
+
 		$scope.title = offirmo_app.server_title;
+
+		$scope.switch_lang = function(lang) {
+			console.log('switching to lang', lang);
+			require([
+				'client/apps/helloworld/i18n/nls/root/messages',
+				'client/apps/helloworld/i18n/nls/' + lang + '/messages'
+			], function (root_messages, new_messages) {
+				i18n_messages = _.merge({}, root_messages, new_messages);
+				console.log(i18n_messages);
+				i18n_data.set_intl(i18n_messages.lang, i18n_messages, i18n_messages.custom_formats);
+			});
+
+		};
 
 		// TOREVIEW
 		//$scope.lang = $document[0].documentElement.lang;
-		logger.info('detected lang :', window.document.documentElement.lang);
-		logger.info('messages :', i18n_messages);
-		$scope.pready = true;
+		//logger.info('detected lang :', window.document.documentElement.lang);
+		//logger.info('messages :', i18n_messages);
 
 		_.merge($scope, {
 			name: 'Mary',
