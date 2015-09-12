@@ -86,7 +86,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 						message = direct_message || intl.messages[key];
 						resolved_content = prefix + message + suffix;
 
-						var custom_formats = intl.custom;
+						var custom_formats = intl.formats;
 
 						var data = $scope; // TODO add more options
 

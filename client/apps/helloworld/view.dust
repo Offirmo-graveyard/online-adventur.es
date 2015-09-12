@@ -27,6 +27,8 @@
 			[<a href="#" ng-click="switch_lang('fr')">switch to fr</a>]
 			[<a href="#" ng-click="switch_lang('en')">switch to en</a>]
 			<ul>
+				<li>[navigator.language = {~lb}{~lb}navigator.language{~rb}{~rb}]
+				<li>[navigator.browserLanguage = {~lb}{~lb}navigator.browserLanguage{~rb}{~rb}]
 				<li i18n-content="without_key">SHOULD NOT APPEAR
 				<li i18n-content="simple_key">SHOULD NOT APPEAR
 				<li i18n-content="formatted_number">SHOULD NOT APPEAR

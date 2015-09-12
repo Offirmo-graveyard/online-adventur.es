@@ -1,13 +1,28 @@
 'use strict';
 
-// Load and use polyfill for ECMA-402.
-if (!global.Intl) {
-	global.Intl = require('intl');
-}
-
 var express = require('express');
 
 var config = require('./config');
+
+// Load and use intl polyfill
+// http://formatjs.io/guides/runtime-environments/#server
+var areIntlLocalesSupported = require('intl-locales-supported');
+var localesMyAppSupports = config.supported_locales;
+if (global.Intl) {
+	// Determine if the built-in `Intl` has the locale data we need.
+	if (!areIntlLocalesSupported(localesMyAppSupports)) {
+		// `Intl` exists, but it doesn't have the data we need, so load the
+		// polyfill and replace the constructors with need with the polyfill's.
+		console.log('polyfilling partial intl');
+		var IntlPolyfill = require('intl');
+		Intl.NumberFormat   = IntlPolyfill.NumberFormat;
+		Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+	}
+} else {
+	// No `Intl`, so use and load the polyfill.
+	console.log('polyfilling entire intl');
+	global.Intl = require('intl');
+}
 
 // http://expressjs.com/4x/api.html
 var app = express();

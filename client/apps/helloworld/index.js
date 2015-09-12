@@ -29,6 +29,7 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 		i18n_data.set_intl(i18n_messages.lang, i18n_messages, i18n_messages.custom_formats);
 		// expose service for debug
 		$scope.i18n_data = i18n_data;
+		$scope.navigator = window.navigator;
 
 		$scope.title = offirmo_app.server_title;
 
