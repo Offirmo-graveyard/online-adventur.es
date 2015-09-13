@@ -14,19 +14,7 @@ function(module, offirmo_app, _, $, Baobab, Rx) {
 	offirmo_app.global_ng_module
 	.service('stateTree', ['$rootScope', function ($rootScope) {
 
-			function debug_observable(observable, name) {
-			observable.subscribe(
-				function (x) {
-					console.log('@' + name + ' - Next:', x);
-				},
-				function (err) {
-					console.log('@' + name + ' - Error:', err);
-				},
-				function () {
-					console.log('@' + name + ' - Completed.');
-				}
-			);
-		}
+		console.log('detected version : ', module.config());
 
 		// state, as a baobab tree
 		var state_tree = new Baobab({

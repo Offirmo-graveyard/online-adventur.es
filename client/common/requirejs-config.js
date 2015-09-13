@@ -244,7 +244,7 @@ requirejs.config({
 	/////////////////////
 	config: {
 		'client/apps/boringrpg/ng/services/state-tree/state-tree': {
-			version: 'v0.0.8',
+			version: 'v0.0.9',
 		},
 		// http://requirejs.org/docs/api.html#i18n
 		i18n: {
