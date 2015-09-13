@@ -32,7 +32,7 @@ function(module, offirmo_app, _, $, Baobab, Rx) {
 		var state_tree = new Baobab({
 			version: module.config().version,
 			view: {
-				lang: 'en',
+				locale: undefined, // see
 				fullscreen: undefined,
 				screen_size: [0, 0],
 				STATES: ['loading', 'loaded'],

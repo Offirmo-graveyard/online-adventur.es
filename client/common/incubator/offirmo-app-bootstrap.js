@@ -8,7 +8,7 @@ define([
 ], function (angular) {
 	'use strict';
 
-	console.log('executing offirmo-app-bootstrap bootstrap...');
+	//console.log('executing offirmo-app-bootstrap bootstrap...');
 	var global_module_instance;
 
 	window.offirmo_app = {
@@ -26,7 +26,7 @@ define([
 		},
 		get: function() {
 			if(global_module_instance) return global_module_instance; // already OK
-			console.log('building global ng module...', window.offirmo_app.global_ng_module_dependencies);
+			console.log('Creating global ng module...', window.offirmo_app.global_ng_module_dependencies);
 			global_module_instance = angular.module(
 				'global_ng_module',
 				window.offirmo_app.global_ng_module_dependencies
@@ -35,8 +35,8 @@ define([
 		}
 	});
 
-	console.log('offirmo-app-bootstrap bootstrap fully executed', window.offirmo_app);
+	//console.log('offirmo-app-bootstrap bootstrap fully executed', window.offirmo_app);
 	return window.offirmo_app;
 });
 
-console.log('offirmo-app-bootstrap parsed.');
+console.log('Loaded offirmo-app-bootstrap.');

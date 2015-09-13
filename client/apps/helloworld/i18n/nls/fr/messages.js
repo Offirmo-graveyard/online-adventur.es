@@ -1,5 +1,5 @@
 define({
-	"lang": "fr-fr", // detector
+	"locale": "fr", // detector
 
 	"red": "rouge",
 	"blue": "bleu",

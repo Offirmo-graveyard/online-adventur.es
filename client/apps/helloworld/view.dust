@@ -24,8 +24,8 @@
 
 		<p>
 			<span i18n-content="client_side_i18n"></span> : [lang = <span i18n-content="lang"></span>]
-			[<a href="#" ng-click="switch_lang('fr')">switch to fr</a>]
-			[<a href="#" ng-click="switch_lang('en')">switch to en</a>]
+			[<a href="#" ng-click="switch_locale('fr')">switch to fr</a>]
+			[<a href="#" ng-click="switch_locale('en')">switch to en</a>]
 			<ul>
 				<li>[navigator.language = {~lb}{~lb}navigator.language{~rb}{~rb}]
 				<li>[navigator.browserLanguage = {~lb}{~lb}navigator.browserLanguage{~rb}{~rb}]

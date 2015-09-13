@@ -23,7 +23,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 				var message = '?';
 				var suffix = '|' + i18n_content_id + '$' + $scope.$id + ']';
 
-				var id = prefix + suffix;
+				var id = prefix + message + suffix;
 				var resolved_content = prefix + message + suffix;
 				//console.log(id + ' i18n link', $scope, $element, attrs);
 
@@ -36,7 +36,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 					console.error(id + ' error : missing key or direct message !');
 				else {
 					message = (key || direct_message);
-					resolved_content = prefix + message + suffix;
+					id = resolved_content = prefix + message + suffix;
 				}
 
 				$element.html(resolved_content); // temporarily
@@ -79,7 +79,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 						}
 
 						if (key && ! intl.messages[key]) {
-							console.error(id + ' error : couldn’t resolve key "' + key + '" !');
+							console.error(id + ' error : couldn’t resolve key "' + key + '" in intl.messages !');
 							break resolution;
 						}
 

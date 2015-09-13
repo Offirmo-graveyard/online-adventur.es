@@ -257,4 +257,4 @@ requirejs.config({
 	//deps: [ 'css' ]
 });
 
-console.log('require js config parsed.');
+console.log('Loaded require js config.');

@@ -32,7 +32,7 @@ function(offirmo_app, _, tpl) {
 				var screen_size_cursor = state_tree.select('view', 'screen_size');
 
 				function on_screen_size_update() {
-					console.log('on_screen_size_update');
+					console.log('on_screen_size_update : recomputing game content layout');
 					// get the size of our element
 					var background_element = $(background_isolate.renderNode._element);
 					var content_size = [background_element.width(), background_element.height()];
@@ -87,7 +87,7 @@ function(offirmo_app, _, tpl) {
 
 					// TODO scale dialog font so that it fits
 
-					$scope.$digest();
+					$scope.$evalAsync();
 				}
 				//on_screen_size_update();
 				screen_size_cursor.on('update', on_screen_size_update);

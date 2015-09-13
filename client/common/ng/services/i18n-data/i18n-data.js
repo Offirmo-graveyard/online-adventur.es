@@ -21,7 +21,7 @@ function(offirmo_app, _) {
 				intl = {
 					locale: locale,
 					messages: messages,
-					formats: custom_formats
+					formats: custom_formats || {}
 				};
 				if (! init_done) {
 					init_done = true;

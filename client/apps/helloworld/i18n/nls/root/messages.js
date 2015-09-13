@@ -1,5 +1,5 @@
 define({
-	"lang": "root", // detector
+	"locale": "root", // detector
 
 	url: 'foo'
 });

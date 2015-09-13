@@ -26,10 +26,11 @@ div#content {
 				{#apps}<li>
 					{.}
 					<a href="/{.}">production</a>
-					| <a href="/{.}-no-appcache">no appcache</a>
+					| <a href="/{.}-minified-no-appcache">minified without appcache</a>
 					| <a href="/{.}-dev">dev</a>
 				</li>{/apps}
 			</ul>
+			Note : production and minified versions may not be up to date (depending on last minification)
 		</p>
 
 		<p>

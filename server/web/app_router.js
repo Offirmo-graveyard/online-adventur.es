@@ -93,7 +93,7 @@ module.exports = function(app_radix, options) {
 	});
 
 	// nearly-production route without appcache (to build or debug the appcache)
-	var nearly_prod_route = default_route + '-no-appcache';
+	var nearly_prod_route = default_route + '-minified-no-appcache';
 	console.log('* SPA ' + app_radix + ' : registering route ' + nearly_prod_route);
 	router.get(nearly_prod_route, function serve_production_without_appcache(req, res) {
 		var template_data = _.defaults({
