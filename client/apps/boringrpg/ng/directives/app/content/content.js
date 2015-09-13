@@ -11,7 +11,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
 
 	var NORMAL_SCALE = 1;
-	var PRESSED_SCALE = 0.9;
+	var PRESSED_SCALE = 0.98;
 	var PRESS_DURATION_MS = 50;
 	var RELEASE_DURATION_MS = 250;
 
@@ -31,26 +31,24 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						return scale_transitionable.get();
 					};
 
-					$scope.mousedown = function (src) {
+					// debounce to not penalty a user on natural rebound
+					$scope.mousedown = _.debounce(function (src) {
 						console.log('mousedown', src);
 						scale_transitionable.set(NORMAL_SCALE);
 						scale_transitionable.set(PRESSED_SCALE, {
 							curve: 'easeOutBounce',
 							duration: PRESS_DURATION_MS
 						});
-					};
-					$scope.mouseup = function (src) {
+					}, 250, true);
+					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
 						model.subjects.clicks.onNext();
-						scale_transitionable.set(1.15);
+						scale_transitionable.set(1.05);
 						scale_transitionable.set(NORMAL_SCALE, {
 							curve: 'easeOutBounce',
 							duration: RELEASE_DURATION_MS
 						});
-					};
-					/*$scope.play = angular_debounce($scope, function () {
-						model.subjects.clicks.onNext();
-					}, 250, true);*/
+					}, 250, true);
 				}],
 				link: function postLink($scope) {
 
