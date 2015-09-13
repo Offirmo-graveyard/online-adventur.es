@@ -4,14 +4,14 @@
 <!-- Android https://developer.chrome.com/multidevice/android/installtohomescreen -->
 <meta name="mobile-web-app-capable" content="yes">
 <!-- <link rel="manifest" href="client/app/jeudunombre/app-manifest.json"> -->
+<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
+<meta name="theme-color" content="#2196F3">
 
 
 <!-- iOS https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black"> <!-- always black to hide it -->
-
 <meta name="apple-mobile-web-app-title" content="{@formatMessage _key="title"/}">
-
 <link rel="apple-touch-startup-image" href="/TODO-apple-touch-startup-image_320x480_portrait.png">
 
 

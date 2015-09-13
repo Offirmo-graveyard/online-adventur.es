@@ -26,6 +26,9 @@
 	font-size: 12px;
 	line-height: 14px; /* tighter */
 }
+.meta-content-item-disabled {
+	color: #543d46;
+}
 
 .meta-content-version {
 	text-align: center;

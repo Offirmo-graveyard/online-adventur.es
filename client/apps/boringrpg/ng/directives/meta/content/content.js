@@ -3,13 +3,14 @@ define([
 	'lodash',
 	'screenfull',
 	'text!client/apps/boringrpg/ng/directives/meta/content/content.html',
-	'css!client/apps/boringrpg/ng/directives/meta/content/content.css'
+	'client/apps/boringrpg/ng/services/angular-debounce',
+	'css!client/apps/boringrpg/ng/directives/meta/content/content.css',
 ],
 function(offirmo_app, _, screenfull, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('metaContent', ['stateTree', function (state_tree) {
+	.directive('metaContent', ['stateTree', 'angularDebounce', function (state_tree, angular_debounce) {
 		return {
 			template: tpl,
 			controller: ['$scope', function($scope) {
@@ -18,11 +19,11 @@ function(offirmo_app, _, screenfull, tpl) {
 				var view_cursor = state_tree.select('view');
 				var fullscreen_cursor = view_cursor.select('fullscreen');
 
-				function angular_debounce(fn) {
+				/*function angular_debounce(fn) {
 					return _.debounce(function () {
 						$scope.$evalAsync(fn);
 					}, 200, true);
-				}
+				}*/
 
 				$scope.version = version_cursor.get();
 				$scope.items = [
@@ -39,82 +40,97 @@ function(offirmo_app, _, screenfull, tpl) {
 								$scope.items[0].value = 'OFF';
 							}
 						},
-						on_click: angular_debounce(function() {
+						// we can't use angular debounce since screenfull request must be tied to a user action
+						on_click: _.debounce(function() {
 							screenfull.toggle();
-						})
+							// trigger a $digest for angular to repaint
+							$scope.$evalAsync();
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-volume-mute2',
 						label: 'Volume',
-						value: 'OFF'
+						value: 'OFF',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-music',
 						label: 'Music',
-						value: 'OFF'
+						value: 'OFF',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-language-choice',
 						label: 'Language',
-						value: 'en'
-					},
-					{
-						icon: 'icomoon-stats-dots',
-						label: 'Statistics',
+						value: 'en',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-book',
 						label: 'Tutorial',
+						disabled: true
+					},
+					{
+						icon: 'icomoon-stats-dots',
+						label: 'Statistics',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-star-full',
 						label: 'Rate app',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-qrcode',
 						label: 'Share',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-envelop',
 						label: 'Contact us',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-facebook2',
 						label: 'facebook',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-twitter2',
 						label: 'twitter',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-github',
 						label: 'Fork on Github',
-						on_click: angular_debounce(function() {
+						on_click: _.debounce(function() {
 							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
-						})
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-floppy-disk',
 						label: 'Save',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-cloud-download',
 						label: 'Update',
+						disabled: true
 					},
 					{
 						icon: 'icomoon-aid-kit',
 						label: 'Report bugs',
-						on_click: angular_debounce(function() {
+						on_click: _.debounce(function() {
 							window.open('https://github.com/Offirmo/online-adventur.es/issues','_blank');
-						})
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-spinner11',
 						label: 'Refresh',
-						on_click: angular_debounce(function() {
+						on_click: _.debounce(function() {
 							// http://stackoverflow.com/a/20741110/587407
 							window.location.reload(true);
-						})
+						}, 200, true)
 					},
 				];
 				$scope.items[0].update();

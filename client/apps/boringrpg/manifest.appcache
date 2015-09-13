@@ -23,6 +23,8 @@ CACHE:
 # manual adds
 /client/apps/boringrpg/assets/PixAntiqua.ttf
 /client/apps/boringrpg/assets/icomoon-TBRPG.woff
+# non root/en i18n
+/client/apps/boringrpg/i18n/nls/fr/messages.js
 
 
 ## special files, conditional loading depending on platform

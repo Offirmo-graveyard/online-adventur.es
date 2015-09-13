@@ -1,4 +1,4 @@
-@import '/client/common/common.css';
+/* @import '/client/common/common.css';*/
 
 @font-face {
 	font-family: 'PixAntiqua';
@@ -28,3 +28,7 @@ body, body.famous-root {
 	border: solid 1px red;
 }
 */
+
+.clickable-area {
+	cursor:  pointer;
+}
