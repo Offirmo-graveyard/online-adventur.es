@@ -1,14 +1,15 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
+	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/meta/header/header.html',
 	'css!client/apps/boringrpg/ng/directives/meta/header/header.css'
 ],
-function(offirmo_app, _, tpl) {
+function(offirmo_app, _, state_tree, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('metaHeader', ['stateTree', function (state_tree) {
+	.directive('metaHeader', [function () {
 		return {
 			template: tpl,
 			controller: ['$scope', function($scope) {

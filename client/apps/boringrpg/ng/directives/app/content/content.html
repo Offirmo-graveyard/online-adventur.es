@@ -15,11 +15,17 @@
 		</fa-modifier>
 
 		<fa-modifier fa-translate="button_position" fa-size="button_size">
-
-			<fa-surface class="app-content-button clickable-area" fa-click="play()">
-				<p i18n-content="play_button_caption">Play!</p>
-			</fa-surface>
-
+			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- mandatory for a correct flipping -->
+				<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect-->
+					<fa-surface class="app-content-button clickable-area"
+					            fa-touchstart="mousedown('touchstart')"
+					            ng-mousedown="mousedown('mousedown')"
+					            fa-touchend="mouseup('touchend')"
+					            ng-mouseup="mouseup('mouseup')">
+						<p i18n-content="play_button_caption">Play!</p>
+					</fa-surface>
+				</fa-modifier>
+			</fa-modifier>
 		</fa-modifier>
 
 

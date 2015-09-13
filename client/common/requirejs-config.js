@@ -46,6 +46,10 @@ requirejs.config({
 			main: 'css.js'
 		},*/
 		{
+			name : 'boringrpg',
+			location: 'client/apps/boringrpg/'
+		},
+		{
 			name : 'carnet',
 			location: 'common/incubator/carnet'
 		},
@@ -100,7 +104,7 @@ requirejs.config({
 		'lodash'                   : 'bower_components/lodash/lodash',
 		'messenger'                : 'bower_components/messenger/build/js/messenger',
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
-		'moment'                   : 'bower_components/momentjs/moment',
+		'moment'                   : 'bower_components/moment/min/moment-with-locales',
 		'offirmo-app-bootstrap'    : 'client/common/incubator/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
 		//'rdust'                    : 'bower_components/require-dust/rdust',

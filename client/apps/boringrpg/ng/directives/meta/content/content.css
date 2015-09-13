@@ -28,6 +28,7 @@
 }
 .meta-content-item-disabled {
 	color: #543d46;
+	cursor: default;
 }
 
 .meta-content-version {

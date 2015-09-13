@@ -5,14 +5,14 @@ define([
 	'lodash',
 	'rx',
 	'jquery',
+	'boringrpg/lib/state-tree',
 	'i18n!client/apps/boringrpg/i18n/nls/messages',
-	'client/apps/boringrpg/ng/services/state-tree/state-tree',
 ],
-function(offirmo_app, _, Rx, $, i18n_messages) {
+function(offirmo_app, _, Rx, $, state_tree, i18n_messages) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.service('localeDetector', ['$document', 'stateTree', 'i18nData', function ($document, state_tree, i18n_data) {
+	.service('localeDetector', ['$document', 'i18nData', function ($document, i18n_data) {
 		console.log('installing localeDetector...');
 
 		var view_cursor = state_tree.select('view');

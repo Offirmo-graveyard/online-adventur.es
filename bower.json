@@ -21,6 +21,8 @@
     "jquery": "^2",
     "lodash": "^3",
     "messenger": "~1.4",
+    "moment": "~2.10.6",
+    "moment-timezone": "~2.7.2",
     "require-css": "~0.1",
     "requirejs": "^2",
     "requirejs-domready": "~2.0",

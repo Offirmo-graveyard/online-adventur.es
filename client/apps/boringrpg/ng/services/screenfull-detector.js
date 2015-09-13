@@ -2,13 +2,13 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'screenfull',
-	'client/apps/boringrpg/ng/services/state-tree/state-tree',
+	'boringrpg/lib/state-tree',
 ],
-function(offirmo_app, _, screenfull) {
+function(offirmo_app, _, screenfull, state_tree) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.service('screenfullDetector', ['stateTree', function (state_tree) {
+	.service('screenfullDetector', [function () {
 		console.log('installing screenfullDetector...');
 
 		var view_cursor = state_tree.select('view');

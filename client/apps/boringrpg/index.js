@@ -18,7 +18,7 @@ define([
 	// preload some commonly used angular modules
 	'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
-	'client/apps/boringrpg/ng/services/state-tree/state-tree',
+	'boringrpg/lib/state-tree',
 	'client/apps/boringrpg/ng/services/locale-detector',
 	'client/apps/boringrpg/ng/services/screen-size-detector',
 	'client/apps/boringrpg/ng/services/screenfull-detector',

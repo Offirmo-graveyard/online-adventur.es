@@ -3,13 +3,13 @@ define([
 	'lodash',
 	'rx',
 	'jquery',
-	'client/apps/boringrpg/ng/services/state-tree/state-tree',
+	'boringrpg/lib/state-tree',
 ],
-function(offirmo_app, _, Rx, $) {
+function(offirmo_app, _, Rx, $, state_tree) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.service('screenSizeDetector', ['$rootScope', 'stateTree', function ($rootScope, state_tree) {
+	.service('screenSizeDetector', ['$rootScope', function ($rootScope) {
 		console.log('installing screenSizeDetector...');
 
 		var view_cursor = state_tree.select('view');

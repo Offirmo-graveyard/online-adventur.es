@@ -2,33 +2,55 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'rx',
+	'boringrpg/lib/state-tree',
+	'boringrpg/lib/model',
 	'text!client/apps/boringrpg/ng/directives/app/content/content.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/content.css'
 ],
-function(offirmo_app, _, Rx, tpl) {
+function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
+
+	var NORMAL_SCALE = 1;
+	var PRESSED_SCALE = 0.9;
+	var PRESS_DURATION_MS = 50;
+	var RELEASE_DURATION_MS = 250;
 
 	offirmo_app.global_ng_module.directive('appContent', [
 		'$q',
 		'$famous',
-		'stateTree',
 		'angularDebounce',
-		function ($q, $famous, state_tree, angular_debounce) {
+		function ($q, $famous, angular_debounce) {
 			return {
 				template: tpl,
 				controller: ['$scope', function($scope) {
 					$scope.Transform = $famous['famous/core/Transform'];
+					var Transitionable = $famous['famous/transitions/Transitionable'];
 
-					var observable_play_clicks = Rx.Observable.create(function(observer) {
-						$scope.play = angular_debounce($scope, function () {
-							observer.onNext(Date.now());
-						}, 250, true);
-					});
+					var scale_transitionable = new Transitionable(NORMAL_SCALE);
+					$scope.get_scale = function() {
+						return scale_transitionable.get();
+					};
 
-					observable_play_clicks
-					.subscribe(function(date) {
-						console.log('new play click detected :', date);
-					});
+					$scope.mousedown = function (src) {
+						console.log('mousedown', src);
+						scale_transitionable.set(NORMAL_SCALE);
+						scale_transitionable.set(PRESSED_SCALE, {
+							curve: 'easeOutBounce',
+							duration: PRESS_DURATION_MS
+						});
+					};
+					$scope.mouseup = function (src) {
+						console.log('mouseup', src);
+						model.subjects.clicks.onNext();
+						scale_transitionable.set(1.15);
+						scale_transitionable.set(NORMAL_SCALE, {
+							curve: 'easeOutBounce',
+							duration: RELEASE_DURATION_MS
+						});
+					};
+					/*$scope.play = angular_debounce($scope, function () {
+						model.subjects.clicks.onNext();
+					}, 250, true);*/
 				}],
 				link: function postLink($scope) {
 

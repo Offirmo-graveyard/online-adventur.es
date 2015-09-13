@@ -2,16 +2,17 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'rx',
+	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/layout/layout.html',
 	//'css!client/apps/boringrpg/ng/directives/layout/layout.css',
 	'client/apps/boringrpg/ng/directives/app/layout/layout',
 	'client/apps/boringrpg/ng/directives/meta/layout/layout',
 	],
-function(offirmo_app, _, Rx, tpl) {
+function(offirmo_app, _, Rx, state_tree, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('layout', ['$q', '$famous', 'stateTree', function ($q, $famous, state_tree) {
+	.directive('layout', ['$q', '$famous', function ($q, $famous) {
 		return {
 			template: tpl,
 			controller: ['$scope', function($scope) {
