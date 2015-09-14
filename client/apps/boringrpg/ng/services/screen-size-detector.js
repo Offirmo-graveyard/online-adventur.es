@@ -35,7 +35,7 @@ function(offirmo_app, _, Rx, $, state_tree) {
 			view_cursor.set('screen_size', new_screen_size);
 			// not pretty but will do for now :
 			// try to help famo.us to correctly repaint the screen
-			$rootScope.$evalAsync();
+			//$rootScope.$evalAsync();
 		});
 	}]);
 });

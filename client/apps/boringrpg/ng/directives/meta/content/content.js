@@ -4,7 +4,7 @@ define([
 	'screenfull',
 	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/meta/content/content.html',
-	'client/apps/boringrpg/ng/services/angular-debounce',
+	'boringrpg/ng/services/angular-debounce',
 	'css!client/apps/boringrpg/ng/directives/meta/content/content.css',
 ],
 function(offirmo_app, _, screenfull, state_tree, tpl) {

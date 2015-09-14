@@ -11,7 +11,8 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
 
 	var NORMAL_SCALE = 1;
-	var PRESSED_SCALE = 0.98;
+	var PRESSED_SCALE = 0.98; // final state
+	var UNPRESSED_SCALE = 1.05; // start state (makes a good effect)
 	var PRESS_DURATION_MS = 50;
 	var RELEASE_DURATION_MS = 250;
 
@@ -34,6 +35,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					// debounce to not penalty a user on natural rebound
 					$scope.mousedown = _.debounce(function (src) {
 						console.log('mousedown', src);
+						// click is not sent here, @see mouseup
 						scale_transitionable.set(NORMAL_SCALE);
 						scale_transitionable.set(PRESSED_SCALE, {
 							curve: 'easeOutBounce',
@@ -42,8 +44,9 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					}, 250, true);
 					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
+						// trigger model
 						model.subjects.clicks.onNext();
-						scale_transitionable.set(1.05);
+						scale_transitionable.set(UNPRESSED_SCALE);
 						scale_transitionable.set(NORMAL_SCALE, {
 							curve: 'easeOutBounce',
 							duration: RELEASE_DURATION_MS
@@ -66,11 +69,23 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					var screen_size_cursor = state_tree.select('view', 'screen_size');
 
 					function on_screen_size_update() {
-						console.log('on_screen_size_update : recomputing game content layout');
 						// get the size of our element
 						var background_element = $(background_isolate.renderNode._element);
 						var content_size = [background_element.width(), background_element.height()];
 						var world_size = [content_size[0], content_size[1] - $scope.STATS_PANEL_HEIGHT];
+
+						if(! content_size[0]) {
+							// for whatever reason, element size is not ready. Plan it later
+							// XXX TODO couple it with document visibility
+							console.log('element sizes not ready, reprogramming...');
+							setTimeout(on_screen_size_update, 250);
+							return;
+						}
+
+						console.log('on_screen_size_update : recomputing game content layout…',
+							content_size,
+							world_size
+						);
 
 						// are we constrained vertically or horizontally ?
 
@@ -121,6 +136,12 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 
 						// TODO scale dialog font so that it fits
 
+						console.info('Content sizes recomputed :',
+							$scope.dialog_size,
+							$scope.dialog_position,
+							$scope.button_size,
+							$scope.button_position
+						);
 						$scope.$evalAsync();
 					}
 					//on_screen_size_update();

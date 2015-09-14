@@ -14,14 +14,15 @@ define([
 	// base css
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'css!client/apps/boringrpg/index.css',
-	'client/apps/boringrpg/ng/directives/content-directive/content-directive', // root directive
+	'boringrpg/ng/decorators/root-scope',
+	'boringrpg/ng/directives/content-directive/content-directive', // root directive
 	// preload some commonly used angular modules
 	'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
 	'boringrpg/lib/state-tree',
-	'client/apps/boringrpg/ng/services/locale-detector',
-	'client/apps/boringrpg/ng/services/screen-size-detector',
-	'client/apps/boringrpg/ng/services/screenfull-detector',
+	'boringrpg/ng/services/locale-detector',
+	'boringrpg/ng/services/screen-size-detector',
+	'boringrpg/ng/services/screenfull-detector',
 ],
 function(offirmo_app, _, Carnet, famous) {
 	'use strict';

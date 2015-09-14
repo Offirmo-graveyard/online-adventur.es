@@ -23,7 +23,7 @@
 		</p>
 
 		<p>
-			<span i18n-content="client_side_i18n"></span> : [lang = <span i18n-content="lang"></span>]
+			<span i18n-content="client_side_i18n"></span> : [lang = <span i18n-content="locale"></span>]
 			[<a href="#" ng-click="switch_locale('fr')">switch to fr</a>]
 			[<a href="#" ng-click="switch_locale('en')">switch to en</a>]
 			<ul>

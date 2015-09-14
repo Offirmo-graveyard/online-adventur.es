@@ -3,7 +3,7 @@
 define([
 	'offirmo-app-bootstrap',
 	'text!client/apps/boringrpg/ng/directives/content-directive/content-directive.html',
-	'client/apps/boringrpg/ng/directives/layout/layout',
+	'boringrpg/ng/directives/layout/layout',
 ],
 function(offirmo_app, tpl) {
 	'use strict';

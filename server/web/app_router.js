@@ -5,7 +5,13 @@ var express = require('express');
 
 var config = require('./config');
 
+var language_independent_i18n_messages = require('../../client/common/i18n/common');
+var shared_i18n_languages = {};
+config.supported_locales.forEach(function(locale) {
+	shared_i18n_languages[locale] = require('../../client/common/i18n/common.' + locale);
+});
 
+var DEFAULT_LOCALE = 'en';
 
 
 module.exports = function(app_radix, options) {
@@ -20,31 +26,45 @@ module.exports = function(app_radix, options) {
 	var formatJS_intls = _.zipObject(
 		config.supported_locales,
 		config.supported_locales.map(function(locale) {
+			var root_messages;
 			var messages;
+			var next_try;
+
+			console.log('~~~ resolving i18n for app ' + app_radix + ' ~~~');
+			next_try = '../../client/apps/' + app_radix + '/i18n/nls/root/messages';
 			try {
-				//console.log('trying ' + '../../client/apps/' + app_radix + '/i18n/' + locale);
-				if(! messages) messages = require('../../client/apps/' + app_radix + '/i18n/' + locale);
+				//console.log('trying ' + next_try);
+				root_messages = require(next_try);
 			} catch(e) {
-				console.warn('it seems that app ' + app_radix + ' has no locale ' + locale, e);
+				console.warn('it seems that app ' + app_radix + ' has no root messages !', e);
+			}
+			next_try = '../../client/apps/' + app_radix + '/i18n/nls/' + locale + '/messages';
+			try {
+				//console.log('trying ' + next_try);
+				if(! messages) messages = require(next_try);
+			} catch(e) {
+				console.warn('it seems that app ' + app_radix + ' has no ' + locale + ' locale !', e);
 			}
 			// maybe this lang is not avail ?
-			try {
-				//console.log('trying ' + '../../client/apps/' + app_radix + '/i18n/en');
-				if(! messages) messages = require('../../client/apps/' + app_radix + '/i18n/en');
-			} catch(e) {
-				console.warn('it seems that app ' + app_radix + ' has no default locale ! (en)', e);
-			}
-			// maybe there is no i18n at all ?
-			try {
-				//console.log('trying ' + '../../client/i18n/common.' + locale);
-				if(! messages) messages = require('../../client/common/i18n/common.' + locale);
-			} catch(e) {
-				console.error('Couldn’t even find the common locale for ' + locale + ' !', e);
+			if(locale !== DEFAULT_LOCALE) {
+				next_try = '../../client/apps/' + app_radix + '/i18n/' + DEFAULT_LOCALE + '/messages';
+				try {
+					//console.log('trying ' + next_try);
+					if(! messages) messages = require(next_try);
+				} catch(e) {
+					console.warn('it seems that app ' + app_radix + ' has no ' + DEFAULT_LOCALE + ' locale !', e);
+				}
 			}
 
-			messages = _.defaults({
-				canonical_url: config.canonical_url + (options.custom_route || default_route)
-			}, messages);
+			messages = _.defaults(
+				{
+					canonical_url: config.canonical_url + (options.custom_route || default_route)
+				},
+				messages,
+				root_messages,
+				shared_i18n_languages[locale],
+				language_independent_i18n_messages
+			);
 
 			// as expected by formatJS
 			return {

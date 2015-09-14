@@ -3,9 +3,9 @@ define([
 	'lodash',
 	'text!client/apps/boringrpg/ng/directives/app/layout/layout.html',
 	'css!client/apps/boringrpg/ng/directives/app/layout/layout.css',
-	'client/apps/boringrpg/ng/directives/app/header/header',
-	'client/apps/boringrpg/ng/directives/app/content/content',
-	'client/apps/boringrpg/ng/directives/app/footer/footer',
+	'boringrpg/ng/directives/app/header/header',
+	'boringrpg/ng/directives/app/content/content',
+	'boringrpg/ng/directives/app/footer/footer',
 ],
 function(offirmo_app, _, tpl) {
 	'use strict';

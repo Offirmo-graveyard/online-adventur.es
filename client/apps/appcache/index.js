@@ -49,7 +49,7 @@ function(offirmo_app, _, angular, Carnet, AppCacheNanny, screenfull, tpl) {
 
 		AppCacheNanny.on('updateready', function handleUpdateready() {
 			console.log('updateready');
-			$scope.$apply(function() {
+			$scope.$evalAsync(function() {
 				$scope.update_available = true;
 			});
 		});
