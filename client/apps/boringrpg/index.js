@@ -6,6 +6,7 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'carnet',
+	'appcache-nanny',
 	'famous-global',
 	// misc
 	'angular',
@@ -24,10 +25,40 @@ define([
 	'boringrpg/ng/services/screen-size-detector',
 	'boringrpg/ng/services/screenfull-detector',
 ],
-function(offirmo_app, _, Carnet, famous) {
+function(offirmo_app, _, Carnet, AppCacheNanny, famous) {
 	'use strict';
 
 	console.log('executing main...');
+
+	AppCacheNanny.on('downloading', function() {
+		console.log('AppCache downloading', arguments);
+	});
+	AppCacheNanny.on('progress', function() {
+		console.log('AppCache progress', arguments);
+	});
+	AppCacheNanny.on('init:downloading', function() {
+		console.log('AppCache init:downloading', arguments);
+	});
+	AppCacheNanny.on('init:progress', function() {
+		console.log('AppCache init:progress', arguments);
+	});
+	AppCacheNanny.on('init:cached', function() {
+		console.log('AppCache init:cached', arguments);
+	});
+
+	AppCacheNanny.on('updateready', function handleUpdateready() {
+		console.log('AppCache updateready');
+	});
+
+	// check for an update immediately
+	AppCacheNanny.update();
+	if(AppCacheNanny.hasUpdate()) {
+		return window.location.reload(true);
+	}
+
+	// and program periodic update checks
+	AppCacheNanny.start({checkInterval: 60 * 60 * 1000}); // ms
+
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});
