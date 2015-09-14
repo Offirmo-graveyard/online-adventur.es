@@ -11,8 +11,8 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
 
 	var NORMAL_SCALE = 1;
-	var PRESSED_SCALE = 0.98; // final state
-	var UNPRESSED_SCALE = 1.05; // start state (makes a good effect)
+	var PRESSED_SCALE = 0.92; // final state
+	var UNPRESSED_SCALE = 1.12; // start state (makes a good effect)
 	var PRESS_DURATION_MS = 50;
 	var RELEASE_DURATION_MS = 250;
 
@@ -31,6 +31,16 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					$scope.get_scale = function() {
 						return scale_transitionable.get();
 					};
+
+					var last_click_cursor = state_tree.select('model', 'last_click');
+					function update_click_message() {
+						var click_data = last_click_cursor.get();
+						console.log('new click_data', click_data);
+						$scope.click_message = click_data.msg;
+						$scope.$evalAsync();
+					}
+					update_click_message(last_click_cursor.get());
+					last_click_cursor.on('update', update_click_message);
 
 					// debounce to not penalty a user on natural rebound
 					$scope.mousedown = _.debounce(function (src) {

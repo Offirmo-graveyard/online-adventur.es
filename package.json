@@ -34,8 +34,7 @@
     "amdefine": "~1.0",
     "async": "~1.4",
     "bower": "^1",
-    "baobab": "latest",
-    "chalk": "latest",
+    "chalk": "~1.1.1",
     "clarify": "~1",
     "compression": "~1.5",
     "consolidate": "~0.13",
@@ -49,7 +48,7 @@
     "forky": "~0.3",
     "jsdom": "^3",
     "json-htmlize": "~0.1",
-    "intl": "latest",
+    "intl": "~1.0.0",
     "intl-locales-supported": "~1.0",
     "locale": "~0.0",
     "lodash": "^3",
@@ -73,6 +72,9 @@
     "nodemon": "^1",
     "pre-commit": "^1",
     "requirejs": "^2"
+  },
+  "commented_out": {
+    "baobab": "~1.1.2"
   },
   "xpre-commit": [
     "lint"

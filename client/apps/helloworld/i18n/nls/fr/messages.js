@@ -26,7 +26,7 @@ define({
 	formatted_time_full:   'Il est {now, time, full  } et tout va bien.',
 	key_select:            '{gender, select, male {Il va} female {Elle va} other {Ils vont}} répondre incessament sous peu.',
 	key_select_nested:     '{taxableArea, select, true {{taxRate, number, percent} de TVA en sus.} other {TVA 0 %}}',
-	plural:                'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount} objets}}.',
+	plural:                'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount1} objets}}.',
 	plural_shortcut:       'Vous {itemCount2, plural, =0 {n’avez aucun objet} one {avez # objet} other {avez # objets}}.',
 	ordinal:               'C’est le {catAge, selectordinal, one {#er} other {#ème}} anniversaire de mon chat !',
 	formatted_number_custom: 'Ce sera {price, number, usd}.',

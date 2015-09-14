@@ -26,7 +26,7 @@ define({
 	formatted_time_full: 'It’s {now, time, full  } and all is well.',
 	key_select: '{gender, select, male {He} female {She} other {They}} will respond shortly.',
 	key_select_nested: '{taxableArea, select, true {An additional {taxRate, number, percent} tax will be collected.} other {No taxes apply.}}',
-	plural: 'You have {itemCount1, plural, =0 {no items} one {1 item} other {{itemCount} items}}.',
+	plural: 'You have {itemCount1, plural, =0 {no items} one {1 item} other {{itemCount1} items}}.',
 	plural_shortcut: 'You have {itemCount2, plural, =0 {no items} one {# item} other {# items}}.',
 	ordinal: 'It’s my cat’s {catAge, selectordinal, one {#st} two {#nd} few {#rd} other {#th}} birthday!',
 	formatted_number_custom: 'That will be {price, number, usd}.',

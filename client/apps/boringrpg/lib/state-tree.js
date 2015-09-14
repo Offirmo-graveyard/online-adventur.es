@@ -34,9 +34,10 @@ function(module, _, Baobab, Rx) {
 		},
 		model: {
 			click_count: 0,
-			last_click_utc: undefined,
-			last_click_effect: {
-				msg: 'click_dying_man',
+			last_click: {
+				date_moment_utc: undefined,
+				wait_interval_s: 5,
+				msg: 'clickmsg_none',
 				coins: 12
 			}
 		}

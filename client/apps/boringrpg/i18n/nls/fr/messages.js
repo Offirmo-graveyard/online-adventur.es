@@ -10,9 +10,10 @@ define({
 	play_button_caption: 'Jouer !',
 	meta_header: 'Réglages',
 
-	click_bored: 'You were so bored, you punched a log for hours! You gained +1 strength!',
-	click_caravan: 'You were hired to protect a caravan of merchants. You gained 12 coins!',
-	click_dying_man: 'A dying man on the street left you everything he had. You gained 47 coins!',
+	clickmsg_none: 'Vous avez hâte de partir à l’aventure !',
+	clickmsg_bored: 'Vous vous ennuyez à tel point que vous donnez des coups de poing à un tronc pendant des heures… Vous gagnez +1 en force !',
+	clickmsg_caravan: 'Vous avez été embauché pour protéger une caravane de marchands. Vous gagnez 12 écus !',
+	clickmsg_dying_man: 'Un mourrant dans la rue vous lègue tout ce qu’il possède. Vous gagnez 47 écus !',
 
 	object_found: 'You found a [+1 Common Spiky Shield]!',
 

@@ -24,7 +24,6 @@ function(offirmo_app, _, IntlMessageFormat) {
 				var suffix = '|' + i18n_content_id + '$' + $scope.$id + ']';
 
 				var id = prefix + message + suffix;
-				var resolved_content = prefix + message + suffix;
 				//console.log(id + ' i18n link', $scope, $element, attrs);
 
 				var key = attrs.i18nContent;
@@ -32,32 +31,38 @@ function(offirmo_app, _, IntlMessageFormat) {
 				var direct_message = attrs.message; // "direct" since messages
 				                                    // are usually passed indirectly via "key"
 
+				// early error
 				if (! key && ! direct_message)
 					console.error(id + ' error : missing key or direct message !');
 				else {
 					message = (key || direct_message);
-					id = resolved_content = prefix + message + suffix;
+					id = prefix + message + suffix; // update
 				}
 
-				$element.html(resolved_content); // temporarily
+				var is_content_dynamic = (typeof attrs.i18nWatch !== 'undefined');
+				//console.log('is_content_dynamic', is_content_dynamic);
 
-				/*i18n_data.get_intl()
-					.then(update_element)
-					.catch(function(err) {
-						console.error(id + ' error !', err);
-					});*/
-				i18n_data.on_locale_change(update_element);
+				$element.html(prefix + message + suffix); // temporarily, waiting for intl data
 
 				function update_element(intl) {
-					console.log(id + ' updating...');
+					//console.log(id + ' updating...');
+					var resolved_content = prefix + message + suffix;
 
 					// try to resolve stuff
 					resolution : {
+
+						// may have changed
+						prefix = '[i18n|';
+						key = attrs.i18nContent;
+						explicit_locale = attrs.locale;
+						direct_message = attrs.message;
 
 						if (! key && ! direct_message) {
 							console.error(id + ' error : missing key or direct message !');
 							break resolution;
 						}
+						message = (key || direct_message);
+						id = resolved_content = prefix + message + suffix;
 
 						if (key && direct_message) {
 							console.error(id + ' error : competing key and direct message !');
@@ -119,6 +124,22 @@ function(offirmo_app, _, IntlMessageFormat) {
 
 					$element.html(resolved_content);
 				}
+
+				// REM on_locale_change will conveniently fire the callback at install if local is already available.
+				var intl;
+				i18n_data.on_locale_change(function(new_intl) {
+					intl = new_intl;
+					update_element(intl);
+				});
+
+				if (is_content_dynamic) {
+					$scope.$watch(function() {
+						//console.log(id + ' watch !');
+						if (intl)
+							update_element(intl);
+					})
+				}
+
 			}
 		};
 	}]);

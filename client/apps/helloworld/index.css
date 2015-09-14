@@ -8,3 +8,7 @@ body
 div#content {
 	padding: 0px 10px;
 }
+
+.dyn {
+	color: #8f0000;
+}

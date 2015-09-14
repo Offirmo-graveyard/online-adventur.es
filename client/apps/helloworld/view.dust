@@ -1,7 +1,6 @@
 {>"layout/layout" /}
 
 {<content}
-
 	<div id="content">
 		<h1>{@formatMessage _key="hello_world"/}</h1>
 		<p>[
@@ -29,26 +28,29 @@
 			<ul>
 				<li>[navigator.language = {~lb}{~lb}navigator.language{~rb}{~rb}]
 				<li>[navigator.browserLanguage = {~lb}{~lb}navigator.browserLanguage{~rb}{~rb}]
-				<li i18n-content="without_key">SHOULD NOT APPEAR
-				<li i18n-content="simple_key">SHOULD NOT APPEAR
-				<li i18n-content="formatted_number">SHOULD NOT APPEAR
-				<li i18n-content="formatted_number_percent">SHOULD NOT APPEAR
-				<li i18n-content="formatted_date_short">SHOULD NOT APPEAR
-				<li i18n-content="formatted_date_medium">SHOULD NOT APPEAR
-				<li i18n-content="formatted_date_long">SHOULD NOT APPEAR
-				<li i18n-content="formatted_date_full">SHOULD NOT APPEAR
-				<li i18n-content="formatted_time_short">SHOULD NOT APPEAR
-				<li i18n-content="formatted_time_medium">SHOULD NOT APPEAR
-				<li i18n-content="formatted_time_long">SHOULD NOT APPEAR
-				<li i18n-content="formatted_time_full">SHOULD NOT APPEAR
-				<li i18n-content="key_select">SHOULD NOT APPEAR
-				<li i18n-content="key_select_nested">SHOULD NOT APPEAR
-				<li i18n-content="plural">SHOULD NOT APPEAR
-				<li i18n-content="plural_shortcut">SHOULD NOT APPEAR
-				<li i18n-content="ordinal">SHOULD NOT APPEAR
-				<li i18n-content="formatted_number_custom">SHOULD NOT APPEAR
+				<li             i18n-content="without_key" >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="simple_key" i18n-watch >SHOULD NOT APPEAR
+				<li             i18n-content="formatted_number" >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="formatted_number_percent" i18n-watch >SHOULD NOT APPEAR
+				<li             i18n-content="formatted_date_short">SHOULD NOT APPEAR
+				<li             i18n-content="formatted_date_medium">SHOULD NOT APPEAR
+				<li             i18n-content="formatted_date_long">SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="formatted_date_full" i18n-watch >SHOULD NOT APPEAR
+				<li             i18n-content="formatted_time_short">SHOULD NOT APPEAR
+				<li             i18n-content="formatted_time_medium">SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="formatted_time_long" i18n-watch >SHOULD NOT APPEAR
+				<li             i18n-content="formatted_time_full">SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="key_select" i18n-watch >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="key_select_nested" i18n-watch >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="plural" i18n-watch >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="plural_shortcut" i18n-watch >SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="ordinal" i18n-watch >SHOULD NOT APPEAR
+				<li             i18n-content="formatted_number_custom">SHOULD NOT APPEAR
+				<li class="dyn" i18n-content="{~lb}{~lb}changing_message{~rb}{~rb}" i18n-watch >SHOULD NOT APPEAR
 			</ul>
+			[<a href="#" ng-click="change_data()">change data</a>]
 		</p>
+
 	</div>
 
 	{>"layout/requirejs_bootstrap" /}

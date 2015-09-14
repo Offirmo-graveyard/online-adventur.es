@@ -54,10 +54,33 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 			taxableArea: true,
 			taxRate: 0.21,
 			itemCount1: 0,
-			itemCount2: 1,
+			itemCount2: 0,
 			catAge: 3,
-			price: 3
+			price: 3,
+			changing_message: 'key_select_nested'
 		});
+
+		// Returns a random integer between min (included) and max (included)
+		// Using Math.round() will give you a non-uniform distribution!
+		function getRandomIntInclusive(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+		$scope.change_data = function(locale) {
+			console.log('randomly changing data');
+
+			$scope.name = ($scope.name === 'John') ? 'Mary' : 'John';
+			$scope.percentBlackCats = Math.random();
+			$scope.gender = ($scope.gender === 'female') ? 'male' : 'female';
+			$scope.itemCount1 = ($scope.itemCount1 + 1) % 3;
+			$scope.itemCount2 = ($scope.itemCount2 + 1) % 3;
+			$scope.catAge = (($scope.catAge) % 4) + 1;
+			$scope.changing_message = ['key_select_nested', 'without_key', 'simple_key'][$scope.itemCount1];
+			$scope.now = new Date();
+			$scope.taxableArea = ! $scope.taxableArea;
+
+			console.log('scope data changed', $scope);
+		};
 
 		logger.info('LandingController initialized.');
 	}]);

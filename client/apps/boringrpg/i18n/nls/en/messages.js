@@ -10,9 +10,10 @@ define({
 	play_button_caption: 'Play!',
 	meta_header: 'Settings',
 
-	click_bored: 'You were so bored, you punched a log for hours! You gained +1 strength!',
-	click_caravan: 'You were hired to protect a caravan of merchants. You gained 12 coins!',
-	click_dying_man: 'A dying man on the street left you everything he had. You gained 47 coins!',
+	clickmsg_none: 'You eager to start adventuring!',
+	clickmsg_bored: 'You were so bored, you punched a log for hours! You gained +1 strength!',
+	clickmsg_caravan: 'You were hired to protect a caravan of merchants. You gained 12 coins!',
+	clickmsg_dying_man: 'A dying man on the street left you everything he had. You gained 47 coins!',
 
 	object_found: 'You found a [+1 Common Spiky Shield]!',
 
