@@ -33,11 +33,11 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 						label: 'Full screen',
 						update: function() {
 							if (fullscreen_cursor.get()) {
-								$scope.items[0].icon = 'icomoon-enter-fullscreen';
+								$scope.items[0].icon = 'icomoon-exit-fullscreen';
 								$scope.items[0].value = 'ON';
 							}
 							else {
-								$scope.items[0].icon = 'icomoon-exit-fullscreen';
+								$scope.items[0].icon = 'icomoon-enter-fullscreen';
 								$scope.items[0].value = 'OFF';
 							}
 						},

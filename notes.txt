@@ -13,6 +13,9 @@ Our dir structure outlines a clear server/ client/ common/ :
 
 TODO
 https://tlk.io/online-adventures
+http://docs.phonegap.com/
+https://github.com/lipka/piecon
+
 
 icomoon
 
