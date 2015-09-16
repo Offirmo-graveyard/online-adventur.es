@@ -9,13 +9,14 @@
 
 
 {<content}
+
+	<!-- splash screen with loader, only displayed while app is loading -->
+	{>"splash/elements" /}
+
 	<div id="content" content-directive>
-
-		<!-- splash screen with loader, only displayed while angular isn't ready -->
-		{>"splash/elements" /}
-
 	</div>
 
+	{>"splash/js" /}
 	{>"layout/requirejs_bootstrap" /}
 
 {/content}

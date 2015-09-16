@@ -1,39 +1,66 @@
+/* Only for loading styles.
+ * see index.css for app style.
+ */
 body
 {
-	/* needed for correct positionning */
-	position:absolute;
+	/* we're serving a fullscreen app.
+	 * Takes full screen, and scrolls, if any, will be internal.
+	 */
 	margin: 0;
 	padding: 0;
-
-	/* needed for container min-height */
+	position:absolute;
 	height: 100%;
 	width: 100%;
 }
-#splash {
-	background-color: #101112;
-	color: #7B7F88;
-	position:absolute;
 
-	/* */
+/* shared loading styles */
+.utility-screen {
+	position:absolute;
+	height: 100%;
+	width: 100%;
+
+	/* above other content */
+	z-index:100;
+
 	font-size: 20px; /* Yes I know what I do */
 	font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
-
-	/* vertical centering technique - parent
-	 * http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/
-	 */
-	height: 100%;
-	width: 100%;
-	-webkit-transform-style: preserve-3d;
-	-moz-transform-style: preserve-3d;
-	transform-style: preserve-3d;
-}
-#splash-content {
-	/* vertical centering technique - child
-	 */
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
+	text-rendering: optimizeLegibility;
 	text-align: center;
+
+	background-color: #292830;
+	color: #ffebbc;
 }
-#splash .logo {
+/* mini css reset (for UI not to change when bootstrap loads)
+ */
+.utility-screen * {
+	box-sizing: border-box;
+	margin: 0px;
+	line-height: 1.42857;
 }
+.utility-screen progress {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+#error-console {
+	z-index:102; /* above all */
+	background-color: transparent;
+	pointer-events: none; /* hopefully if browser support it*/
+	color: #F88379; /* #B94A48;*/
+	font-family: "Lucida Console", "Courier New", "monospaced";
+	font-size: 10px;
+	font-weight:900;
+	text-shadow: 0px 0px 5px #000;
+}
+#error-console p {
+	margin: 0;
+}
+
+#loader {
+	z-index:101; /* above all at start */
+}
+
+#font-load-test {
+	color: #292830;
+}
+/* #splash { } */

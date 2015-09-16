@@ -1,5 +1,6 @@
 /* @import '/client/common/common.css';*/
 
+/* for splash screen reason, this font-face is duplicated in the template */
 @font-face {
 	font-family: 'PixAntiqua';
 	/* full path to help the minifier */

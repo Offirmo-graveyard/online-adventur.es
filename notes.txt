@@ -16,6 +16,10 @@ https://tlk.io/online-adventures
 http://docs.phonegap.com/
 https://github.com/lipka/piecon
 
+https://hub.openshift.com/quickstarts/128-node-js-0-12
+
+Attention seekers pour le bouton play http://anicollection.github.io/
+
 
 icomoon
 
@@ -169,14 +173,14 @@ Apps ideas
 ==========
 MBTI https://www.quora.com/What-are-some-insights-on-the-INTJ-personality-type
 7 min workout
+http://www.cadremploi.fr/editorial/actualites/actu-emploi/detail/article/avez-vous-la-personnalite-pour-faire-carriere.html
 
 
 Marketing
 =========
-https://budgamesfr.wordpress.com/
 
 
 Misc
 ====
-http://www.steven-obrien.net/#home
+http://www.steven-obrien.net/
 

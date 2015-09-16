@@ -12,6 +12,7 @@
 	color: #292830;
 	border: solid 3px #292830;
 	background: #ffebbc;
+	text-rendering: optimizeLegibility;
 }
 
 .app-content-button {
@@ -20,4 +21,5 @@
 	text-align: center;
 	line-height: 54px;
 	font-size: 18px;
+	text-rendering: optimizeLegibility;
 }

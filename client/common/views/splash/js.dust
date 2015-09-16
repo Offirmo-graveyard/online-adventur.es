@@ -1,0 +1,86 @@
+<script>
+	console.log('~~ inline script body executed');
+
+	// using portable element selectors
+	var font_detector = document.getElementById('font-load-test');
+	console.log('FD 1', font_detector.offsetWidth);
+	var errors = document.getElementById('error-console');
+	var loader = document.getElementById('loader');
+	var splash = document.getElementById('splash');
+
+	// OK all browsers since IE 9
+	document.addEventListener("DOMContentLoaded", function(event) {
+		console.log("~~ DOMContentLoaded : DOM fully loaded and parsed");
+	});
+
+	window.onload = function(event) {
+		console.log("~~ onload : end of the document loading process");
+	};
+
+	setTimeout(function displayLoadingIndicator() {
+		// some action to make the user wait
+		document.querySelector('#loader progress').style.display = 'inline-block'; // back from 'none'
+	}, 3000);
+
+	var original_window_on_error = window.onerror;
+	window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+		console.error('~~ onerror : ' + errorMsg +
+			' Script: ' + url +
+			' Line: ' + lineNumber +
+			' Column: ' + column +
+			' StackTrace: ' +  errorObj);
+		var p = document.createElement("p");
+		p.textContent = 'XXX ' + errorMsg;
+		errors.appendChild(p);
+	};
+
+	window.offirmo_loader = {
+		stage: 0,
+		font_detector: font_detector
+	};
+	function change_stage(stage) {
+		console.log('~~ moving to splash #' + stage);
+		switch (stage) {
+			case 1:
+				loader.style.display = 'none';
+				window.offirmo_loader.stage = 1;
+				break;
+			case 2:
+				splash.style.display = 'none';
+				window.offirmo_loader.stage = 2;
+				break;
+			default:
+				console.error('no stage #' + stage);
+				break;
+		}
+	}
+	// expose
+	window.offirmo_loader.change_stage = change_stage;
+	console.log(offirmo_loader);
+
+	var LAST_LOAD_RESULT_KEY = 'offirmo_loader_last_load_result';
+	var FAILED_LOAD_COUNT_KEY = 'offirmo_loader_last_load_result';
+	function on_app_load_timeout() {
+		if (window.offirmo_loader.stage > 1) {
+			window.sessionStorage.setItem(LAST_LOAD_RESULT_KEY, 'success');
+			window.sessionStorage.setItem(FAILED_LOAD_COUNT_KEY, 0);
+			return;
+		}
+
+		console.warn('~~ stage 0 timeout !');
+
+		var last_load = window.sessionStorage.getItem(LAST_LOAD_RESULT_KEY);
+		console.log('~~ last load ended in : ' + last_load);
+
+		if (last_load !== 'failure') {
+			// attempt a reload
+			window.sessionStorage.setItem(LAST_LOAD_RESULT_KEY, 'failure');
+			window.location.reload();
+		} else {
+			// already failed...
+			console.error('~~ already tried to reload, giving up...');
+		}
+	}
+	setTimeout(on_app_load_timeout, 15 * 1000);
+
+</script>

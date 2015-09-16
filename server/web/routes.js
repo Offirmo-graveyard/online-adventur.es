@@ -46,7 +46,7 @@ router.use('/', app_router('jeudunombre', {
 	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
 }));
 router.use('/', app_router('boringrpg', {
-	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
+	custom_template: '../../apps/boringrpg/view', // REM : path relative to template root
 }));
 //router.use('/', app_router('ror'));
 

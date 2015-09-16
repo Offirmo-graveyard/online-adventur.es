@@ -1,0 +1,63 @@
+{>"layout/layout" /}
+
+{<inline_style}
+/* Only for loading style.
+ * see index.css for definitive style.
+ */
+{>"splash/style" /}
+@font-face {
+	font-family: 'PixAntiqua';
+	/* full path to help the minifier */
+	src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype');
+}
+#font-load-test {
+	font-family: 'PixAntiqua', monospace;
+	font-size: 20px;
+}
+#splash {
+	font-family: 'PixAntiqua', serif;
+	background-color: #543d46;
+	color: #ffebbc;
+}
+{/inline_style}
+
+
+{<content}
+
+	<!-- initial splash/loading screen, only displayed at very beginning -->
+	{>"splash/elements" /}
+
+	<!-- improved splash/loading screen, displayed when a few rsrc have loaded  -->
+	<div class="utility-screen" id="splash">
+		<div style="width: 100%; position: absolute; top: 33%;">
+			<p style="font-size: 35px;">The Boring RPG</p>
+			<p style="font-size: 20px;font-style:italic;">reloaded !</p>
+		</div>
+	</div>
+
+	<!-- true app content -->
+	<div id="root" fa-app>
+		<div content-directive>
+
+		</div>
+	</div>
+
+	{>"splash/js" /}
+	<script>
+		console.log('~~ inline view executed');
+
+		function activate_splash_when_ready() {
+			console.log('FD x', window.offirmo_loader.font_detector.offsetWidth, window.offirmo_loader.font_detector);
+			if(window.offirmo_loader.font_detector.offsetWidth > 155 &&
+				window.offirmo_loader.font_detector.offsetWidth < 165) {
+				window.offirmo_loader.change_stage(1);
+			}
+			else {
+				setTimeout(activate_splash_when_ready, 500);
+			}
+		}
+		activate_splash_when_ready();
+	</script>
+	{>"layout/requirejs_bootstrap" /}
+
+{/content}

@@ -153,6 +153,10 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 							$scope.button_position
 						);
 						$scope.$evalAsync();
+
+						// signal the loader to hide
+						if (window.offirmo_loader.stage < 2)
+							window.offirmo_loader.change_stage(2);
 					}
 					//on_screen_size_update();
 					screen_size_cursor.on('update', on_screen_size_update);
