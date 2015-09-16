@@ -38,8 +38,10 @@
 		stage: 0,
 		font_detector: font_detector
 	};
-	function change_stage(stage) {
+	function change_stage(stage, force) {
 		console.log('~~ moving to splash #' + stage);
+		if (stage <= window.offirmo_loader.stage && !force) return; // avoid race conditions
+		
 		switch (stage) {
 			case 1:
 				loader.style.display = 'none';
