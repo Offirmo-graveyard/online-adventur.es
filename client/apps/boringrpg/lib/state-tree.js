@@ -36,9 +36,9 @@ function(module, _, Baobab, Rx) {
 			click_count: 0,
 			last_click: {
 				date_moment_utc: undefined,
-				wait_interval_s: 5,
-				msg: 'clickmsg_none',
-				coins: 12
+				wait_interval_s: 1,
+				msg: 'no_clickmsg',
+				coins: 0
 			}
 		}
 	});

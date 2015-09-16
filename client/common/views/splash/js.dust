@@ -3,7 +3,6 @@
 
 	// using portable element selectors
 	var font_detector = document.getElementById('font-load-test');
-	console.log('FD 1', font_detector.offsetWidth);
 	var errors = document.getElementById('error-console');
 	var loader = document.getElementById('loader');
 	var splash = document.getElementById('splash');
@@ -41,13 +40,14 @@
 	function change_stage(stage, force) {
 		console.log('~~ moving to splash #' + stage);
 		if (stage <= window.offirmo_loader.stage && !force) return; // avoid race conditions
-		
+
 		switch (stage) {
 			case 1:
 				loader.style.display = 'none';
 				window.offirmo_loader.stage = 1;
 				break;
 			case 2:
+				loader.style.display = 'none'; // in case we skipped stage 1 (if very fast)
 				splash.style.display = 'none';
 				window.offirmo_loader.stage = 2;
 				break;
@@ -58,14 +58,11 @@
 	}
 	// expose
 	window.offirmo_loader.change_stage = change_stage;
-	console.log(offirmo_loader);
 
 	var LAST_LOAD_RESULT_KEY = 'offirmo_loader_last_load_result';
-	var FAILED_LOAD_COUNT_KEY = 'offirmo_loader_last_load_result';
 	function on_app_load_timeout() {
 		if (window.offirmo_loader.stage > 1) {
 			window.sessionStorage.setItem(LAST_LOAD_RESULT_KEY, 'success');
-			window.sessionStorage.setItem(FAILED_LOAD_COUNT_KEY, 0);
 			return;
 		}
 

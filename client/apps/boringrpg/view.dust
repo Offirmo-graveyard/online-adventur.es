@@ -8,7 +8,8 @@
 @font-face {
 	font-family: 'PixAntiqua';
 	/* full path to help the minifier */
-	src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype');
+/*	src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype'); */
+	src:url('/client/apps/boringrpg/assets/pixantiqua-webfont.woff') format('woff');
 }
 #font-load-test {
 	font-family: 'PixAntiqua', monospace;
@@ -47,7 +48,7 @@
 		console.log('~~ inline view executed');
 
 		function activate_splash_when_ready() {
-			console.log('FD x', window.offirmo_loader.font_detector.offsetWidth, window.offirmo_loader.font_detector);
+			console.log('~~ Font detection for splash :', window.offirmo_loader.font_detector.offsetWidth, window.offirmo_loader.font_detector);
 			if(window.offirmo_loader.font_detector.offsetWidth > 155 &&
 				window.offirmo_loader.font_detector.offsetWidth < 165) {
 				window.offirmo_loader.change_stage(1);

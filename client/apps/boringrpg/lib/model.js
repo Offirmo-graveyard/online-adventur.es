@@ -5,8 +5,9 @@ define([
 	'moment',
 	'rx',
 	'boringrpg/lib/state-tree',
+	'i18n!client/apps/boringrpg/i18n/nls/messages',
 ],
-function(_, moment, Rx, state_tree) {
+function(_, moment, Rx, state_tree, i18n_messages) {
 	'use strict';
 
 	var model_cursor = state_tree.select('model');
@@ -32,28 +33,29 @@ function(_, moment, Rx, state_tree) {
 		return false;
 	});
 
-	var selector = 0;
-	var available_adventures = [
-		{
-			msg: 'clickmsg_bored'
-		},
-		{
-			msg: 'clickmsg_caravan'
-		},
-		{
-			msg: 'clickmsg_dying_man'
-		}
-	];
+	// extract available adventures from the i18n messages
+	var available_adventures = [];
+	_.forOwn(i18n_messages, function(value, key) {
+		if (key.substr(0, 9) === 'clickmsg_')
+			available_adventures.push({
+				msg: key
+			});
+	});
+
+	// Returns a random integer between min (included) and max (excluded)
+	// Using Math.round() will give you a non-uniform distribution!
+	function getRandomInt(min, max) {
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
 
 	observable_good_clicks.subscribe(function(click_date_utc) {
-		// pick a new adventure !
-		selector = (selector + 1) % available_adventures.length;
+		var selector = getRandomInt(0, available_adventures.length);
 		var adventure = available_adventures[selector];
 		var click = {
 			date_moment_utc: click_date_utc,
 			wait_interval_s: 5,
 			msg: adventure.msg,
-			coins: 12
+			//coins: 12
 		};
 		model_cursor.set('last_click', click);
 	});
