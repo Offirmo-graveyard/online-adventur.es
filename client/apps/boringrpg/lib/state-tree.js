@@ -38,8 +38,27 @@ function(module, _, Baobab, Rx) {
 				date_moment_utc: undefined,
 				wait_interval_s: 1,
 				msg: 'no_clickmsg',
-				coins: 0
-			}
+				gained_coins: 0,
+				gained_item: undefined,
+
+			},
+			stats: {
+				level: 1,
+				health: 5,
+				mana: 0,
+
+				strength: 5,
+				agility: 3,
+				vitality: 5,
+				wisdom: 5,
+				luck: 5,
+			},
+			currencies: {
+				coins: 0,
+				tokens: 0
+			},
+			inventory: [],
+			skills: []
 		}
 	});
 
