@@ -48,8 +48,13 @@ function(_, moment, Rx, state_tree, i18n_messages) {
 		return Math.floor(Math.random() * (max - min)) + min;
 	}
 
+	var last_selector = -1;
 	observable_good_clicks.subscribe(function(click_date_utc) {
-		var selector = getRandomInt(0, available_adventures.length);
+		var selector;
+		do {
+			selector = getRandomInt(0, available_adventures.length);
+		} while (selector === last_selector);
+		last_selector = selector;
 		var adventure = available_adventures[selector];
 		var click = {
 			date_moment_utc: click_date_utc,

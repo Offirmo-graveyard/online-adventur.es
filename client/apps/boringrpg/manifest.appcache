@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 0.0.13
+#version 0.0.14
 
 CACHE:
 
@@ -18,15 +18,15 @@ CACHE:
 
 #javascript files
 /client/apps/boringrpg/all_js.concat+min.js
-
-
-# manual adds
-/client/apps/boringrpg/assets/PixAntiqua.ttf
-/client/apps/boringrpg/assets/icomoon-TBRPG.woff
-# dynamicly loadable i18n
+# manual add : dynamically loadable i18n
 /client/apps/boringrpg/i18n/nls/root/messages.js
 /client/apps/boringrpg/i18n/nls/en/messages.js
 /client/apps/boringrpg/i18n/nls/fr/messages.js
+
+
+# manual adds
+/client/apps/boringrpg/assets/pixantiqua-webfont.woff
+/client/apps/boringrpg/assets/icomoon-TBRPG.woff
 
 
 ## special files, conditional loading depending on platform

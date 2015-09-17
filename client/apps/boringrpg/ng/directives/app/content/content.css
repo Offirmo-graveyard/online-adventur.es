@@ -13,6 +13,8 @@
 	border: solid 3px #292830;
 	background: #ffebbc;
 	text-rendering: optimizeLegibility;
+	font-size: 15px;
+	line-height: 19px;
 }
 
 .app-content-button {

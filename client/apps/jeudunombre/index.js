@@ -94,6 +94,8 @@ function(offirmo_app, _, Carnet, screenfull, famous, tpl) {
 			}
 		};
 
+		window.offirmo_loader.change_stage(2);
+
 		logger.info('LandingController initialized.');
 	}]);
 

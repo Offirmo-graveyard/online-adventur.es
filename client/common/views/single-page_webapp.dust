@@ -10,8 +10,15 @@
 
 {<content}
 
-	<!-- splash screen with loader, only displayed while app is loading -->
+	<!-- initial splash/loading screen, only displayed at very beginning -->
 	{>"splash/elements" /}
+
+	<!-- improved splash/loading screen, displayed when a few rsrc have loaded  -->
+	<div class="utility-screen" id="splash">
+		<div style="width: 100%; position: absolute; top: 33%;">
+			<p style="font-size: 25px;">Loading...</p>
+		</div>
+	</div>
 
 	<div id="content" content-directive>
 	</div>

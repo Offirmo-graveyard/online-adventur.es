@@ -8,7 +8,6 @@
 @font-face {
 	font-family: 'PixAntiqua';
 	/* full path to help the minifier */
-/*	src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype'); */
 	src:url('/client/apps/boringrpg/assets/pixantiqua-webfont.woff') format('woff');
 }
 #font-load-test {
@@ -53,7 +52,7 @@
 				window.offirmo_loader.font_detector.offsetWidth < 165) {
 				window.offirmo_loader.change_stage(1);
 			}
-			else {
+			else if (window.offirmo_loader.stage < 1) {
 				setTimeout(activate_splash_when_ready, 500);
 			}
 		}

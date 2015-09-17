@@ -4,7 +4,6 @@
 @font-face {
 	font-family: 'PixAntiqua';
 	/* full path to help the minifier */
-	/* src:url('/client/apps/boringrpg/assets/PixAntiqua.ttf') format('truetype'); */
 	src:url('/client/apps/boringrpg/assets/pixantiqua-webfont.woff') format('woff');
 }
 

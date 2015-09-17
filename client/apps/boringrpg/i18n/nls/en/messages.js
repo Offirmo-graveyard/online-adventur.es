@@ -68,6 +68,10 @@ define({
 		'On parle de vous après que vous ayez tué le dragon et la sorcière maléfique. Des bandits vous tendent une embuscade. Quelle drôle d’idée ! ' +
 		'À voir ses yeux, le dernier l’a presque compris une fraction de seconde avant que votre boule de feu ne le réduise en cendre. ' +
 		'Heureusement, les pièces d’or ne brûlent pas : +33 écus !',
+	// don't remember the source for this one
+	clickmsg_princess:
+		'« Vous n’emporterez pas la princesse ! » vous crie le terrible mage noir, alors que vous parvenez dans sa salle du trône. ' +
+		'Vous le rassurez : seul le butin vous intéresse. Il vous laisse vous servir (+234 écus) et enchante même une arme pour vous ! ([TODO weapon])',
 
 	object_found: 'You found a [+1 Common Spiky Shield]!',
 

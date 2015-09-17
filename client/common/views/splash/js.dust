@@ -4,8 +4,6 @@
 	// using portable element selectors
 	var font_detector = document.getElementById('font-load-test');
 	var errors = document.getElementById('error-console');
-	var loader = document.getElementById('loader');
-	var splash = document.getElementById('splash');
 
 	// OK all browsers since IE 9
 	document.addEventListener("DOMContentLoaded", function(event) {
@@ -43,12 +41,13 @@
 
 		switch (stage) {
 			case 1:
-				loader.style.display = 'none';
+				document.getElementById('loader').style.display = 'none';
 				window.offirmo_loader.stage = 1;
 				break;
 			case 2:
-				loader.style.display = 'none'; // in case we skipped stage 1 (if very fast)
-				splash.style.display = 'none';
+				document.getElementById('loader').style.display = 'none'; // in case we skipped stage 1 (if very fast)
+				if (document.getElementById('splash'))
+					document.getElementById('splash').style.display = 'none';
 				window.offirmo_loader.stage = 2;
 				break;
 			default:
@@ -80,6 +79,6 @@
 			console.error('~~ already tried to reload, giving up...');
 		}
 	}
-	setTimeout(on_app_load_timeout, 15 * 1000);
+	setTimeout(on_app_load_timeout, 20 * 1000);
 
 </script>
