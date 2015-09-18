@@ -33,6 +33,16 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					};
 
 					var last_click_cursor = state_tree.select('model', 'last_click');
+					var model_cursor = state_tree.select('model');
+					// expose stats
+					function expose_stats() {
+						$scope.$evalAsync(function () {
+							$scope.model = model_cursor.get();
+						});
+					}
+					expose_stats();
+					model_cursor.on('update', expose_stats);
+
 					function update_click_message() {
 						var click_data = last_click_cursor.get();
 						console.log('new click_data', click_data);
@@ -66,6 +76,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 				link: function postLink($scope) {
 
 					$scope.STATS_PANEL_HEIGHT = 120;
+					$scope.STATS_PANEL_WIDTH = 320;
 
 					$scope.dialog_position = [10, 10];
 					$scope.dialog_size = [ 300, 200 ];
@@ -155,8 +166,10 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						$scope.$evalAsync();
 
 						// signal the loader to hide
-						if (window.offirmo_loader.stage < 2)
+						if (window.offirmo_loader.stage < 2) {
 							window.offirmo_loader.change_stage(2);
+							window.onerror = window.offirmo_loader.display_unhandled_error;
+						}
 					}
 					//on_screen_size_update();
 					screen_size_cursor.on('update', on_screen_size_update);

@@ -65,6 +65,20 @@ function(_, moment, Rx, state_tree, i18n_messages) {
 		model_cursor.set('last_click', click);
 	});
 
+	function typeset(msg) {
+		msg = msg.replace('\'', '’');
+		msg = msg.replace(' ?', '&nbsp;?');
+		msg = msg.replace(' !', '&nbsp;!');
+		msg = msg.replace(' :', '&nbsp;:');
+		msg = msg.replace(' ;', '&nbsp;;');
+		msg = msg.replace(' »', '&nbsp;»');
+		msg = msg.replace('« ', '«&nbsp;');
+		msg = msg.replace('...', '…');
+		msg = msg.replace(/(\d+) /, '$1&nbsp;');
+
+		return msg;
+	}
+
 	return {
 		subjects: {
 			clicks: clicks_subject

@@ -5,6 +5,20 @@ define([
 function(offirmo_app, _) {
 	'use strict';
 
+	function typeset(text) {
+		text = text.replace('\'', '’');
+		text = text.replace(' ?', '&nbsp;?');
+		text = text.replace(' !', '&nbsp;!');
+		text = text.replace(' :', '&nbsp;:');
+		text = text.replace(' ;', '&nbsp;;');
+		text = text.replace(' »', '&nbsp;»');
+		text = text.replace('« ', '«&nbsp;');
+		text = text.replace('...', '…');
+		text = text.replace(/(\d+) /, '$1&nbsp;');
+
+		return text;
+	}
+
 	console.log('service i18nData declaration');
 	offirmo_app.global_ng_module
 	.service('i18nData', ['$q', function ($q) {
@@ -18,6 +32,9 @@ function(offirmo_app, _) {
 
 			// setter
 			set_intl: function (locale, messages, custom_formats) {
+				_.forOwn(messages, function(value, key) {
+					messages[key] = typeset(value);
+				});
 				intl = {
 					locale: locale,
 					messages: messages,

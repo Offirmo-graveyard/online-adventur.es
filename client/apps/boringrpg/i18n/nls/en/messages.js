@@ -10,17 +10,58 @@ define({
 	play_button_caption: 'Play!',
 	meta_header: 'Settings',
 
+	stats_level: 'Level',
+	stats_health: 'Health',
+	stats_mana: 'Mana',
+	stats_strength: 'Strength',
+	stats_agility: 'Agility',
+	stats_vitality: 'Vitality',
+	stats_wisdom: 'Wisdom',
+	stats_luck: 'Luck',
+	stats_money: 'Gold',
+	stats_item_count: 'Items',
+	stats_token_count: 'Tokens',
+	stats_click_count: 'Clicks',
+
 	no_clickmsg:
 		'You eager to start adventuring!',
 
+	// original
 	clickmsg_bored:
-		'You were so bored, you punched a log for hours! You gained +1 strength!',
+		'You were so bored, you punched a log for hours!<br/>' +
+		'You gained +1 strength!',
 	clickmsg_caravan:
-		'You were hired to protect a caravan of merchants. You gained 12 coins!',
+		'You were hired to protect a caravan of merchants.<br/>' +
+		'You gained 12 coins!',
 	clickmsg_dying_man:
-		'A dying man on the street left you everything he had. You gained 47 coins!',
+		'A dying man on the street left you everything he had.<br/>' +
+		'You gained 47 coins!',
+	clickmsg_ate_bacon:
+		'You ate some bacon.<br/>' +
+		'You gained +1 level!',
+	clickmsg_ate_mushroom:
+		'You ate a mushroom.<br/>' +
+		'You gained +1 level!',
+	clickmsg_ate_zombie:
+		'You ate a zombie.<br/>' +
+		'You gained +1 mana!',
+	clickmsg_refreshing_nap:
+		'You took a nap and feel refreshed.<br/>' +
+		'You gained +1 vitality!',
+	clickmsg_older:
+		'You feel a little older.<br/>' +
+		'You gained +1 level!',
+	clickmsg_stare_cup:
+		'You stare really hard at a cup, and it almost moves!<br/>' +
+		'You gained +2 mana!',
+	clickmsg_nuclear_fusion_paper:
+		'You wrote a paper on nuclear fusion.<br/>' +
+		'You gained +1 wisdom!',
+
+	// me
 	clickmsg_old_wizard:
-		'Vous rencontrez un mystérieux vieux magicien… Avant de vous confier la quête, il vous raconte sa loooongue histoire : Vous gagnez +1 en sagesse !',
+		'Vous meet a mysterious old wizard…<br/>' +
+		'Before giving you the quest, he tells you his loooong story : Vous gain +1 wisdom!',
 	// electricbunnycomics.com
 	clickmsg_good_necromancer:
 		'Vous croisez un enfant sanglotant sur son hamster mort… Grâce à vos pouvoirs de nécromancie, vous le ranimez en hamster-zombie avec ! ' +
@@ -72,6 +113,30 @@ define({
 	clickmsg_princess:
 		'« Vous n’emporterez pas la princesse ! » vous crie le terrible mage noir, alors que vous parvenez dans sa salle du trône. ' +
 		'Vous le rassurez : seul le butin vous intéresse. Il vous laisse vous servir (+234 écus) et enchante même une arme pour vous ! ([TODO weapon])',
+	// "make friends" necromancy
+	xclickmsg_make_friends:
+		'',
+	// licorne multicolore
+	xclickmsg_unicorns:
+		'',
+	// DM of the ring
+	clickmsg_bad_village:
+		'Vous arrivez dans un village. Il n’y a pas de marchand d’armes. ' +
+		'Pas de marchand de potions non plus ! Et l’auberge ne propose pas de quêtes !!<br/>' +
+		'C’en est trop : sur votre ordre, les éclairs et les météorites rasent ce lieu inutile.<br/>' +
+		'Au passage, bon occasion de pratiquer votre magie : +1 mana.',
+	// memes
+	xclickmsg_arrown_in_the_knee:
+		'', // arrow in the knee
+	// retour chez le mage noir, apprentissage de sorts
+	xclickmsg_black_mage_again:
+		'',
+	// ?
+	clickmsg_mana_mana:
+		'« Mah na mah na » « To to to do do »<br/>' +
+		'+1 mana!',
+
+
 
 	object_found: 'You found a [+1 Common Spiky Shield]!',
 

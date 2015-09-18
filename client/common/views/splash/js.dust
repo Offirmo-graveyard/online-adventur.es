@@ -19,8 +19,7 @@
 		document.querySelector('#loader progress').style.display = 'inline-block'; // back from 'none'
 	}, 3000);
 
-	var original_window_on_error = window.onerror;
-	window.onerror = function (errorMsg, url, lineNumber, column, errorObj) {
+	function display_unhandled_error(errorMsg, url, lineNumber, column, errorObj) {
 		console.error('~~ onerror : ' + errorMsg +
 			' Script: ' + url +
 			' Line: ' + lineNumber +
@@ -29,12 +28,17 @@
 		var p = document.createElement("p");
 		p.textContent = 'XXX ' + errorMsg;
 		errors.appendChild(p);
-	};
+	}
+	var original_window_on_error = window.onerror;
+	window.onerror = display_unhandled_error;
 
 	window.offirmo_loader = {
 		stage: 0,
-		font_detector: font_detector
+		font_detector: font_detector,
+		original_window_on_error: original_window_on_error,
+		display_unhandled_error: display_unhandled_error
 	};
+
 	function change_stage(stage, force) {
 		console.log('~~ moving to splash #' + stage);
 		if (stage <= window.offirmo_loader.stage && !force) return; // avoid race conditions

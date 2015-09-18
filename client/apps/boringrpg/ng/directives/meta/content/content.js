@@ -146,6 +146,7 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 						icon: 'icomoon-terminal',
 						label: 'Test error',
 						on_click: _.debounce(function() {
+							window.onerror = window.offirmo_loader.display_unhandled_error;
 							throw new Error('Test of unhandled browser error !');
 						}, 200, true)
 					},

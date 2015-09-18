@@ -30,10 +30,60 @@
 
 
 		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, STATS_PANEL_HEIGHT]">
-
-			<fa-surface class="app-content-stats">
-				<p>Coming soon : stats</p>
+			<fa-surface class="app-content-stats-background">
 			</fa-surface>
+
+			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
+				<fa-surface class="app-content-stats container">
+
+					<div class="app-content-stats-column col-xs-3">
+						<ul>
+							<li><span i18n-content="stats_health">
+							<li><span i18n-content="stats_mana">
+							<li><span i18n-content="stats_money">
+							<li><span i18n-content="stats_item_count">
+							<li><span i18n-content="stats_token_count">
+							<li><span i18n-content="stats_click_count">
+						</ul>
+					</div>
+
+					<div class="app-content-stats-column col-xs-3">
+						<ul>
+							<li><span>{{model.stats.health}}
+							<li><span>{{model.stats.mana}}
+							<li><span>{{model.currencies.coins}}
+							<li><span>{{model.inventory.length}}
+							<li><span>{{model.currencies.tokens}}
+							<li><span>{{model.click_count}}
+						</ul>
+					</div>
+
+					<div class="app-content-stats-column col-xs-3">
+						<ul>
+							<li><span i18n-content="stats_level">
+							<li><span i18n-content="stats_strength">
+							<li><span i18n-content="stats_agility">
+							<li><span i18n-content="stats_vitality">
+							<li><span i18n-content="stats_wisdom">
+							<li><span i18n-content="stats_luck">
+						</ul>
+					</div>
+
+					<div class="app-content-stats-column col-xs-3">
+						<ul>
+							<li><span>{{model.stats.level}}
+							<li><span>{{model.stats.strength}}
+							<li><span>{{model.stats.agility}}
+							<li><span>{{model.stats.vitality}}
+							<li><span>{{model.stats.wisdom}}
+							<li><span>{{model.stats.luck}}
+						</ul>
+					</div>
+
+				</fa-surface>
+			</fa-modifier>
+
+
 
 		</fa-modifier>
 
