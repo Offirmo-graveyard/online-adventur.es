@@ -27,27 +27,8 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 				}*/
 
 				$scope.version = version_cursor.get();
-				$scope.items = [
-					{
-						icon: 'icomoon-enter-fullscreen',
-						label: 'Full screen',
-						update: function() {
-							if (fullscreen_cursor.get()) {
-								$scope.items[0].icon = 'icomoon-exit-fullscreen';
-								$scope.items[0].value = 'ON';
-							}
-							else {
-								$scope.items[0].icon = 'icomoon-enter-fullscreen';
-								$scope.items[0].value = 'OFF';
-							}
-						},
-						// we can't use angular debounce since screenfull request must be tied to a user action
-						on_click: _.debounce(function() {
-							screenfull.toggle();
-							// trigger a $digest for angular to repaint
-							$scope.$evalAsync();
-						}, 200, true)
-					},
+
+				var root_items = [
 					{
 						icon: 'icomoon-volume-mute2',
 						label: 'Volume',
@@ -119,10 +100,53 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 						disabled: true
 					},
 					{
-						icon: 'icomoon-aid-kit',
-						label: 'Report bugs',
+						icon: 'icomoon-equalizer2',
+						label: 'Debug',
 						on_click: _.debounce(function() {
-							window.open('https://github.com/Offirmo/online-adventur.es/issues','_blank');
+							$scope.$evalAsync(function () {
+								$scope.items = dev_items;
+							});
+						}, 200, true)
+					},
+				];
+
+				var fullscreen_item = {
+					icon: 'icomoon-enter-fullscreen',
+					label: 'Full screen',
+					update: function() {
+						if (fullscreen_cursor.get()) {
+							fullscreen_item.icon = 'icomoon-exit-fullscreen';
+							fullscreen_item.value = 'ON';
+						}
+						else {
+							fullscreen_item.icon = 'icomoon-enter-fullscreen';
+							fullscreen_item.value = 'OFF';
+						}
+					},
+					// we can't use angular debounce since screenfull request must be tied to a user action
+					on_click: _.debounce(function() {
+						screenfull.toggle();
+						// trigger a $digest for angular to repaint
+						$scope.$evalAsync();
+					}, 200, true)
+				};
+
+				var dev_items = [
+					{
+						icon: 'icomoon-spinner11',
+						label: 'Back',
+						on_click: _.debounce(function() {
+							$scope.$evalAsync(function () {
+								$scope.items = root_items;
+							});
+						}, 200, true)
+					},
+					fullscreen_item,
+					{
+						icon: 'icomoon-terminal',
+						label: 'Test error',
+						on_click: _.debounce(function() {
+							throw new Error('Test of unhandled browser error !');
 						}, 200, true)
 					},
 					{
@@ -133,11 +157,20 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 							window.location.reload(true);
 						}, 200, true)
 					},
+					{
+						icon: 'icomoon-aid-kit',
+						label: 'Report bugs',
+						on_click: _.debounce(function() {
+							window.open('https://github.com/Offirmo/online-adventur.es/issues','_blank');
+						}, 200, true)
+					},
 				];
-				$scope.items[0].update();
+				fullscreen_item.update();
+
+				$scope.items = root_items;
 
 				fullscreen_cursor.on('update', function(e) {
-					$scope.items[0].update();
+					fullscreen_item.update();
 					$scope.$digest();
 				});
 
