@@ -7,3 +7,11 @@ font yellow  #ffebbc
 
 
 http://bradfrost.com/demo/ish/?url=http%3A%2F%2Fwww.online-adventur.es#m
+
+
+icomoon to add
+- debug
+- back
+- coins
+- tokens
+- stats
