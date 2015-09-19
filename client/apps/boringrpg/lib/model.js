@@ -63,6 +63,8 @@ function(_, moment, Rx, state_tree, i18n_messages) {
 			//coins: 12
 		};
 		model_cursor.set('last_click', click);
+		model_cursor.apply('click_count', inc)
+
 	});
 
 	function typeset(msg) {
@@ -78,6 +80,10 @@ function(_, moment, Rx, state_tree, i18n_messages) {
 
 		return msg;
 	}
+
+	var inc = function(currentData) {
+		return currentData + 1;
+	};
 
 	return {
 		subjects: {

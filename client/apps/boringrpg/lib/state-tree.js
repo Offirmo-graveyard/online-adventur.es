@@ -44,14 +44,14 @@ function(module, _, Baobab, Rx) {
 			},
 			stats: {
 				level: 1,
-				health: 5,
+				health: 1,
 				mana: 0,
 
-				strength: 5,
-				agility: 3,
-				vitality: 5,
-				wisdom: 5,
-				luck: 5,
+				strength: 1,
+				agility: 1,
+				vitality: 1,
+				wisdom: 1,
+				luck: 1,
 			},
 			currencies: {
 				coins: 0,
