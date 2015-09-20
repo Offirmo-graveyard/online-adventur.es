@@ -20,11 +20,7 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 				var view_cursor = state_tree.select('view');
 				var fullscreen_cursor = view_cursor.select('fullscreen');
 
-				/*function angular_debounce(fn) {
-					return _.debounce(function () {
-						$scope.$evalAsync(fn);
-					}, 200, true);
-				}*/
+				var layout_state_cursor = view_cursor.select('layout', 'state');
 
 				$scope.version = version_cursor.get();
 
@@ -162,7 +158,10 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 					{
 						icon: 'icomoon-fire',
 						label: 'meta_reset',
-						disabled: true,
+						on_click: _.debounce(function() {
+							window.localStorage.clear();
+							window.location.reload(true);
+					}, 200, true)
 					},
 					{
 						icon: 'icomoon-terminal',
@@ -176,6 +175,9 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 				fullscreen_item.update();
 
 				$scope.items = root_items;
+				layout_state_cursor.on('update', function () {
+					$scope.items = root_items;
+				});
 
 				fullscreen_cursor.on('update', function(e) {
 					fullscreen_item.update();

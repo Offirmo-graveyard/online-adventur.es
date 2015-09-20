@@ -19,7 +19,6 @@ function(offirmo_app, _) {
 		return text;
 	}
 
-	console.log('service i18nData declaration');
 	offirmo_app.global_ng_module
 	.service('i18nData', ['$q', function ($q) {
 		var init_done = false;

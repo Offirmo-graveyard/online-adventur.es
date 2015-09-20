@@ -27,7 +27,7 @@ define([
 function(offirmo_app, _, Carnet, AppCacheNanny) {
 	'use strict';
 
-	console.log('executing main...');
+	console.log('executing root js...');
 
 	// https://github.com/gr2m/appcache-nanny
 	appCacheNanny.on('update', function() {
@@ -74,12 +74,12 @@ function(offirmo_app, _, Carnet, AppCacheNanny) {
 	console.log('AN test');
 	AppCacheNanny.update();
 	console.log('AN test', AppCacheNanny.hasUpdate());
-	if(AppCacheNanny.hasUpdate()) {
+	/*if(AppCacheNanny.hasUpdate()) {
 		return window.location.reload(true);
-	}
+	}*/
 
 	// and program periodic update checks
-	AppCacheNanny.start({checkInterval: 60 * 60 * 1000}); // ms
+	//AppCacheNanny.start({checkInterval: 60 * 60 * 1000}); // ms
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});

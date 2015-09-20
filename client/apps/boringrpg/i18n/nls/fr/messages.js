@@ -1,7 +1,7 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define({
-	"locale": "fr", // detector
-	"locale_name": "français",
+	locale: 'fr', // detector
+	locale_name: 'français',
 
 	title: 'Le JDR barbant, de retour !',
 	description: 'Un RPG ultra-simple',

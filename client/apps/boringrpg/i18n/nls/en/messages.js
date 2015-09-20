@@ -1,6 +1,7 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define({
-	"locale": "en", // detector
+	locale: 'en', // detector
+	locale_name: 'english',
 
 	title: 'The Boring RPG reloaded',
 	description: 'The most simple RPG',
@@ -53,7 +54,7 @@ define({
 	stats_click_count: 'Clicks',
 
 	no_clickmsg:
-		'You eager to start adventuring!',
+		'You’re eager to start adventuring!',
 
 	// original
 	clickmsg_bored:

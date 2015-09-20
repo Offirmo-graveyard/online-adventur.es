@@ -7,7 +7,6 @@ function(offirmo_app, _, IntlMessageFormat) {
 	'use strict';
 	var unique_i18n_content_id = 0;
 
-	console.log('directive i18nContent declaration');
 	offirmo_app.global_ng_module
 	.directive('i18nContent', ['$q', 'i18nData', function ($q, i18n_data) {
 		return {
