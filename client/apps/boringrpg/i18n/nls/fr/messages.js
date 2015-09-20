@@ -1,14 +1,44 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define({
 	"locale": "fr", // detector
+	"locale_name": "français",
 
 	title: 'Le JDR barbant, de retour !',
 	description: 'Un RPG ultra-simple',
 	keywords: 'jeu, jdr, rpg, aventure',
 
+	back: 'Retour',
+
 	app_title: 'Le JDR barbant',
 	play_button_caption: 'Jouer !',
 	meta_header: 'Réglages',
+
+	meta_volume: 'Son :',
+	meta_volume_on: 'normal',
+	meta_volume_off: 'éteint',
+	meta_volume_half: 'faible',
+	meta_music: 'Musique :',
+	meta_music_on: 'oui',
+	meta_music_off: 'non',
+	meta_locale: 'Langue :',
+	meta_tutorial: 'Tutoriel',
+	meta_statistics: 'Statistiques',
+	meta_rate_app: 'Noter l’appli',
+	meta_share: 'Partager',
+	meta_contact_us: 'Contact',
+	meta_facebook: 'facebook',
+	meta_twitter: 'twitter',
+	meta_fork: 'Forker sur Github',
+	meta_save: 'Sauvegarder',
+	meta_update: 'Mettre à jour',
+	meta_advanced: 'Avancé…',
+	meta_fullscreen : 'Plein écran :',
+	meta_fullscreen_on : 'actif',
+	meta_fullscreen_off : 'inactif',
+	meta_test_error: 'Tester une erreur',
+	meta_reset: 'Réinitialiser le jeu',
+	meta_refresh: 'relancer l’appli',
+	meta_report_bugs: 'Signaler un bug',
 
 	stats_level: 'Niveau',
 	stats_health: 'Santé',

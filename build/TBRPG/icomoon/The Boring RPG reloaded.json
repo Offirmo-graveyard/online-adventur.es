@@ -791,11 +791,12 @@
 				},
 				{
 					"id": 283,
-					"order": 0,
+					"order": 80,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "lifebuoy, support",
-					"name": ""
+					"name": "lifebuoy",
+					"code": 58930
 				},
 				{
 					"order": 0,
@@ -825,7 +826,7 @@
 					"id": 305,
 					"order": 5,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "envelop, mail",
 					"name": "envelop",
 					"code": 58883
@@ -1029,7 +1030,7 @@
 					"id": 369,
 					"order": 71,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "box-add, box3",
 					"name": "box-add",
 					"code": 58893
@@ -1063,7 +1064,7 @@
 					"id": 376,
 					"order": 66,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "floppy-disk, save2",
 					"name": "floppy-disk",
 					"code": 58897
@@ -1102,11 +1103,12 @@
 				},
 				{
 					"id": 417,
-					"order": 0,
+					"order": 81,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "undo2, left",
-					"name": "undo2"
+					"name": "undo2",
+					"code": 58931
 				},
 				{
 					"id": 418,
@@ -1176,7 +1178,7 @@
 					"id": 427,
 					"order": 40,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "bubbles4, comments4",
 					"name": "bubbles4",
 					"code": 58917
@@ -1185,7 +1187,7 @@
 					"order": 12,
 					"id": 1628,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user, profile2",
 					"name": "user",
 					"code": 58888
@@ -1194,7 +1196,7 @@
 					"id": 476,
 					"order": 13,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "users, group",
 					"name": "users",
 					"code": 58889
@@ -1203,7 +1205,7 @@
 					"id": 478,
 					"order": 10,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user-plus, user2",
 					"name": "user-plus",
 					"code": 58890
@@ -1212,7 +1214,7 @@
 					"id": 480,
 					"order": 11,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "user-minus, user3",
 					"name": "user-minus",
 					"code": 58891
@@ -1285,7 +1287,7 @@
 					"id": 513,
 					"order": 14,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "spinner4, loading5",
 					"name": "spinner4",
 					"code": 58892
@@ -1342,7 +1344,7 @@
 					"order": 65,
 					"id": 1591,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "spinner11, loading12",
 					"name": "spinner11",
 					"code": 58902
@@ -1447,11 +1449,12 @@
 				},
 				{
 					"id": 561,
-					"order": 0,
+					"order": 90,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "wrench, tool",
-					"name": ""
+					"name": "wrench",
+					"code": 58933
 				},
 				{
 					"id": 565,
@@ -1465,7 +1468,7 @@
 					"id": 566,
 					"order": 18,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "equalizer2, sliders2",
 					"name": "equalizer2",
 					"code": 58895
@@ -1474,7 +1477,7 @@
 					"id": 569,
 					"order": 17,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cog, gear",
 					"name": "cog",
 					"code": 58896
@@ -1507,19 +1510,19 @@
 					"order": 67,
 					"id": 1796,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "aid-kit, health",
 					"name": "aid-kit",
 					"code": 58903
 				},
 				{
 					"id": 588,
-					"order": 0,
+					"order": 82,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "bug, virus",
 					"name": "bug",
-					"code": 58897
+					"code": 58929
 				},
 				{
 					"id": 593,
@@ -1533,7 +1536,7 @@
 					"id": 600,
 					"order": 78,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "stats-dots, stats2",
 					"name": "stats-dots",
 					"code": 58926
@@ -1558,7 +1561,7 @@
 					"id": 632,
 					"order": 41,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "trophy, cup",
 					"name": "trophy",
 					"code": 58918
@@ -1567,7 +1570,7 @@
 					"id": 618,
 					"order": 20,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "gift, present",
 					"name": "gift",
 					"code": 58898
@@ -1646,11 +1649,12 @@
 				},
 				{
 					"id": 665,
-					"order": 0,
+					"order": 91,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "fire, flame",
-					"name": ""
+					"name": "fire",
+					"code": 58934
 				},
 				{
 					"id": 666,
@@ -1734,25 +1738,27 @@
 				},
 				{
 					"id": 730,
-					"order": 0,
+					"order": 83,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "shield, security",
-					"name": ""
+					"name": "shield",
+					"code": 58935
 				},
 				{
 					"id": 743,
-					"order": 0,
+					"order": 84,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "power, lightning",
-					"name": ""
+					"name": "power",
+					"code": 58936
 				},
 				{
 					"id": 746,
 					"order": 68,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "switch",
 					"name": "switch",
 					"code": 58905
@@ -1849,7 +1855,7 @@
 					"id": 788,
 					"order": 21,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-download, cloud2",
 					"name": "cloud-download",
 					"code": 58899
@@ -1858,7 +1864,7 @@
 					"id": 789,
 					"order": 22,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-upload, cloud3",
 					"name": "cloud-upload",
 					"code": 58900
@@ -1867,7 +1873,7 @@
 					"order": 23,
 					"id": 1491,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cloud-check, cloud4",
 					"name": "cloud-check",
 					"code": 58901
@@ -1876,7 +1882,7 @@
 					"id": 796,
 					"order": 42,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "download2, save4",
 					"name": "download2",
 					"code": 58919
@@ -1885,7 +1891,7 @@
 					"id": 797,
 					"order": 43,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "upload2, load2",
 					"name": "upload2",
 					"code": 58920
@@ -2040,7 +2046,7 @@
 					"id": 865,
 					"order": 26,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "star-full, rate3",
 					"name": "star-full",
 					"code": 58904
@@ -2378,41 +2384,45 @@
 				},
 				{
 					"id": 922,
-					"order": 0,
+					"order": 85,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "point-up, finger",
-					"name": ""
+					"name": "point-up",
+					"code": 58937
 				},
 				{
 					"id": 923,
-					"order": 0,
+					"order": 86,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "point-right, finger2",
-					"name": ""
+					"name": "point-right",
+					"code": 58938
 				},
 				{
 					"id": 924,
-					"order": 0,
+					"order": 87,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "point-down, finger3",
-					"name": ""
+					"name": "point-down",
+					"code": 58939
 				},
 				{
 					"id": 925,
-					"order": 0,
+					"order": 88,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "point-left, finger4",
-					"name": ""
+					"name": "point-left",
+					"code": 58940
 				},
 				{
 					"id": 949,
 					"order": 30,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "warning, sign",
 					"name": "warning",
 					"code": 58908
@@ -2469,7 +2479,7 @@
 					"id": 967,
 					"order": 69,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "blocked, forbidden",
 					"name": "blocked",
 					"code": 58906
@@ -2478,7 +2488,7 @@
 					"id": 975,
 					"order": 44,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "cross, cancel",
 					"name": "cross",
 					"code": 58921
@@ -2663,7 +2673,7 @@
 					"id": 1011,
 					"order": 3,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-high, volume",
 					"name": "volume-high",
 					"code": 58909
@@ -2680,7 +2690,7 @@
 					"id": 1013,
 					"order": 45,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-low, volume3",
 					"name": "volume-low",
 					"code": 58922
@@ -2697,7 +2707,7 @@
 					"id": 1015,
 					"order": 2,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "volume-mute2, volume5",
 					"name": "volume-mute2",
 					"code": 58910
@@ -3394,7 +3404,7 @@
 					"id": 1273,
 					"order": 70,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "terminal, console",
 					"name": "terminal",
 					"code": 58907
@@ -3491,7 +3501,7 @@
 					"id": 1298,
 					"order": 47,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "facebook2, brand7",
 					"name": "facebook2",
 					"code": 58923
@@ -3533,7 +3543,7 @@
 					"id": 1303,
 					"order": 48,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "twitter2, brand12",
 					"name": "twitter2",
 					"code": 58925
@@ -3783,7 +3793,7 @@
 					"order": 32,
 					"id": 1412,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "github, brand40",
 					"name": "github",
 					"code": 58911
@@ -3896,7 +3906,7 @@
 					"id": 1348,
 					"order": 51,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "apple, brand54",
 					"name": "apple",
 					"code": 58927
@@ -3913,7 +3923,7 @@
 					"id": 1350,
 					"order": 52,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "android, brand56",
 					"name": "android",
 					"code": 58928
@@ -4205,7 +4215,7 @@
 					"id": 1387,
 					"order": 56,
 					"prevSize": 32,
-					"tempChar": "",
+					"tempChar": "",
 					"ligatures": "chrome, browser",
 					"name": "chrome",
 					"code": 58932

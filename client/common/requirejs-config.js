@@ -247,12 +247,10 @@ requirejs.config({
 
 	/////////////////////
 	config: {
-		'boringrpg/lib/state-tree': {
-			version: 'v0.0.15',
-		},
 		// http://requirejs.org/docs/api.html#i18n
 		i18n: {
-			// can't resolve locale here : this file can't have logic to be able to be minified by r.js
+			// can't resolve locale here : this file can't have logic, to be able to be minified by r.js
+			// and we need some logic (ex. load selected locale from local storage)
 		}
 	},
 

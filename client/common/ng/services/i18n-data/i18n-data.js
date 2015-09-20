@@ -53,35 +53,34 @@ function(offirmo_app, _) {
 			get_intl: function () {
 				return init_deferred.promise;
 			},
-			get_locale: function () {
-				//return init_deferred.promise.then(function() {
-					//console.log('get_locale()', intl.locale);
-					return intl.locale;
-				//});
-			},
+			/*get_locale: function () {
+				return intl.locale;
+			},*/
 			/*get_messages: function () {
 				//return init_deferred.promise.then(function() {
 					return intl.messages;
 				//});
 			},*/
 
-			// listen for changes
-			on_locale_change: function(listener) {
-				if (_.includes(locale_listeners, listener))
+			// listen for changes (listener called at init if a lang is avail)
+			on_locale_change: function(listener_to_add) {
+				if (_.includes(locale_listeners, listener_to_add))
 					throw new Error('i18n-data trying to attach a locale change listener which is already present !');
 
-				locale_listeners.push(listener);
+				locale_listeners.push(listener_to_add);
 
 				if (intl) {
 					// call it immediately
-					listener(intl);
+					listener_to_add(intl);
 				}
 			},
-			off_locale_change: function(listener) {
-				if (! _.includes(locale_listeners, listener))
+			off_locale_change: function(listener_to_remove) {
+				if (! _.includes(locale_listeners, listener_to_remove))
 					throw new Error('i18n-data trying to remove a locale change listener which is not present !');
 
-				locale_listeners = _.reject(locale_listeners, listener);
+				locale_listeners = _.reject(locale_listeners, function (listener) {
+					return (listener === listener_to_remove);
+				});
 			}
 		}
 	}]);

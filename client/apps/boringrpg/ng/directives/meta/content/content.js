@@ -31,77 +31,79 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 				var root_items = [
 					{
 						icon: 'icomoon-volume-mute2',
-						label: 'Volume',
-						value: 'OFF',
+						label: 'meta_volume',
+						value: 'meta_volume_off',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-music',
-						label: 'Music',
-						value: 'OFF',
+						label: 'meta_music',
+						value: 'meta_music_off',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-language-choice',
-						label: 'Language',
-						value: 'en',
-						disabled: true
+						label: 'meta_locale',
+						value: 'locale_name',
+						on_click: _.debounce(function() {
+							cycle_locale();
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-book',
-						label: 'Tutorial',
+						label: 'meta_tutorial',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-stats-dots',
-						label: 'Statistics',
+						label: 'meta_statistics',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-star-full',
-						label: 'Rate app',
+						label: 'meta_rate_app',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-qrcode',
-						label: 'Share',
+						label: 'meta_share',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-envelop',
-						label: 'Contact us',
+						label: 'meta_contact_us',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-facebook2',
-						label: 'facebook',
+						label: 'meta_facebook',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-twitter2',
-						label: 'twitter',
+						label: 'meta_twitter',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-github',
-						label: 'Fork on Github',
+						label: 'meta_fork',
 						on_click: _.debounce(function() {
 							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
 						}, 200, true)
 					},
 					{
 						icon: 'icomoon-floppy-disk',
-						label: 'Save',
+						label: 'meta_save',
 						disabled: true
 					},
 					{
 						icon: 'icomoon-cloud-download',
-						label: 'Update',
+						label: 'meta_update',
 						disabled: true
 					},
 					{
-						icon: 'icomoon-equalizer2',
-						label: 'Debug',
+						icon: 'icomoon-wrench',
+						label: 'meta_advanced',
 						on_click: _.debounce(function() {
 							$scope.$evalAsync(function () {
 								$scope.items = dev_items;
@@ -112,15 +114,15 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 
 				var fullscreen_item = {
 					icon: 'icomoon-enter-fullscreen',
-					label: 'Full screen',
+					label: 'meta_fullscreen',
 					update: function() {
 						if (fullscreen_cursor.get()) {
 							fullscreen_item.icon = 'icomoon-exit-fullscreen';
-							fullscreen_item.value = 'ON';
+							fullscreen_item.value = 'meta_fullscreen_on';
 						}
 						else {
 							fullscreen_item.icon = 'icomoon-enter-fullscreen';
-							fullscreen_item.value = 'OFF';
+							fullscreen_item.value = 'meta_fullscreen_off';
 						}
 					},
 					// we can't use angular debounce since screenfull request must be tied to a user action
@@ -133,8 +135,8 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 
 				var dev_items = [
 					{
-						icon: 'icomoon-spinner11',
-						label: 'Back',
+						icon: 'icomoon-undo2',
+						label: 'back',
 						on_click: _.debounce(function() {
 							$scope.$evalAsync(function () {
 								$scope.items = root_items;
@@ -143,16 +145,8 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 					},
 					fullscreen_item,
 					{
-						icon: 'icomoon-terminal',
-						label: 'Test error',
-						on_click: _.debounce(function() {
-							window.onerror = window.offirmo_loader.display_unhandled_error;
-							throw new Error('Test of unhandled browser error !');
-						}, 200, true)
-					},
-					{
 						icon: 'icomoon-spinner11',
-						label: 'Refresh',
+						label: 'meta_refresh',
 						on_click: _.debounce(function() {
 							// http://stackoverflow.com/a/20741110/587407
 							window.location.reload(true);
@@ -160,9 +154,22 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 					},
 					{
 						icon: 'icomoon-aid-kit',
-						label: 'Report bugs',
+						label: 'meta_report_bugs',
 						on_click: _.debounce(function() {
 							window.open('https://github.com/Offirmo/online-adventur.es/issues','_blank');
+						}, 200, true)
+					},
+					{
+						icon: 'icomoon-fire',
+						label: 'meta_reset',
+						disabled: true,
+					},
+					{
+						icon: 'icomoon-terminal',
+						label: 'meta_test_error',
+						on_click: _.debounce(function() {
+							window.onerror = window.offirmo_loader.display_unhandled_error;
+							throw new Error('Test of unhandled browser error !');
 						}, 200, true)
 					},
 				];
@@ -175,6 +182,18 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 					$scope.$digest();
 				});
 
+				var existing_locales
+				function cycle_locale() {
+					var current_locale = view_cursor.get('locale');
+					console.log('cycle_locale', current_locale);
+					// easy cycling : we have only 2 ;-)
+					if (current_locale === 'fr') {
+						view_cursor.set('locale', 'en');
+					}
+					else  {
+						view_cursor.set('locale', 'fr');
+					}
+				}
 			}]
 		};
 	}]);

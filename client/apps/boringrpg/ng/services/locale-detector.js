@@ -7,8 +7,9 @@ define([
 	'jquery',
 	'boringrpg/lib/state-tree',
 	'i18n!client/apps/boringrpg/i18n/nls/messages',
+	'require'
 ],
-function(offirmo_app, _, Rx, $, state_tree, i18n_messages) {
+function(offirmo_app, _, Rx, $, state_tree, i18n_messages, require) {
 	'use strict';
 
 	offirmo_app.global_ng_module
@@ -17,21 +18,6 @@ function(offirmo_app, _, Rx, $, state_tree, i18n_messages) {
 
 		var view_cursor = state_tree.select('view');
 		var locale_cursor = view_cursor.select('locale');
-
-		/////// Reactive update ///////
-		locale_cursor.on('update', function () {
-			var locale = locale_cursor.get();
-			console.log('updating localization for : ', locale);
-			if (locale === i18n_messages.locale) {
-				// cool, already have it
-				i18n_data.set_intl(i18n_messages.locale, i18n_messages, i18n_messages.custom_formats);
-			}
-			else {
-				// must load it asynchronously
-				// TODO
-				console.error('TODO load localization');
-			}
-		});
 
 		/////// Initial detection ///////
 		var user_explicitely_selected_locale; // TODO
@@ -54,6 +40,23 @@ function(offirmo_app, _, Rx, $, state_tree, i18n_messages) {
 		);
 		view_cursor.set('locale', final_locale);
 
+		/////// Reactive update ///////
+		locale_cursor.on('update', function () {
+			var locale = locale_cursor.get();
+			console.log('updating localization for : ', locale);
+			if (locale === i18n_messages.locale) {
+				// cool, already have it
+				i18n_data.set_intl(i18n_messages.locale, i18n_messages, i18n_messages.custom_formats);
+			}
+			else {
+				// must load it asynchronously
+				// TODO
+				console.error('TODO load localization', locale);
+				require(['client/apps/boringrpg/i18n/nls/' + locale + '/messages'], function(foo) {
+					console.log(foo);
 
+				});
+			}
+		});
 	}]);
 });

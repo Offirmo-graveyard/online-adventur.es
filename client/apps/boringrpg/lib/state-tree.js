@@ -1,19 +1,19 @@
 /** This app global state
  */
 define([
-	'module',
 	'lodash',
 	'baobab',
 	'rx',
+	'client/common/config/config'
 ],
-function(module, _, Baobab, Rx) {
+function(_, Baobab, Rx, config) {
 	'use strict';
 
-	console.log('detected version : ', module.config());
+	console.log('detected version : ',config);
 
 	// state, as a baobab tree
 	var state_tree = new Baobab({
-		version: module.config().version,
+		version: config.version,
 		view: {
 			locale: undefined, // see
 			fullscreen: undefined,
@@ -23,8 +23,8 @@ function(module, _, Baobab, Rx) {
 			// global layout
 			layout: {
 				STATES: ['loader', 'app', 'meta'],
-				//state: 'meta',
-				state: 'app',
+				state: 'meta',
+				//state: 'app',
 				app: {
 					// which tab is currently selected ?
 					TABS: ['adventure', 'stuff', 'knowledge', 'social', 'achievements', 'chat'],

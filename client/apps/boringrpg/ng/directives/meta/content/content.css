@@ -8,7 +8,7 @@
 	flex-wrap: wrap;
 
 	list-style-type: none;
-	padding: 0;
+	padding: auto;
 }
 
 .meta-content-item {
@@ -16,7 +16,7 @@
 	height: 92px;
 	text-align: center;
 }
-.meta-content-item span {
+.meta-content-item span:first-child {
 	font-size: 40px;
 	line-height: 58px;
 }

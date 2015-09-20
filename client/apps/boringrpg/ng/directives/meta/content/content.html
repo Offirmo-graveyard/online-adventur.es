@@ -6,8 +6,8 @@
 			ng-class="{'meta-content-item-disabled': item.disabled, 'clickable-area': !item.disabled}"
 			ng-click="item.on_click()">
 				<span ng-class="item.icon" aria-hidden="true"></span>
-				<p>{{item.label}}</p>
-				<p>{{item.value}}</p>
+				<p i18n-content="{{item.label}}"></p>
+				<p ng-if="item.value" i18n-content="{{item.value}}"></p>
 			</li>
 		</ol>
 		<p class="meta-content-version">{{version}}</p>

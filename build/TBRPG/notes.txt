@@ -12,6 +12,14 @@ http://bradfrost.com/demo/ish/?url=http%3A%2F%2Fwww.online-adventur.es#m
 icomoon to add
 - debug
 - back
+- bug
 - coins
 - tokens
 - stats
+- reset
+
+
+
+Ideas
+- "glorified" button (sure to drop good loot)
+-

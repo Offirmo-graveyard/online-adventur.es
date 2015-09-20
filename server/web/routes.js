@@ -17,9 +17,15 @@ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res)
 });*/
 
 // help require-css
-router.get('/css.js', function (req, res) {
+/*router.get('/css.js', function (req, res) {
 	res.sendFile(path.join(__dirname, '../../bower_components/require-css/css.min.js'));
-});
+});*/
+
+// appcache-nanny
+// https://github.com/gr2m/appcache-nanny
+/*router.get('/appcache-loader.html', function (req, res) {
+ res.sendFile(path.join(__dirname, '../../bower_components/appcache-nanny/appcache-loader.html'));
+});*/
 
 router.use('/', app_router('index', {
 	custom_route: '/',

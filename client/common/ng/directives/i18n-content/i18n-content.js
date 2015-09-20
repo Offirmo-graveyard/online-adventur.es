@@ -19,6 +19,8 @@ function(offirmo_app, _, IntlMessageFormat) {
 			link: function postLink($scope, $element, attrs, controller) {
 				var i18n_content_id = unique_i18n_content_id++;
 
+				var intl;
+
 				var prefix = '[i18n|';
 				var message = '?';
 				var suffix = '|' + i18n_content_id + '$' + $scope.$id + ']';
@@ -28,8 +30,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 
 				var key = attrs.i18nContent;
 				var explicit_locale = attrs.locale;
-				var direct_message = attrs.message; // "direct" since messages
-				                                    // are usually passed indirectly via "key"
+				var direct_message = attrs.message; // "direct" since messages are usually passed indirectly via "key"
 
 				// early error
 				if (! key && ! direct_message)
@@ -43,6 +44,16 @@ function(offirmo_app, _, IntlMessageFormat) {
 				//console.log('is_content_dynamic', is_content_dynamic);
 
 				$element.html(prefix + message + suffix); // temporarily, waiting for intl data
+
+				function cache_current_intl(new_intl) {
+					intl = new_intl;
+					update_element(intl);
+				}
+				// REM on_locale_change will conveniently fire the callback at install if local is already available.
+				i18n_data.on_locale_change(cache_current_intl);
+				$scope.$on('$destroy', function () {
+					i18n_data.off_locale_change(cache_current_intl);
+				});
 
 				function update_element(intl) {
 					//console.log(id + ' updating...');
@@ -125,13 +136,6 @@ function(offirmo_app, _, IntlMessageFormat) {
 					$element.html(resolved_content);
 				}
 
-				// REM on_locale_change will conveniently fire the callback at install if local is already available.
-				var intl;
-				i18n_data.on_locale_change(function(new_intl) {
-					intl = new_intl;
-					update_element(intl);
-				});
-
 				if (is_content_dynamic) {
 					$scope.$watch(function() {
 						//console.log(id + ' watch !');
@@ -139,7 +143,6 @@ function(offirmo_app, _, IntlMessageFormat) {
 							update_element(intl);
 					})
 				}
-
 			}
 		};
 	}]);
