@@ -60,7 +60,12 @@ body
 	z-index:101; /* above all at start */
 }
 
+/* #splash { } */
+
+#updater {
+	display: none;
+}
+
 #font-load-test {
 	color: #292830;
 }
-/* #splash { } */

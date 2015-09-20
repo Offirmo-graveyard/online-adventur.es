@@ -23,3 +23,11 @@ icomoon to add
 Ideas
 - "glorified" button (sure to drop good loot)
 -
+
+
+Appcache nanny :
+checking
+downloading
+progress
+progress
+updateReady

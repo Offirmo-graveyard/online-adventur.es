@@ -14,7 +14,7 @@
 	font-family: 'PixAntiqua', monospace;
 	font-size: 20px;
 }
-#splash {
+#splash, #updater {
 	font-family: 'PixAntiqua', serif;
 	background-color: #543d46;
 	color: #ffebbc;

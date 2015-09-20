@@ -4,7 +4,7 @@
 		<ol class="meta-content-container">
 			<li class="meta-content-item" ng-repeat="item in items"
 			ng-class="{'meta-content-item-disabled': item.disabled, 'clickable-area': !item.disabled}"
-			ng-click="item.on_click()">
+			ng-click="!item.disabled && item.on_click()">
 				<span ng-class="item.icon" aria-hidden="true"></span>
 				<p i18n-content="{{item.label}}"></p>
 				<p ng-if="item.value" i18n-content="{{item.value}}"></p>

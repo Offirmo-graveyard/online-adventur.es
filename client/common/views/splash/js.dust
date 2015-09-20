@@ -32,12 +32,14 @@
 		stage: 0,
 		font_detector: font_detector,
 		original_window_on_error: original_window_on_error,
-		display_unhandled_error: display_unhandled_error
+		display_unhandled_error: display_unhandled_error,
+		update_pending: false // appcache is a douchebag and appcache nanny is a looser...
 	};
 
 	function change_stage(stage, force) {
 		console.log('~~ splash : moving to stage #' + stage);
 		if (stage <= window.offirmo_loader.stage && !force) return; // avoid race conditions
+		if (stage === window.offirmo_loader.stage) return; // simplify some mechanics
 
 		switch (stage) {
 			case 1:
@@ -49,6 +51,15 @@
 				if (document.getElementById('splash'))
 					document.getElementById('splash').style.display = 'none';
 				window.offirmo_loader.stage = 2;
+				break;
+			case 3:
+				if (document.getElementById('updater'))
+					document.getElementById('updater').style.display = 'block';
+				// hide all other in case we skipped stage 1 (if very fast)
+				document.getElementById('loader').style.display = 'none';
+				if (document.getElementById('splash'))
+					document.getElementById('splash').style.display = 'none';
+				window.offirmo_loader.stage = 3;
 				break;
 			default:
 				console.error('splash : no stage #' + stage);
@@ -83,5 +94,36 @@
 		}
 	}
 	setTimeout(on_app_load_timeout, LOAD_TIMEOUT_MS);
+	/////// /////// ///////
+
+	/////// appcache helpers ///////
+	if (window.applicationCache) {
+		var is_splash_taking_care_of_update = false;
+		function onUpdateInProgress() {
+			if (! window.offirmo_loader.update_pending) {
+				console.info('~~ splash : pending update detected !');
+				window.offirmo_loader.update_pending = true;
+			}
+			if (window.offirmo_loader.stage < 2) {
+				// app is still loading, let's update immediately
+				change_stage(3); // loader
+				is_splash_taking_care_of_update = true; // we take it
+			}
+		}
+		function onUpdateReady() {
+			console.warn('onUpdateReady !');
+			if (is_splash_taking_care_of_update) {
+				window.location.reload(true);
+			}
+		}
+		window.applicationCache.addEventListener('updateready', onUpdateReady);
+		if (window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+			onUpdateReady();
+		}
+		window.applicationCache.addEventListener('downloading', onUpdateInProgress);
+		window.applicationCache.addEventListener('progress', onUpdateInProgress);
+		console.warn('Appcache early listeners set');
+	}
+	/////// /////// ///////
 
 </script>

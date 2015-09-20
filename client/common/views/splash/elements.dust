@@ -16,3 +16,9 @@
 	</div>
 </div>
 
+<!-- update screen  -->
+<div class="utility-screen" id="updater">
+	<div style="width: 100%; position: absolute; bottom: 33%;">
+		<p style="font-size: 20px;font-style:italic;">Update in progress…</p>
+	</div>
+</div>

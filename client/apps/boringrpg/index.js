@@ -6,11 +6,11 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'carnet',
-	'appcache-nanny',
 	// misc
 	'angular',
 	'famous-angular',
 	'bootstrap',
+	'boringrpg/lib/update-watcher',
 	// base css
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'css!client/apps/boringrpg/index.css',
@@ -24,62 +24,11 @@ define([
 	'boringrpg/ng/services/screen-size-detector',
 	'boringrpg/ng/services/screenfull-detector',
 ],
-function(offirmo_app, _, Carnet, AppCacheNanny) {
+function(offirmo_app, _, Carnet) {
 	'use strict';
 
 	console.log('executing root js...');
 
-	// https://github.com/gr2m/appcache-nanny
-	appCacheNanny.on('update', function() {
-		console.log('AppCacheNanny update', arguments);
-	});
-	appCacheNanny.on('error', function() {
-		console.log('AppCacheNanny error', arguments);
-	});
-	appCacheNanny.on('obsolete', function() {
-		console.log('AppCacheNanny obsolete', arguments);
-	});
-	appCacheNanny.on('noupdate', function() {
-		console.log('AppCacheNanny noupdate', arguments);
-	});
-	appCacheNanny.on('downloading', function() {
-		console.log('AppCacheNanny downloading', arguments);
-	});
-	appCacheNanny.on('progress', function() {
-		console.log('AppCacheNanny progress', arguments);
-	});
-	appCacheNanny.on('cached', function() {
-		console.log('AppCacheNanny cached', arguments);
-	});
-	appCacheNanny.on('updateready', function() {
-		console.log('AppCacheNanny updateready', arguments);
-	});
-	AppCacheNanny.on('init:downloading', function() {
-		console.log('AppCacheNanny init:downloading', arguments);
-	});
-	AppCacheNanny.on('init:progress', function() {
-		console.log('AppCacheNanny init:progress', arguments);
-	});
-	AppCacheNanny.on('init:cached', function() {
-		console.log('AppCacheNanny init:cached', arguments);
-	});
-	AppCacheNanny.on('start', function() {
-		console.log('AppCacheNanny start');
-	});
-	AppCacheNanny.on('stop', function() {
-		console.log('AppCacheNanny stop');
-	});
-
-	// check for an update immediately
-	console.log('AN test');
-	AppCacheNanny.update();
-	console.log('AN test', AppCacheNanny.hasUpdate());
-	/*if(AppCacheNanny.hasUpdate()) {
-		return window.location.reload(true);
-	}*/
-
-	// and program periodic update checks
-	//AppCacheNanny.start({checkInterval: 60 * 60 * 1000}); // ms
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});

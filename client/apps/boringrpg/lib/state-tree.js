@@ -14,6 +14,7 @@ function(_, Baobab, Rx, config) {
 	// state, as a baobab tree
 	var state_tree = new Baobab({
 		version: config.version,
+		update_pending: false,
 		view: {
 			locale: undefined, // see
 			fullscreen: undefined,

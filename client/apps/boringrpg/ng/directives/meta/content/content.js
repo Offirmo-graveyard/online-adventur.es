@@ -2,12 +2,13 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'screenfull',
+	'appcache-nanny',
 	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/meta/content/content.html',
 	'boringrpg/ng/services/angular-debounce',
 	'css!client/apps/boringrpg/ng/directives/meta/content/content.css',
 ],
-function(offirmo_app, _, screenfull, state_tree, tpl) {
+function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
@@ -17,12 +18,25 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 			controller: ['$scope', function($scope) {
 
 				var version_cursor = state_tree.select('version');
+				var pending_update_cursor = state_tree.select('update_pending');
 				var view_cursor = state_tree.select('view');
+				var layout_state_cursor = view_cursor.select('layout', 'state');
 				var fullscreen_cursor = view_cursor.select('fullscreen');
 
-				var layout_state_cursor = view_cursor.select('layout', 'state');
-
 				$scope.version = version_cursor.get();
+
+				var update_item = {
+					icon: 'icomoon-cloud-download',
+					label: 'meta_update',
+					disabled: ! pending_update_cursor.get(),
+					on_click: _.debounce(function() {
+						window.offirmo_loader.change_stage(3);
+						// wait a little for rsrc to load (if not already there, hard to know...)
+						setTimeout(function () {
+							window.location.reload(true);
+						}, 2000);
+					}, 200, true)
+				};
 
 				var root_items = [
 					{
@@ -92,11 +106,7 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 						label: 'meta_save',
 						disabled: true
 					},
-					{
-						icon: 'icomoon-cloud-download',
-						label: 'meta_update',
-						disabled: true
-					},
+					update_item,
 					{
 						icon: 'icomoon-wrench',
 						label: 'meta_advanced',
@@ -172,19 +182,43 @@ function(offirmo_app, _, screenfull, state_tree, tpl) {
 						}, 200, true)
 					},
 				];
-				fullscreen_item.update();
 
+				/////// init ///////
 				$scope.items = root_items;
+
 				layout_state_cursor.on('update', function () {
 					$scope.items = root_items;
+					if (! window.offirmo_loader.update_pending) {
+						console.log('checking for update...', window.applicationCache.status, AppCacheNanny.update());
+						AppCacheNanny.update(); // check update
+						setTimeout(sync_appcache_handlers, 200);
+						setTimeout(sync_appcache_handlers, 500);
+						setTimeout(sync_appcache_handlers, 1000);
+					}
+					else {
+						sync_appcache_handlers ();
+					}
 				});
 
 				fullscreen_cursor.on('update', function(e) {
 					fullscreen_item.update();
-					$scope.$digest();
+					$scope.$evalAsync();
+				});
+				fullscreen_item.update();
+
+				pending_update_cursor.on('update', function(e) {
+					update_item.disabled = ! pending_update_cursor.get();
+					$scope.$evalAsync();
 				});
 
-				var existing_locales
+				function sync_appcache_handlers () {
+					// appcache nanny handlers and the early handlers may fight
+					if (window.offirmo_loader.update_pending && ! pending_update_cursor.get()) {
+						// fix it
+						pending_update_cursor.set(true);
+					}
+				}
+
 				function cycle_locale() {
 					var current_locale = view_cursor.get('locale');
 					console.log('cycle_locale', current_locale);
