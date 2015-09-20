@@ -23,8 +23,8 @@ function(_, Baobab, Rx, config) {
 			// global layout
 			layout: {
 				STATES: ['loader', 'app', 'meta'],
-				state: 'meta',
-				//state: 'app',
+				//state: 'meta',
+				state: 'app',
 				app: {
 					// which tab is currently selected ?
 					TABS: ['adventure', 'stuff', 'knowledge', 'social', 'achievements', 'chat'],
