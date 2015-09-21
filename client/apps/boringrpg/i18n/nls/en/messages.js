@@ -57,7 +57,7 @@ define({
 		'You’re eager to start adventuring!',
 
 	// original
-	clickmsg_bored:
+	clickmsg_bored_log:
 		'You were so bored, you punched a log for hours!<br/>' +
 		'You gained +1 strength!',
 	clickmsg_caravan:
@@ -89,18 +89,19 @@ define({
 		'You gained +1 wisdom!',
 
 	// me
-	clickmsg_old_wizard:
+	clickmsg_meet_old_wizard:
 		'Vous meet a mysterious old wizard…<br/>' +
 		'Before giving you the quest, he tells you his loooong story : Vous gain +1 wisdom!',
 	// electricbunnycomics.com
 	clickmsg_good_necromancer:
-		'Vous croisez un enfant sanglotant sur son hamster mort… Grâce à vos pouvoirs de nécromancie, vous le ranimez en hamster-zombie avec ! ' +
-		'Curieusement, l’enfant pleure encore plus fort tout en s’enfuyant. Heureusement, vous gagnez +1 d’agilité en évitant les pierres jetées par les villageois.',
+		'You meet a child weeping over his dead hamster pet… Thanks to necromancy, you reanimate it an a hamster-zombie! ' +
+		'Oddly, the child cries even more while running away. Fortunately, you gain +1 agility for avoiding the stones thrown by the villagers.',
 	// dorkly
 	clickmsg_talk_to_all_villagers:
-		'Vous avez parlé à tous les villageois du village : Aucune quête n’a pu vous échapper ! ' +
-		'Par contre, vous avez mal à la tête d’avoir autant discuté. Mais +1 mana grâce à cet entraînement !',
-	clickmsg_alwayis_keep_potions:
+		'You spoke to all villagers in the village : no quest may have escaped you! ' +
+		'On the other hand, your head aches for discussing so much.<br/>' +
+		'+1 mana thanks to this mental training!',
+	clickmsg_always_keep_potions:
 		'En bon aventurier, vous aviez gardé une potion de soin "au cas où" : Bravo, votre santé est entièrement restaurée !',
 	clickmsg_lost:
 		'Avec toutes ces quêtes, vous en avez oublié où vous deviez aller. Mais tourner en rond dans toute la région est bon pour votre santé : +1 en vitalité !',

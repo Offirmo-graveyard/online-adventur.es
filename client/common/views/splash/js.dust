@@ -3,7 +3,7 @@
 
 	// using portable element selectors
 	var font_detector = document.getElementById('font-load-test');
-	var errors = document.getElementById('error-console');
+	var error_console = document.getElementById('error-console');
 
 	setTimeout(function displayLoadingIndicator() {
 		// some action to make the user wait
@@ -20,7 +20,7 @@
 			' StackTrace: ' +  errorObj);
 		var p = document.createElement("p");
 		p.textContent = 'XXX ' + errorMsg;
-		errors.appendChild(p);
+		error_console.appendChild(p);
 	}
 	var original_window_on_error = window.onerror;
 	window.onerror = display_unhandled_error;
@@ -31,7 +31,8 @@
 	window.offirmo_loader = {
 		stage: 0,
 		font_detector: font_detector,
-		original_window_on_error: original_window_on_error,
+		error_console: error_console,
+		//original_window_on_error: original_window_on_error,
 		display_unhandled_error: display_unhandled_error,
 		update_pending: false // appcache is a douchebag and appcache nanny is a looser...
 	};

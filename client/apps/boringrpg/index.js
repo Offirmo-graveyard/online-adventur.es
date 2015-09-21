@@ -29,9 +29,26 @@ function(offirmo_app, _, Carnet) {
 
 	console.log('executing root js...');
 
-
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});
+
+	// override the angular exception handler service.
+	// http://blog.loadimpact.com/blog/exception-handling-in-an-angularjs-web-application-tutorial/
+	offirmo_app.global_ng_module.config(['$provide', function($provide) {
+		$provide.decorator('$exceptionHandler', ['$log', '$delegate', function($log, $delegate) {
+				return function(exception, cause) {
+					console.log(arguments);
+					$log.error.apply($log, arguments);
+
+					var p = document.createElement("p");
+					p.textContent = 'XXA ' + exception.message;
+					window.offirmo_loader.error_console.appendChild(p);
+
+					$delegate(exception, cause);
+				};
+			}
+		]);
+	}]);
 
 	// now that global module is ready, load ng modules
 	// and now that bootstrap & famo.us are ready, load our override css
@@ -43,6 +60,9 @@ function(offirmo_app, _, Carnet) {
 		'screenfullDetector',
 		function($scope) {
 			logger.info('LandingController…');
+
+			// reinstall our uncaught exception handler which got replaced by who knows ??
+			window.onerror = window.offirmo_loader.display_unhandled_error;
 
 			// TODO locale
 			$scope.title = offirmo_app.server_title;

@@ -177,7 +177,9 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 						icon: 'icomoon-terminal',
 						label: 'meta_test_error',
 						on_click: _.debounce(function() {
-							window.onerror = window.offirmo_loader.display_unhandled_error;
+							setTimeout(function() {
+								throw new Error('Another test of unhandled error !');
+							}, 50);
 							throw new Error('Test of unhandled browser error !');
 						}, 200, true)
 					},
@@ -224,10 +226,10 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 					console.log('cycle_locale', current_locale);
 					// easy cycling : we have only 2 ;-)
 					if (current_locale === 'fr') {
-						view_cursor.set('locale', 'en');
+						view_cursor.set('requested_locale', 'en');
 					}
 					else  {
-						view_cursor.set('locale', 'fr');
+						view_cursor.set('requested_locale', 'fr');
 					}
 				}
 			}]

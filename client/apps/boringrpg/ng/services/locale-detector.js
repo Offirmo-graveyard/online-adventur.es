@@ -21,7 +21,7 @@ function(require, offirmo_app, _, Rx, $, state_tree, i18n_messages, en_i18n_mess
 
 		var REFERENCE_I18N_KEYS = _.keys(en_i18n_messages);
 		var view_cursor = state_tree.select('view');
-		var locale_cursor = view_cursor.select('locale');
+		var requested_locale_cursor = view_cursor.select('requested_locale');
 
 		/////// Initial detection ///////
 		var user_explicitely_selected_locale = window.localStorage.getItem(USER_EXPLICITELY_SELECTED_LOCALE_STORAGE_KEY);
@@ -42,23 +42,23 @@ function(require, offirmo_app, _, Rx, $, state_tree, i18n_messages, en_i18n_mess
 			', nav:' + navigator_language +
 			')'
 		);
-		view_cursor.set('locale', final_locale);
+		requested_locale_cursor.set(final_locale);
 
 		/////// Reactive update ///////
-		locale_cursor.on('update', function () {
-			var locale = locale_cursor.get();
-			console.log('updating localization for : ', locale);
-			if (locale === i18n_messages.locale) {
+		requested_locale_cursor.on('update', function () {
+			var requested_locale = requested_locale_cursor.get();
+			console.log('updating localization for : ', requested_locale);
+			if (requested_locale === i18n_messages.locale) {
 				// cool, already have it
 				init_intl_from_i18n_messages(i18n_messages);
 			}
-			else if (locale === 'en') {
+			else if (requested_locale === 'en') {
 				// cool, already have it
 				init_intl_from_i18n_messages(en_i18n_messages);
 			}
 			else {
 				// must load it asynchronously
-				require(['client/apps/boringrpg/i18n/nls/' + locale + '/messages'], function(i18n_messages) {
+				require(['client/apps/boringrpg/i18n/nls/' + requested_locale + '/messages'], function(i18n_messages) {
 					init_intl_from_i18n_messages(i18n_messages);
 				});
 			}
@@ -67,7 +67,7 @@ function(require, offirmo_app, _, Rx, $, state_tree, i18n_messages, en_i18n_mess
 		function init_intl_from_i18n_messages(i18n_messages) {
 			// perform checks
 			var checks_ok = false; // so far
-			var target_locale = locale_cursor.get();
+			var target_locale = requested_locale_cursor.get();
 			checking: {
 				if (! _.isObject(i18n_messages)) {
 					console.error('i18n messages for "' + target_locale + '" are not an object !');
@@ -97,10 +97,10 @@ function(require, offirmo_app, _, Rx, $, state_tree, i18n_messages, en_i18n_mess
 			}
 			if (! checks_ok) {
 				console.error('Couldn’t load i18n for "' + locale_cursor.get() + '"');
-				locale_cursor.set('en'); // force
 			}
 			else {
 				i18n_data.set_intl(i18n_messages.locale, i18n_messages, i18n_messages.custom_formats);
+				view_cursor.set('locale', i18n_messages.locale);
 				window.localStorage.setItem(USER_EXPLICITELY_SELECTED_LOCALE_STORAGE_KEY, i18n_messages.locale);
 			}
 		}

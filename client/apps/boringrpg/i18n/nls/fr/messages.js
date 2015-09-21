@@ -57,7 +57,7 @@ define({
 		'Vous avez hâte de partir à l’aventure !',
 
 	// original
-	clickmsg_bored:
+	clickmsg_bored_log:
 		'Vous vous ennuyez à tel point que vous bourrez un arbre des coups de poing pendant des heures…<br/>' +
 		'Vous gagnez +1 en force !',
 	clickmsg_caravan:
@@ -89,7 +89,7 @@ define({
 		'Vous gagnez +1 en sagesse !',
 
 	// me
-	clickmsg_old_wizard:
+	clickmsg_meet_old_wizard:
 		'Vous rencontrez un vieux magicien mystérieux…<br/>' +
 		'Avant de vous confier la quête, il vous raconte son histoire : Vous gagnez +1 en sagesse !',
 	// electricbunnycomics.com
@@ -100,11 +100,11 @@ define({
 	clickmsg_talk_to_all_villagers:
 		'Vous avez parlé à tous les villageois du village : Aucune quête n’a pu vous échapper !<br/>' +
 		'Par contre, vous avez mal à la tête d’avoir autant discuté. Mais +1 en mana grâce à cet entraînement !',
-	clickmsg_alwayis_keep_potions:
+	clickmsg_always_keep_potions:
 		'En bon aventurier, vous aviez gardé une potion de soin "au cas où".<br/>' +
 		'Bien joué : votre santé est parfaite : +1 vitalité !',
 	clickmsg_lost:
-		'Avec toutes ces quêtes, vous en avez oublié où vous devez aller… Mais tourner en rond d’un coin à l’autre de la région est un bon exercice : +1 en vitalité !',
+		'Avec toutes ces quêtes, vous en avez oublié où vous deviez aller… Mais tourner en rond d’un coin à l’autre de la région est un bon exercice : +1 en vitalité !',
 	// DK
 	clickmsg_fate_sword:
 		'Pour vous remercier d’avoir sauvé sa femme et ses enfants, ' +
@@ -131,8 +131,10 @@ define({
 		'Vous vous sentez inutile et réfléchissez à votre place en ce monde… +1 en sagesse !',
 	// memecenter.com
 	clickmsg_escort:
-		'Vous devez escorter un NPC important.<br/>Hélas, si vous marchez il va plus vite que vous, mais si vous courrez c’est vous qui allez plus vite !<br/>' +
-		'En zigzagant et en tournant en rond ça passe.<br/>+1 en vitalité grâce à tout cet exercice !',
+		'Vous devez escorter un NPC important.<br/>' +
+		'Hélas, si vous marchez il va plus vite que vous, mais si vous courrez c’est vous qui allez plus vite !<br/>' +
+		'En zigzagant et en tournant en rond ça passe.<br/>' +
+		'+1 en vitalité grâce à tout cet exercice !',
 	// memecenter.com
 	clickmsg_rare_goode_seller:
 		'Vous croisez sur la route un vieil homme habillé de façon excentrique. Gagné, c’est un vendeur d’objets rares !<br/>Il vous fait un très bon prix sur une [TODO weapon].',
@@ -175,9 +177,8 @@ define({
 	clickmsg_mana_mana:
 		'« Mah na mah na »<br/>' +
 		'« Tou tou tou dou dou »<br/>' +
-		'+1 mana !<br/>' +
-		'(You hou hou hou hou !)',
-	/*
+		'+1 mana !<br/>',
+		/*
 	// ?
 	clickmsg_:
 		'',

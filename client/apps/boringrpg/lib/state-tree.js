@@ -16,7 +16,9 @@ function(_, Baobab, Rx, config) {
 		version: config.version,
 		update_pending: false,
 		view: {
-			locale: undefined, // see
+			requested_locale: undefined, // see the locale detector service.
+			                             // May not be followed if requested locale can't be loaded
+			locale: undefined, // actual locale
 			fullscreen: undefined,
 			screen_size: [0, 0],
 			STATES: ['loading', 'loaded'],
