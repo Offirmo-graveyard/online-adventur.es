@@ -6,6 +6,7 @@ function(offirmo_app, _) {
 	'use strict';
 
 	function typeset(text) {
+		ifxxx
 		text = text.replace('\'', '’');
 		text = text.replace(' ?', '&nbsp;?');
 		text = text.replace(' !', '&nbsp;!');
@@ -32,6 +33,12 @@ function(offirmo_app, _) {
 			// setter
 			set_intl: function (locale, messages, custom_formats) {
 				_.forOwn(messages, function(value, key) {
+
+					if(! _.isString(value)) {
+						// it's ok, user may want to put locale-dependent config in i18n messages
+						return;
+					}
+
 					messages[key] = typeset(value);
 				});
 				intl = {
