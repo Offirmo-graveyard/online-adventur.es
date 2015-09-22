@@ -22,7 +22,7 @@ if(env === 'production') {
 	var forky_options = {
 		enable_logging: true,
 	};
-	forky(__dirname + '/server/web/index', forky_options);
+	forky(__dirname + '/server/web/index' /*, forky_options*/);
 }
 else {
 	// normal, plain launch (one instance)
