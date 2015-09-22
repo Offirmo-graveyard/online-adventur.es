@@ -48,7 +48,7 @@ define({
 	stats_vitality: 'Vitalité',
 	stats_wisdom: 'Sagesse',
 	stats_luck: 'Chance',
-	stats_money: 'Écus',
+	stats_coin_count: 'Écus',
 	stats_item_count: 'Objets',
 	stats_token_count: 'Jetons',
 	stats_click_count: 'Clics',
@@ -136,7 +136,7 @@ define({
 		'En zigzagant et en tournant en rond ça passe.<br/>' +
 		'+1 en vitalité grâce à tout cet exercice !',
 	// memecenter.com
-	clickmsg_rare_goode_seller:
+	clickmsg_rare_goods_seller:
 		'Vous croisez sur la route un vieil homme habillé de façon excentrique. Gagné, c’est un vendeur d’objets rares !<br/>Il vous fait un très bon prix sur une [TODO weapon].',
 	// memecenter.com
 	clickmsg_progress_loop:

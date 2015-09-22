@@ -80,18 +80,16 @@ function(require, offirmo_app, _, Rx, $, state_tree, i18n_messages, en_i18n_mess
 				if (target_locale !== 'en') {
 					var KEYS = _.keys(i18n_messages);
 					var mismatched_keys = _.xor(REFERENCE_I18N_KEYS, KEYS);
-					if (mismatched_keys.length) {
-						mismatched_keys.forEach(function(key) {
-							if (en_i18n_messages.hasOwnProperty(key)) {
-								console.error('Locale messages for "' + target_locale + '" is missing the "' + key + '" key !');
-								// fill hole with english
-								i18n_messages[key] = en_i18n_messages[key];
-							}
-							else {
-								console.error('Locale messages for "' + target_locale + '" has an extra key "' + key + '" !');
-							}
-						});
-					}
+					mismatched_keys.forEach(function(key) {
+						if (en_i18n_messages.hasOwnProperty(key)) {
+							console.error('Locale messages for "' + target_locale + '" is missing the "' + key + '" key !');
+							// fill hole with english
+							i18n_messages[key] = en_i18n_messages[key];
+						}
+						else {
+							console.error('Locale messages for "' + target_locale + '" has an extra key "' + key + '" !');
+						}
+					});
 				}
 				checks_ok = true;
 			}

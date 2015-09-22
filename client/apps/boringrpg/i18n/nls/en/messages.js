@@ -48,7 +48,7 @@ define({
 	stats_vitality: 'Vitality',
 	stats_wisdom: 'Wisdom',
 	stats_luck: 'Luck',
-	stats_money: 'Gold',
+	stats_coin_count: 'Gold',
 	stats_item_count: 'Items',
 	stats_token_count: 'Tokens',
 	stats_click_count: 'Clicks',
@@ -129,7 +129,7 @@ define({
 		'Vous devez escorter un NPC important. Hélas, si vous marchez il va plus vite que vous, mais si vous courrez c’est vous qui allez trop vite ! ' +
 		'En zigzagant et en tournant en rond ça passe. +1 en vitalité grâce à tous ces efforts !',
 	// memecenter.com
-	clickmsg_rare_goode_seller:
+	clickmsg_rare_goods_seller:
 		'Vous croisez sur la route un vieil homme habillé de façon excentrique. Gagné, c’est un vendeur d’objets rares ! Il vous fait un très bon prix pour une [TODO weapon]',
 	// memecenter.com
 	clickmsg_progress_loop:

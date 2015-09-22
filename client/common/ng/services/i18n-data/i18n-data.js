@@ -6,7 +6,7 @@ function(offirmo_app, _) {
 	'use strict';
 
 	function typeset(text) {
-		ifxxx
+		//ifxxx
 		text = text.replace('\'', '’');
 		text = text.replace(' ?', '&nbsp;?');
 		text = text.replace(' !', '&nbsp;!');

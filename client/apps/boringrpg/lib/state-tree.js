@@ -12,6 +12,7 @@ function(_, Baobab, Rx, config) {
 	console.log('detected version : ',config);
 
 	// state, as a baobab tree
+	// https://github.com/Yomguithereal/baobab
 	var state_tree = new Baobab({
 		version: config.version,
 		update_pending: false,
