@@ -46,7 +46,9 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					function update_click_message() {
 						var click_data = last_click_cursor.get();
 						console.log('new click_data', click_data);
+						$scope.click_gains = click_data.gained;
 						$scope.click_message = click_data.msg;
+						console.log(click_data);
 						$scope.$evalAsync();
 					}
 					update_click_message(last_click_cursor.get());

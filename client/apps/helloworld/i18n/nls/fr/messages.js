@@ -36,7 +36,7 @@ define({
 			usd: {
 				style: 'currency',
 				currency: 'USD',
-				currencyDisplay: 'name'
+				//currencyDisplay: 'name'
 			}
 		}
 	}

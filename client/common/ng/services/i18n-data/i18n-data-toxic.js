@@ -5,43 +5,6 @@ define([
 function(offirmo_app, _) {
 	'use strict';
 
-	// https://github.com/yahoo/intl-locales-supported/blob/master/index.js
-	// Copyright 2015, Yahoo Inc.
-	function areIntlLocalesSupported(locales) {
-		if (typeof Intl === 'undefined') {
-			return false;
-		}
-
-		if (!locales) {
-			throw new Error('locales must be supplied.');
-		}
-
-		if (!Array.isArray(locales)) {
-			locales = [locales];
-		}
-
-		var intlConstructors = [
-			Intl.Collator,
-			Intl.DateTimeFormat,
-			Intl.NumberFormat
-		].filter(function (intlConstructor) {
-				return intlConstructor;
-			});
-
-		if (intlConstructors.length === 0) {
-			return false;
-		}
-
-		return intlConstructors.every(function (intlConstructor) {
-			var supportedLocales = intlConstructor.supportedLocalesOf(locales);
-			return supportedLocales.length === locales.length;
-		});
-	}
-	var supported = areIntlLocalesSupported(['en', 'fr']);
-	if (! supported) {
-		console.error('Intl doesn’t support usual locales !');
-	}
-
 	function base_typeset(text) {
 		text = text.replace(/'/g, '’');
 		text = text.replace(/ \?/g, '&nbsp;?');
@@ -64,24 +27,19 @@ function(offirmo_app, _) {
 		var currentPos = 0;
 
 		function onNewOpeningCurly(nextOpeningCurly) {
-			var extra_content = text.slice(currentPos, nextOpeningCurly + 1);
-			if(imbricatedCurly === 0)
-				extra_content = base_typeset(extra_content);
-			result = result + extra_content;
-			currentPos = nextOpeningCurly + 1;
+			result = result + base_typeset(text.slice(currentPos, nextOpeningCurly));
+			currentPos = nextOpeningCurly;
 			imbricatedCurly++;
 		}
 		function onNewClosingCurly(nextOpeningCurly) {
-			result = result + text.slice(currentPos, nextClosingCurly + 1);
-			currentPos = nextClosingCurly + 1;
+			result = result + text.slice(currentPos, nextClosingCurly);
+			currentPos = nextClosingCurly;
 			imbricatedCurly--;
 		}
 
-		var safety = 0;
 		while(currentPos < text.length) {
-			if((safety++) > 100) throw new Error('loop !');
-			var nextOpeningCurly = text.indexOf('{', currentPos);
 			if(imbricatedCurly === 0) {
+				var nextOpeningCurly = text.indexOf('{', currentPos);
 				if (nextOpeningCurly >= 0) {
 					onNewOpeningCurly(nextOpeningCurly);
 				}
@@ -91,6 +49,7 @@ function(offirmo_app, _) {
 				}
 			}
 			else {
+				var nextOpeningCurly = text.indexOf('{', currentPos);
 				var nextClosingCurly = text.indexOf('}', currentPos);
 				if (nextOpeningCurly >= 0 && nextClosingCurly >=0) {
 					if(nextOpeningCurly < nextClosingCurly)
@@ -165,28 +124,12 @@ function(offirmo_app, _) {
 			expected: '{...}…'
 		},
 		{
-			data: '{...{...}}',
-			expected: '{...{...}}'
-		},
-		{
 			data: '{{...}...}',
 			expected: '{{...}...}'
 		},
 		{
-			data: '{...{...}...}',
-			expected: '{...{...}...}'
-		},
-		{
-			data: '...{...{...}...}...',
-			expected: '…{...{...}...}…'
-		},
-		{
 			data: '...{...}...{...}...',
 			expected: '…{...}…{...}…'
-		},
-		{
-			data: 'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount1} objets}}.',
-			expected: 'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount1} objets}}.'
 		},
 	];
 	tests.forEach(function(test) {

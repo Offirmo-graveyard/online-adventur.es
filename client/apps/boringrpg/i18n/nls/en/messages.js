@@ -62,10 +62,10 @@ define({
 		'You gained +1 strength!',
 	clickmsg_caravan:
 		'You were hired to protect a caravan of merchants.<br/>' +
-		'You gained 12 coins!',
+		'You gained {coins, number} coins!',
 	clickmsg_dying_man:
 		'A dying man on the street left you everything he had.<br/>' +
-		'You gained 47 coins!',
+		'You gained {coins, number} coins!',
 	clickmsg_ate_bacon:
 		'You ate some bacon.<br/>' +
 		'You gained +1 level!',

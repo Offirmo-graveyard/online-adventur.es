@@ -8,7 +8,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 	var unique_i18n_content_id = 0;
 
 	offirmo_app.global_ng_module
-	.directive('i18nContent', ['$q', 'i18nData', function ($q, i18n_data) {
+	.directive('i18nContent', ['$parse', '$q', 'i18nData', function ($parse, $q, i18n_data) {
 		return {
 			restrict: 'A',
 			template: '<span>[xxx i18n-content on scope #{{$id}}]</span>',
@@ -103,16 +103,16 @@ function(offirmo_app, _, IntlMessageFormat) {
 
 						var custom_formats = intl.formats;
 
-						var data = $scope; // TODO add more options
+						var values = attrs.i18nValues ? $parse(attrs.i18nValues)($scope) : $scope;
 
 						var debug = {
 							locale: locale,
 							message: message,
 							custom_formats: custom_formats,
-							data: data
+							values: values
 						};
 
-						//console.log(id + ' starting compile :', debug);
+						console.log(id + ' starting compile :', debug);
 
 						var message_format;
 						try {
@@ -124,7 +124,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 						}
 
 						try {
-							resolved_content = message_format.format(data);
+							resolved_content = message_format.format(values);
 						}
 						catch(err) {
 							console.error(id + ' error : unable to compile message !', err, debug);
@@ -140,7 +140,10 @@ function(offirmo_app, _, IntlMessageFormat) {
 						//console.log(id + ' watch !');
 						if (intl)
 							update_element(intl);
-					})
+					});
+					attrs.$observe('i18nValues', function (new_values) {
+						console.info('observed i18nValues change', new_values);
+					});
 				}
 			}
 		};

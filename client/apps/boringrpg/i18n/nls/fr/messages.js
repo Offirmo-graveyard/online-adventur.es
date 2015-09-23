@@ -62,10 +62,10 @@ define({
 		'Vous gagnez +1 en force !',
 	clickmsg_caravan:
 		'Vous avez été recruté pour escorter une caravane de marchands.<br/>' +
-		'Vous gagnez 12 écus !',
+		'Vous gagnez {coins, number} écus !',
 	clickmsg_dying_man:
 		'Un mourant dans la rue vous lègue tout ce qu’il possède.<br/>' +
-		'Vous gagnez 47 écus !',
+		'Vous gagnez {coins, number} écus !',
 	clickmsg_ate_bacon:
 		'Vous mangez du bacon.<br/>' +
 		'Vous gagnez +1 niveau !',
@@ -109,7 +109,7 @@ define({
 	clickmsg_fate_sword:
 		'Pour vous remercier d’avoir sauvé sa femme et ses enfants, ' +
 		'le fermier vous offre "destinée", l’épée transmise dans sa famille de générations en générations !<br/>' +
-		'30 minutes plus tard, le marchand ne vous en donne que 17 écus… Quelle misère !',
+		'30 minutes plus tard, le marchand ne vous en donne que {coins, number} écus… Quelle misère !',
 	// dorkly
 	clickmsg_grinding:
 		'Faute de mieux, vous grindez pendant des heures et des heures… ' +
@@ -149,12 +149,12 @@ define({
 		'On parle de vous depuis que vous avez tué le dragon et la sorcière maléfique !<br/>' +
 		'Des bandits vous tendent une embuscade pour voler votre butin.<br/>' +
 		'Quelle drôle d’idée ! Vous lisez dans leurs yeux qu’ils le comprennent, juste avant que votre boule de feu les réduise en cendre.<br/>' +
-		'Heureusement, les pièces d’or ne brûlent pas&nbsp: +33 écus !',
+		'Heureusement, les pièces d’or ne brûlent pas&nbsp: +{coins, number} écus !',
 	// don't remember the source for this one
 	clickmsg_princess:
 		'« Vous n’emporterez pas la princesse ! » vous crie le terrible mage noir, alors que vous parvenez au sommet du dongeon. ' +
 		'Vous le rassurez : seul le butin vous intéresse.<br/>' +
-		'Il vous laisse vous servir (+234 écus) et enchante même une arme pour vous ! ([TODO weapon])',
+		'Il vous laisse vous servir (+{coins, number} écus) et enchante même une arme pour vous ! ([TODO weapon])',
 	// "make friends" necromancy
 	xclickmsg_make_friends:
 		'',

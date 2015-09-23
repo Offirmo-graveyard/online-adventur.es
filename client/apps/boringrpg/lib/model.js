@@ -14,7 +14,7 @@ function(_, moment, Rx, state_tree, adventures) {
 
 	var clicks_subject = new Rx.Subject();
 	var observable_clicks = clicks_subject.map(function() {
-		console.log('new play click detected');
+		//console.log('new play click detected');
 		// we generate the click date ourselves
 		return moment.utc();
 	});
