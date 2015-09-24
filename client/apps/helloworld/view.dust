@@ -42,12 +42,15 @@
 				<li             i18n-content="formatted_time_full">SHOULD NOT APPEAR
 				<li class="dyn" i18n-content="key_select" i18n-watch >SHOULD NOT APPEAR
 				<li class="dyn" i18n-content="key_select_nested" i18n-watch >SHOULD NOT APPEAR
+		<li class="dyn">[Same msg with different values] <span i18n-content="key_select_nested" i18n-values="sub1" i18n-watch >SHOULD NOT APPEAR</span>
+		<li class="dyn">[Same msg with different values] <span i18n-content="key_select_nested" i18n-values="sub2" i18n-watch >SHOULD NOT APPEAR</span>
 				<li class="dyn" i18n-content="plural" i18n-watch >SHOULD NOT APPEAR
 				<li class="dyn" i18n-content="plural_shortcut" i18n-watch >SHOULD NOT APPEAR
 				<li class="dyn" i18n-content="ordinal" i18n-watch >SHOULD NOT APPEAR
 				<li             i18n-content="formatted_number_custom">SHOULD NOT APPEAR
 				<li class="dyn" i18n-content="{~lb}{~lb}changing_message{~rb}{~rb}" i18n-watch >SHOULD NOT APPEAR
-			</ul>
+
+	</ul>
 			[<a href="#" ng-click="change_data()">change data</a>]
 		</p>
 

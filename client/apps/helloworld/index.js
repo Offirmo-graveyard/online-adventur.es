@@ -57,7 +57,15 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 			itemCount2: 0,
 			catAge: 3,
 			price: 3,
-			changing_message: 'key_select_nested'
+			changing_message: 'key_select_nested',
+			sub1: {
+				taxableArea: true,
+				taxRate: 0.22,
+			},
+			sub2: {
+				taxableArea: true,
+				taxRate: 0.23,
+			}
 		});
 
 		// Returns a random integer between min (included) and max (included)
@@ -77,7 +85,10 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 			$scope.catAge = (($scope.catAge) % 4) + 1;
 			$scope.changing_message = ['key_select_nested', 'without_key', 'simple_key'][$scope.itemCount1];
 			$scope.now = new Date();
+			$scope.taxRate = Math.random();
 			$scope.taxableArea = ! $scope.taxableArea;
+			$scope.sub1.taxRate = $scope.taxRate + 0.01;
+			$scope.sub2.taxRate = $scope.taxRate + 0.02;
 
 			console.log('scope data changed', $scope);
 		};
