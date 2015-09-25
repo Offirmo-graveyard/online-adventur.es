@@ -31,3 +31,7 @@ downloading
 progress
 progress
 updateReady
+
+
+https://github.com/Offirmo/nomrpg/blob/master/app/models/the_boring_rpg/TBRPGGame.hpp
+https://github.com/Offirmo/nomrpg/blob/master/app/models/the_boring_rpg/TBRPGGame.cpp
