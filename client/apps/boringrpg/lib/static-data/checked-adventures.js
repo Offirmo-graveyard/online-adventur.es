@@ -6,7 +6,7 @@ define([
 function(_, i18n_messages, adventures) {
 	'use strict';
 
-	// preprocess adventures
+	// preprocess
 	_.forOwn(adventures, function (value, key) {
 		if ( key[0] === '_') {
 			// leading _ means "commented out"

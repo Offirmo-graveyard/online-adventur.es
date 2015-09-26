@@ -6,8 +6,9 @@ define([
 	'rx',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/static-data/checked-adventures',
+	'boringrpg/lib/static-data/checked-weapons',
 ],
-function(_, moment, Rx, state_tree, adventures) {
+function(_, moment, Rx, state_tree, adventures, weapon_data) {
 	'use strict';
 
 	var model_cursor = state_tree.select('model');

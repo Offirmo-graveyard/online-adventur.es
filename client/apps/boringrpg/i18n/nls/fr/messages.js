@@ -53,6 +53,39 @@ define({
 	stats_token_count: 'Jetons',
 	stats_click_count: 'Clics',
 
+	weapon_axe: 'hache',
+	weapon_axe_gender: 'female',
+	weapon_bow: 'arc',
+	weapon_bow_gender: 'male',
+	weapon_claw: 'griffe',
+	weapon_claw_gender: 'female',
+	weapon_dagger: 'dague',
+	weapon_dagger_gender: 'female',
+	weapon_grimoire: 'grimoire',
+	weapon_grimoire_gender: 'male',
+	weapon_harp: 'harpe',
+	weapon_harp_gender: 'female',
+	weapon_knife: 'couteau',
+	weapon_knife_gender: 'male',
+	weapon_longbow: 'arc long',
+	weapon_longbow_gender: 'male',
+	weapon_longsword: 'épée longue',
+	weapon_longsword_gender: 'female',
+	weapon_luth: 'luth',
+	weapon_luth_gender: 'male',
+	weapon_mace: 'masse',
+	weapon_mace_gender: 'female',
+	weapon_scythe: 'faux',
+	weapon_scythe_gender: 'female',
+	weapon_spear: 'lance',
+	weapon_spear_gender: 'female',
+	weapon_staff: 'bâton',
+	weapon_staff_gender: 'male',
+	weapon_sword: 'épée',
+	weapon_sword_gender: 'female',
+	weapon_wand: 'baguette',
+	weapon_wand_gender: 'female',
+
 	no_clickmsg:
 		'Vous avez hâte de partir à l’aventure !',
 
@@ -87,6 +120,9 @@ define({
 	clickmsg_nuclear_fusion_paper:
 		'You écrivez une thèse sur la fusion nucléaire.<br/>' +
 		'Vous gagnez +1 en sagesse !',
+	clickmsg_found_green_mushroom:
+		'Vous avez trouvé un champignon vert.<br/>' +
+		'Vous gagnez +1 niveau !',
 
 	// me
 	clickmsg_meet_old_wizard:

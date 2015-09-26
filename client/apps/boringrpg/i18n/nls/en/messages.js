@@ -53,6 +53,39 @@ define({
 	stats_token_count: 'Tokens',
 	stats_click_count: 'Clicks',
 
+	weapon_axe: 'axe',
+	weapon_axe_gender: 'neutral',
+	weapon_bow: 'bow',
+	weapon_bow_gender: 'neutral',
+	weapon_claw: 'claw',
+	weapon_claw_gender: 'neutral',
+	weapon_dagger: 'dagger',
+	weapon_dagger_gender: 'neutral',
+	weapon_grimoire: 'grimoire',
+	weapon_grimoire_gender: 'neutral',
+	weapon_harp: 'harp',
+	weapon_harp_gender: 'neutral',
+	weapon_knife: 'knife',
+	weapon_knife_gender: 'neutral',
+	weapon_longbow: 'long bow',
+	weapon_longbow_gender: 'neutral',
+	weapon_longsword: 'long sword',
+	weapon_longsword_gender: 'neutral',
+	weapon_luth: 'luth',
+	weapon_luth_gender: 'neutral',
+	weapon_mace: 'scythe',
+	weapon_mace_gender: 'neutral',
+	weapon_scythe: 'spear',
+	weapon_scythe_gender: 'neutral',
+	weapon_spear: 'spear',
+	weapon_spear_gender: 'neutral',
+	weapon_staff: 'staff',
+	weapon_staff_gender: 'neutral',
+	weapon_sword: 'sword',
+	weapon_sword_gender: 'neutral',
+	weapon_wand: 'wand',
+	weapon_wand_gender: 'neutral',
+
 	no_clickmsg:
 		'You’re eager to start adventuring!',
 
@@ -87,6 +120,9 @@ define({
 	clickmsg_nuclear_fusion_paper:
 		'You wrote a paper on nuclear fusion.<br/>' +
 		'You gained +1 wisdom!',
+	clickmsg_found_green_mushroom:
+		'You found a green mushroom.<br/>' +
+		'You gained +1 level!',
 
 	// me
 	clickmsg_meet_old_wizard:

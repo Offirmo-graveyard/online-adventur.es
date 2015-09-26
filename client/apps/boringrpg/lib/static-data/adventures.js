@@ -71,6 +71,13 @@ define({
 			}
 		}
 	},
+	found_green_mushroom: {
+		post: {
+			gains: {
+				level: 1
+			}
+		}
+	},
 	meet_old_wizard: {
 		post: {
 			gains: {

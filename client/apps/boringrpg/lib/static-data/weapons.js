@@ -13,7 +13,7 @@ define({
 
 			}
 		},
-		claws: {
+		claw: {
 			affinities: {
 
 			}
@@ -82,6 +82,9 @@ define({
 			affinities: {
 
 			}
+		},
+		___: {
+			affinities: {}
 		},
 	},
 	////////////
@@ -248,9 +251,152 @@ define({
 		wooden: {
 			affinities: {}
 		},
+		___: {
+			affinities: {}
+		},
 	},
 	////////////
 	secondary_qualifiers: {
-
+		executioner: {
+			affinities: {}
+		},
+		adjudicator: {
+			affinities: {}
+		},
+		ambassador: {
+			affinities: {}
+		},
+		apprentice: {
+			affinities: {}
+		},
+		assaulting: {
+			affinities: {}
+		},
+		beginner: {
+			affinities: {}
+		},
+		conqueror: {
+			affinities: {}
+		},
+		cruel_tyrant: {
+			affinities: {}
+		},
+		defender: {
+			affinities: {}
+		},
+		destructor: {
+			affinities: {}
+		},
+		dwarven: {
+			affinities: {}
+		},
+		elite: {
+			affinities: {}
+		},
+		elven: {
+			affinities: {}
+		},
+		expert: {
+			affinities: {}
+		},
+		explorer: {
+			affinities: {}
+		},
+		gladiator: {
+			affinities: {}
+		},
+		guard: {
+			affinities: {}
+		},
+		hunter: {
+			affinities: {}
+		},
+		king: {
+			affinities: {}
+		},
+		mediator: {
+			affinities: {}
+		},
+		mercenary: {
+			affinities: {}
+		},
+		militia: {
+			affinities: {}
+		},
+		nightmare: {
+			affinities: {}
+		},
+		noble: {
+			affinities: {}
+		},
+		noob: {
+			affinities: {}
+		},
+		of_judgement: {
+			affinities: {}
+		},
+		of_the_ancients: {
+			affinities: {}
+		},
+		of_the_brave: {
+			affinities: {}
+		},
+		of_the_goddess: {
+			affinities: {}
+		},
+		of_the_wise: {
+			affinities: {}
+		},
+		pilgrim: {
+			affinities: {}
+		},
+		pioneer: {
+			affinities: {}
+		},
+		pirate: {
+			affinities: {}
+		},
+		profane: {
+			affinities: {}
+		},
+		ranger: {
+			affinities: {}
+		},
+		sorcerer: {
+			affinities: {}
+		},
+		tormentor: {
+			affinities: {}
+		},
+		training: {
+			affinities: {}
+		},
+		traveler: {
+			affinities: {}
+		},
+		twink: {
+			affinities: {}
+		},
+		tyrant: {
+			affinities: {}
+		},
+		upholder: {
+			affinities: {}
+		},
+		warfield_king: {
+			affinities: {}
+		},
+		warfield: {
+			affinities: {}
+		},
+		warrior: {
+			affinities: {}
+		},
+		woodsman: {
+			affinities: {}
+		},
+		___: {
+			affinities: {}
+		},
 	}
 });
