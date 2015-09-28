@@ -4,9 +4,7 @@ define({
 	////////////
 	types: {
 		axe: {
-			affinities: {
-
-			}
+			affinities: {}
 		},
 		bow: {
 			affinities: {
@@ -257,13 +255,13 @@ define({
 	},
 	////////////
 	secondary_qualifiers: {
-		executioner: {
-			affinities: {}
-		},
 		adjudicator: {
 			affinities: {}
 		},
 		ambassador: {
+			affinities: {}
+		},
+		ancients: {
 			affinities: {}
 		},
 		apprentice: {
@@ -273,6 +271,9 @@ define({
 			affinities: {}
 		},
 		beginner: {
+			affinities: {}
+		},
+		brave: {
 			affinities: {}
 		},
 		conqueror: {
@@ -296,6 +297,9 @@ define({
 		elven: {
 			affinities: {}
 		},
+		executioner: {
+			affinities: {}
+		},
 		expert: {
 			affinities: {}
 		},
@@ -305,10 +309,16 @@ define({
 		gladiator: {
 			affinities: {}
 		},
+		goddess: {
+			affinities: {}
+		},
 		guard: {
 			affinities: {}
 		},
 		hunter: {
+			affinities: {}
+		},
+		judgement: {
 			affinities: {}
 		},
 		king: {
@@ -330,21 +340,6 @@ define({
 			affinities: {}
 		},
 		noob: {
-			affinities: {}
-		},
-		of_judgement: {
-			affinities: {}
-		},
-		of_the_ancients: {
-			affinities: {}
-		},
-		of_the_brave: {
-			affinities: {}
-		},
-		of_the_goddess: {
-			affinities: {}
-		},
-		of_the_wise: {
 			affinities: {}
 		},
 		pilgrim: {
@@ -390,6 +385,9 @@ define({
 			affinities: {}
 		},
 		warrior: {
+			affinities: {}
+		},
+		wise: {
 			affinities: {}
 		},
 		woodsman: {

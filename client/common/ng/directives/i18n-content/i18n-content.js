@@ -112,7 +112,7 @@ function(offirmo_app, _, IntlMessageFormat) {
 							values: values
 						};
 
-						console.log(id + ' starting compile :', debug);
+						//console.log(id + ' starting compile :', debug);
 
 						var message_format;
 						try {
