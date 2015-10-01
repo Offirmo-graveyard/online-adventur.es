@@ -1,3 +1,14 @@
+/** Resolve an ICU MessageFormat to a string.
+ * http://userguide.icu-project.org/formatparse/messages
+ * http://formatjs.io/
+ *
+ * Design notes :
+ * While message resolution may fail, we try to not aggressively fail with a throw,
+ * but instead return the "best possible message".
+ * We prefer to display the raw key to the user (in UI) rather than nothing.
+ */
+
+
 define(
 [
 	'angular',
@@ -7,11 +18,15 @@ define(
 function(angular, _, IntlMessageFormat) {
 	'use strict';
 
-	/* XXX
-	 * Design notes :
-	 * While message resolution may fail, we try to not aggressively fail with a throw,
-	 * but instead return the "best possible message".
-	 * Instead than nothing, we prefer to display the raw key to the user (in UI).
+
+	/**
+	 *
+	 * @param key
+	 * @param values
+	 * @param intl.locale
+	 * @param intl.messages
+	 * @param intl.formats [not recommended]
+	 * @returns {String}
 	 */
 	function format(key, values, intl) {
 
@@ -27,7 +42,7 @@ function(angular, _, IntlMessageFormat) {
 		intl.formats = intl.formats || {};
 
 		// final result
-		var formatted_msg;
+		var formatted_msg = '[i18n]'; // for now
 
 		// debugging
 		var debug = {

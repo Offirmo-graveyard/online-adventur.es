@@ -1,4 +1,4 @@
-// if node.js : use amdefine (add it with npm)
+// if node.js : use amdefine
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define([
