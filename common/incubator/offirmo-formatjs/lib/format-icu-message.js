@@ -19,7 +19,6 @@ define(
 function(_, IntlMessageFormat) {
 	'use strict';
 
-
 	/**
 	 *
 	 * @param message - an ICU MessageFormat string http://userguide.icu-project.org/formatparse/messages
@@ -43,7 +42,7 @@ function(_, IntlMessageFormat) {
 
 		// debugging
 		var debug = {
-			prefix: '[i18n|',
+			prefix: '[i18n|' + locale + '|',
 			message: message,
 			suffix: ']',
 			locale: locale,
@@ -57,20 +56,9 @@ function(_, IntlMessageFormat) {
 
 		// try to resolve stuff
 		resolution : {
-			debug.prefix = debug.prefix + locale + '|';
-			update_with_best_available_data_so_far();
-
-			if (! intl.messages[key]) {
-				console.error(id + ' error : couldn’t resolve key "' + key + '" in intl.messages !');
-				break resolution;
-			}
-
-			var message = debug.message = intl.messages[key];
-			update_with_best_available_data_so_far();
-
 			var message_format;
 			try {
-				message_format =  new IntlMessageFormat(message, locale, intl.formats);
+				message_format =  new IntlMessageFormat(message, locale, custom_formats);
 			}
 			catch(err) {
 				console.error(id + ' error : unable to parse message format !', err, debug);
@@ -90,9 +78,5 @@ function(_, IntlMessageFormat) {
 		return formatted_msg;
 	}
 
-	return {
-		libs: {
-			IntlMessageFormat: IntlMessageFormat
-		}
-	};
+	return format;
 });

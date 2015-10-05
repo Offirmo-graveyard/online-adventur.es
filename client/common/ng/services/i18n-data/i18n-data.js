@@ -43,6 +43,8 @@ function(offirmo_app, _) {
 	}
 
 	function base_typeset(text) {
+		// TODO use typeset lib !
+
 		text = text.replace(/'/g, '’');
 		text = text.replace(/ \?/g, '&nbsp;?');
 		text = text.replace(/ !/g, '&nbsp;!');
@@ -111,92 +113,6 @@ function(offirmo_app, _) {
 		return result;
 	}
 
-	var tests = [
-		{
-			data: '',
-			expected: ''
-		},
-		{
-			data: 'a',
-			expected: 'a'
-		},
-		{
-			data: '{',
-			expected: '{'
-		},
-		{
-			data: '}',
-			expected: '}'
-		},
-		{
-			data: 'foo',
-			expected: 'foo'
-		},
-		{
-			data: '...',
-			expected: '…'
-		},
-		{
-			data: 'foo...bar......',
-			expected: 'foo…bar……'
-		},
-		{
-			data: '...{...',
-			expected: '…{...'
-		},
-		{
-			data: '...{...}',
-			expected: '…{...}'
-		},
-		{
-			data: '...{...}...',
-			expected: '…{...}…'
-		},
-		{
-			data: '...}...',
-			expected: '…}…'
-		},
-		{
-			data: '{...}',
-			expected: '{...}'
-		},
-		{
-			data: '{...}...',
-			expected: '{...}…'
-		},
-		{
-			data: '{...{...}}',
-			expected: '{...{...}}'
-		},
-		{
-			data: '{{...}...}',
-			expected: '{{...}...}'
-		},
-		{
-			data: '{...{...}...}',
-			expected: '{...{...}...}'
-		},
-		{
-			data: '...{...{...}...}...',
-			expected: '…{...{...}...}…'
-		},
-		{
-			data: '...{...}...{...}...',
-			expected: '…{...}…{...}…'
-		},
-		{
-			data: 'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount1} objets}}.',
-			expected: 'Vous {itemCount1, plural, =0 {n’avez aucun objet} one {avez 1 objet} other {avez {itemCount1} objets}}.'
-		},
-	];
-	tests.forEach(function(test) {
-		var actual = typeset(test.data);
-		if (actual !== test.expected) {
-			debugger;
-			typeset(test.data);
-			throw new Error('For "' + test.data + '", expected "' + test.expected + '", got "' + actual + '" !');
-		}
-	});
 
 	offirmo_app.global_ng_module
 	.service('i18nData', ['$q', function ($q) {

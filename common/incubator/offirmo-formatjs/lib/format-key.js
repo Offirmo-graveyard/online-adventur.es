@@ -8,14 +8,15 @@
  * We prefer to display the raw key to the user (in UI) rather than nothing.
  */
 
+// if node.js : use amdefine
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
 
 define(
 [
-	'angular',
 	'lodash',
 	'intl-messageformat'
 ],
-function(angular, _, IntlMessageFormat) {
+function(_, IntlMessageFormat) {
 	'use strict';
 
 
