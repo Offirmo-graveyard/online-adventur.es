@@ -1,6 +1,4 @@
-/** Resolve an ICU MessageFormat to a string.
- * http://userguide.icu-project.org/formatparse/messages
- * http://formatjs.io/
+/** Resolve a key
  *
  * Design notes :
  * While message resolution may fail, we try to not aggressively fail with a throw,
@@ -21,7 +19,6 @@ function(_, IntlMessageFormat) {
 
 
 	/**
-	 *
 	 * @param key
 	 * @param values
 	 * @param intl.locale

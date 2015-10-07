@@ -10,7 +10,7 @@ function(_, IntlMessageFormat) {
 	'use strict';
 
 	function createFormatCache() {
-
+		// TODO one day
 	}
 
 	function getMsgFormat(message, locale, custom_formats) {

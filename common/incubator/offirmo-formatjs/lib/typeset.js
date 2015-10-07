@@ -17,35 +17,35 @@ function(_) {
 		},
 		NO_BREAK_SPACE_before_QUESTION_MARK: {
 			regexp: / \?/g,
-			newSubStr: '&nbsp;?'
+			newSubStr: '\u00A0?'
 		},
 		NO_BREAK_SPACE_before_EXCLAMATION_MARK: {
 			regexp: / !/g,
-			newSubStr: '&nbsp;!'
+			newSubStr: '\u00A0!'
 		},
 		NO_BREAK_SPACE_before_COLON: {
 			regexp: / :/g,
-			newSubStr: '&nbsp;:'
+			newSubStr: '\u00A0:'
 		},
 		NO_BREAK_SPACE_before_SEMICOLON: {
 			regexp: / ;/g,
-			newSubStr: '&nbsp;;'
+			newSubStr: '\u00A0;'
 		},
 		NO_BREAK_SPACE_after_LEFT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK: {
 			regexp: /« /g,
-			newSubStr: '«&nbsp;'
+			newSubStr: '«\u00A0'
 		},
 		NO_BREAK_SPACE_before_RIGHT_POINTING_DOUBLE_ANGLE_QUOTATION_MARK: {
 			regexp: / »/g,
-			newSubStr: '&nbsp;»'
+			newSubStr: '\u00A0»'
 		},
 		FULL_STOP_to_HORIZONTAL_ELLIPSIS: {
 			regexp: /\.\.\./g,
 			newSubStr: '…'
 		},
 		NO_BREAK_SPACE_after_integer: {
-			regexp: /(\d+) /,
-			newSubStr:'$1&nbsp;'
+			regexp: /(\d+) /g,
+			newSubStr:'$1\u00A0'
 		},
 	};
 
@@ -71,9 +71,15 @@ function(_) {
 
 	function typeset(text, rule_set) {
 		text = text || '';
-		rule_set = _.isArray(rule_set) ? rule_set : [ rule_set ];
+
+		rule_set = _.isArray(rule_set)
+			? rule_set
+			: [
+					_.isObject(rule_set) ? rule_set : rules[rule_set]
+			];
 
 		_.forEach(rule_set, function(rule) {
+			//console.log('applying rule ' + rule + ' to "' + text + '" ' + rule.newSubStr);
 			text = text.replace(rule.regexp, rule.newSubStr);
 		});
 
