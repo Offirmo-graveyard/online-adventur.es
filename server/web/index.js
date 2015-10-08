@@ -22,8 +22,8 @@ var app        = require('./express-app');
 var utils      = require('./utils');
 var shutdown   = require('./shutdown');
 var routes     = require('./routes');
+var install_io = require('./primus');
 
-var Primus = require('primus');
 
 //logger.log('[web server] config =', config);
 
@@ -168,9 +168,7 @@ app.use(function (err, req, res, next) {
 	}
 });
 
-
-var primus = new Primus(server, { transformer: config.primus.transformer });
-
+install_io(server);
 
 /************************************************************************/
 server.listen(config.listening_port, function() {
