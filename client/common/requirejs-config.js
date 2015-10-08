@@ -70,7 +70,7 @@ requirejs.config({
 		'app-famous-base'          : 'client/apps/famous-base/index',
 		'app-jeudunombre'          : 'client/apps/jeudunombre/index',
 		'app-boringrpg'            : 'client/apps/boringrpg/index',
-		'app-ror'                  : 'client/apps/ror/index',
+		'app-io'                   : 'client/apps/io/index',
 
 		/////// shim plugins
 		'angular'                  : 'bower_components/angular/angular',

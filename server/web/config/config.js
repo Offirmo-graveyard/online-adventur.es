@@ -23,5 +23,9 @@ module.exports = {
 	express_debug_enabled: false,
 
 	dust_views_dir: 'client/common/views',
-	favicons_dir: path.join(__dirname, '../../../client/common/root-expected-files')
+	favicons_dir: path.join(__dirname, '../../../client/common/root-expected-files'),
+
+	primus: {
+		transformer: 'engine.io'
+	},
 };

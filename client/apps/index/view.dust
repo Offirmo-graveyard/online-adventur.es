@@ -36,7 +36,8 @@ div#content {
 		<p>
 			Special links :
 			<ul>
-				<li><a href="/locale_test"    >[Locale test]   </a>
+				<li><a href="/locale_test">[Locale test]</a>
+				<li><a href="/config">[config]</a>
 				<li>chrome appcache control : chrome://appcache-internals/
 			</ul>
 		</p>

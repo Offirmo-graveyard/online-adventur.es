@@ -55,9 +55,9 @@ function(_, Baobab, AppCacheNanny, state_tree) {
 	});
 	appCacheNanny.on('updateready', function() {
 		// update pending, and all files are downloaded
-		console.log('AppCacheNanny updateready', arguments);
+		console.log('XXX AppCacheNanny updateready', arguments);
 		signal_pending_update();
-		if (window.offirmo_loader.stage === 3)
+		if (window.offirmo_loader.stage !== 2)
 			window.location.reload(true);
 	});
 	AppCacheNanny.on('init:downloading', function() {

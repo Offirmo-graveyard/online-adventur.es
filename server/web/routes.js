@@ -1,5 +1,6 @@
 'use strict';
 
+var fs = require('fs');
 var path = require('path');
 
 var express = require('express');
@@ -7,64 +8,71 @@ var router = express.Router();
 var utils = require('./utils');
 var config = require('./config');
 
-var app_router = require('./app_router');
+var app_router = require('./app-router');
 
 module.exports = router;
 
+// http://stackoverflow.com/a/24594123/587407
+function getDirectories(srcpath) {
+	srcpath = path.resolve(srcpath);
+	return fs.readdirSync(srcpath).filter(function(file) {
+		return fs.statSync(path.join(srcpath, file)).isDirectory();
+	});
+}
+var APPS_DIR = path.join(__dirname, '../../client/apps');
+var APPS = getDirectories(APPS_DIR);
+
+
+APPS.forEach(function(app_radix) {
+	var app_router_options = {};
+
+	try {
+		var stats = fs.lstatSync(path.join(APPS_DIR, app_radix, 'view.dust'));
+		// Is it a directory?
+		if (stats.isFile()) {
+			app_router_options.custom_template =
+				'../../apps/' + app_radix + '/view'; // REM : path relative to template root
+		}
+	}
+	catch (e) {}
+
+	if(app_radix === 'index') {
+		app_router_options.custom_route = '/';
+		app_router_options.template_data = {
+			apps: APPS
+		};
+	}
+	else if(app_radix === 'helloworld') {
+		app_router_options.template_data = {
+			title: 'Express',
+			num      : 42000,
+			completed: 0.9,
+			price    : 100.95,
+			date: new Date()
+		};
+	}
+
+	//console.log('Installing app "' + app_radix +'"', app_router_options);
+	router.use('/', app_router(app_radix, app_router_options));
+});
+
+
+/////// special ///////
 /*
-router.get('/incubator/node_and_common/webworker_helper.js', function (req, res) {
-	res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
-});*/
+ router.get('/incubator/node_and_common/webworker_helper.js', function (req, res) {
+ res.sendfile(path.join(__dirname, '../../../incubator/node_and_common/webworker_helper/webworker_helper.js'));
+ });*/
 
 // help require-css
 /*router.get('/css.js', function (req, res) {
-	res.sendFile(path.join(__dirname, '../../bower_components/require-css/css.min.js'));
-});*/
+ res.sendFile(path.join(__dirname, '../../bower_components/require-css/css.min.js'));
+ });*/
 
 // appcache-nanny
 // https://github.com/gr2m/appcache-nanny
 /*router.get('/appcache-loader.html', function (req, res) {
  res.sendFile(path.join(__dirname, '../../bower_components/appcache-nanny/appcache-loader.html'));
-});*/
-
-router.use('/', app_router('index', {
-	custom_route: '/',
-	custom_template: '../../apps/index/view', // REM : path relative to template root
-	template_data: {
-		apps: ['index', 'helloworld', 'appcache', 'famous-base', 'jeudunombre', 'boringrpg']
-	}
-}));
-router.use('/', app_router('helloworld', {
-	custom_template: '../../apps/helloworld/view', // REM : path relative to template root
-	template_data: {
-		title: 'Express',
-		num      : 42000,
-		completed: 0.9,
-		price    : 100.95,
-		date: new Date()
-	}
-}));
-router.use('/', app_router('appcache'));
-router.use('/', app_router('famous-base', {
-	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
-}));
-router.use('/', app_router('jeudunombre', {
-	custom_template: '../../apps/famous-base/view', // REM : path relative to template root
-}));
-router.use('/', app_router('boringrpg', {
-	custom_template: '../../apps/boringrpg/view', // REM : path relative to template root
-}));
-//router.use('/', app_router('ror'));
-
-// TODO
-router.get('/page1', function (req, res) {
-	res.render('page1', {
-		tpl: 'page1',
-		title: 'Express',
-		lang: req.locale,
-		intl: {'locales': req.locale}
-	});
-});
+ });*/
 
 router.get('/locale_test', function(req, res) {
 	res.header('Content-Type', 'text/plain');
@@ -76,6 +84,30 @@ router.get('/locale_test', function(req, res) {
 		'Choice reason: ' + req.locale_choice + '\n'
 	);
 });
+
+router.get('/config', function(req, res) {
+	res.header('Content-Type', 'application/json');
+	res.send(config);
+});
+
+
+/*
+ router.get('/page1', function (req, res) {
+ res.render('page1', {
+ tpl: 'page1',
+ title: 'Express',
+ lang: req.locale,
+ intl: {'locales': req.locale}
+ });
+ });
+ */
+
+
+
+
+
+
+
 
 // 'catch all' = default / 404 for a webapp
 // https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions#how-to-configure-your-server-to-work-with-html5mode

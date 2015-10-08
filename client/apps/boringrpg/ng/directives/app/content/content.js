@@ -170,7 +170,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						// signal the loader to hide
 						if (window.offirmo_loader.stage < 2) {
 							window.offirmo_loader.change_stage(2);
-							window.onerror = window.offirmo_loader.display_unhandled_error;
+							window.onerror = window.offirmo_loader.display_unhandled_error; // reinstall
 						}
 					}
 					//on_screen_size_update();

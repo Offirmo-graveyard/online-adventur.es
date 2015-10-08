@@ -13,14 +13,14 @@ if (global.Intl) {
 	if (!areIntlLocalesSupported(localesMyAppSupports)) {
 		// `Intl` exists, but it doesn't have the data we need, so load the
 		// polyfill and replace the constructors with need with the polyfill's.
-		console.log('polyfilling partial intl');
+		console.log('* polyfilling partial intl...');
 		var IntlPolyfill = require('intl');
 		Intl.NumberFormat   = IntlPolyfill.NumberFormat;
 		Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
 	}
 } else {
 	// No `Intl`, so use and load the polyfill.
-	console.log('polyfilling entire intl');
+	console.log('* polyfilling entire intl...');
 	global.Intl = require('intl');
 }
 

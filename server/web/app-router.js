@@ -30,7 +30,7 @@ module.exports = function(app_radix, options) {
 			var messages;
 			var next_try;
 
-			console.log('~~~ resolving i18n for app ' + app_radix + ' ~~~');
+			//console.log('~~~ resolving i18n for app ' + app_radix + ', lang ' + locale + ' ~~~');
 			next_try = '../../client/apps/' + app_radix + '/i18n/nls/root/messages';
 			try {
 				//console.log('trying ' + next_try);
@@ -98,7 +98,7 @@ module.exports = function(app_radix, options) {
 	/////// routes ///////
 
 	// production route : appcache, js concatenated and minified
-	console.log('* SPA ' + app_radix + ' : registering route ' + default_route);
+	//console.log('* SPA ' + app_radix + ' : registering route ' + default_route);
 	router.get(default_route, function serve_production(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: true,
@@ -114,7 +114,7 @@ module.exports = function(app_radix, options) {
 
 	// nearly-production route without appcache (to build or debug the appcache)
 	var nearly_prod_route = default_route + '-minified-no-appcache';
-	console.log('* SPA ' + app_radix + ' : registering route ' + nearly_prod_route);
+	//console.log('* SPA ' + app_radix + ' : registering route ' + nearly_prod_route);
 	router.get(nearly_prod_route, function serve_production_without_appcache(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: false, //<<<
@@ -129,7 +129,7 @@ module.exports = function(app_radix, options) {
 
 	// dev route
 	var dev_route = default_route + '-dev';
-	console.log('* SPA ' + app_radix + ' : registering route ' + dev_route);
+	//console.log('* SPA ' + app_radix + ' : registering route ' + dev_route);
 	router.get(dev_route, function serve_dev(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: false, //<<<
@@ -146,7 +146,7 @@ module.exports = function(app_radix, options) {
 	// custom route (if any)
 	if(options.custom_route) {
 		// production route alias
-		console.log('* SPA ' + app_radix + ' : registering route ' + options.custom_route);
+		//console.log('* SPA ' + app_radix + ' : registering custom route ' + options.custom_route);
 		router.get(options.custom_route, function serve_production(req, res) {
 			var template_data = _.defaults({
 				appcache_enabled: true,

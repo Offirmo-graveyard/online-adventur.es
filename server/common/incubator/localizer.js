@@ -5,13 +5,13 @@ module.exports = localizer_factory;
 var _ = require('lodash');
 
 /**
- * Locale negociator middleware.
+ * Locale negotiator middleware.
  * Amongst supported locales, choose the best one for current user.
  * More advanced than other MW : Handles facebook, query string...
  */
 
 function localizer_factory(supported_locales, options) {
-	console.log('supported_locales', supported_locales);
+	console.log('* Locale negotiator middleware : supported_locales =', supported_locales);
 	if(! _.isArray(supported_locales)) throw new Error('localizer.js : supported_locales must be an array !');
 	if(_.isEmpty(supported_locales)) throw new Error('localizer.js : supported_locales can’t be empty !');
 

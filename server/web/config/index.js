@@ -16,4 +16,4 @@ var config = easyconf.create()
 module.exports = config.get(); // endpoint config : exports the raw data
 
 //config.explain();
-console.log('Final config', config.get());
+//console.log('Final config', config.get());

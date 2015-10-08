@@ -23,6 +23,8 @@ var utils      = require('./utils');
 var shutdown   = require('./shutdown');
 var routes     = require('./routes');
 
+var Primus = require('primus');
+
 //logger.log('[web server] config =', config);
 
 
@@ -52,7 +54,7 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 /************************************************************************/
 // https://www.npmjs.org/package/express-livereload
 if(config.livereload.enabled) {
-	logger.log('* configuring express-livereload to watch "' + config.livereload.watched_dir + '"…');
+	logger.log('configuring express-livereload to watch "' + config.livereload.watched_dir + '"…');
 	require('express-livereload')(app, {
 		// https://github.com/napcs/node-livereload#api-options
 		watchDir: config.livereload.watched_dir,
@@ -167,10 +169,12 @@ app.use(function (err, req, res, next) {
 });
 
 
+var primus = new Primus(server, { transformer: config.primus.transformer });
+
 
 /************************************************************************/
 server.listen(config.listening_port, function() {
-	logger.log('* Now listening on :');
+	logger.log('Now listening on :');
 	_.forEach(utils.get_local_ips(), function(ip) {
 		logger.log('  http://' + ip + ':' + config.listening_port);
 	});

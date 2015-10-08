@@ -1,0 +1,25 @@
+{>"layout/layout" /}
+
+{<inline_style}
+/* Only for loading style.
+ * see index.css for definitive style.
+ */
+{>"splash/style" /}
+{/inline_style}
+
+
+{<content}
+
+	<!-- splash screen with loader, only displayed while angular isn't ready -->
+	{>"splash/elements" /}
+
+	<div id="root" fa-app>
+		<div content-directive>
+
+		</div>
+	</div>
+
+	{>"splash/js" /}
+	{>"layout/requirejs_bootstrap" /}
+
+{/content}
