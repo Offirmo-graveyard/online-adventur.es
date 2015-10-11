@@ -4,8 +4,8 @@ define([
 	'rx',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
-	'text!client/apps/boringrpg/ng/directives/app/content/content.html',
-	'css!client/apps/boringrpg/ng/directives/app/content/content.css'
+	'text!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.html',
+	'css!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.css'
 ],
 function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
@@ -16,12 +16,12 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	var PRESS_DURATION_MS = 50;
 	var RELEASE_DURATION_MS = 250;
 
-	offirmo_app.global_ng_module.directive('appContent', [
+	offirmo_app.global_ng_module.directive('appContentPanelAdventure', [
 		'$q',
 		'$famous',
-		'angularDebounce',
-		function ($q, $famous, angular_debounce) {
+		function ($q, $famous) {
 			return {
+				scope: {},
 				template: tpl,
 				controller: ['$scope', function($scope) {
 					$scope.Transform = $famous['famous/core/Transform'];
@@ -175,6 +175,24 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					}
 					//on_screen_size_update();
 					screen_size_cursor.on('update', on_screen_size_update);
+
+					var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
+					selected_panel_cursor.on('update', function () {
+						var target_panel_id = selected_panel_cursor.get();
+						console.log('1 - detected panel change', target_panel_id);
+						if(target_panel_id === 'adventure') {
+							$scope.$evalAsync(function () {
+								console.log('2 - detected panel change', target_panel_id);
+								on_screen_size_update();
+							});
+						}
+					});
+
+					/*$scope.$on('panel_switch', function(event, target_panel_id) {
+						console.log('received panel_switch', target_panel_id);
+						if(target_panel_id === 'adventure')
+							on_screen_size_update();
+					});*/
 				}
 			};
 		}

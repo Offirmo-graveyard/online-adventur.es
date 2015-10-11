@@ -8,12 +8,14 @@
 
 	<fa-modifier fa-translate="[0,0,1]">
 		<fa-flexible-layout fa-options="flexible_layout_options">
-			<fa-surface class="app-footer-element clickable-area selected"><span class="icomoon-treasure-map"></span></fa-surface>
-			<fa-surface class="app-footer-element clickable-area disabled"><span class="icomoon-battle-gear"></span></fa-surface>
-			<fa-surface class="app-footer-element clickable-area disabled"><span class="icomoon-death-note"></span></fa-surface>
-			<fa-surface class="app-footer-element clickable-area disabled"><span class="icomoon-eagle-emblem"></span></fa-surface>
-			<fa-surface class="app-footer-element clickable-area disabled"><span class="icomoon-laurel-crown"></span></fa-surface>
-			<fa-surface class="app-footer-element clickable-area disabled"><span class="icomoon-conversation"></span></fa-surface>
+
+			<fa-surface ng-repeat="panel in panels"
+				class="app-footer-element clickable-area"
+				ng-class="{'selected': active_panel === panel.id, 'disabled': panel.disabled}"
+				ng-click="go_to(panel.id)">
+				<span ng-class="panel.icon"></span>
+			</fa-surface>
+
 		</fa-flexible-layout>
 	</fa-modifier>
 </div>

@@ -14,6 +14,7 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 	offirmo_app.global_ng_module
 	.directive('metaContent', ['angularDebounce', function (angular_debounce) {
 		return {
+			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
 

@@ -11,6 +11,7 @@ function(offirmo_app, tpl) {
 	offirmo_app.global_ng_module
 	.directive('contentDirective', function () {
 		return {
+			scope: {},
 			template: tpl
 		};
 	});

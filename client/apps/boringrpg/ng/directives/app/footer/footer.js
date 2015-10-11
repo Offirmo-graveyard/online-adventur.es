@@ -1,10 +1,11 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
+	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/app/footer/footer.html',
 	'css!client/apps/boringrpg/ng/directives/app/footer/footer.css'
 ],
-function(offirmo_app, _, tpl) {
+function(offirmo_app, _, state_tree, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
@@ -16,37 +17,55 @@ function(offirmo_app, _, tpl) {
 			controller: ['$scope', function ($scope) {
 				$scope.Transform = $famous['famous/core/Transform'];
 
-				$scope.buttons = [
+				$scope.panels = [
 					{
-						id: 'explore',
-						icon: 'icomoon-treasure-map'
+						id: 'adventure',
+						icon: 'icomoon-treasure-map',
+
 					},
 					{
-						id: 'gear',
+						id: 'stuff',
 						icon: 'icomoon-battle-gear'
 					},
 					{
-						id: 'skills',
-						icon: 'icomoon-death-note'
+						id: 'knowledge',
+						icon: 'icomoon-death-note',
 					},
 					{
 						id: 'social',
-						icon: 'icomoon-eagle-emblem'
+						icon: 'icomoon-eagle-emblem',
+						disabled: true
 					},
 					{
-						id: 'feats',
-						icon: 'icomoon-laurel-crown'
+						id: 'achievements',
+						icon: 'icomoon-laurel-crown',
+						disabled: true
 					},
 					{
 						id: 'chat',
-						icon: 'icomoon-conversation'
+						icon: 'icomoon-conversation',
+						disabled: true
 					},
 				];
+				$scope.active_panel = 'adventure';
 
 				$scope.flexible_layout_options = {
-					ratios: _.map($scope.buttons, function(){return 1;}), // everyone equal (for now)
+					ratios: _.map($scope.panels, function(){return 1;}), // everyone equal (for now)
 					direction: 0 // FlexibleLayout.DIRECTION_X
 				};
+
+				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
+
+				$scope.go_to = function(panel_id) {
+					console.log(panel_id);
+					selected_panel_cursor.set(panel_id);
+				};
+
+				selected_panel_cursor.on('update', function () {
+					$scope.$evalAsync(function () {
+						$scope.active_panel = selected_panel_cursor.get();
+					});
+				});
 
 			}]
 		};

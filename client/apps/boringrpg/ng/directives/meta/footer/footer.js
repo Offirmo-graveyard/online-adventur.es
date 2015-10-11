@@ -10,6 +10,7 @@ function(offirmo_app, _, tpl) {
 	offirmo_app.global_ng_module
 	.directive('metaFooter', [function () {
 		return {
+			scope: {},
 			template: tpl
 		};
 	}]);

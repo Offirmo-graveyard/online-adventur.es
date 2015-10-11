@@ -14,6 +14,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 	offirmo_app.global_ng_module
 	.directive('layout', ['$q', '$famous', function ($q, $famous) {
 		return {
+			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
 				var Transitionable = $famous['famous/transitions/Transitionable'];
@@ -94,10 +95,8 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 				}
 			}],
 			link: function postLink(scope, iElement, iAttrs, controller) {
-
 				scope.link.flipper_element = $famous.find('fa-flipper.meta-switcher')[0];
 				scope.link.flipper_element_deferred.resolve(scope.link.flipper_element);
-
 			}
 		};
 	}]);

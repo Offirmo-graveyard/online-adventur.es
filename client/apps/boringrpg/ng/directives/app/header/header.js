@@ -11,6 +11,7 @@ function(offirmo_app, _, state_tree, tpl) {
 	offirmo_app.global_ng_module
 	.directive('appHeader', ['$famous', function ($famous) {
 		return {
+			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
 				$scope.Transform = $famous['famous/core/Transform'];
