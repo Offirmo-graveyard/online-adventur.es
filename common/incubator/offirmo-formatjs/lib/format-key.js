@@ -12,11 +12,12 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(
 [
 	'lodash',
-	'intl-messageformat'
+	'underscore.string',
+	'./singleton-icu-data-container',
+	'./format-icu-message'
 ],
-function(_, IntlMessageFormat) {
+function(_, _s, i18n_data, format_icu_message) {
 	'use strict';
-
 
 	/**
 	 * @param key
@@ -26,27 +27,38 @@ function(_, IntlMessageFormat) {
 	 * @param intl.formats [not recommended]
 	 * @returns {String}
 	 */
-	function format(key, values, intl) {
+	function format_single_key(key, values, intl, parent_debug_id) {
 
-		values = values || {};
+		//console.log('key', key);
+		//console.log('values', values);
+		//console.log('intl', intl);
+		//console.log('parent_debug_id', parent_debug_id);
 
 		// serious, irrecoverable programming error -> we can throw
 		if (! intl) throw new Error('missing i18n data !');
-		if (! _.isObject(intl)) throw new Error('incorrect i18n data !');
+		if (! _.isObject(intl)) throw new Error('incorrect i18n data ! (intl is not an associative array)');
+		if (! _.isObject(intl.messages)) throw new Error('incorrect i18n data ! (intl.messages is not an associative array)');
 
-		// we'll now try to no longer throw
-		intl.messages = intl.messages || {};
-		intl.locale = intl.locale || intl.messages.locale;
+		// errors encountered
+		var errors = [];
+
+		// fix parameters without crashing
+		if(!_.isString(intl.locale)) {
+			errors.push('Invalid locale');
+			intl.locale = intl.messages.locale || 'en';
+		}
+		// message : can't be fixed, see later
+		values = values || {};
 		intl.formats = intl.formats || {};
 
 		// final result
-		var formatted_msg = '[i18n]'; // for now
+		var formatted_msg;
 
 		// debugging
 		var debug = {
-			prefix: '[i18n|',
+			prefix: '[i18n|' + intl.locale + '|',
 			message: key || '???',
-			suffix: ']',
+			suffix: (parent_debug_id ? ('|' + parent_debug_id) : '') + ']',
 			intl: intl,
 			values: values
 		};
@@ -56,54 +68,74 @@ function(_, IntlMessageFormat) {
 		}
 		update_with_best_available_data_so_far();
 
+
 		// try to resolve stuff
 		resolution : {
 			if (! key) {
-				console.error(id + ' error : missing key !');
+				console.error(debug.id + ' error : missing key !');
 				break resolution;
 			}
-
-			if (! intl.locale) {
-				console.error(id + ' error : missing i18n locale !');
+			if (!_.isString(key)) {
+				console.error(debug.id + ' error : incorrect key !');
 				break resolution;
 			}
-
-			debug.prefix = debug.prefix + locale + '|';
-			update_with_best_available_data_so_far();
 
 			if (! intl.messages[key]) {
-				console.error(id + ' error : couldn’t resolve key "' + key + '" in intl.messages !');
+				console.error(debug.id + ' error : couldn’t resolve key "' + key + '" in intl.messages !');
 				break resolution;
 			}
 
 			var message = debug.message = intl.messages[key];
-			update_with_best_available_data_so_far();
 
-			var message_format;
 			try {
-				message_format =  new IntlMessageFormat(message, locale, intl.formats);
-			}
-			catch(err) {
-				console.error(id + ' error : unable to parse message format !', err, debug);
-				break resolution;
-			}
+				if(_.isFunction(message)) {
+					var build_message = message;
+					debug.message = '?!?';
+					var exposed = {
+						_: _,
+						_s: _s,
+						format: _.partialRight(format, values, intl, debug.id),
+						format_multiple: _.partialRight(format_multiple, values, intl, debug.id),
+					};
 
-			// eventually
-			try {
-				formatted_msg = message_format.format(values);
+					formatted_msg = build_message(values, intl, exposed);
+					if(! _.isString(formatted_msg)) {
+						console.error(debug.id + ' error : custom formatting function associated to key "' + key + '" didn’t return a string !');
+						update_with_best_available_data_so_far();
+					}
+				}
+				else {
+					formatted_msg = format_icu_message(
+						message,
+						values,
+						intl.locale,
+						intl.formats,
+						parent_debug_id
+					);
+				}
 			}
-			catch(err) {
-				console.error(id + ' error : unable to compile message !', err, debug);
-				break resolution;
+			catch (e) {
+				console.error('error while formatting', e);
+				update_with_best_available_data_so_far();
 			}
 		}
 
 		return formatted_msg;
 	}
 
-	return {
-		libs: {
-			IntlMessageFormat: IntlMessageFormat
-		}
-	};
+	function format_multiple_keys(keys, values, intl, parent_debug_id) {
+		var formatted_msgs = keys.map(function(key) {
+			return format(key, values, intl, parent_debug_id);
+		});
+		return formatted_msgs;
+	}
+
+	function format(key, values, intl, parent_debug_id) {
+		if(_.isArray(key))
+			return format_multiple_keys(key, values, intl, parent_debug_id);
+		else
+			return format_single_key(key, values, intl, parent_debug_id);
+	}
+
+	return format;
 });

@@ -118,6 +118,7 @@ requirejs.config({
 		'spin'                     : 'bower_components/spin.js/spin',
 		// require.js extensions (plugin) to be able to load any kind of text with require.js
 		'text'                     : 'bower_components/requirejs-text/text',
+		'underscore.string'        : 'bower_components/underscore.string/dist/underscore.string',
 		//'underscore'  -> replaced by lodash, see "map" section above.
 
 		//'css': 'bower_components/require-css/css',

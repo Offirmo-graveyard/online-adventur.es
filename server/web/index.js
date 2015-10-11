@@ -41,9 +41,9 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 		return callback(undefined, '[Shutdown step : close http server] OK : have a cluster master'); // not applicable
 
 	logger.log('* [shutdown server step] shutting down http server…', err);
+
 	// TODO make server.close work
 	return callback(undefined, '[Shutdown step : close http server] OK : server has closed.');
-
 	server.close(function() {
 		return callback(undefined, '[Shutdown step : close http server] OK : server has closed.');
 	});

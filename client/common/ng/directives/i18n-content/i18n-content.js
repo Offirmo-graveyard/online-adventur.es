@@ -1,10 +1,11 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
-	'intl-messageformat',
 	'offirmo-formatjs/lib/singleton-icu-data-container',
+	'offirmo-formatjs/lib/format-icu-message',
+	'offirmo-formatjs/lib/format-key',
 	],
-function(offirmo_app, _, IntlMessageFormat, i18n_data) {
+function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 	'use strict';
 	var unique_i18n_content_id = 0;
 
@@ -18,118 +19,86 @@ function(offirmo_app, _, IntlMessageFormat, i18n_data) {
 			}],
 			link: function postLink($scope, $element, attrs, controller) {
 				var i18n_content_id = unique_i18n_content_id++;
-
+				var directive_id = i18n_content_id + '$' + $scope.$id;
 				var intl;
+				var resolved_content;
 
-				var prefix = '[i18n|';
-				var message = '?';
-				var suffix = '|' + i18n_content_id + '$' + $scope.$id + ']';
+				// debugging
+				var debug = {
+					prefix: '[i18n|',
+					key: '???',
+					suffix: '|' + directive_id + ']',
+				};
+				function update_with_best_available_data_so_far() {
+					debug.id = debug.prefix + debug.key + debug.suffix;
+					resolved_content = debug.id; // so far : only a debug message
+				}
+				update_with_best_available_data_so_far();
 
-				var id = prefix + message + suffix;
-				//console.log(id + ' i18n link', $scope, $element, attrs);
-
-				var key = attrs.i18nContent;
-				var explicit_locale = attrs.locale;
-				var direct_message = attrs.message; // "direct" since messages are usually passed indirectly via "key"
+				var early_key = attrs.i18nContent;
+				var early_key_direct_message = attrs.key; // "direct" since messages are usually passed indirectly via "key"
 
 				// early error
-				if (! key && ! direct_message)
+				if (! early_key && ! early_key_direct_message)
 					console.error(id + ' error : missing key or direct message !');
 				else {
-					message = (key || direct_message);
-					id = prefix + message + suffix; // update
+					debug.key = (early_key_direct_message || early_key);
+					update_with_best_available_data_so_far();
 				}
 
+				// should be set at start, can't change
 				var is_content_dynamic = (typeof attrs.i18nWatch !== 'undefined');
-				//console.log('is_content_dynamic', is_content_dynamic);
 
-				$element.html(prefix + message + suffix); // temporarily, waiting for intl data
+				$element.html(resolved_content); // temporarily, waiting for intl data
 
-				function cache_current_intl(new_intl) {
-					intl = new_intl;
-					update_element(intl);
-				}
 				// REM on_locale_change will conveniently fire the callback at install if local is already available.
 				i18n_data.on_locale_change(cache_current_intl);
 				$scope.$on('$destroy', function () {
 					i18n_data.off_locale_change(cache_current_intl);
 				});
+				function cache_current_intl(new_intl) {
+					intl = new_intl;
+					update_element(intl);
+				}
 
+				////////////
 				function update_element(intl) {
-					//console.log(id + ' updating...');
-					var resolved_content = prefix + message + suffix;
+					//console.log(debug.id + ' updating...');
 
 					// try to resolve stuff
 					resolution : {
-
 						// may have changed
-						prefix = '[i18n|';
-						key = attrs.i18nContent;
-						explicit_locale = attrs.locale;
-						direct_message = attrs.message;
-
-						if (! key && ! direct_message) {
-							console.error(id + ' error : missing key or direct message !');
-							break resolution;
-						}
-						message = (key || direct_message);
-						id = resolved_content = prefix + message + suffix;
-
-						if (key && direct_message) {
-							console.error(id + ' error : competing key and direct message !');
-							break resolution;
-						}
+						var explicit_locale = attrs.locale;
+						var key = attrs.i18nContent;
+						var direct_message = attrs.message;
 
 						var locale = explicit_locale || intl.locale;
 						if (! locale) {
 							console.error(id + ' error : couldn’t determine locale !');
-							break resolution;
+							// non blocking, underlying lib will handle this case
 						}
+						debug.prefix = '[i18n|' + (locale ? (locale + '|') : '');
+						update_with_best_available_data_so_far();
 
-						prefix = prefix + locale + '|';
-						resolved_content = prefix + message + suffix;
-
-						if (key && ! intl.messages) {
-							console.error(id + ' error : couldn’t resolve key due to missing intl.messages !');
-							break resolution;
+						if (! key && ! direct_message) {
+							console.error(id + ' error : missing key or direct message !');
+							break resolution; // can't do anything
 						}
-
-						if (key && ! intl.messages[key]) {
-							console.error(id + ' error : couldn’t resolve key "' + key + '" in intl.messages !');
-							break resolution;
+						if (key && direct_message) {
+							console.error(id + ' error : competing key and direct message !');
+							// non blocking, we'll use the message first
 						}
-
-						message = direct_message || intl.messages[key];
-						resolved_content = prefix + message + suffix;
-
-						var custom_formats = intl.formats;
+						debug.key = (direct_message || key);
+						update_with_best_available_data_so_far();
 
 						var values = attrs.i18nValues ? $parse(attrs.i18nValues)($scope) : $scope;
+						var custom_formats = intl.formats;
 
-						var debug = {
-							locale: locale,
-							message: message,
-							custom_formats: custom_formats,
-							values: values
-						};
-
-						//console.log(id + ' starting compile :', debug);
-
-						var message_format;
-						try {
-							message_format =  new IntlMessageFormat(message, locale, custom_formats);
+						if (direct_message) {
+							resolved_content = format_icu_message(direct_message, values, intl, custom_formats, directive_id);
 						}
-						catch(err) {
-							console.error(id + ' error : unable to parse message format !', err, debug);
-							break resolution;
-						}
-
-						try {
-							resolved_content = message_format.format(values);
-						}
-						catch(err) {
-							console.error(id + ' error : unable to compile message !', err, debug);
-							break resolution;
+						else {
+							resolved_content = format_key(key, values, intl, custom_formats, directive_id);
 						}
 					}
 
@@ -142,9 +111,9 @@ function(offirmo_app, _, IntlMessageFormat, i18n_data) {
 						if (intl)
 							update_element(intl);
 					});
-					attrs.$observe('i18nValues', function (new_values) {
+					/*attrs.$observe('i18nValues', function (new_values) {
 						console.info('observed i18nValues change', new_values);
-					});
+					});*/
 				}
 			}
 		};

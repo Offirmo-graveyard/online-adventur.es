@@ -20,9 +20,11 @@ if(env === 'production') {
 	forky.log = function() { console.log.apply(console, arguments); };
 
 	var forky_options = {
+		path: __dirname + '/server/web/index',
 		enable_logging: true,
+		workers: 3 // TODO config. Heroku = 8 so complains about memory
 	};
-	forky(__dirname + '/server/web/index' /*, forky_options*/);
+	forky(forky_options);
 }
 else {
 	// normal, plain launch (one instance)

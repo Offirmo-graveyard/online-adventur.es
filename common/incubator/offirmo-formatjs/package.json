@@ -24,10 +24,11 @@
   "license": "Unlicense",
   "dependencies": {
     "amdefine": "~1.0.0",
-    "lodash": "~3.10.0",
     "intl": "~1",
     "intl-messageformat": "~1.1",
-    "intl-relativeformat": "~1.1"
+    "intl-relativeformat": "~1.1",
+    "lodash": "~3.10.0",
+    "underscore.string": "~3.2"
   },
   "devDependencies": {
     "bower": "^1.4.1",

@@ -41,10 +41,5 @@ function(_) {
 		});
 	}
 
-	var supported = areIntlLocalesSupported(['en', 'fr']);
-	if (! supported) {
-		console.error('Intl doesn’t support usual locales !');
-	}
-
 	return areIntlLocalesSupported;
 });

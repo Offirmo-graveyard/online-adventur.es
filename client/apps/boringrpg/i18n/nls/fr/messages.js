@@ -213,10 +213,10 @@ define({
 		'Vous gagnez +1 niveau !',
 	clickmsg_ate_zombie:
 		'Vous mangez un zombie !<br/>' +
-		'Vous gagnez +1 en mana!',
+		'Vous gagnez +1 en mana !',
 	clickmsg_refreshing_nap:
 		'Vous faites une petite sieste et vous réveillez en pleine forme !<br/>' +
-		'Vous gagnez +1 en vitalité!',
+		'Vous gagnez +1 en vitalité !',
 	clickmsg_older:
 		'Vous vous sentez un peu plus vieux.<br/>' +
 		'Vous gagnez +1 niveau !',

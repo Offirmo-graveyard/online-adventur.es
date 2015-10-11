@@ -27,14 +27,17 @@ function(_, IntlMessageFormat) {
 	 * @param custom_formats [not recommended]
 	 * @returns {String}
 	 */
-	function format(message, values, locale, custom_formats) {
+	function format(message, values, locale, custom_formats, parent_debug_id) {
 		// errors while resolving the message
 		var errors = [];
 
 		// fix parameters without crashing
-		message = message || 'unknown localized message';
+		if(!_.isString(locale)) {
+			errors.push('Invalid locale');
+			locale = 'en';
+		}
+		// message : can't be fixed, see later
 		values = values || {};
-		locale = locale || 'en';
 		custom_formats = custom_formats || {};
 
 		// final result
@@ -43,8 +46,8 @@ function(_, IntlMessageFormat) {
 		// debugging
 		var debug = {
 			prefix: '[i18n|' + locale + '|',
-			message: message,
-			suffix: ']',
+			message: message || '???',
+			suffix: (parent_debug_id ? ('|' + parent_debug_id) : '') + ']',
 			locale: locale,
 			values: values
 		};
@@ -56,12 +59,17 @@ function(_, IntlMessageFormat) {
 
 		// try to resolve stuff
 		resolution : {
+			if(!_.isString(message)) {
+				errors.push('Invalid message');
+				break resolution;
+			}
+
 			var message_format;
 			try {
 				message_format =  new IntlMessageFormat(message, locale, custom_formats);
 			}
 			catch(err) {
-				console.error(id + ' error : unable to parse message format !', err, debug);
+				console.error(debug.id + ' error : unable to parse message format !', err, debug);
 				break resolution;
 			}
 
@@ -70,7 +78,7 @@ function(_, IntlMessageFormat) {
 				formatted_msg = message_format.format(values);
 			}
 			catch(err) {
-				console.error(id + ' error : unable to compile message !', err, debug);
+				console.error(debug.id + ' error : unable to compile message !', err, debug);
 				break resolution;
 			}
 		}

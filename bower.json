@@ -28,6 +28,7 @@
     "requirejs-text": "~2.0",
     "rxjs": "~3.1",
     "screenfull": "~2.0",
+    "underscore.string": "~3.2",
     "when": "^3"
   },
   "devDependencies": {},

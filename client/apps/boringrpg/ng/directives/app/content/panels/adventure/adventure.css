@@ -1,0 +1,67 @@
+.app-content-background {
+	background: #5da7ae;
+}
+
+.app-content-stats-background {
+	background: #543d46;
+}
+.app-content-stats {
+	padding: 2px;
+}
+/** We'll use a hack to display dot leaders
+ * http://www.w3.org/Style/Examples/007/leaders.en.html
+ */
+.app-content-stats-column {
+	overflow-x: hidden; /* part of the dot leaders hack */
+}
+.app-content-stats-column:nth-child(odd) {
+	padding: 0px 10px 0px 20px;
+}
+.app-content-stats-column:nth-child(even) {
+	padding: 0px 20px 0px 10px;
+	direction: rtl; /* hack for using the dot leaders in mirror */
+}
+.app-content-stats ul {
+	padding: 0;
+}
+.app-content-stats li {
+	list-style-type: none;
+	white-space: nowrap; /* part of the dot leaders hack */
+}
+.app-content-stats li span{
+	padding-right: 3px; /* clean space with the dot leaders */
+}
+
+.app-content-stats-column:nth-child(odd) li:after {
+	white-space: nowrap;
+	font-family: "Times New Roman";
+	font-size: 8px;
+	content: ". . . . . . . . . . . . . . . "
+}
+.app-content-stats-column:nth-child(even) li:after {
+	white-space: nowrap;
+	overflow: hidden;
+	font-family: "Times New Roman";
+	font-size: 8px;
+	content: ". . . . . . . . . . . . . . . "
+}
+
+
+.app-content-dialog {
+	padding: 3px 7px;
+	color: #292830;
+	border: solid 3px #292830;
+	background: #ffebbc;
+	text-rendering: optimizeLegibility;
+	font-size: 15px;
+	line-height: 19px;
+}
+
+.app-content-button {
+	border: solid 3px #ffebbc;
+	background: #543d46;
+	text-align: center;
+	line-height: 54px;
+	font-size: 18px;
+	text-rendering: optimizeLegibility;
+}

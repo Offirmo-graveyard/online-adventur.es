@@ -131,7 +131,7 @@ describe('typeset', function () {
 	describe('usage cases', function () {
 
 		describe('partial form', function () {
-			it.only('should work', function () {
+			it('should work', function () {
 				var typeset_function = _.partialRight(lib.typeset, lib.rule_sets.fr);
 				expect(typeset_function('« 5 tests à écrire... » soupira-t-il : J\'ai bientôt fini !'))
 					.to.equal('«\u00A05\u00A0tests à écrire…\u00A0» soupira-t-il\u00A0: J’ai bientôt fini\u00A0!');
