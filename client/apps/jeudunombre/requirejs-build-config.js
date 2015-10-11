@@ -5,5 +5,5 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-jeudunombre',
-	out: 'all_js.concat+min.js',
+	out: '../../apps-minified/jeudunombre/all_js.concat+min.js',
 })

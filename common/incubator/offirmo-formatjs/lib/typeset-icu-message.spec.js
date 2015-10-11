@@ -114,4 +114,8 @@ describe('typeset-icu-message', function () {
 
 	});
 
+	context('when used with the typeset lib', function () {
+
+	});
+
 });

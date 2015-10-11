@@ -19,7 +19,8 @@ CACHE:
 
 
 #javascript files
-/client/apps/famous-base/all_js.concat+min.js
+#/client/apps/famous-base/all_js.concat+min.js
+/client/apps-minified/famous-base/all_js.concat+min.js
 
 
 /appcache-loader.html

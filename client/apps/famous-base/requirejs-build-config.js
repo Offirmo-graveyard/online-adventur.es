@@ -5,5 +5,5 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-famous-base',
-	out: 'all_js.concat+min.js',
+	out: '../../apps-minified/famous-base/all_js.concat+min.js',
 })

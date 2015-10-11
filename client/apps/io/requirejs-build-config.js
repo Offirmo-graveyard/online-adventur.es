@@ -5,5 +5,5 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-io',
-	out: 'all_js.concat+min.js',
+	out: '../../apps-minified/io/all_js.concat+min.js',
 })

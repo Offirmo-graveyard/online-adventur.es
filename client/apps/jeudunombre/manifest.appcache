@@ -17,7 +17,8 @@ CACHE:
 
 
 #javascript files
-/client/apps/jeudunombre/all_js.concat+min.js
+#/client/apps/jeudunombre/all_js.concat+min.js
+/client/apps-minified/jeudunombre/all_js.concat+min.js
 
 
 # manual adds

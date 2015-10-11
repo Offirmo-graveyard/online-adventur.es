@@ -1,3 +1,5 @@
+xxx
+
 define([
 	'offirmo-app-bootstrap',
 	'lodash'

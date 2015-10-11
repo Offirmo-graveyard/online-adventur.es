@@ -69,14 +69,18 @@ function(_) {
 		rules.NO_BREAK_SPACE_after_integer
 	];
 
+	var ruleset_generic = [
+		rules.APOSTROPHE_to_RIGHT_SINGLE_QUOTATION_MARK,
+		rules.FULL_STOP_to_HORIZONTAL_ELLIPSIS,
+		rules.NO_BREAK_SPACE_after_integer
+	];
+
 	function typeset(text, rule_set) {
 		text = text || '';
 
 		rule_set = _.isArray(rule_set)
 			? rule_set
-			: [
-					_.isObject(rule_set) ? rule_set : rules[rule_set]
-			];
+			: [ _.isObject(rule_set) ? rule_set : rules[rule_set] ];
 
 		_.forEach(rule_set, function(rule) {
 			//console.log('applying rule ' + rule + ' to "' + text + '" ' + rule.newSubStr);
@@ -89,6 +93,7 @@ function(_) {
 	return {
 		rules: rules,
 		rule_sets: {
+			generic: ruleset_generic,
 			fr: ruleset_fr,
 			en: ruleset_en
 		},

@@ -105,4 +105,38 @@ describe('typeset', function () {
 		});
 	});
 
+	describe('rule sets', function () {
+
+		it('should combine included rules', function () {
+			expect(lib.typeset('5 more tests to write...', lib.rule_sets.generic))
+				.to.equal('5\u00A0more tests to write…');
+		});
+
+		describe('predefined rule sets', function () {
+
+			describe('fr', function () {
+				it('should work', function () {
+					// TODO improve
+					expect(lib.typeset(
+						'« 5 tests à écrire... » soupira-t-il : J\'ai bientôt fini !',
+						lib.rule_sets.fr)
+					).to.equal('«\u00A05\u00A0tests à écrire…\u00A0» soupira-t-il\u00A0: J’ai bientôt fini\u00A0!');
+				});
+			});
+
+		});
+	});
+
+	// more examples than tests
+	describe('usage cases', function () {
+
+		describe('partial form', function () {
+			it.only('should work', function () {
+				var typeset_function = _.partialRight(lib.typeset, lib.rule_sets.fr);
+				expect(typeset_function('« 5 tests à écrire... » soupira-t-il : J\'ai bientôt fini !'))
+					.to.equal('«\u00A05\u00A0tests à écrire…\u00A0» soupira-t-il\u00A0: J’ai bientôt fini\u00A0!');
+			});
+		});
+
+	});
 });

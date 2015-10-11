@@ -17,10 +17,10 @@ define([
 	'boringrpg/ng/decorators/root-scope',
 	'boringrpg/ng/directives/content-directive/content-directive', // root directive
 	// preload some commonly used angular modules
-	'client/common/ng/services/i18n-data/i18n-data',
+	//'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
 	'boringrpg/lib/state-tree',
-	'boringrpg/ng/services/locale-detector',
+	'boringrpg/lib/locale-detector',
 	'boringrpg/ng/services/screen-size-detector',
 	'boringrpg/ng/services/screenfull-detector',
 ],
@@ -55,7 +55,6 @@ function(offirmo_app, _, Carnet) {
 	offirmo_app.global_ng_module.controller('LandingController', [
 		'$scope',
 		// (pre)load those services.
-		'localeDetector',
 		'screenSizeDetector',
 		'screenfullDetector',
 		function($scope) {

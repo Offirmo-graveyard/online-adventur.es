@@ -1,14 +1,15 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
-	'intl-messageformat'
+	'intl-messageformat',
+	'offirmo-formatjs/lib/singleton-icu-data-container',
 	],
-function(offirmo_app, _, IntlMessageFormat) {
+function(offirmo_app, _, IntlMessageFormat, i18n_data) {
 	'use strict';
 	var unique_i18n_content_id = 0;
 
 	offirmo_app.global_ng_module
-	.directive('i18nContent', ['$parse', '$q', 'i18nData', function ($parse, $q, i18n_data) {
+	.directive('i18nContent', ['$parse', '$q', function ($parse, $q) {
 		return {
 			restrict: 'A',
 			template: '<span>[xxx i18n-content on scope #{{$id}}]</span>',

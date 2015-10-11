@@ -11,7 +11,8 @@ CACHE:
 
 
 #javascript files
-/client/apps/appcache/all_js.concat+min.js
+#/client/apps/appcache/all_js.concat+min.js
+/client/apps-minified/appcache/all_js.concat+min.js
 
 
 /appcache-loader.html

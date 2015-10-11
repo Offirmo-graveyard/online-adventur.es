@@ -1,3 +1,6 @@
+// if node.js : use amdefine
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
+
 define([
 	'lodash'
 	],

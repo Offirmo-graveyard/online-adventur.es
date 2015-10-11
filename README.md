@@ -23,7 +23,8 @@ foreman start
 
 Dev
 ```bash
-nodemon
+npm install -g nodemon
+nodemon   <-- will read package.json
 ```
 
 ```bash
@@ -35,21 +36,23 @@ npm start
 git push heroku master
 ```
 
+Release
+=======
+```bash
+git add .
+git commit
+npm run bump
+git add .
+git commit
+git tag -a v0.0.x -m v0.0.x
+git push
+git push --tags
+```
 
 
 Notes
 =====
 ’
-
-
-Server
-======
-
-npm install -g nodemon
-
-nodemon   <-- will read package.json
-
-nodemon server
 
 
 Contributing

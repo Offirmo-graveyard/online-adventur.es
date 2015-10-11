@@ -92,7 +92,8 @@ module.exports = function(app_radix, options) {
 		appcache_manifest: 'client/apps/' + app_radix + '/manifest.appcache',
 
 		// path to the minified js
-		minified_js: 'client/apps/' + app_radix + '/all_js.concat+min.js',
+		//minified_js: 'client/apps/' + app_radix + '/all_js.concat+min.js',
+		minified_js: 'client/apps-minified/' + app_radix + '/all_js.concat+min.js',
 	}, options.template_data);
 
 	/////// routes ///////

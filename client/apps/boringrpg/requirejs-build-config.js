@@ -5,5 +5,5 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-boringrpg',
-	out: 'all_js.concat+min.js',
+	out: '../../apps-minified/boringrpg/all_js.concat+min.js'
 })

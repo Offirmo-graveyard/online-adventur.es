@@ -5,5 +5,5 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-helloworld',
-	out: 'all_js.concat+min.js',
+	out: '../../apps-minified/helloworld/all_js.concat+min.js',
 })

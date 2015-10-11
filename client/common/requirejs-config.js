@@ -54,6 +54,10 @@ requirejs.config({
 			location: 'common/incubator/carnet'
 		},
 		{
+			name : 'offirmo-formatjs',
+			location: 'common/incubator/offirmo-formatjs'
+		},
+		{
 			name : 'when',
 			location: 'bower_components/when',
 			main: 'when.js'

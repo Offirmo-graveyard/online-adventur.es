@@ -1,3 +1,6 @@
+// if node.js : use amdefine
+if (typeof define !== 'function') { var define = require('amdefine')(module); }
+
 define([
 	'lodash',
 	'./are-intl-locales-supported'
@@ -8,23 +11,14 @@ function(_, are_intl_locales_supported) {
 	var intl = undefined;
 	var locale_change_listeners = [];
 
+	/**
+	 *
+	 * @param locale - string
+	 * @param messages - associative array of string key -> ICU message OR offirmo ICU function
+	 * @param custom_formats - (deprecated)
+	 */
 	function set_icu_data(locale, messages, custom_formats) {
 
-		_.forOwn(messages, function(value, key) {
-			if(_.isString(value)) {
-				value = typeset(value);
-			}
-			else if (_.isFunction(value)) {
-				// OK, as an extension we allow this
-			}
-			else {
-				// It's ok, user may want to put locale-dependent config in i18n messages.
-				// But we skip it since we're only concerned about messages.
-				return;
-			}
-
-			messages[key] = value;
-		});
 
 		intl = {
 			locale: locale,

@@ -11,4 +11,5 @@ echo "* starting app building process for app $1... [$0]"
 
 ## fix badly working require-css require plugin
 ## https://github.com/guybedford/require-css/issues/189#issuecomment-139615291
-sed -i 's/"css!/"bower_components\/require-css\/css!/g' client/apps/$1/all_js.concat+min.js
+#sed -i 's/"css!/"bower_components\/require-css\/css!/g' client/apps/$1/all_js.concat+min.js
+sed -i 's/"css!/"bower_components\/require-css\/css!/g' client/apps-minified/$1/all_js.concat+min.js

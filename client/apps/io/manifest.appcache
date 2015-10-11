@@ -17,7 +17,8 @@ CACHE:
 
 
 #javascript files
-/client/apps/boringrpg/all_js.concat+min.js
+#/client/apps/boringrpg/all_js.concat+min.js
+/client/apps-minified/boringrpg/all_js.concat+min.js
 # manual add : dynamically loadable i18n
 /client/apps/boringrpg/i18n/nls/root/messages.js
 /client/apps/boringrpg/i18n/nls/en/messages.js

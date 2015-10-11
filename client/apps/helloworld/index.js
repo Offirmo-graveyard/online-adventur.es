@@ -6,11 +6,11 @@ define([
 	'angular',
 	'carnet',
 	'i18n!client/apps/helloworld/i18n/nls/messages',
-	'client/common/ng/services/i18n-data/i18n-data',
+	'offirmo-formatjs/lib/singleton-icu-data-container',
 	'client/common/ng/directives/i18n-content/i18n-content',
 	'css!client/apps/helloworld/index'
 ],
-function(offirmo_app, _, angular, Carnet, i18n_messages) {
+function(offirmo_app, _, angular, Carnet, i18n_messages, i18n_data) {
 	'use strict';
 
 	console.log('executing main...');
@@ -19,7 +19,7 @@ function(offirmo_app, _, angular, Carnet, i18n_messages) {
 	var logger = Carnet.make_new({enhanced: true});
 
 	offirmo_app.global_ng_module
-	.controller('LandingController', ['$rootScope', '$scope', '$document', 'i18nData', function($rootScope, $scope, $document, i18n_data) {
+	.controller('LandingController', ['$rootScope', '$scope', '$document', function($rootScope, $scope, $document) {
 		logger.info('LandingController…');
 
 		$rootScope.$watch(function () {
