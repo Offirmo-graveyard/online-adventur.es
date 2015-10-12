@@ -31,7 +31,7 @@
 	<div class="utility-screen" id="splash">
 		<div style="width: 100%; position: absolute; top: 33%;">
 			<p style="font-size: 35px;">The Boring RPG</p>
-			<p style="font-size: 20px;font-style:italic;">reloaded !</p>
+			<p style="font-size: 20px;">reloaded.</p>
 		</div>
 	</div>
 

@@ -1,6 +1,6 @@
 <div>
-	<fa-modifier fa-translate="[0,0,-1]">
-		<fa-surface class="app-content-background"></fa-surface>
+	<fa-modifier fa-translate="[0,0,0]">
+		<fa-surface class="adventure-panel-background"></fa-surface>
 	</fa-modifier>
 
 	<fa-modifier fa-translate="dialog_position" fa-size="dialog_size">
@@ -28,16 +28,15 @@
 		</fa-modifier>
 	</fa-modifier>
 
-
 	<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, STATS_PANEL_HEIGHT]">
 
 		<!-- will fill all place with correct background -->
-		<fa-modifier fa-translate="[0,0,-1]">
+		<fa-modifier fa-translate="[0,0,2]">
 			<fa-surface class="adventure-panel-stats-background"></fa-surface>
 		</fa-modifier>
 
 		<!-- smaller surface, for small screens -->
-		<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
+		<fa-modifier fa-translate="[0,0,5]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
 			<fa-surface class="adventure-panel-stats container">
 
 				<div class="adventure-panel-stats-column col-xs-3">

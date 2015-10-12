@@ -80,13 +80,13 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					$scope.STATS_PANEL_HEIGHT = 120;
 					$scope.STATS_PANEL_WIDTH = 320;
 
-					$scope.dialog_position = [10, 10];
+					$scope.dialog_position = [10, 10, 10];
 					$scope.dialog_size = [ 300, 200 ];
 
-					$scope.button_position = [10, 10];
+					$scope.button_position = [10, 10, 10];
 					$scope.button_size = [ 300, 60 ];
 
-					var background_isolate = $famous.find('fa-surface.app-content-background')[0];
+					var background_isolate = $famous.find('fa-surface.adventure-panel-background')[0];
 
 					// dynamic sizing
 					var screen_size_cursor = state_tree.select('view', 'screen_size');
@@ -148,13 +148,15 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						$scope.button_position = [
 							(world_size[0] - button_size[0]) / 2, // horizontally centered
 							//world_size[1] - button_size[1] - vertical_button_margin
-							margin_unit + dialog_size[1] + (world_size[1] - margin_unit - dialog_size[1] - button_size[1]) / 2
+							margin_unit + dialog_size[1] + (world_size[1] - margin_unit - dialog_size[1] - button_size[1]) / 2,
+							5
 						];
 
 						// the dialog size and position can now be computed.
 						$scope.dialog_position = [
 							(world_size[0] - dialog_size[0]) / 2, // horizontally centered
-							margin_unit * 1
+							margin_unit * 1,
+							5
 						];
 
 						// TODO scale dialog font so that it fits

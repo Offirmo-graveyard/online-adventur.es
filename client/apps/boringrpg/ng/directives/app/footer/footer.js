@@ -34,17 +34,14 @@ function(offirmo_app, _, state_tree, tpl) {
 					{
 						id: 'social',
 						icon: 'icomoon-eagle-emblem',
-						disabled: true
 					},
 					{
 						id: 'achievements',
 						icon: 'icomoon-laurel-crown',
-						disabled: true
 					},
 					{
 						id: 'chat',
 						icon: 'icomoon-conversation',
-						disabled: true
 					},
 				];
 				$scope.active_panel = 'adventure';

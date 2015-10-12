@@ -24,11 +24,11 @@ body, body.famous-root {
 }
 
 
-/** famous debugging
+/* famous debugging
 .famous-surface {
 	border: solid 1px red;
-}
-*/
+}*/
+
 
 .clickable-area {
 	cursor:  pointer;
