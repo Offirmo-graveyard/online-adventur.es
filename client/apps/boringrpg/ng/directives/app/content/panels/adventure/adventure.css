@@ -1,44 +1,44 @@
-.app-content-background {
+.adventure-panel-background {
 	background: #5da7ae;
 }
 
-.app-content-stats-background {
+.adventure-panel-stats-background {
 	background: #543d46;
 }
-.app-content-stats {
+.adventure-panel-stats {
 	padding: 2px;
 }
 /** We'll use a hack to display dot leaders
  * http://www.w3.org/Style/Examples/007/leaders.en.html
  */
-.app-content-stats-column {
+.adventure-panel-stats-column {
 	overflow-x: hidden; /* part of the dot leaders hack */
 }
-.app-content-stats-column:nth-child(odd) {
+.adventure-panel-stats-column:nth-child(odd) {
 	padding: 0px 10px 0px 20px;
 }
-.app-content-stats-column:nth-child(even) {
+.adventure-panel-stats-column:nth-child(even) {
 	padding: 0px 20px 0px 10px;
 	direction: rtl; /* hack for using the dot leaders in mirror */
 }
-.app-content-stats ul {
+.adventure-panel-stats ul {
 	padding: 0;
 }
-.app-content-stats li {
+.adventure-panel-stats li {
 	list-style-type: none;
 	white-space: nowrap; /* part of the dot leaders hack */
 }
-.app-content-stats li span{
+.adventure-panel-stats li span{
 	padding-right: 3px; /* clean space with the dot leaders */
 }
 
-.app-content-stats-column:nth-child(odd) li:after {
+.adventure-panel-stats-column:nth-child(odd) li:after {
 	white-space: nowrap;
 	font-family: "Times New Roman";
 	font-size: 8px;
 	content: ". . . . . . . . . . . . . . . "
 }
-.app-content-stats-column:nth-child(even) li:after {
+.adventure-panel-stats-column:nth-child(even) li:after {
 	white-space: nowrap;
 	overflow: hidden;
 	font-family: "Times New Roman";
@@ -47,7 +47,7 @@
 }
 
 
-.app-content-dialog {
+.adventure-panel-dialog {
 	padding: 3px 7px;
 	color: #292830;
 	border: solid 3px #292830;
@@ -57,7 +57,7 @@
 	line-height: 19px;
 }
 
-.app-content-button {
+.adventure-panel-button {
 	border: solid 3px #ffebbc;
 	background: #543d46;
 	text-align: center;

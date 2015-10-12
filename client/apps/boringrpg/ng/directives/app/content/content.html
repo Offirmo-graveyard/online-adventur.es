@@ -4,17 +4,38 @@
 		<fa-surface class="app-content-background"></fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="[0,0,1]">
-		<div ng-switch="panel_id">
-			<div ng-switch-when="adventure">
-				<app-content-panel-adventure></app-content-panel-adventure>
-			</div>
-			<div ng-switch-default>
-				<fa-surface>
-					<br/>{{panel_id}}
-				</fa-surface>
-			</div>
-		</div>
+	<fa-modifier fa-translate="panels['adventure'].translation">
+		<app-content-panel-adventure></app-content-panel-adventure>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="panels['stuff'].translation">
+		<fa-surface class="app-content-background">
+			<br/>TODO stuff
+		</fa-surface>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="panels['knowledge'].translation">
+		<fa-surface class="app-content-background">
+			<br/>TODO knowledge
+		</fa-surface>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="panels['social'].translation">
+		<fa-surface class="app-content-background">
+			<br/>TODO social
+		</fa-surface>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="panels['achievements'].translation">
+		<fa-surface class="app-content-background">
+			<br/>TODO achievements
+		</fa-surface>
+	</fa-modifier>
+
+	<fa-modifier fa-translate="panels['chat'].translation">
+		<fa-surface class="app-content-background">
+			<br/>TODO chat
+		</fa-surface>
 	</fa-modifier>
 
 </div>

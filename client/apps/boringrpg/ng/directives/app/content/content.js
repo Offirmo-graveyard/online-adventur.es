@@ -16,6 +16,29 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 			template: tpl,
 			controller: ['$scope', function($scope) {
 
+				var PANEL_IDS = state_tree.select('view', 'layout', 'app', 'PANELS').get();
+				var panels = $scope.panels = _.zipObject(PANEL_IDS, []);
+				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
+
+				function update_panels() {
+					$scope.$evalAsync(function () {
+						var active_panel = selected_panel_cursor.get();
+						//console.log('content panels', panels);
+						_.forEach(panels, function (panel, key) {
+							panels[key] = panel = panel || {};
+							if(key === active_panel) {
+								panel.translation = [0,0,10];
+							}
+							else {
+								panel.translation = [0,0,0];
+							}
+						});
+						console.log('content panels', panels, active_panel);
+					});
+				}
+
+				selected_panel_cursor.on('update', update_panels);
+				update_panels();
 			}],
 			link: function postLink($scope) {
 
@@ -25,7 +48,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 					window.onerror = window.offirmo_loader.display_unhandled_error; // reinstall
 				}*/
 
-				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
+				/*var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
 				function go_to_required_panel() {
 					var target_panel_id = selected_panel_cursor.get();
 
@@ -37,7 +60,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 					});
 				}
 				go_to_required_panel();
-				selected_panel_cursor.on('update', go_to_required_panel);
+				selected_panel_cursor.on('update', go_to_required_panel);*/
 			}
 		};
 	}]);

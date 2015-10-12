@@ -1,8 +1,11 @@
 <div>
+	<fa-modifier fa-translate="[0,0,-1]">
+		<fa-surface class="app-content-background"></fa-surface>
+	</fa-modifier>
 
 	<fa-modifier fa-translate="dialog_position" fa-size="dialog_size">
 
-		<fa-surface class="app-content-dialog">
+		<fa-surface class="adventure-panel-dialog">
 			<p i18n-content="{{click_message}}"
 			   i18n-values="click_gains"
 			   i18n-watch></p>
@@ -14,7 +17,7 @@
 		<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
 			<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect on click -->
 				<!-- note the touch + mouse versions, both are needed for mobile + desktop -->
-				<fa-surface class="app-content-button clickable-area"
+				<fa-surface class="adventure-panel-button clickable-area"
 				            ng-mousedown="mousedown('mousedown')"
 				            ng-mouseup="mouseup('mouseup')"
 				            fa-touchstart="mousedown('touchstart')"
@@ -30,14 +33,14 @@
 
 		<!-- will fill all place with correct background -->
 		<fa-modifier fa-translate="[0,0,-1]">
-			<fa-surface class="app-content-stats-background"></fa-surface>
+			<fa-surface class="adventure-panel-stats-background"></fa-surface>
 		</fa-modifier>
-		
+
 		<!-- smaller surface, for small screens -->
 		<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
-			<fa-surface class="app-content-stats container">
+			<fa-surface class="adventure-panel-stats container">
 
-				<div class="app-content-stats-column col-xs-3">
+				<div class="adventure-panel-stats-column col-xs-3">
 					<ul>
 						<li><span i18n-content="stats_health"></span>
 						<li><span i18n-content="stats_mana"></span>
@@ -48,7 +51,7 @@
 					</ul>
 				</div>
 
-				<div class="app-content-stats-column col-xs-3">
+				<div class="adventure-panel-stats-column col-xs-3">
 					<ul>
 						<li><span>{{model.stats.health}}</span>
 						<li><span>{{model.stats.mana}}</span>
@@ -59,7 +62,7 @@
 					</ul>
 				</div>
 
-				<div class="app-content-stats-column col-xs-3">
+				<div class="adventure-panel-stats-column col-xs-3">
 					<ul>
 						<li><span i18n-content="stats_level"></span>
 						<li><span i18n-content="stats_strength"></span>
@@ -70,7 +73,7 @@
 					</ul>
 				</div>
 
-				<div class="app-content-stats-column col-xs-3">
+				<div class="adventure-panel-stats-column col-xs-3">
 					<ul>
 						<li><span>{{model.stats.level}}</span>
 						<li><span>{{model.stats.strength}}</span>
