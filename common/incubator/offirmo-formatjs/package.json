@@ -34,15 +34,8 @@
     "bower": "^1.4.1",
     "chai": "^3.2.0",
     "eslint": "^0.24.1",
-    "karma": "^0.13.2",
-    "karma-chrome-launcher": "^0.2.0",
-    "karma-firefox-launcher": "^0.1.6",
-    "karma-mocha": "^0.2.0",
-    "karma-phantomjs-launcher": "^0.2.0",
-    "karma-requirejs": "^0.2.2",
     "mocha": "^2.2.5",
     "nsp": "^1.0.3",
-    "phantomjs": "^1.9.17",
     "pre-commit": "^1.0.10",
     "requirejs": "^2.1.19"
   }
