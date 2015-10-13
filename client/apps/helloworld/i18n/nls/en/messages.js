@@ -1,10 +1,10 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define({
-	"locale": "en", // detector
+	'locale': 'en', // detector
 
-	"red": "red",
-	"blue": "blue",
-	"green": "green",
+	'red': 'red',
+	'blue': 'blue',
+	'green': 'green',
 
 	hello_world: 'Hello world !',
 	title: 'An hello world web app',

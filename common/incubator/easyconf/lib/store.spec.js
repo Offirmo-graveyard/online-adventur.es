@@ -28,10 +28,10 @@ describe('Store', function () {
 			source: path.join(__dirname, '../tests/fixtures/case01_oldschool/config.json'),
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'
@@ -41,10 +41,10 @@ describe('Store', function () {
 			source: '../tests/fixtures/case01_oldschool/config.json',
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'
@@ -56,10 +56,10 @@ describe('Store', function () {
 			source: path.join(__dirname, '../tests/fixtures/case02_js_node/config.js'),
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'
@@ -69,10 +69,10 @@ describe('Store', function () {
 			source: '../tests/fixtures/case02_js_node/config.js',
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'
@@ -84,10 +84,10 @@ describe('Store', function () {
 			source: path.join(__dirname, '../tests/fixtures/case03_js_amd/config.js'),
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'
@@ -97,10 +97,10 @@ describe('Store', function () {
 			source: '../tests/fixtures/case03_js_amd/config.js',
 			options: undefined,
 			expected_data: {
-				"defaultUrl": {
-					"port": 9101,
-					"protocol": "http",
-					"hostname": "localhost"
+				'defaultUrl': {
+					'port': 9101,
+					'protocol': 'http',
+					'hostname': 'localhost'
 				}
 			},
 			expected_description: 'direct file'

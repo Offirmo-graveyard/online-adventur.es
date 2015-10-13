@@ -40,7 +40,7 @@ function(offirmo_app, _, Carnet) {
 					console.log(arguments);
 					$log.error.apply($log, arguments);
 
-					var p = document.createElement("p");
+					var p = document.createElement('p');
 					p.textContent = 'XXA ' + exception.message;
 					window.offirmo_loader.error_console.appendChild(p);
 

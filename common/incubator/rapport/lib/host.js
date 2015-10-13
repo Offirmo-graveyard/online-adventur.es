@@ -59,11 +59,7 @@ function gather_infos(rapport) {
 }
 
 
-
-
 function gather_linux_infos(rapport) {
-
-
 	when.map([uname_s, uname_r, uname_p], function(val) {
 		console.log(val);
 	});

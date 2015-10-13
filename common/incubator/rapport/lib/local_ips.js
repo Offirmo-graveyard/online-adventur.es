@@ -20,7 +20,6 @@ function get_local_ips() {
 }
 
 
-
 function gather_infos(rapport) {
 	rapport.base.host = rapport.base.host || {};
 	rapport.base.host = _.merge(rapport.base.host, {
@@ -29,7 +28,6 @@ function gather_infos(rapport) {
 
 	// sync : ok
 }
-
 
 module.exports = {
 	gather_infos: gather_infos

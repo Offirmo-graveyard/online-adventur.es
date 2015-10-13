@@ -17,10 +17,10 @@ describe('easyconf from another path', function () {
 						config.add('./fixtures/case01_oldschool/config.json');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -33,10 +33,10 @@ describe('easyconf from another path', function () {
 							.add('./fixtures/case02_js_node/config.js');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -49,10 +49,10 @@ describe('easyconf from another path', function () {
 							.add('./fixtures/case03_js_amd/config.js');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});

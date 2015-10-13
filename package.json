@@ -67,7 +67,6 @@
   },
   "devDependencies": {
     "eslint": "^1",
-    "eslint-plugin-angular": "^0",
     "express-debug": "^1",
     "express-livereload": "^0",
     "mversion": "^1",
@@ -76,7 +75,8 @@
     "requirejs": "^2"
   },
   "commented_out": {
-    "baobab": "~1.1.2"
+    "baobab": "~1.1.2",
+    "eslint-plugin-angular": "^0"
   },
   "xpre-commit": [
     "lint"

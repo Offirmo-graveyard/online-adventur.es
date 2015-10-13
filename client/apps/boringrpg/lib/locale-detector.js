@@ -16,7 +16,8 @@ define([
 function(require, offirmo_app, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_tree, autoselected_requirejs_i18n_bundle, en_requirejs_i18n_bundle) {
 	'use strict';
 
-	var USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY = "offirmo.online-adventures.user_explicitly_selected_locale";
+	var USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY =
+		'offirmo.online-adventures.user_explicitly_selected_locale';
 
 	console.log('installing localeDetector...');
 
@@ -96,7 +97,8 @@ function(require, offirmo_app, _, Rx, $, i18n_data, typeset_lib, icu_message_typ
 				break checking;
 			}
 			if (i18n_messages.locale !== target_locale) {
-				console.error('i18n messages for "' + target_locale + '" is not reporting the same locale : "' + i18n_messages.locale + '" !');
+				console.error('i18n messages for "' + target_locale + '"' +
+					' is not reporting the same locale : "' + i18n_messages.locale + '" !');
 				break checking;
 			}
 			if (target_locale !== 'en') {

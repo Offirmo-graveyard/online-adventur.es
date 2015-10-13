@@ -58,7 +58,7 @@ module.exports = function setup(logger, rapport) {
 		}, function (error, responses) {
 			//uh oh, there was an error
 			if (error) {
-				logger.error("XXX mandrill error : " + JSON.stringify(error));
+				logger.error('XXX mandrill error : ' + JSON.stringify(error));
 			}
 			else {
 				if (!_.isArray(responses))
@@ -66,11 +66,11 @@ module.exports = function setup(logger, rapport) {
 
 				_.forEach(responses, function (response) {
 					if (response.status === 'invalid') {
-						logger.error("XXX mandrill ERROR : ", response);
+						logger.error('XXX mandrill ERROR : ', response);
 					}
 					else {
 						//everything's good, lets see what mandrill said
-						logger.log("mandrill SUCCESS", response);
+						logger.log('mandrill SUCCESS', response);
 					}
 				});
 			}
@@ -103,9 +103,6 @@ module.exports = function setup(logger, rapport) {
 
 	// trace received signals
 	// (TODO)
-
-
-
 
 	// make forky log
 	// https://github.com/brianc/node-forky/blob/master/examples/master.js

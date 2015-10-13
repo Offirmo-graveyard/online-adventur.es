@@ -5,7 +5,6 @@ var cluster = require('cluster');
 var when = require('when');
 
 
-
 function gather_infos(rapport) {
 
 	var cluster_worker_infos = _.pick(cluster.worker, [
@@ -26,8 +25,6 @@ function gather_infos(rapport) {
 
 	// sync : ok
 }
-
-
 
 
 module.exports = {

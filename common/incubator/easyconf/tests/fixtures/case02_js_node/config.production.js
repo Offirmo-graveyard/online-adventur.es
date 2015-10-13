@@ -1,7 +1,7 @@
 module.exports = {
-  "defaultUrl": {
-    "port": 443,
-    "protocol": "https",
-    "hostname": "acme.eu"
+  'defaultUrl': {
+    'port': 443,
+    'protocol': 'https',
+    'hostname': 'acme.eu'
   }
 };

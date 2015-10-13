@@ -8,15 +8,11 @@ var shutdown = require('../common/incubator/shutdown');
 var forky = require('forky');
 
 
-
 ///////////////////// Exports /////////////////////
-
 module.exports = shutdown;
 
 
-
 ///////////////////// Build shutdown sequence /////////////////////
-
 
 
 // just log the shutdown params
@@ -58,9 +54,6 @@ shutdown.add_shutdown_step(function(callback, err, exit_code, misc) {
 });
 
 
-
-
-
 ///////////////////// Set up shutdown triggers /////////////////////
 
 // on uncaught
@@ -84,12 +77,6 @@ pretty_signals.set_exit_function(function(suggested_exit_code, signal_descriptio
 */
 
 // on domain
-
-
-
-
-
-
 
 /*
  module.exports = function(err) {

@@ -1,6 +1,11 @@
 {
 	// http://eslint.org/docs/rules/
 	// http://bl.ocks.org/cletusw/e01a85e399ab563b1236
+	/* REM : http://eslint.org/docs/user-guide/configuring#configuring-rules
+	0 - turn the rule off
+	1 - turn the rule on as a warning (doesn't affect exit code)
+	2 - turn the rule on as an error (exit code is 1 when triggered)
+	*/
 
 	"env": {
 		"amd": true,
@@ -20,8 +25,9 @@
 	},
 
 	"plugins": [
-		"angular"
+		//"angular" // https://github.com/Gillespie59/eslint-plugin-angular
 	],
+
 
 	// http://elijahmanor.github.io/talks/js-smells/#/1/8
 	"rules": {
@@ -30,7 +36,7 @@
 		"comma-dangle": 0,
 		"no-comma-dangle": 0, // don't care about IE8 (only one who can choke at this)
 		"no-cond-assign": [2, "always"],
-		"no-console": 2,
+		"no-console": 0,
 
 		////////// Best Practices //////////
 		"eqeqeq": 2,
@@ -40,9 +46,9 @@
 		// Node.js
 
 		////////// Stylistic Issues //////////
-		"camelcase": 0, // snake rules !
+		"camelcase": 0, // snake rulzz !
 		"key-spacing": 0, // be free to align or not
-		"max-nested-callbacks": [2, 3],
+		"max-nested-callbacks": [0, 3], // TODO reactivate later
 		"new-cap": 2,
 		"no-mixed-spaces-and-tabs": 0, // allow it
 		"no-multiple-empty-lines": [1, {max: 3}],  // Maximum of n empty lines
@@ -52,13 +58,16 @@
 
 		////////// Legacy //////////
 		"max-depth": [2, 5],
-		"max-len": [2, 140],
+		"max-len": [0, 140], // TODO reactivate later
 		"max-params": 0, // disabled due to requirejs false positives
-		"max-statements": [2, 16],
+		"max-statements": [0, 16], // TODO reactivate later
+
+		/////// Angular (plugin) ///////
+		/*"angular/typecheck-function": 0,
+		"angular/window-service": 1,
+		"angular/typecheck-function": 1,*/
 
 		// tosort
-		"complexity": [2, 7],
-		"angular/ng_window_service": 1,
-		"angular/ng_typecheck_function": 1,
+		"complexity": [0, 7], // TODO reactivate later
 	}
 }

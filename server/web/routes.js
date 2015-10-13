@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 var express = require('express');
-var router = express.Router();
+var router = new express.Router();
 var utils = require('./utils');
 var config = require('./config');
 
@@ -101,12 +101,6 @@ router.get('/config', function(req, res) {
  });
  });
  */
-
-
-
-
-
-
 
 
 // 'catch all' = default / 404 for a webapp

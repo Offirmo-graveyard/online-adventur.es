@@ -163,10 +163,10 @@ describe('easyconf', function () {
 						foo: {
 							bar: 33
 						},
-						"defaultUrl": {
-							"port": 9101,
-							"protocol": "http",
-							"hostname": "localhost"
+						'defaultUrl': {
+							'port': 9101,
+							'protocol': 'http',
+							'hostname': 'localhost'
 						}
 					});
 
@@ -192,10 +192,10 @@ describe('easyconf', function () {
 							));
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -206,10 +206,10 @@ describe('easyconf', function () {
 							.add('../tests/fixtures/case01_oldschool/config.json');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -220,10 +220,10 @@ describe('easyconf', function () {
 							.add('../tests/fixtures/case01_oldschool/config.json', {pattern: 'env+local'});
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 8101,
-								"protocol": "http",
-								"hostname": "192.168.3.1"
+							'defaultUrl': {
+								'port': 8101,
+								'protocol': 'http',
+								'hostname': '192.168.3.1'
 							}
 						});
 					});
@@ -238,10 +238,10 @@ describe('easyconf', function () {
 
 						expect(config.get()).to.deep.equal({
 							env: 'development',
-							"defaultUrl": {
-								"port": 8101,
-								"protocol": "http",
-								"hostname": "192.168.3.1"
+							'defaultUrl': {
+								'port': 8101,
+								'protocol': 'http',
+								'hostname': '192.168.3.1'
 							}
 						});
 					});
@@ -256,10 +256,10 @@ describe('easyconf', function () {
 
 						expect(config.get()).to.deep.equal({
 							env: 'production',
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "https",
-								"hostname": "acme.eu"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'https',
+								'hostname': 'acme.eu'
 							}
 						});
 					});
@@ -275,10 +275,10 @@ describe('easyconf', function () {
 							));
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -287,10 +287,10 @@ describe('easyconf', function () {
 						var config = require('../tests/fixtures/case04_js_node_intermediate_config');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 8101,
-								"protocol": "http",
-								"hostname": "192.168.3.1"
+							'defaultUrl': {
+								'port': 8101,
+								'protocol': 'http',
+								'hostname': '192.168.3.1'
 							}
 						});
 					});
@@ -302,10 +302,10 @@ describe('easyconf', function () {
 
 						var temp = config.get();
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 8101,
-								"protocol": "http",
-								"hostname": "192.168.3.1"
+							'defaultUrl': {
+								'port': 8101,
+								'protocol': 'http',
+								'hostname': '192.168.3.1'
 							}
 						});
 					});
@@ -321,10 +321,10 @@ describe('easyconf', function () {
 							));
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});
@@ -335,10 +335,10 @@ describe('easyconf', function () {
 							.add('../tests/fixtures/case03_js_amd/config.js');
 
 						expect(config.get()).to.deep.equal({
-							"defaultUrl": {
-								"port": 9101,
-								"protocol": "http",
-								"hostname": "localhost"
+							'defaultUrl': {
+								'port': 9101,
+								'protocol': 'http',
+								'hostname': 'localhost'
 							}
 						});
 					});

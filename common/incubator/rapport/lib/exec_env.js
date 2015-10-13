@@ -4,7 +4,6 @@ var _ = require('lodash');
 var when = require('when');
 
 
-
 function gather_infos(rapport) {
 
 	var env = _.cloneDeep(process.env);
@@ -41,8 +40,6 @@ function gather_infos(rapport) {
 
 	// sync : ok
 }
-
-
 
 
 module.exports = {

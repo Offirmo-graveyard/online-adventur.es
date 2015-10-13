@@ -67,7 +67,7 @@ ShutdownAgent.prototype.add_shutdown_step = function(f) {
 // @param {Number}  context.exit_code     - optional, the exit code to use with process.exit (if relevant)
 ShutdownAgent.prototype.start = function(err, exit_code, misc) {
 	console.log('starting shutdown...');
-	
+
 	// avoid loops
 	if(this.in_progress) {
 		console.log('! [shutdown] ignored duplicate shutdown request from :', (new Error).stack);
@@ -146,4 +146,3 @@ var default_shutdown = new ShutdownAgent();
 default_shutdown.klass = ShutdownAgent;
 
 module.exports = default_shutdown;
-

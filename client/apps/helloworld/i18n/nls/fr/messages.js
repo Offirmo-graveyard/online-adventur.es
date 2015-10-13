@@ -1,10 +1,10 @@
 if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define({
-	"locale": "fr", // detector
+	'locale': 'fr', // detector
 
-	"red": "rouge",
-	"blue": "bleu",
-	"green": "vert",
+	'red': 'rouge',
+	'blue': 'bleu',
+	'green': 'vert',
 
 	hello_world: 'Bonjour, monde !',
 	title: 'Une web app bonjour monde',
