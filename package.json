@@ -76,7 +76,7 @@
     "mversion": "^1",
     "nodemon": "^1",
     "pre-commit": "^1",
-    "requirejs": "^2"
+    "requirejs": "^2.1.20"
   },
   "commented_out": {
     "baobab": "~1.1.2",
