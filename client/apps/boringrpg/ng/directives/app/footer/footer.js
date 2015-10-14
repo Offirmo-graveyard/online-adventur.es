@@ -24,7 +24,7 @@ function(offirmo_app, _, state_tree, tpl) {
 
 					},
 					{
-						id: 'stuff',
+						id: 'inventory',
 						icon: 'icomoon-battle-gear'
 					},
 					{

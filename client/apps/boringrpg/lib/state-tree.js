@@ -31,7 +31,7 @@ function(_, Baobab, Rx, config) {
 				state: 'app',
 				app: {
 					// which tab is currently selected ?
-					PANELS: ['adventure', 'stuff', 'knowledge', 'social', 'achievements', 'chat'],
+					PANELS: ['adventure', 'inventory', 'knowledge', 'social', 'achievements', 'chat'],
 					selected_panel: 'adventure',
 				}
 			}

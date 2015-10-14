@@ -6,6 +6,7 @@ define([
 	'text!client/apps/boringrpg/ng/directives/app/content/content.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/content.css',
 	'boringrpg/ng/directives/app/content/panels/adventure/adventure',
+	'boringrpg/ng/directives/app/content/panels/inventory/inventory',
 ],
 function(offirmo_app, _, Rx, state_tree, tpl) {
 	'use strict';
