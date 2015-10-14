@@ -6,6 +6,10 @@
   "private": true,
   "license": "Unlicense",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Offirmo/online-adventur.es.git"
+  },
   "scripts": {
     "bower": "bower update --config.interactive=false",
     "postinstall": "npm run bower && cd common/incubator/carnet && npm install && cd ../easyconf && npm install",
@@ -80,5 +84,9 @@
   },
   "xpre-commit": [
     "lint"
-  ]
+  ],
+  // experimental feature given by support
+  "greenkeeper": {
+    "ignore": ["jsdom","trace"]
+  }
 }
