@@ -7,14 +7,14 @@ Real story
 - allow relative file (avoid path manipulations)
 
 
-1. use .js for storing data
-2. classic 
+1. use .js for storing data (comments, linting)
+2. keep config simple
 3. extend / default
-
+4. no surprise
+5. auto-extend env vars
 
 
 create_config().extending(require(…)).with(…)
-
 
 
 'use strict';

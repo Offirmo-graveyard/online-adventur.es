@@ -1,24 +1,21 @@
 {
   "name": "easyconf",
   "version": "0.0.1",
-  "description": "A configuration utility like nconf, for node and browser",
+  "description": "A configuration loader utility for node",
   "main": "index.js",
   "scripts": {
-    "bower": "bower update --config.interactive=false",
-    "postinstall": "npm run bower",
     "lint": "eslint .",
     "nsp": "nsp audit-package",
     "test": "export FOO_API_KEY=27A13 && export BAR_API_KEY=A312 && mocha --debug --check-leaks --require tests/init.js lib/*.spec.js tests/*.spec.js",
     "testsingle": "export FOO_API_KEY=27A13 && export BAR_API_KEY=A312 && mocha --debug --check-leaks --require tests/init.js lib/store.spec.js"
   },
-  "pre-commit": [
+  "xx-commented-pre-commit": [
     "lint"
   ],
   "keywords": [
     "config",
     "configuration",
-    "node",
-    "browser"
+    "node"
   ],
   "author": "Offirmo <offirmo.net@gmail.com>",
   "license": "Unlicense",
@@ -28,12 +25,10 @@
     "lodash": "~3.10.0"
   },
   "devDependencies": {
-    "bower": "^1.4.1",
     "chai": "^3.2.0",
     "eslint": "^0.24.1",
     "mocha": "^2.2.5",
     "nsp": "^1.0.3",
-    "pre-commit": "^1.0.10",
-    "requirejs": "^2.1.19"
+    "pre-commit": "^1.0.10"
   }
 }
