@@ -109,7 +109,8 @@ function(_, get_set, path, callsite, Store) {
 		this._stores.push(store);
 
 		//console.log('adding conf data', store.data);
-		_.merge(this._aggregated, store.data);
+		this._aggregated = _.defaultsDeep({}, store.data, this._aggregated);
+		//_.merge(this._aggregated, store.data);
 	};
 
 
