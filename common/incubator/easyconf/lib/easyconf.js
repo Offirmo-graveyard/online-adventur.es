@@ -13,8 +13,10 @@ function(_, get_set, path, callsite, Store) {
 	var get = get_set.get;
 
 	function Easyconf(options) {
+		options = options || {};
+
 		this._I_AM_AN_EASYCONF = true; // marker to break recursion
-		this.separator = ':';
+		this.separator = options.separator || ':';
 		this._stores = [];
 		this._aggregated = {};
 	}
@@ -22,10 +24,6 @@ function(_, get_set, path, callsite, Store) {
 	////////////////////////////////////
 	Easyconf.prototype.get = function(propertyPath) {
 		return get(this._aggregated, propertyPath, this.separator);
-	};
-
-	Easyconf.prototype.set = function(propertyPath, value) {
-		// todo. needed ?
 	};
 
 	Easyconf.prototype.explain = function() {
@@ -37,9 +35,6 @@ function(_, get_set, path, callsite, Store) {
 	////////////////////////////////////
 	Easyconf.prototype.add = function(source, options) {
 		options = options || {};
-		// Immediately extract parent call site if not explicitly provided.
-		// (This is to ease path stuff for the user)
-		//options.calldir = options.calldir || path.dirname(callsite()[1].getFileName());
 
 		if(source instanceof Easyconf) {
 			this._add_easyconf(source);
@@ -110,7 +105,6 @@ function(_, get_set, path, callsite, Store) {
 
 		//console.log('adding conf data', store.data);
 		this._aggregated = _.defaultsDeep({}, store.data, this._aggregated);
-		//_.merge(this._aggregated, store.data);
 	};
 
 

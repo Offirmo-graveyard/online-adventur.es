@@ -1,8 +1,8 @@
 'use strict';
 
-var easyconf = require('../../../common/incubator/easyconf');
+var simplyconfig = require('simplyconfig');
 
-var config = easyconf.create()
+var config = simplyconfig.create()
 
 	// parent
 	.add('../../../common/config')
@@ -10,4 +10,4 @@ var config = easyconf.create()
 	// us
 	.add('./config.js', {pattern: 'env+local'});
 
-module.exports = config; // exports easyconf since we're an intermediate config
+module.exports = config; // exports simplyconfig since we're an intermediate config

@@ -1,3 +1,7 @@
 // node-only file
 
-module.exports = require('./lib/easyconf');
+var easyconf = require('./lib/easyconf');
+
+easyconf.dotenv = require('dotenv');
+
+module.exports = easyconf;

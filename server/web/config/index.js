@@ -1,8 +1,13 @@
 'use strict';
 
-var easyconf = require('../../../common/incubator/easyconf');
+var simplyconfig = require('simplyconfig');
 
-var config = easyconf.create()
+// https://github.com/motdotla/dotenv
+simplyconfig.dotenv.config({silent: true});
+simplyconfig.dotenv.load();
+
+
+var config = simplyconfig.create()
 
 	// parent
 	.add('../../common/config')

@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "A configuration loader utility for node",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Offirmo/easyconf.git"
+  },
   "scripts": {
     "lint": "eslint .",
     "nsp": "nsp audit-package",
@@ -22,11 +26,12 @@
   "dependencies": {
     "amdefine": "~1.0.0",
     "callsite": "~1.0.0",
+    "dotenv": "~1.2.0",
     "lodash": "~3.10.0"
   },
   "devDependencies": {
     "chai": "^3.2.0",
-    "eslint": "^0.24.1",
+    "eslint": "^1.7.0",
     "mocha": "^2.2.5",
     "nsp": "^1.0.3",
     "pre-commit": "^1.0.10"

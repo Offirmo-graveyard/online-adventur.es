@@ -3,32 +3,31 @@ var easyconf = require('./easyconf');
 
 describe('easyconf', function () {
 
-	describe('creation', function () {
-		// TODO
-	});
-
 	describe('read', function () {
 
 		describe('get()', function () {
 
 			describe('with no key', function () {
 
+				it('should return the whole aggregated config', function () {
+					var config = easyconf.create()
+					.add({
+						foo: 42
+					})
+					.add({
+						bar: 7
+					});
+
+					expect(config.get()).to.deep.equal({
+						bar: 7,
+						foo: 42
+					});
+				});
+
 				it('should work on an empty config', function () {
 					var config = easyconf.create();
 
 					expect(config.get()).to.deep.equal({});
-				});
-
-				it('should return the whole aggregated config', function () {
-					var config = easyconf.create()
-						.add({
-							foo: 42
-						});
-
-					//console.log(config._aggregated);
-					expect(config.get()).to.deep.equal({
-						foo: 42
-					});
 				});
 
 			});
@@ -47,7 +46,6 @@ describe('easyconf', function () {
 							foo: 42
 						});
 
-					//console.log(config._aggregated);
 					expect(config.get('foo')).to.equal(42);
 				});
 
@@ -63,14 +61,49 @@ describe('easyconf', function () {
 
 			describe('with a deep key', function () {
 
-				it('should work on an empty config', function () {
-					var config = easyconf.create();
+				context('with default separator', function () {
+					it('should work on an empty config', function () {
+						var config = easyconf.create();
 
-					expect(config.get('foo:bar:baz')).to.be.undefined;
+						expect(config.get('foo:bar:baz')).to.be.undefined;
+					});
+
+					it('should correctly access an initialized entry', function () {
+						var config = easyconf.create()
+							.add({
+								foo: {
+									bar: {
+										baz: 33
+									}
+								}
+							});
+
+						expect(config.get('foo:bar:baz')).to.equal(33);
+					});
+
+					it('should correctly access an uninitialized entry', function () {
+						var config = easyconf.create()
+							.add({
+								foo: {}
+							});
+
+						expect(config.get('foo:bar:baz')).to.be.undefined;
+					});
 				});
 
-				it('should correctly access an initialized entry', function () {
-					var config = easyconf.create()
+				context('with an alternate separator', function () {
+					it('should work on an empty config', function () {
+						var config = easyconf.create({
+							separator: '.'
+						});
+
+						expect(config.get('foo.bar.baz')).to.be.undefined;
+					});
+
+					it('should correctly access an initialized entry', function () {
+						var config = easyconf.create({
+							separator: '.'
+						})
 						.add({
 							foo: {
 								bar: {
@@ -79,16 +112,19 @@ describe('easyconf', function () {
 							}
 						});
 
-					expect(config.get('foo:bar:baz')).to.equal(33);
-				});
+						expect(config.get('foo.bar.baz')).to.equal(33);
+					});
 
-				it('should correctly access an uninitialized entry', function () {
-					var config = easyconf.create()
+					it('should correctly access an uninitialized entry', function () {
+						var config = easyconf.create({
+							separator: '.'
+						})
 						.add({
 							foo: {}
 						});
 
-					expect(config.get('foo:bar:baz')).to.be.undefined;
+						expect(config.get('foo.bar.baz')).to.be.undefined;
+					});
 				});
 
 			});
@@ -397,7 +433,79 @@ describe('easyconf', function () {
 				});
 			});
 
+			describe('store management', function () {
+
+
+				it('should add a new store and properly deep extend previous stores', function () {
+					var config = easyconf
+					.create()
+					.add({
+						key1: {
+							foo: 'bar'
+						},
+						key1R: {
+							foo: 'bar'
+						},
+						deep: {
+							very_deep: {
+								key1: {
+									bar: 'baz'
+								},
+								key1R: {
+									bar: 'baz'
+								}
+							}
+						}
+					})
+					.add({
+						key2: 42,
+						key2R: 42,
+						deep: {
+							very_deep: {
+								key2: 33,
+								key2R: 33,
+							}
+						}
+					})
+					.add({
+						key1R: 'foo',
+						key2R: {
+							hello: 'world'
+						},
+						deep: {
+							very_deep: {
+								key1R: 333,
+								key2R: {
+									nuoc: 'mam'
+								}
+							}
+						}
+					});
+
+					expect(config.get()).to.deep.equal({
+						key1: {
+							foo: 'bar'
+						},
+						key1R: 'foo',
+						key2: 42,
+						key2R: {
+							hello: 'world'
+						},
+						deep: {
+							very_deep: {
+								key1: {
+									bar: 'baz'
+								},
+								key1R: 333,
+								key2: 33,
+								key2R: {
+									nuoc: 'mam'
+								}
+							}
+						}
+					});
+				});
+			});
 		});
 	});
-
 });
