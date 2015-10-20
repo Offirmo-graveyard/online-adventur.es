@@ -1,21 +1,23 @@
 <div>
 
-	<fa-flexible-layout fa-options="{ratios: [1, 4, 1], direction: 0}">
+	<fa-modifier fa-translate="[0,0,2.002]">
+		<fa-flexible-layout fa-options="{ratios: [1, 4, 1], direction: 0}">
 
-		<fa-surface class="meta-header meta-header-left clickable-area"
-		            fa-click="request_app(event)">
-			<span class="icomoon-cog"></span>
-		</fa-surface>
+			<fa-surface class="meta-header meta-header-left clickable-area"
+			            fa-click="request_app(event)">
+				<span class="icomoon-cog"></span>
+			</fa-surface>
 
-		<fa-surface class="meta-header meta-header-center">
-			<p i18n-content="meta_header"></p>
-		</fa-surface>
+			<fa-surface class="meta-header meta-header-center">
+				<p i18n-content="meta_header"></p>
+			</fa-surface>
 
-		<fa-surface class="meta-header meta-header-right clickable-area"
-		            fa-click="request_app(event)">
-			<span class="icomoon-cross"></span>
-		</fa-surface>
+			<fa-surface class="meta-header meta-header-right clickable-area"
+			            fa-click="request_app(event)">
+				<span class="icomoon-cross"></span>
+			</fa-surface>
 
-	</fa-flexible-layout>
+		</fa-flexible-layout>
+	</fa-modifier>
 
 </div>

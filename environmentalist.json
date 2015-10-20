@@ -3,8 +3,7 @@
 		"name": "PORT",
 		"description": "The TCP port to listen to. Heroku platform set it.",
 		"default": 7000,
-		"required": false,
-		"easyconf_alias": "listening_port"
+		"required": false
 	},
 	{
 		"name": "MANDRILL_API_KEY",
@@ -15,7 +14,6 @@
 		"name": "NODE_ENV",
 		"description": "The server mode",
 		"default": "development",
-		"required": false,
-		"easyconf_alias": "env"
+		"required": false
 	}
 ]

@@ -1,91 +1,92 @@
 <div>
-	<fa-modifier fa-translate="[0,0,0]">
+	<fa-modifier fa-translate="[0,0,1.001]">
 		<fa-surface class="adventure-panel-background"></fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="dialog_position" fa-size="dialog_size">
+	<fa-modifier fa-translate="[0,0,2.002]">
 
-		<fa-surface class="adventure-panel-dialog">
-			<p i18n-content="{{click_message}}"
-			   i18n-values="click_gains"
-			   i18n-watch></p>
-		</fa-surface>
-
-	</fa-modifier>
-
-	<fa-modifier fa-translate="button_position" fa-size="button_size">
-		<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
-			<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect on click -->
-				<!-- note the touch + mouse versions, both are needed for mobile + desktop -->
-				<fa-surface class="adventure-panel-button clickable-area"
-				            ng-mousedown="mousedown('mousedown')"
-				            ng-mouseup="mouseup('mouseup')"
-				            fa-touchstart="mousedown('touchstart')"
-				            fa-touchend="mouseup('touchend')">
-					<p i18n-content="play_button_caption">Play!</p>
-				</fa-surface>
-			</fa-modifier>
-		</fa-modifier>
-	</fa-modifier>
-
-	<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, STATS_PANEL_HEIGHT]">
-
-		<!-- will fill all place with correct background -->
-		<fa-modifier fa-translate="[0,0,2]">
-			<fa-surface class="adventure-panel-stats-background"></fa-surface>
-		</fa-modifier>
-
-		<!-- smaller surface, for small screens -->
-		<fa-modifier fa-translate="[0,0,5]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
-			<fa-surface class="adventure-panel-stats container">
-
-				<div class="adventure-panel-stats-column col-xs-3">
-					<ul>
-						<li><span i18n-content="stats_health"></span>
-						<li><span i18n-content="stats_mana"></span>
-						<li><span i18n-content="stats_coin_count"></span>
-						<li><span i18n-content="stats_item_count"></span>
-						<li><span i18n-content="stats_token_count"></span>
-						<li><span i18n-content="stats_click_count"></span>
-					</ul>
-				</div>
-
-				<div class="adventure-panel-stats-column col-xs-3">
-					<ul>
-						<li><span>{{model.stats.health}}</span>
-						<li><span>{{model.stats.mana}}</span>
-						<li><span>{{model.currencies.coins}}</span>
-						<li><span>{{model.inventory.length}}</span>
-						<li><span>{{model.currencies.tokens}}</span>
-						<li><span>{{model.click_count}}</span>
-					</ul>
-				</div>
-
-				<div class="adventure-panel-stats-column col-xs-3">
-					<ul>
-						<li><span i18n-content="stats_level"></span>
-						<li><span i18n-content="stats_strength"></span>
-						<li><span i18n-content="stats_agility"></span>
-						<li><span i18n-content="stats_vitality"></span>
-						<li><span i18n-content="stats_wisdom"></span>
-						<li><span i18n-content="stats_luck"></span>
-					</ul>
-				</div>
-
-				<div class="adventure-panel-stats-column col-xs-3">
-					<ul>
-						<li><span>{{model.stats.level}}</span>
-						<li><span>{{model.stats.strength}}</span>
-						<li><span>{{model.stats.agility}}</span>
-						<li><span>{{model.stats.vitality}}</span>
-						<li><span>{{model.stats.wisdom}}</span>
-						<li><span>{{model.stats.luck}}</span>
-					</ul>
-				</div>
-
+		<fa-modifier fa-translate="dialog_position" fa-size="dialog_size">
+			<fa-surface class="adventure-panel-dialog">
+				<p i18n-content="{{click_message}}"
+				   i18n-values="click_gains"
+				   i18n-watch></p>
 			</fa-surface>
 		</fa-modifier>
 
+		<fa-modifier fa-translate="button_position" fa-size="button_size">
+			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
+				<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect on click -->
+					<!-- note the touch + mouse versions, both are needed for mobile + desktop -->
+					<fa-surface class="adventure-panel-button clickable-area"
+					            ng-mousedown="mousedown('mousedown')"
+					            ng-mouseup="mouseup('mouseup')"
+					            fa-touchstart="mousedown('touchstart')"
+					            fa-touchend="mouseup('touchend')">
+						<p i18n-content="play_button_caption">Play!</p>
+					</fa-surface>
+				</fa-modifier>
+			</fa-modifier>
+		</fa-modifier>
+
+		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, STATS_PANEL_HEIGHT]">
+
+			<!-- will fill all place with correct background -->
+			<fa-modifier fa-translate="[0,0,1.001]">
+				<fa-surface class="adventure-panel-stats-background"></fa-surface>
+			</fa-modifier>
+
+			<!-- smaller surface, for small screens -->
+			<fa-modifier fa-translate="[0,0,2.002]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
+				<fa-surface class="adventure-panel-stats container">
+
+					<div class="adventure-panel-stats-column col-xs-3">
+						<ul>
+							<li><span i18n-content="stats_health"></span>
+							<li><span i18n-content="stats_mana"></span>
+							<li><span i18n-content="stats_coin_count"></span>
+							<li><span i18n-content="stats_item_count"></span>
+							<li><span i18n-content="stats_token_count"></span>
+							<li><span i18n-content="stats_click_count"></span>
+						</ul>
+					</div>
+
+					<div class="adventure-panel-stats-column col-xs-3">
+						<ul>
+							<li><span>{{model.stats.health}}</span>
+							<li><span>{{model.stats.mana}}</span>
+							<li><span>{{model.currencies.coins}}</span>
+							<li><span>{{model.inventory.length}}</span>
+							<li><span>{{model.currencies.tokens}}</span>
+							<li><span>{{model.click_count}}</span>
+						</ul>
+					</div>
+
+					<div class="adventure-panel-stats-column col-xs-3">
+						<ul>
+							<li><span i18n-content="stats_level"></span>
+							<li><span i18n-content="stats_strength"></span>
+							<li><span i18n-content="stats_agility"></span>
+							<li><span i18n-content="stats_vitality"></span>
+							<li><span i18n-content="stats_wisdom"></span>
+							<li><span i18n-content="stats_luck"></span>
+						</ul>
+					</div>
+
+					<div class="adventure-panel-stats-column col-xs-3">
+						<ul>
+							<li><span>{{model.stats.level}}</span>
+							<li><span>{{model.stats.strength}}</span>
+							<li><span>{{model.stats.agility}}</span>
+							<li><span>{{model.stats.vitality}}</span>
+							<li><span>{{model.stats.wisdom}}</span>
+							<li><span>{{model.stats.luck}}</span>
+						</ul>
+					</div>
+
+				</fa-surface>
+			</fa-modifier>
+
+		</fa-modifier>
 	</fa-modifier>
 
 </div>

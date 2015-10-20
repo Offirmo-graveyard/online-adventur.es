@@ -1,23 +1,29 @@
 <div>
 
-	<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 60}">
+	<fa-modifier fa-translate="[0,0,1.001]">
+		<fa-surface class="app-background"></fa-surface>
+	</fa-modifier>
 
-		<!-- header -->
-		<fa-view>
-			<app-header></app-header>
-		</fa-view>
+	<fa-modifier fa-translate="[0,0,2.002]">
+		<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 60}">
 
-		<!-- content -->
-		<fa-view>
-			<app-content></app-content>
-		</fa-view>
+			<!-- header -->
+			<fa-view>
+				<app-header></app-header>
+			</fa-view>
 
-		<!-- footer -->
-		<fa-view>
-			<app-footer></app-footer>
-		</fa-view>
+			<!-- content -->
+			<fa-view>
+				<app-content></app-content>
+			</fa-view>
 
-	</fa-header-footer-layout>
+			<!-- footer -->
+			<fa-view>
+				<app-footer></app-footer>
+			</fa-view>
+
+		</fa-header-footer-layout>
+	</fa-modifier>
 
 </div>
 

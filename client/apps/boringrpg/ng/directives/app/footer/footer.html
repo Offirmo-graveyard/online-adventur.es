@@ -2,11 +2,11 @@
 
 	<!-- this surface which take all the space
 	     helps fill the small leaks which sometime happen between flexible layout elements -->
-	<fa-modifier fa-translate="[0,0,-1]">
+	<fa-modifier fa-translate="[0,0,1.001]">
 		<fa-surface class="app-footer-background"></fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="[0,0,1]">
+	<fa-modifier fa-translate="[0,0,2.002]">
 		<fa-flexible-layout fa-options="flexible_layout_options">
 
 			<fa-surface ng-repeat="panel in panels"

@@ -1,32 +1,35 @@
 <div>
 
-	<fa-modifier fa-translate="panels['adventure'].translation">
+	<fa-modifier fa-translate="panels.adventure.translation" fa-opacity="active_panel === 'adventure' ? 1 : 1">
 		<app-content-panel-adventure></app-content-panel-adventure>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels['inventory'].translation">
-		<app-content-panel-inventory></app-content-panel-inventory>
+	<fa-modifier fa-translate="panels.inventory.translation" fa-opacity="active_panel === 'inventory' ? 1 : 1">
+		<fa-surface class="app-content-background">
+			<br/>TODO inventory
+		</fa-surface>
+		<xxapp-content-panel-inventory></xxapp-content-panel-inventory>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels['knowledge'].translation">
+	<fa-modifier fa-translate="panels.knowledge.translation" fa-opacity="active_panel === 'knowledge' ? 1 : 1">
 		<fa-surface class="app-content-background">
 			<br/>TODO knowledge
 		</fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels['social'].translation">
+	<fa-modifier fa-translate="panels.social.translation" fa-opacity="active_panel === 'social' ? 1 : 1">
 		<fa-surface class="app-content-background">
 			<br/>TODO social
 		</fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels['achievements'].translation">
+	<fa-modifier fa-translate="panels.achievements.translation" fa-opacity="active_panel === 'achievements' ? 1 : 1">
 		<fa-surface class="app-content-background">
 			<br/>TODO achievements
 		</fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels['chat'].translation">
+	<fa-modifier fa-translate="panels.chat.translation" fa-opacity="active_panel === 'chat' ? 1 : 1">
 		<fa-surface class="app-content-background">
 			<br/>TODO chat
 		</fa-surface>

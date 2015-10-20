@@ -1,27 +1,29 @@
 <div>
 
-	<!-- this surface which take all the space
-	     helps fill the small leaks which sometime happen between elements -->
-	<fa-surface class="meta-background"></fa-surface>
+	<fa-modifier fa-translate="[0,0,1.001]">
+		<fa-surface class="meta-background"></fa-surface>
+	</fa-modifier>
 
-	<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 0}">
+	<fa-modifier fa-translate="[0,0,2.002]">
+		<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 0}">
 
-		<!-- header -->
-		<fa-view>
-			<meta-header></meta-header>
-		</fa-view>
+			<!-- header -->
+			<fa-view>
+				<meta-header></meta-header>
+			</fa-view>
 
-		<!-- content -->
-		<fa-view>
-			<meta-content></meta-content>
-		</fa-view>
+			<!-- content -->
+			<fa-view>
+				<meta-content></meta-content>
+			</fa-view>
 
-		<!-- footer -->
-		<fa-view>
-			<meta-footer></meta-footer>
-		</fa-view>
+			<!-- footer -->
+			<fa-view>
+				<meta-footer></meta-footer>
+			</fa-view>
 
-	</fa-header-footer-layout>
+		</fa-header-footer-layout>
+	</fa-modifier>
 
 </div>
 

@@ -1221,7 +1221,7 @@ function URL(address, location, parser) {
   // with a custom parser as function use that instead of the default build-in
   // parser.
   //
-  if (parser && url.query) url.query = parser(url.query);
+  if (parser) url.query = parser(url.query);
 
   //
   // We should not add port numbers if they are already the default port number
@@ -1322,12 +1322,8 @@ URL.prototype.toString = function toString(stringify) {
 
   result += url.pathname;
 
-  if (url.query) {
-    if ('object' === typeof url.query) query = stringify(url.query);
-    else query = url.query;
-
-    result += (query.charAt(0) === '?' ? '' : '?') + query;
-  }
+  query = 'object' === typeof url.query ? stringify(url.query) : url.query;
+  if (query) result += '?' !== query.charAt(0) ? '?'+ query : query;
 
   if (url.hash) result += url.hash;
 
@@ -2107,7 +2103,7 @@ Primus.prototype.initialise = function initialise(options) {
     // when the user goes online, it will attempt to reconnect freshly again.
     //
     primus.recovery.reset();
-  }
+  };
 
   /**
    * Handler for online notifications.
@@ -2123,7 +2119,7 @@ Primus.prototype.initialise = function initialise(options) {
     if (~primus.options.strategy.indexOf('online')) {
       primus.recovery.reconnect();
     }
-  }
+  };
 
   if (window.addEventListener) {
     window.addEventListener('offline', primus.offlineHandler, false);
@@ -2501,7 +2497,7 @@ Primus.prototype.end = function end(data) {
  */
 Primus.prototype.destroy = destroy('url timers options recovery socket transport transformers', {
   before: 'end',
-  after: ['removeAllListeners', function () {
+  after: ['removeAllListeners', function detach() {
     if (!this.NETWORK_EVENTS) return;
 
     if (window.addEventListener) {
@@ -2847,7 +2843,7 @@ Primus.prototype.decoder = function decoder(data, fn) {
 
   fn(err, data);
 };
-Primus.prototype.version = "4.0.0";
+Primus.prototype.version = "4.0.1";
 
 if (
      'undefined' !== typeof document
