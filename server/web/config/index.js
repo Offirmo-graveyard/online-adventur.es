@@ -3,9 +3,8 @@
 var simplyconfig = require('simplyconfig');
 
 // https://github.com/motdotla/dotenv
-//simplyconfig.dotenv.config({silent: true});
-//simplyconfig.dotenv.load();
-
+simplyconfig.dotenv.config({silent: true});
+simplyconfig.dotenv.load();
 
 var config = simplyconfig.create()
 

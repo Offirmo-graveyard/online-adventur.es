@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+
 	livereload: {
 		enabled: false
 	},
