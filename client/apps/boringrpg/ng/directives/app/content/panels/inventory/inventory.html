@@ -1,20 +1,21 @@
 <div>
 
-	<fa-modifier fa-translate="[0,0,0]">
+	<fa-modifier fa-translate="[0,0,1.001]">
 		<fa-surface class="inventory-panel-background">
 			Inventory
 		</fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="[0, 0, 10]">
+	<fa-modifier fa-translate="[0,0,2.002]">
 		<fa-scroll-view
 			fa-pipe-from="scrollEventHandler"
 			fa-tap="logEvent('view tap', $event)"
 			fa-click="logEvent('view click', $event)"
-			fa-options="{direction: 1}">
+			fa-options="{direction: 1}"
+			style="overflow: hidden;">
 			<fa-view ng-repeat="surf in surfs">
 				<fa-surface
-					fa-size="[100, 150]"
+					fa-size="[undefined, 20]"
 					fa-pipe-to="scrollSurfacesEventHandler"
 					fa-tap="logEvent('surf tap', $event)"
 					fa-click="logEvent('surf click', $event)">

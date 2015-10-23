@@ -15,7 +15,9 @@ var config = simplyconfig.create()
 	.add('./config.js', {pattern: 'env+local'})
 
 	// env vars
-	.add('../../../environmentalist.json');
+	.add({
+		listening_port: '%PORT%',
+	});
 
 module.exports = config.get(); // endpoint config : exports the raw data
 
