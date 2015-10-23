@@ -12,17 +12,10 @@ Our dir structure outlines a clear server/ client/ common/ :
   should NOT be in either client/ server/ or common/
 
 TODO
-https://tlk.io/online-adventures
 http://docs.phonegap.com/
 https://github.com/lipka/piecon
 
 https://hub.openshift.com/quickstarts/128-node-js-0-12
-
-Attention seekers pour le bouton play http://anicollection.github.io/
-
-
-icomoon
-
 
 
 function debug_observable(observable, name) {

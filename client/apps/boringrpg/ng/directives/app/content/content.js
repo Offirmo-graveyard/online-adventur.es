@@ -7,6 +7,7 @@ define([
 	'css!client/apps/boringrpg/ng/directives/app/content/content.css',
 	'boringrpg/ng/directives/app/content/panels/adventure/adventure',
 	'boringrpg/ng/directives/app/content/panels/inventory/inventory',
+	'boringrpg/ng/directives/app/content/panels/chat/chat',
 ],
 function(offirmo_app, _, Rx, state_tree, tpl) {
 	'use strict';
@@ -27,10 +28,10 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 					_.forEach(panels, function (panel, key) {
 						panels[key] = panel = panel || {};
 						if(key === active_panel) {
-							panel.translation = [0,0,10.001]; // we must set it to more the max that any panel may use
+							panel.translation = [0,0,0];
 						}
 						else {
-							panel.translation = [0,0,2.002];
+							panel.translation = [0,0,-100]; // combined with opacity, will not be seen
 						}
 					});
 					$scope.$evalAsync(function () {
@@ -44,10 +45,10 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 			link: function postLink($scope) {
 
 				// signal the loader to hide
-				if (window.offirmo_loader.stage < 2) {
+				/*if (window.offirmo_loader.stage < 2) {
 					window.offirmo_loader.change_stage(2);
 					window.onerror = window.offirmo_loader.display_unhandled_error; // reinstall
-				}
+				}*/
 
 				/*var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
 				function go_to_required_panel() {

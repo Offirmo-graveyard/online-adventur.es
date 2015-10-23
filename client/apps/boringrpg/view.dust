@@ -36,10 +36,8 @@
 	</div>
 
 	<!-- true app content -->
-	<div id="root" fa-app>
-		<div content-directive>
-
-		</div>
+	<div id="root" fa-app fa-perspective="10000">
+		<div content-directive></div>
 	</div>
 
 	{>"splash/js" /}

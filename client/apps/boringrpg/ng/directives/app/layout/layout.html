@@ -1,15 +1,15 @@
 <div>
 
-	<fa-modifier fa-translate="[0,0,1.001]">
-		<fa-surface class="app-background"></fa-surface>
-	</fa-modifier>
+	<fa-surface class="app-background"></fa-surface>
 
-	<fa-modifier fa-translate="[0,0,2.002]">
+	<fa-modifier fa-translate="[0,0,1.001]">
 		<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 60}">
 
 			<!-- header -->
 			<fa-view>
-				<app-header></app-header>
+				<fa-modifier fa-translate="[0,0,10]">
+					<app-header></app-header>
+				</fa-modifier>
 			</fa-view>
 
 			<!-- content -->
@@ -19,7 +19,9 @@
 
 			<!-- footer -->
 			<fa-view>
-				<app-footer></app-footer>
+				<fa-modifier fa-translate="[0,0,10]">
+					<app-footer></app-footer>
+				</fa-modifier>
 			</fa-view>
 
 		</fa-header-footer-layout>
