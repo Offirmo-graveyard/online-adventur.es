@@ -1,5 +1,6 @@
 <!-- browser adjustments -->
 
 <!-- http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android -->
+<!-- <link rel="manifest" href="client/app/jeudunombre/app-manifest.json"> -->
+<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
 <meta name="theme-color" content="{@formatMessage _key="tab_color"/}">
-

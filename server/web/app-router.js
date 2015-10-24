@@ -94,6 +94,8 @@ module.exports = function(app_radix, options) {
 		// path to the minified js
 		//minified_js: 'client/apps/' + app_radix + '/all_js.concat+min.js',
 		minified_js: 'client/apps-minified/' + app_radix + '/all_js.concat+min.js',
+
+		favicons_path: '/client/apps/boringrpg/assets/favicons'
 	}, options.template_data);
 
 	/////// routes ///////

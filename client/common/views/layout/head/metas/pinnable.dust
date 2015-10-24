@@ -3,9 +3,6 @@
 
 <!-- Android https://developer.chrome.com/multidevice/android/installtohomescreen -->
 <meta name="mobile-web-app-capable" content="yes">
-<!-- <link rel="manifest" href="client/app/jeudunombre/app-manifest.json"> -->
-<!-- https://developers.google.com/web/updates/2015/09/using-manifest-to-set-sitewide-theme-color -->
-<meta name="theme-color" content="#2196F3">
 
 
 <!-- iOS https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
@@ -17,5 +14,7 @@
 
 <!-- windows https://msdn.microsoft.com/library/dn255024%28v=vs.85%29.aspx -->
 <!-- http://www.buildmypinnedsite.com/en -->
+<!-- moved to head/head-favicons
 <meta name="msapplication-TileColor" content="#2b5797">
 <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+-->

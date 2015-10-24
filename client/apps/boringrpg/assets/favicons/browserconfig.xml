@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+  <msapplication>
+    <tile>
+      <square70x70logo src="client/apps/boringrpg/assets/icon/mstile-70x70.png?v=8jjykOexeE"/>
+      <square150x150logo src="client/apps/boringrpg/assets/icon/mstile-150x150.png?v=8jjykOexeE"/>
+      <square310x310logo src="client/apps/boringrpg/assets/icon/mstile-310x310.png?v=8jjykOexeE"/>
+      <wide310x150logo src="client/apps/boringrpg/assets/icon/mstile-310x150.png?v=8jjykOexeE"/>
+      <TileColor>#da532c</TileColor>
+    </tile>
+  </msapplication>
+</browserconfig>
