@@ -52,10 +52,6 @@ app.enable('strict routing'); // default false, TODO combine with https://github
 app.enable('case sensitive routing'); // default false
 app.disable('x-powered-by'); // default true
 
-// http://stackoverflow.com/questions/18811286/nodejs-express-cache-and-304-status-code
-app.disable('etag');
-
-
 // REM : app.locals includes settings
 //var prettyjson = require('prettyjson');
 //console.log('app.locals :\n', prettyjson.render(app.locals));
