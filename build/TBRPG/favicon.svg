@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="288"
@@ -25,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.33496094"
-     inkscape:cx="-641.92651"
-     inkscape:cy="520.5326"
+     inkscape:zoom="0.45335174"
+     inkscape:cx="-412.68665"
+     inkscape:cy="373.69457"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1147"
@@ -70,19 +69,20 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="base" />
+     inkscape:label="base"
+     style="display:inline" />
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="fond"
      style="display:none">
-    <image
-       y="-2055.9531"
-       x="-1315.3936"
-       id="image5579"
-       xlink:href="file:///D:/-%20CC%20bulk/ios7wall01.jpg"
-       height="3840.0466"
-       width="2052.4387" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect6306"
+       width="2820"
+       height="1740"
+       x="-1200"
+       y="-672" />
   </g>
   <g
      inkscape:label="icône"
@@ -97,61 +97,61 @@
        x="0"
        y="764.36218"
        inkscape:export-filename="D:\- CC bulk\favicon.png"
-       inkscape:export-xdpi="81.25"
-       inkscape:export-ydpi="81.25" />
+       inkscape:export-xdpi="162.50002"
+       inkscape:export-ydpi="162.50002" />
     <rect
        style="fill:#543d46;fill-opacity:1;stroke:none;display:inline"
        id="rect3411-0-9"
-       width="264"
-       height="264"
-       x="12"
-       y="776.36218"
-       inkscape:export-filename="D:\- CC bulk\favicon.png"
-       inkscape:export-xdpi="81.25"
-       inkscape:export-ydpi="81.25" />
+       width="240"
+       height="240"
+       x="24"
+       y="788.36218"
+       inkscape:export-filename="D:\- CC bulk\favicon-16x16.png"
+       inkscape:export-xdpi="6"
+       inkscape:export-ydpi="6" />
     <path
        style="fill:#ffebbc;fill-rule:evenodd;display:inline"
        inkscape:connector-curvature="0"
-       d="m 147.80804,901.17055 c -8.0932,2.35703 -16.06071,7.48421 -21.51906,14.83662 5.21637,12.79745 5.21637,15.29876 0,28.09597 5.92276,4.13146 11.98347,6.6155 18.07219,7.33958 -0.61346,-6.83005 -1.07935,-13.66103 0.3345,-20.49025 -4.05117,-0.39619 -6.94979,-1.60178 -11.00116,-3.70691 v -8.60797 c 10.66391,5.10207 18.3867,5.01686 29.3798,0 v 8.60855 c -3.97354,1.73591 -6.50735,2.98178 -10.48081,3.53158 1.07452,6.83133 1.03476,13.66639 0.4088,20.49819 5.54345,-0.87233 11.07134,-3.23637 16.50167,-7.17242 -4.26753,-12.79721 -4.26807,-15.29887 0,-28.09585 -5.0492,-7.48316 -14.10908,-12.45951 -21.69593,-14.83709 z m -38.53175,2.19571 c -7.7026,29.5006 -8.13191,57.53225 -8.14681,88.41638 -5.601587,-0.41066 -11.1741,-1.36797 -16.65833,-2.97103 v 7.62918 h 20.53516 c 2.5912,9.35801 1.92435,18.71651 -0.30796,28.07481 h 8.36373 c -2.13925,-9.3583 -2.449,-18.7168 -0.2592,-28.07481 h 20.48695 v -7.62942 c -5.49756,1.32035 -11.07715,2.28489 -16.67916,2.79466 0.0243,-30.70997 0.74213,-59.59983 -7.33405,-88.23954 z m 26.60179,54.07094 c 0,31.3325 7.58694,62.3449 35.72531,68.925 30.97644,-5.6202 35.76338,-37.50624 35.76338,-68.92523 h -71.48932 z"
+       d="m 143.13653,812.36218 c -12.41212,3.61486 -24.63148,11.47815 -33.00267,22.75416 8.00008,19.62679 8.00008,23.46292 0,43.08935 9.08343,6.3362 18.37843,10.14585 27.71639,11.25633 -0.94084,-10.47489 -1.65535,-20.95122 0.513,-31.42484 -6.21307,-0.60762 -10.65853,-2.45657 -16.87191,-5.6851 v -13.2016 c 16.35469,7.82478 28.19873,7.6941 45.05829,0 v 13.20249 c -6.09402,2.66228 -9.97999,4.57301 -16.07388,5.41621 1.64793,10.47685 1.58696,20.95944 0.62695,31.43702 8.50171,-1.33785 16.97955,-4.96346 25.30777,-10.99998 -6.5449,-19.62642 -6.54572,-23.46309 0,-43.08916 -7.7437,-11.47654 -21.63837,-19.10851 -33.27394,-22.75488 z m -59.094162,3.36745 C 72.229287,860.97318 71.570876,903.96388 71.548025,951.32929 62.957159,950.69948 54.410882,949.2313 46,946.77277 v 11.70048 h 31.49372 c 3.97399,14.3519 2.951276,28.70455 -0.472303,43.05685 H 89.84844 C 86.567582,987.1778 86.092535,972.82515 89.450918,958.47325 H 120.87071 V 946.7724 c -8.43133,2.02495 -16.98846,3.50422 -25.57998,4.28603 0.0373,-47.0983 1.13817,-91.4052 -11.247855,-135.32845 z m 40.797802,82.92582 c 0,48.05304 11.6357,95.61517 54.79007,105.70675 47.50697,-8.61943 54.84846,-57.52141 54.84846,-105.7071 H 124.83921 z"
        id="path4856"
+       inkscape:export-filename="D:\- CC bulk\favicon-16x16.png"
+       inkscape:export-xdpi="6"
+       inkscape:export-ydpi="6" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="prototypes"
+     style="display:none">
+    <rect
+       transform="translate(0,-764.36218)"
+       style="fill:#543d46;fill-opacity:1;stroke:none;display:inline"
+       id="rect3411-0-9-6"
+       width="240"
+       height="240"
+       x="336"
+       y="788.36218"
        inkscape:export-filename="D:\- CC bulk\favicon.png"
-       inkscape:export-xdpi="81.25"
-       inkscape:export-ydpi="81.25" />
-    <flowRoot
-       transform="matrix(0.54325205,0,0,0.54325205,1202.8619,1518.9786)"
-       xml:space="preserve"
-       id="flowRoot4251-8-2"
-       style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffebbc;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
+       inkscape:export-xdpi="162.50002"
+       inkscape:export-ydpi="162.50002" />
+    <path
+       transform="translate(0,-764.36218)"
+       inkscape:connector-curvature="0"
+       d="m 455.0852,800.36218 c -31.24807,10.1275 -62.01055,32.15871 -83.0852,63.74888 20.1402,54.98604 20.1402,65.73258 0,120.71743 22.8678,17.75121 46.26741,28.42261 69.77578,31.53371 -2.36829,-29.34588 -4.16717,-58.69348 1.29148,-88.0359 -15.64125,-1.70246 -26.83293,-6.8833 -42.47533,-15.92825 l 0,-36.98655 c 41.17352,21.92187 70.99063,21.55566 113.43497,0 l 0,36.98655 c -15.34163,7.45844 -25.12474,12.81234 -40.46637,15.17489 4.14881,29.3516 3.99498,58.71785 1.57848,88.07176 21.40297,-3.7482 42.74626,-13.9041 63.713,-30.81621 -16.47699,-54.98485 -16.47928,-65.73369 0,-120.71743 -19.49503,-32.15268 -54.47376,-53.53299 -83.76681,-63.74888 z"
+       id="path6"
+       style="fill:#ffebbc;fill-opacity:1" />
+    <rect
+       transform="translate(0,-764.36218)"
+       style="fill:#543d46;fill-opacity:1;stroke:none;display:inline"
+       id="rect3411-0-9-6-7"
+       width="240"
+       height="240"
+       x="600"
+       y="788.36218"
        inkscape:export-filename="D:\- CC bulk\favicon.png"
-       inkscape:export-xdpi="81.25"
-       inkscape:export-ydpi="81.25"><flowRegion
-         id="flowRegion4253-8-5"><rect
-           id="rect4255-2-4"
-           width="530.14166"
-           height="90.614967"
-           x="-2214.1885"
-           y="-1338.1925"
-           style="fill:#ffebbc;fill-opacity:1;stroke:none" /></flowRegion><flowPara
-         style="font-size:88.35677338px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffebbc;fill-opacity:1;stroke:none;font-family:PixAntiqua;-inkscape-font-specification:PixAntiqua"
-         id="flowPara4259-5-4"><flowSpan
-   style="text-align:center;text-anchor:middle"
-   id="flowSpan6270">The </flowSpan>Boring</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.54325205,0,0,0.54325205,1294.4625,1576.8857)"
-       xml:space="preserve"
-       id="flowRoot4251-8-6-1"
-       style="font-size:40px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffebbc;fill-opacity:1;stroke:none;display:inline;font-family:Sans"
-       inkscape:export-filename="D:\- CC bulk\favicon.png"
-       inkscape:export-xdpi="81.25"
-       inkscape:export-ydpi="81.25"><flowRegion
-         id="flowRegion4253-8-6-6"><rect
-           id="rect4255-2-5-1"
-           width="530.14081"
-           height="146.17262"
-           x="-2382.8027"
-           y="-1354.679"
-           style="text-align:center;text-anchor:middle;fill:#ffebbc;fill-opacity:1;stroke:none" /></flowRegion><flowPara
-         style="font-size:133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#ffebbc;fill-opacity:1;stroke:none;font-family:PixAntiqua;-inkscape-font-specification:PixAntiqua"
-         id="flowPara4259-5-8-6">RPG</flowPara></flowRoot>  </g>
+       inkscape:export-xdpi="162.50002"
+       inkscape:export-ydpi="162.50002" />
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
@@ -186,7 +186,7 @@
        x="-958.30823"
        y="51.80278" />
     <flowRoot
-       transform="matrix(0.54325205,0,0,0.54325205,1988.9691,686.94982)"
+       transform="matrix(0.54325205,0,0,0.54325205,2091.9113,-85.117051)"
        xml:space="preserve"
        id="flowRoot4251-8"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffebbc;fill-opacity:1;stroke:none;display:inline;font-family:Sans"><flowRegion
@@ -199,7 +199,7 @@
            style="fill:#ffebbc;fill-opacity:1;stroke:none" /></flowRegion><flowPara
          style="font-size:133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffebbc;fill-opacity:1;stroke:none;font-family:PixAntiqua;-inkscape-font-specification:PixAntiqua"
          id="flowPara4259-5">The Boring</flowPara></flowRoot>    <flowRoot
-       transform="matrix(0.54325205,0,0,0.54325205,1999.8641,795.93042)"
+       transform="matrix(0.54325205,0,0,0.54325205,2176.1137,28.542742)"
        xml:space="preserve"
        id="flowRoot4251-8-6"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffebbc;fill-opacity:1;stroke:none;display:inline;font-family:Sans"><flowRegion
@@ -211,5 +211,20 @@
            y="-1338.1925"
            style="fill:#ffebbc;fill-opacity:1;stroke:none" /></flowRegion><flowPara
          style="font-size:133px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffebbc;fill-opacity:1;stroke:none;font-family:PixAntiqua;-inkscape-font-specification:PixAntiqua"
-         id="flowPara4259-5-8">RPG</flowPara></flowRoot>  </g>
+         id="flowPara4259-5-8">RPG</flowPara></flowRoot>    <path
+       inkscape:connector-curvature="0"
+       d="m 1259.5625,-312 c 0,117.27 25.5182,233.34075 120.1562,257.96875 C 1483.9017,-75.06625 1500,-194.406 1500,-312 l -240.4375,0 z"
+       id="path6-7"
+       style="fill:#ffebbc;fill-opacity:1" />
+    <path
+       inkscape:connector-curvature="0"
+       d="m 923.0852,-408.00002 c -31.24807,10.1275 -62.01055,32.1587 -83.0852,63.7489 20.1402,54.986 20.1402,65.7325 0,120.7174 22.8678,17.75122 46.26741,28.42262 69.77578,31.53372 -2.36829,-29.34592 -4.16717,-58.69352 1.29148,-88.03592 -15.64125,-1.7025 -26.83293,-6.8833 -42.47533,-15.9283 l 0,-36.9865 c 41.17352,21.9219 70.99063,21.5557 113.43497,0 l 0,36.9865 c -15.34163,7.4585 -25.12474,12.8124 -40.46637,15.1749 4.14881,29.3516 3.99498,58.7179 1.57848,88.07182 21.40297,-3.7482 42.74626,-13.9041 63.71299,-30.81622 -16.47698,-54.9849 -16.47927,-65.7337 0,-120.7174 -19.49502,-32.1527 -54.47375,-53.533 -83.7668,-63.7489 z"
+       id="path6-6"
+       style="fill:#ffebbc;fill-opacity:1" />
+    <path
+       style="fill:#ffebbc;fill-rule:evenodd;display:inline"
+       d="m 674.21578,-478.12371 c -21.90235,83.885 -23.13357,163.58207 -23.17595,251.40118 -15.92812,-1.1677 -31.74248,-3.90098 -47.33689,-8.45923 l 0,21.72746 58.34546,0 c 7.36809,26.60952 5.47849,53.17297 -0.86909,79.78323 l 23.81329,0 c -6.08296,-26.61026 -6.97993,-53.17371 -0.75322,-79.78323 l 58.28753,0 0,-21.72746 c -15.63233,3.75451 -31.52343,6.48825 -47.45277,7.93777 0.0692,-87.32379 2.10629,-169.44266 -20.85836,-250.87972 z"
+       id="path4856-7"
+       inkscape:connector-curvature="0" />
+  </g>
 </svg>

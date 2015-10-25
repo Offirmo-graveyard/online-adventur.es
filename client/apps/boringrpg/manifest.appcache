@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-#version 0.0.24
+#version 0.0.25
 
 CACHE:
 
@@ -11,15 +11,16 @@ CACHE:
 
 
 #style sheets
-
+## REM : style sheets are all embedded in minified bundle (below)
 
 #style sheet images
 
 
 #javascript files
-#/client/apps/boringrpg/all_js.concat+min.js
+## REM : all js is bundled
 /client/apps-minified/boringrpg/all_js.concat+min.js
-# manual add : dynamically loadable i18n
+##conditionally, dynamically loadable js
+## i18n :
 /client/apps/boringrpg/i18n/nls/root/messages.js
 /client/apps/boringrpg/i18n/nls/en/messages.js
 /client/apps/boringrpg/i18n/nls/fr/messages.js
@@ -31,34 +32,36 @@ CACHE:
 
 
 ## special files, conditional loading depending on platform
-/android-chrome-144x144.png
-/android-chrome-192x192.png
-/android-chrome-36x36.png
-/android-chrome-48x48.png
-/android-chrome-72x72.png
-/android-chrome-96x96.png
-/apple-touch-icon-114x114.png
-/apple-touch-icon-120x120.png
-/apple-touch-icon-144x144.png
-/apple-touch-icon-152x152.png
-/apple-touch-icon-180x180.png
-/apple-touch-icon-57x57.png
-/apple-touch-icon-60x60.png
-/apple-touch-icon-72x72.png
-/apple-touch-icon-76x76.png
-/apple-touch-icon.png
-/apple-touch-icon-precomposed.png
-/browserconfig.xml
-/favicon-16x16.png
-/favicon-32x32.png
-/favicon-96x96.png
-/favicon.ico
-/manifest.json
-/mstile-144x144.png
-/mstile-150x150.png
-/mstile-310x150.png
-/mstile-310x310.png
-/mstile-70x70.png
+/client/apps/boringrpg/assets/favicons/android-chrome-36x36.png
+/client/apps/boringrpg/assets/favicons/android-chrome-48x48.png
+/client/apps/boringrpg/assets/favicons/android-chrome-72x72.png
+/client/apps/boringrpg/assets/favicons/android-chrome-96x96.png
+/client/apps/boringrpg/assets/favicons/android-chrome-144x144.png
+/client/apps/boringrpg/assets/favicons/android-chrome-192x192.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-57x57.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-60x60.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-72x72.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-76x76.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-114x114.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-120x120.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-144x144.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-152x152.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-180x180.png
+/client/apps/boringrpg/assets/favicons/apple-touch-icon-precomposed.png
+/client/apps/boringrpg/assets/favicons/browserconfig.xml
+/client/apps/boringrpg/assets/favicons/favicon.ico
+/client/apps/boringrpg/assets/favicons/favicon-16x16.png
+/client/apps/boringrpg/assets/favicons/favicon-32x32.png
+/client/apps/boringrpg/assets/favicons/favicon-96x96.png
+/client/apps/boringrpg/assets/favicons/favicon-194x194.png
+/client/apps/boringrpg/assets/favicons/manifest.json
+/client/apps/boringrpg/assets/favicons/mstile-70x70.png
+/client/apps/boringrpg/assets/favicons/mstile-144x144.png
+/client/apps/boringrpg/assets/favicons/mstile-150x150.png
+/client/apps/boringrpg/assets/favicons/mstile-310x150.png
+/client/apps/boringrpg/assets/favicons/mstile-310x310.png
+/client/apps/boringrpg/assets/favicons/safari-pinned-tab.svg
 
 # online whitelist
 # it isn't cached, and references to this file will bypass the cache,

@@ -100,9 +100,16 @@ module.exports = function(app_radix, options) {
 
 	/////// routes ///////
 
+	function no_cache(req, res, next) {
+		res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+		res.header('Expires', '-1');
+		res.header('Pragma', 'no-cache');
+		next();
+	}
+
 	// production route : appcache, js concatenated and minified
 	//console.log('* SPA ' + app_radix + ' : registering route ' + default_route);
-	router.get(default_route, function serve_production(req, res) {
+	router.get(default_route, no_cache, function serve_production(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: true,
 			jsminification_enabled: true,
@@ -118,7 +125,7 @@ module.exports = function(app_radix, options) {
 	// nearly-production route without appcache (to build or debug the appcache)
 	var nearly_prod_route = default_route + '-minified-no-appcache';
 	//console.log('* SPA ' + app_radix + ' : registering route ' + nearly_prod_route);
-	router.get(nearly_prod_route, function serve_production_without_appcache(req, res) {
+	router.get(nearly_prod_route, no_cache, function serve_production_without_appcache(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: false, //<<<
 			jsminification_enabled: true,
@@ -133,7 +140,7 @@ module.exports = function(app_radix, options) {
 	// dev route
 	var dev_route = default_route + '-dev';
 	//console.log('* SPA ' + app_radix + ' : registering route ' + dev_route);
-	router.get(dev_route, function serve_dev(req, res) {
+	router.get(dev_route, no_cache, function serve_dev(req, res) {
 		var template_data = _.defaults({
 			appcache_enabled: false, //<<<
 			jsminification_enabled: false, //<<<
@@ -150,7 +157,7 @@ module.exports = function(app_radix, options) {
 	if(options.custom_route) {
 		// production route alias
 		//console.log('* SPA ' + app_radix + ' : registering custom route ' + options.custom_route);
-		router.get(options.custom_route, function serve_production(req, res) {
+		router.get(options.custom_route, no_cache, function serve_production(req, res) {
 			var template_data = _.defaults({
 				appcache_enabled: true,
 				jsminification_enabled: true,

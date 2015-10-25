@@ -19,11 +19,6 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 				controller: ['$scope', function($scope) {
 				}],
 				link: function postLink($scope) {
-					//<script async src="http://tlk.io/embed.js" type="text/javascript"></script>
-					console.log('loading chat...');
-					require(['http://tlk.io/embed.js'], function () {
-						console.log('chat loaded.');
-					});
 				}
 			};
 		}
