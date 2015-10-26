@@ -1,12 +1,16 @@
 .meta-content {
 	background: #292830;
 	font-family: Helvetica Neue, Helvetica, Arial, 'sans-serif';
+	text-align: center;
+	margin: auto;
 }
 
 .meta-content-container {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 
+	/* override default ol style */
 	list-style-type: none;
 	padding: 0;
 }
