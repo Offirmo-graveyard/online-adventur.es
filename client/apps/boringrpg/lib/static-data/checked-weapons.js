@@ -18,7 +18,7 @@ function(_, i18n_messages, weapon) {
 	_.forOwn(weapon.primary_qualifiers, function (value, key) {
 		_.defaultsDeep(value, {
 			id: key,
-			msg_key: 'weapon_qualif_1_' + key,
+			msg_key: 'weaponqualif1_' + key,
 			affinities: {}
 		});
 	});
@@ -26,7 +26,7 @@ function(_, i18n_messages, weapon) {
 	_.forOwn(weapon.secondary_qualifiers, function (value, key) {
 		_.defaultsDeep(value, {
 			id: key,
-			msg_key: 'weapon_qualif_2_' + key,
+			msg_key: 'weaponqualif2_' + key,
 			affinities: {}
 		});
 	});

@@ -4,10 +4,11 @@ define([
 	'rx',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
+	'boringrpg/lib/weapon-generator',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.css'
 ],
-function(offirmo_app, _, Rx, state_tree, model, tpl) {
+function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelInventory', [
@@ -33,8 +34,11 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					var maxSurfs = 30;
 					$scope.surfs = [];
 					for(var i=0; i < maxSurfs; i++) {
+						var weapon = weapon_generator.generate();
+						console.log(weapon);
 						$scope.surfs.push({
-							content: 'view #' + (i + 1)
+							content: 'view #' + (i + 1),
+							weapon: weapon_generator.generate()
 						});
 					}
 
@@ -44,8 +48,16 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 
 					//console.log($scope.surfs);
 				}],
-				link: function postLink($scope) {
-
+				link: function postLink($scope, $element) {
+					setTimeout(function () {
+						// size our scrollview
+						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent();
+						console.log('XXX', temp);
+						temp.css('overflow', 'hidden');
+						temp.css('width', '100%');
+						temp.css('height', '200');
+						//debugger;
+					}, 100);
 				}
 			};
 		}

@@ -11,14 +11,14 @@ function(_, random, weapon_data) {
 	var qualif1_count = weapon_data.primary_qualifiers.length;
 	var qualif2_count = weapon_data.secondary_qualifiers.length;
 	function generate() {
-		var type = weapon_data.types[random.getRandomIndex(type_count)];
-		var qualif1 = weapon_data.primary_qualifiers[random.getRandomIndex(qualif1_count)];
-		var qualif2 = weapon_data.secondary_qualifiers[random.getRandomIndex(qualif2_count)];
-
-		console.log(type, qualif1, qualif2);
+		return {
+			type: weapon_data.types[random.getRandomIndex(type_count)],
+			qualif1: weapon_data.primary_qualifiers[random.getRandomIndex(qualif1_count)],
+			qualif2: weapon_data.secondary_qualifiers[random.getRandomIndex(qualif2_count)]
+		};
 	}
 
-	generate();
-	generate();
-	generate();
+	return {
+		generate: generate
+	};
 });

@@ -44,6 +44,8 @@ define({
 	meta_refresh: 'Restart app',
 	meta_report_bugs: 'Report a bug',
 
+	inventory_widget_title: 'Inventory',
+
 	stats_level: 'Level',
 	stats_health: 'Health',
 	stats_mana: 'Mana',
@@ -191,6 +193,20 @@ define({
 	weaponqualif2_warrior: 'warrior’s',
 	weaponqualif2_wise: 'of the wise',
 	weaponqualif2_woodsman: 'woodsman’s',
+
+	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
+		var parts = libs.format_multiple([
+			weapon.qualif2.msg_key,
+			weapon.qualif1.msg_key,
+			weapon.type.msg_key
+		], {});
+
+		if (libs._s.startsWith(parts[0], 'of')) {
+			var q2 = parts.shift();
+			parts.push(q2);
+		}
+		return libs._s.words(parts.join(' ')).map(libs._s.capitalize).join(' ');
+	},
 
 	no_clickmsg:
 		'You’re eager to start adventuring!',

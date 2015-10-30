@@ -94,8 +94,8 @@ function(_, _s, i18n_data, format_icu_message) {
 					var exposed = {
 						_: _,
 						_s: _s,
-						format: _.partialRight(format, values, intl, debug.id),
-						format_multiple: _.partialRight(format_multiple, values, intl, debug.id),
+						format: _.partialRight(format, intl, debug.id),
+						format_multiple: _.partialRight(format_multiple_keys, intl, debug.id),
 					};
 
 					formatted_msg = build_message(values, intl, exposed);

@@ -44,6 +44,8 @@ define({
 	meta_refresh: 'relancer l’appli',
 	meta_report_bugs: 'Signaler un bug',
 
+	inventory_widget_title: 'Inventaire',
+
 	stats_level: 'Niveau',
 	stats_health: 'Santé',
 	stats_mana: ' Mana',
@@ -191,6 +193,18 @@ define({
 	weaponqualif2_warrior: 'de guerrier',
 	weaponqualif2_wise: 'de sage',
 	weaponqualif2_woodsman: 'de forestier',
+
+	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
+		var weapon_gender = libs.format('weapongender_' + weapon.type.id, {});
+
+		var parts = libs.format_multiple([
+			weapon.type.msg_key,
+			weapon.qualif1.msg_key,
+			weapon.qualif2.msg_key
+		], {gender: weapon_gender});
+
+		return parts.join(' ');
+	},
 
 	no_clickmsg:
 		'Vous avez hâte de partir à l’aventure !',

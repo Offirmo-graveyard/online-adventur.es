@@ -2,7 +2,7 @@
 
 var path = require('path');
 var _ = require('lodash');
-var lib = require('./format-key');
+var format = require('./format-key');
 
 
 describe('format-key', function () {
@@ -31,7 +31,7 @@ describe('format-key', function () {
 					values.weapon_key,
 					values.weapon_qualif_1_key,
 					values.weapon_qualif_2_key,
-				]);
+				], values);
 
 				return parts.join(' ');
 			},
@@ -56,7 +56,7 @@ describe('format-key', function () {
 					values.weapon_qualif_2_key,
 					values.weapon_qualif_1_key,
 					values.weapon_key,
-				])
+				], values)
 				.map(libs._s.capitalize);
 
 				return parts.join(' ');
@@ -86,39 +86,39 @@ describe('format-key', function () {
 	};
 
 	it('should expose a function', function () {
-		expect(lib.format).to.be.a('function');
+		expect(format).to.be.a('function');
 	});
 
-	describe.only('format()', function () {
+	describe('format() with a single key', function () {
 
 		context('when passed correct parameters', function () {
 			it('should format correctly for fr', function () {
 				_.forEach(expected_fr, function (value, key) {
-					var res = lib.format(key, values, intl_fr, 'test fr');
+					var res = format(key, values, intl_fr, 'test fr');
 					expect(res, 'test ' + key + '@fr').to.equal(value);
 				});
 			});
 
 			it('should format correctly for en', function () {
 				_.forEach(expected_en, function (value, key) {
-					var res = lib.format(key, values, intl_en, 'test en');
+					var res = format(key, values, intl_en, 'test en');
 					expect(res, 'test ' + key + '@en').to.equal(value);
 				});
 			});
 		});
 
 		context('when passed incorrect parameters', function () {
-
+			it('should handle it');
 		});
 
 	});
 
-	describe('format_multiple()', function () {
+	describe('format() with multiple keys', function () {
 
 		context('when passed correct parameters', function () {
 
 			it('should format correctly for fr', function () {
-				var res = lib.format_multiple(
+				var res = format(
 					['weapon_sword', 'weaponqualif1_sinister', 'weaponqualif2_apprentice'],
 					values, intl_fr, 'test fr'
 				);
@@ -127,7 +127,7 @@ describe('format-key', function () {
 			});
 
 			it('should format correctly for en', function () {
-				var res = lib.format_multiple(
+				var res = format(
 					['weapon_sword', 'weaponqualif1_sinister', 'weaponqualif2_apprentice'],
 					values, intl_en, 'test en'
 				);
@@ -137,7 +137,7 @@ describe('format-key', function () {
 		});
 
 		context('when passed incorrect parameters', function () {
-
+			it('should handle it');
 		});
 
 	});
