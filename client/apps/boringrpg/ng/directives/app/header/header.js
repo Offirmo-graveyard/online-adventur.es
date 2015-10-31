@@ -21,6 +21,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 				var panels = view_static_data.panels;
 
 				$scope.request_meta = function(event) {
+					console.info('request_meta !');
 					layout_state_cursor.set('state', 'meta');
 				};
 

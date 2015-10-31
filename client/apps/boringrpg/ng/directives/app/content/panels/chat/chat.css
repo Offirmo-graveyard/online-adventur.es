@@ -1,3 +1,9 @@
 .chat-panel-background {
-	background: #543d46;
+	background: #5da7ae;
+}
+
+.chat-panel-foreground {
+	text-align: center;
+	line-height: 300px;
+	color: #292830;
 }

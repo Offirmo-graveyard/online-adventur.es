@@ -1,3 +1,9 @@
 .knowledge-panel-background {
-	background: #543d46;
+	background: #ffebbc;
+}
+
+.knowledge-panel-foreground {
+	color: #292830;
+	text-align: center;
+	line-height: 300px;
 }

@@ -12,7 +12,7 @@ function(offirmo_app, _, Rx, $, state_tree) {
 	.service('screenSizeDetector', ['$rootScope', function ($rootScope) {
 		console.log('installing screenSizeDetector...');
 
-		var view_cursor = state_tree.select('view');
+		var screen_size_cursor = state_tree.select('view', 'screen', 'size');
 
 		var observable_screen_size = Rx.Observable.create(function(observer) {
 			// http://stackoverflow.com/questions/2996431/detect-when-a-window-is-resized-using-javascript
@@ -32,7 +32,7 @@ function(offirmo_app, _, Rx, $, state_tree) {
 		.distinctUntilChanged()
 		.subscribe(function(new_screen_size) {
 			console.log('new screen size detected :', new_screen_size);
-			view_cursor.set('screen_size', new_screen_size);
+				screen_size_cursor.set(new_screen_size);
 			// not pretty but will do for now :
 			// try to help famo.us to correctly repaint the screen
 			//$rootScope.$evalAsync();

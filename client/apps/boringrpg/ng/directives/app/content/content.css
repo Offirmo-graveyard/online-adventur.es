@@ -1,3 +1,10 @@
 .app-content-background {
 	background: #292830;
 }
+
+.content-when-unstable-ui {
+	background: #543d46;
+}
+.content-when-unstable-ui p {
+	texte-align: center;
+}

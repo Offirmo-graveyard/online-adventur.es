@@ -1,27 +1,55 @@
 <div>
 
-	<fa-modifier fa-translate="panels.adventure.translation" fa-opacity="active_panel === 'adventure' ? 0.999999 : 0">
-		<app-content-panel-adventure></app-content-panel-adventure>
+	<fa-modifier fa-opacity="is_ui_stable ? 0 : 0.999999">
+		<fa-surface class="content-when-unstable-ui">
+			<div style="width: 100%; position: absolute; top: 33%;">
+				<p style="font-size: 35px;">The Boring RPG</p>
+				<p style="font-size: 20px;">reloaded.</p>
+			</div>
+		</fa-surface>
 	</fa-modifier>
 
-	<fa-modifier fa-translate="panels.inventory.translation" fa-opacity="active_panel === 'inventory' ? 0.999999 : 0">
-		<app-content-panel-inventory></app-content-panel-inventory>
-	</fa-modifier>
+	<fa-modifier fa-opacity="is_ui_stable ? 0.999999 : 0">
 
-	<fa-modifier fa-translate="panels.knowledge.translation" fa-opacity="active_panel === 'knowledge' ? 0.999999 : 0">
-		<app-content-panel-knowledge></app-content-panel-knowledge>
-	</fa-modifier>
+		<fa-modifier fa-translate="global_translation_able.get()">
 
-	<fa-modifier fa-translate="panels.social.translation" fa-opacity="active_panel === 'social' ? 0.999999 : 0">
-		<app-content-panel-social></app-content-panel-social>
-	</fa-modifier>
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.adventure"
+			             fa-opacity="opacities.adventure">
+				<app-content-panel-adventure></app-content-panel-adventure>
+			</fa-modifier>
 
-	<fa-modifier fa-translate="panels.achievements.translation" fa-opacity="active_panel === 'achievements' ? 0.999999 : 0">
-		<app-content-panel-achievements></app-content-panel-achievements>
-	</fa-modifier>
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.inventory"
+			             fa-opacity="opacities.inventory">
+				<app-content-panel-inventory></app-content-panel-inventory>
+			</fa-modifier>
 
-	<fa-modifier fa-translate="panels.chat.translation" fa-opacity="active_panel === 'chat' ? 0.999999 : 0">
-		<app-content-panel-chat></app-content-panel-chat>
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.knowledge"
+			             fa-opacity="opacities.knowledge">
+				<app-content-panel-knowledge></app-content-panel-knowledge>
+			</fa-modifier>
+
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.social"
+			             fa-opacity="opacities.social">
+				<app-content-panel-social></app-content-panel-social>
+			</fa-modifier>
+
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.achievements"
+			             fa-opacity="opacities.achievements">
+				<app-content-panel-achievements></app-content-panel-achievements>
+			</fa-modifier>
+
+			<fa-modifier fa-size="[screen_width, undefined]"
+			             fa-translate="translations.chat"
+			             fa-opacity="opacities.chat">
+				<app-content-panel-chat></app-content-panel-chat>
+			</fa-modifier>
+		</fa-modifier>
+
 	</fa-modifier>
 
 </div>

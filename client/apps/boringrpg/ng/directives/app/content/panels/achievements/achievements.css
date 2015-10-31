@@ -1,3 +1,8 @@
 .achievements-panel-background {
 	background: #543d46;
 }
+
+.achievements-panel-foreground {
+	text-align: center;
+	line-height: 300px;
+}

@@ -1,3 +1,8 @@
 .social-panel-background {
 	background: #543d46;
 }
+
+.social-panel-foreground {
+	text-align: center;
+	line-height: 300px;
+}

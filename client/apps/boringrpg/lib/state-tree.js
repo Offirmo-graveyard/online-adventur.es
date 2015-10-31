@@ -21,7 +21,11 @@ function(_, Baobab, Rx, config) {
 			                             // May not be followed if requested locale can't be loaded
 			locale: undefined, // actual locale
 			fullscreen: undefined,
-			screen_size: [0, 0],
+			screen: {
+				stable: true,
+				//stable: false,
+				size: [0, 0],
+			},
 			// global layout
 			layout: {
 				STATES: ['loader', 'app', 'meta'],

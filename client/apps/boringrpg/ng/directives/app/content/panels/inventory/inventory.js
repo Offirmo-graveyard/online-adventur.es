@@ -52,11 +52,9 @@ function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 					setTimeout(function () {
 						// size our scrollview
 						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent();
-						console.log('XXX', temp);
 						temp.css('overflow', 'hidden');
 						temp.css('width', '100%');
 						temp.css('height', '200');
-						//debugger;
 					}, 100);
 				}
 			};

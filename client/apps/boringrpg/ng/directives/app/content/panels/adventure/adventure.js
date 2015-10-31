@@ -88,7 +88,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					var background_isolate = $famous.find('fa-surface.adventure-panel-background')[0];
 
 					// dynamic sizing
-					var screen_size_cursor = state_tree.select('view', 'screen_size');
+					var screen_size_cursor = state_tree.select('view', 'screen', 'size');
 
 					function on_screen_size_update() {
 						// get the size of our element

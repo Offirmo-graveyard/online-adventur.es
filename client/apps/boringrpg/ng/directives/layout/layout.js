@@ -62,7 +62,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 							go_to_app();
 							break;
 						default:
-							console.error('???');
+							console.error('on_state_change ???');
 							break;
 					}
 				}

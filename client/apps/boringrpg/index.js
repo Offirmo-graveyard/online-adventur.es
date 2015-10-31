@@ -10,7 +10,10 @@ define([
 	'angular',
 	'famous-angular',
 	'bootstrap',
-	'boringrpg/lib/update-watcher',
+	'boringrpg/lib/state-tree',
+	'boringrpg/lib/locale-detector',
+	'boringrpg/lib/update-detector',
+	'boringrpg/lib/screen-size-detector',
 	// base css
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'css!client/apps/boringrpg/index.css',
@@ -19,9 +22,6 @@ define([
 	// preload some commonly used angular modules
 	//'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
-	'boringrpg/lib/state-tree',
-	'boringrpg/lib/locale-detector',
-	'boringrpg/ng/services/screen-size-detector',
 	'boringrpg/ng/services/screenfull-detector',
 ],
 function(offirmo_app, _, Carnet) {
