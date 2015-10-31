@@ -7,6 +7,9 @@ define([
 	'css!client/apps/boringrpg/ng/directives/app/content/content.css',
 	'boringrpg/ng/directives/app/content/panels/adventure/adventure',
 	'boringrpg/ng/directives/app/content/panels/inventory/inventory',
+	'boringrpg/ng/directives/app/content/panels/knowledge/knowledge',
+	'boringrpg/ng/directives/app/content/panels/social/social',
+	'boringrpg/ng/directives/app/content/panels/achievements/achievements',
 	'boringrpg/ng/directives/app/content/panels/chat/chat',
 ],
 function(offirmo_app, _, Rx, state_tree, tpl) {
