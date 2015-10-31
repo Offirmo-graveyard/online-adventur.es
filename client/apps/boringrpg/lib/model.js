@@ -5,7 +5,7 @@ define([
 	'moment',
 	'rx',
 	'boringrpg/lib/state-tree',
-	'boringrpg/lib/static-data/checked-adventures',
+	'boringrpg/lib/static-data/model/adventures-checked',
 	'boringrpg/lib/weapon-generator',
 ],
 function(_, moment, Rx, state_tree, adventures, weapon_generator) {

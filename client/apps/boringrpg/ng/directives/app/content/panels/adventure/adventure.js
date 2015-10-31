@@ -24,7 +24,6 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 				scope: {},
 				template: tpl,
 				controller: ['$scope', function($scope) {
-					$scope.Transform = $famous['famous/core/Transform'];
 					var Transitionable = $famous['famous/transitions/Transitionable'];
 
 					var scale_transitionable = new Transitionable(NORMAL_SCALE);

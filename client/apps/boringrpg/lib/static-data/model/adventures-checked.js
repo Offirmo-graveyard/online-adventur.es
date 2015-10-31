@@ -1,7 +1,7 @@
 define([
 	'lodash',
 	'boringrpg/i18n/nls/en/messages',
-	'boringrpg/lib/static-data/adventures',
+	'boringrpg/lib/static-data/model/adventures',
 ],
 function(_, i18n_messages, adventures) {
 	'use strict';

@@ -1,7 +1,7 @@
 define([
 	'lodash',
 	'boringrpg/i18n/nls/en/messages',
-	'boringrpg/lib/static-data/weapons',
+	'boringrpg/lib/static-data/model/weapons',
 ],
 function(_, i18n_messages, weapon) {
 	'use strict';

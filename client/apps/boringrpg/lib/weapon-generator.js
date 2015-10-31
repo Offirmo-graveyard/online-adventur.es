@@ -1,7 +1,7 @@
 define([
 	'lodash',
 	'client/common/incubator/random',
-	'boringrpg/lib/static-data/checked-weapons',
+	'boringrpg/lib/static-data/model/weapons-checked',
 ],
 function(_, random, weapon_data) {
 	'use strict';

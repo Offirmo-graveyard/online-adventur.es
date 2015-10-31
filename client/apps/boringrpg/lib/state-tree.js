@@ -22,18 +22,16 @@ function(_, Baobab, Rx, config) {
 			locale: undefined, // actual locale
 			fullscreen: undefined,
 			screen_size: [0, 0],
-			STATES: ['loading', 'loaded'],
-			state: 'loading',
 			// global layout
 			layout: {
 				STATES: ['loader', 'app', 'meta'],
 				//state: 'meta',
 				state: 'app',
 				app: {
+					// @see static-data/view/view.js
 					// which tab is currently selected ?
-					PANELS: ['adventure', 'inventory', 'knowledge', 'social', 'achievements', 'chat'],
-					//selected_panel: 'adventure',
-					selected_panel: 'inventory',
+					selected_panel: 'adventure',
+					//selected_panel: 'inventory',
 				}
 			}
 		},
@@ -45,7 +43,7 @@ function(_, Baobab, Rx, config) {
 				msg: 'no_clickmsg',
 				gained_coins: 0,
 				gained_item: undefined,
-
+				replaced_item: undefined,
 			},
 			stats: {
 				level: 1,
@@ -62,7 +60,12 @@ function(_, Baobab, Rx, config) {
 				coins: 0,
 				tokens: 0
 			},
-			inventory: [],
+			inventory: [
+				{
+					type: 'weapon',
+					id: 'spoon' // TODOOO
+				}
+			],
 			skills: []
 		}
 	});
