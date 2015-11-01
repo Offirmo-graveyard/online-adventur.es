@@ -10,6 +10,8 @@ define([
 function(offirmo_app, _, Rx, state_tree, model, tpl) {
 	'use strict';
 
+	var BUTTON_CLICK_DEBOUNCE_MS = 250;
+
 	var NORMAL_SCALE = 1;
 	var PRESSED_SCALE = 0.92; // final state
 	var UNPRESSED_SCALE = 1.12; // start state (makes a good effect)
@@ -26,53 +28,56 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 				controller: ['$scope', function($scope) {
 					var Transitionable = $famous['famous/transitions/Transitionable'];
 
-					var scale_transitionable = new Transitionable(NORMAL_SCALE);
-					$scope.get_scale = function() {
-						return scale_transitionable.get();
-					};
-
 					var last_click_cursor = state_tree.select('model', 'last_click');
 					var model_cursor = state_tree.select('model');
+
+					var button_scale_transitionable = new Transitionable(NORMAL_SCALE);
+					$scope.get_button_scale = function() {
+						return button_scale_transitionable.get();
+					};
+
 					// expose stats
 					function expose_stats() {
 						$scope.$evalAsync(function () {
 							$scope.model = model_cursor.get();
 						});
 					}
-					expose_stats();
 					model_cursor.on('update', expose_stats);
+					expose_stats();
 
 					function update_click_message() {
 						var click_data = last_click_cursor.get();
-						console.log('new click_data', click_data);
+						//console.log('new click_data', click_data);
 						$scope.click_gains = click_data.gained;
 						$scope.click_message = click_data.msg;
-						console.log(click_data);
+						//console.log(click_data);
 						$scope.$evalAsync();
 					}
-					update_click_message(last_click_cursor.get());
 					last_click_cursor.on('update', update_click_message);
+					update_click_message(last_click_cursor.get());
 
-					// debounce to not penalty a user on natural rebound
+					// Note : debounce to not penalty a user on natural rebound
+					// mousedown = nothing except an animation
 					$scope.mousedown = _.debounce(function (src) {
 						console.log('mousedown', src);
 						// click is not sent here, @see mouseup
-						scale_transitionable.set(NORMAL_SCALE);
-						scale_transitionable.set(PRESSED_SCALE, {
+						button_scale_transitionable.set(NORMAL_SCALE);
+						button_scale_transitionable.set(PRESSED_SCALE, {
 							curve: 'easeOutBounce',
 							duration: PRESS_DURATION_MS
 						});
-					}, 250, true);
+					}, BUTTON_CLICK_DEBOUNCE_MS, true);
+					// mouseup : real stuff is done here
 					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
 						// trigger model
 						model.subjects.clicks.onNext();
-						scale_transitionable.set(UNPRESSED_SCALE);
-						scale_transitionable.set(NORMAL_SCALE, {
+						button_scale_transitionable.set(UNPRESSED_SCALE);
+						button_scale_transitionable.set(NORMAL_SCALE, {
 							curve: 'easeOutBounce',
 							duration: RELEASE_DURATION_MS
 						});
-					}, 250, true);
+					}, BUTTON_CLICK_DEBOUNCE_MS, true);
 				}],
 				link: function postLink($scope) {
 
@@ -160,13 +165,14 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 
 						// TODO scale dialog font so that it fits
 
-						console.info('Content sizes recomputed :',
-							$scope.dialog_size,
-							$scope.dialog_position,
-							$scope.button_size,
-							$scope.button_position
-						);
-						$scope.$evalAsync();
+						$scope.$evalAsync(function () {
+							console.info('Content sizes recomputed :',
+								$scope.dialog_size,
+								$scope.dialog_position,
+								$scope.button_size,
+								$scope.button_position
+							);
+						});
 
 						// signal the loader to hide
 						if (window.offirmo_loader.stage < 2) {
@@ -176,24 +182,7 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					}
 					//on_screen_size_update();
 					screen_size_cursor.on('update', on_screen_size_update);
-
-					var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
-					selected_panel_cursor.on('update', function () {
-						var target_panel_id = selected_panel_cursor.get();
-						console.log('1 - detected panel change', target_panel_id);
-						if(target_panel_id === 'adventure') {
-							$scope.$evalAsync(function () {
-								console.log('2 - detected panel change', target_panel_id);
-								on_screen_size_update();
-							});
-						}
-					});
-
-					/*$scope.$on('panel_switch', function(event, target_panel_id) {
-						console.log('received panel_switch', target_panel_id);
-						if(target_panel_id === 'adventure')
-							on_screen_size_update();
-					});*/
+					on_screen_size_update();
 				}
 			};
 		}

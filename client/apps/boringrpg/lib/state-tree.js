@@ -9,7 +9,7 @@ define([
 function(_, Baobab, Rx, config) {
 	'use strict';
 
-	console.log('detected version : ',config);
+	console.info('Current app version :', config.version);
 
 	// state, as a baobab tree
 	// https://github.com/Yomguithereal/baobab
@@ -34,8 +34,8 @@ function(_, Baobab, Rx, config) {
 				app: {
 					// @see static-data/view/view.js
 					// which tab is currently selected ?
-					selected_panel: 'adventure',
-					//selected_panel: 'inventory',
+					//selected_panel: 'adventure',
+					selected_panel: 'inventory',
 				}
 			}
 		},

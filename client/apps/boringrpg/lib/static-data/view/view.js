@@ -27,5 +27,10 @@ define({
 			id: 'chat',
 			icon: 'icomoon-conversation',
 		}
-	]
+	],
+	sizes: {
+		header: 60,
+		footer: 60,
+
+	}
 });

@@ -35,26 +35,21 @@ function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 					$scope.surfs = [];
 					for(var i=0; i < maxSurfs; i++) {
 						var weapon = weapon_generator.generate();
-						console.log(weapon);
 						$scope.surfs.push({
 							content: 'view #' + (i + 1),
 							weapon: weapon_generator.generate()
 						});
 					}
-
-					$scope.logEvent = function(type, $event) {
-						console.log('Event : ' + type, $event);
-					};
-
-					//console.log($scope.surfs);
 				}],
 				link: function postLink($scope, $element) {
 					setTimeout(function () {
 						// size our scrollview
-						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent();
+						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent().parent().parent();
+						temp.addClass('inventory-panel-inventory');
+						/*
 						temp.css('overflow', 'hidden');
 						temp.css('width', '100%');
-						temp.css('height', '200');
+						temp.css('height', '200');*/
 					}, 100);
 				}
 			};

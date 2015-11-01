@@ -1,4 +1,4 @@
-/** This app global state
+/** Detects when a new version of the app is available.
  */
 define([
 	'lodash',
@@ -10,7 +10,6 @@ function(_, Baobab, AppCacheNanny, state_tree) {
 	'use strict';
 
 	var pending_update_cursor = state_tree.select('update_pending');
-
 
 	function switch_to_updater_if_appropriate() {
 		if (window.offirmo_loader.stage < 2) {
@@ -30,52 +29,52 @@ function(_, Baobab, AppCacheNanny, state_tree) {
 	// https://github.com/gr2m/appcache-nanny
 	appCacheNanny.on('update', function() {
 		// this event is completely unreliable
-		// console.log('AppCacheNanny update', arguments);
+		//console.log('AppCacheNanny event : update', arguments);
 	});
 	appCacheNanny.on('noupdate', function() {
 		// this event is completely unreliable
-		// console.log('AppCacheNanny noupdate', arguments);
+		//console.log('AppCacheNanny event : noupdate', arguments);
 	});
 	appCacheNanny.on('error', function() {
-		console.error('AppCacheNanny error', arguments);
+		console.error('AppCacheNanny event : error', arguments);
 	});
 	appCacheNanny.on('obsolete', function() {
-		console.warn('AppCacheNanny obsolete', arguments);
+		console.warn('AppCacheNanny event : obsolete', arguments);
 	});
 	appCacheNanny.on('downloading', function() {
-		console.log('AppCacheNanny downloading', arguments);
+		console.log('AppCacheNanny event : downloading', arguments);
 		signal_pending_update();
 	});
 	appCacheNanny.on('progress', function() {
-		console.log('AppCacheNanny progress', arguments);
+		console.log('AppCacheNanny event : progress', arguments);
 		signal_pending_update();
 	});
 	appCacheNanny.on('cached', function() {
-		console.log('AppCacheNanny cached', arguments);
+		console.log('AppCacheNanny event : cached', arguments);
 	});
 	appCacheNanny.on('updateready', function() {
 		// update pending, and all files are downloaded
-		console.log('XXX AppCacheNanny updateready', arguments);
+		console.log('XXX AppCacheNanny event : updateready', arguments);
 		signal_pending_update();
 		if (window.offirmo_loader.stage !== 2)
 			window.location.reload(true);
 	});
 	AppCacheNanny.on('init:downloading', function() {
-		console.log('AppCacheNanny init:downloading', arguments);
+		console.log('AppCacheNanny event : init:downloading', arguments);
 		signal_pending_update();
 	});
 	AppCacheNanny.on('init:progress', function() {
-		console.log('AppCacheNanny init:progress', arguments);
+		console.log('AppCacheNanny event : init:progress', arguments);
 		signal_pending_update();
 	});
 	AppCacheNanny.on('init:cached', function() {
-		console.log('AppCacheNanny init:cached', arguments);
+		console.log('AppCacheNanny event : init:cached', arguments);
 	});
 	AppCacheNanny.on('start', function() {
-		console.log('AppCacheNanny start');
+		console.log('AppCacheNanny event : start');
 	});
 	AppCacheNanny.on('stop', function() {
-		console.log('AppCacheNanny stop');
+		console.log('AppCacheNanny event : stop');
 	});
 
 	// appcache nanny handlers have now (hopefully, this is not reliable…) replaced our early handlers.

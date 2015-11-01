@@ -18,8 +18,6 @@ function(_, are_intl_locales_supported) {
 	 * @param custom_formats - (deprecated)
 	 */
 	function set_icu_data(locale, messages, custom_formats) {
-
-
 		intl = {
 			locale: locale,
 			messages: messages,

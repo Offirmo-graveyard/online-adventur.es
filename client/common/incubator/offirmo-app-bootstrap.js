@@ -1,7 +1,7 @@
 /**
  * Factoring some base stuff.
  */
-console.log('Loading offirmo-app-bootstrap…');
+//console.log('Loading offirmo-app-bootstrap…');
 
 define([
 	'angular'
@@ -39,4 +39,4 @@ define([
 	return window.offirmo_app;
 });
 
-console.log('Loaded offirmo-app-bootstrap.');
+//console.log('Loaded offirmo-app-bootstrap.');

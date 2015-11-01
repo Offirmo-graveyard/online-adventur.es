@@ -1,4 +1,4 @@
-console.log('loading boringrpg index js...');
+//console.log('loading boringrpg index js...');
 
 window.offirmo_app_global_ng_module_dependencies = ['famous.angular'];
 
@@ -14,6 +14,7 @@ define([
 	'boringrpg/lib/locale-detector',
 	'boringrpg/lib/update-detector',
 	'boringrpg/lib/screen-size-detector',
+	'boringrpg/lib/screenfull-detector',
 	// base css
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'css!client/apps/boringrpg/index.css',
@@ -22,12 +23,11 @@ define([
 	// preload some commonly used angular modules
 	//'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
-	'boringrpg/ng/services/screenfull-detector',
 ],
 function(offirmo_app, _, Carnet) {
 	'use strict';
 
-	console.log('executing root js...');
+	//console.log('executing root js...');
 
 	// build this app logger
 	var logger = Carnet.make_new({enhanced: true});
@@ -52,24 +52,17 @@ function(offirmo_app, _, Carnet) {
 
 	// now that global module is ready, load ng modules
 	// and now that bootstrap & famo.us are ready, load our override css
-	offirmo_app.global_ng_module.controller('LandingController', [
-		'$scope',
-		// (pre)load those services.
-		'screenSizeDetector',
-		'screenfullDetector',
-		function($scope) {
-			logger.info('LandingController…');
+	offirmo_app.global_ng_module.controller('LandingController', ['$scope', function($scope) {
+		logger.info('LandingController…');
 
-			// reinstall our uncaught exception handler which got replaced by who knows ??
-			window.onerror = window.offirmo_loader.display_unhandled_error;
+		// reinstall our uncaught exception handler which got replaced by who knows ??
+		window.onerror = window.offirmo_loader.display_unhandled_error;
 
-			// TODO locale
-			$scope.title = offirmo_app.server_title;
+		// TODO locale
+		$scope.title = offirmo_app.server_title;
 
-			logger.info('LandingController initialized.');
-		}
-	]);
-
+		logger.info('LandingController initialized.');
+	}]);
 
 	// angular manual initialisation since we use a script loader
 	// cf. http://docs.angularjs.org/guide/bootstrap
@@ -80,4 +73,4 @@ function(offirmo_app, _, Carnet) {
 	});
 });
 
-console.log('Loaded boringrpg index js.');
+//console.log('Loaded boringrpg index js.');

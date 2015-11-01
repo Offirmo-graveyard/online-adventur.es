@@ -2,7 +2,6 @@
  */
 define([
 	'require',
-	'offirmo-app-bootstrap',
 	'lodash',
 	'rx',
 	'jquery',
@@ -13,13 +12,13 @@ define([
 	'i18n!client/apps/boringrpg/i18n/nls/messages',
 	'client/apps/boringrpg/i18n/nls/en/messages'
 ],
-function(require, offirmo_app, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_tree, autoselected_requirejs_i18n_bundle, en_requirejs_i18n_bundle) {
+function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_tree, autoselected_requirejs_i18n_bundle, en_requirejs_i18n_bundle) {
 	'use strict';
 
 	var USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY =
 		'offirmo.online-adventures.user_explicitly_selected_locale';
 
-	console.log('installing localeDetector...');
+	//console.log('installing localeDetector...');
 
 	var REFERENCE_I18N_KEYS = _.keys(en_requirejs_i18n_bundle);
 	var view_cursor = state_tree.select('view');
@@ -152,7 +151,7 @@ function(require, offirmo_app, _, Rx, $, i18n_data, typeset_lib, icu_message_typ
 			}
 			else {
 				// It's ok, user may want to put locale-dependent config in i18n messages.
-				// But we skip it since we're only concerned about messages.
+				// But we skip it since we're only concerned about messages here.
 				return;
 			}
 

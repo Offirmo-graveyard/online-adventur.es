@@ -13,7 +13,7 @@
 
 		<fa-modifier fa-translate="button_position" fa-size="button_size">
 			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
-				<fa-modifier fa-scale="get_scale()"> <!-- to add a nice scale effect on click -->
+				<fa-modifier fa-scale="get_button_scale()"> <!-- to add a nice scale effect on click -->
 					<!-- note the touch + mouse versions, both are needed for mobile + desktop -->
 					<fa-surface class="adventure-panel-button clickable-area"
 					            ng-mousedown="mousedown('mousedown')"

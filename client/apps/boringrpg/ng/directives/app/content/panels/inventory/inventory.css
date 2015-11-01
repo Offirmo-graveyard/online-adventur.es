@@ -1,4 +1,23 @@
 .inventory-panel-background {
-	background: #543d46;
+	background: #5da7ae;
 	color: #ffebbc;
+}
+
+.inventory-panel-inventory {
+	color: #ffebbc;
+	border: solid 3px #ffebbc;
+	background: #543d46;
+	overflow: hidden;
+}
+
+.inventory-panel-inventory-entry {
+	overflow-y: hidden;
+}
+
+.inventory-panel-controls-background {
+	background: #543d46;
+}
+
+.inventory-panel-controls {
+
 }

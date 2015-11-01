@@ -5,7 +5,7 @@
  *  - no extra stuff
  */
 
-console.log('Loading require js config…');
+//console.log('Loading require js config…');
 
 requirejs.config({
 
@@ -265,4 +265,4 @@ requirejs.config({
 	//deps: [ 'css' ]
 });
 
-console.log('Loaded require js config.');
+//console.log('Loaded require js config.');
