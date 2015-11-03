@@ -2,21 +2,14 @@ define([
 	'offirmo-app-bootstrap',
 	'lodash',
 	'rx',
+	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.css'
 ],
-function(offirmo_app, _, Rx, state_tree, model, tpl) {
+function(offirmo_app, _, Rx, view_static_data, state_tree, model, tpl) {
 	'use strict';
-
-	var BUTTON_CLICK_DEBOUNCE_MS = 250;
-
-	var NORMAL_SCALE = 1;
-	var PRESSED_SCALE = 0.92; // final state
-	var UNPRESSED_SCALE = 1.12; // start state (makes a good effect)
-	var PRESS_DURATION_MS = 50;
-	var RELEASE_DURATION_MS = 250;
 
 	offirmo_app.global_ng_module.directive('appContentPanelAdventure', [
 		'$q',
@@ -31,19 +24,19 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					var last_click_cursor = state_tree.select('model', 'last_click');
 					var model_cursor = state_tree.select('model');
 
-					var button_scale_transitionable = new Transitionable(NORMAL_SCALE);
-					$scope.get_button_scale = function() {
-						return button_scale_transitionable.get();
-					};
+					var VIEW_CONSTS = $scope.VIEW_CONSTS = view_static_data.layout.panels.adventure;
+
+					var button_scale_transitionable = new Transitionable(VIEW_CONSTS.button.normal_scale);
+					$scope.get_button_scale = function() { return button_scale_transitionable.get(); };
 
 					// expose stats
-					function expose_stats() {
+					function update_exposed_stats() {
 						$scope.$evalAsync(function () {
 							$scope.model = model_cursor.get();
 						});
 					}
-					model_cursor.on('update', expose_stats);
-					expose_stats();
+					model_cursor.on('update', update_exposed_stats);
+					update_exposed_stats();
 
 					function update_click_message() {
 						var click_data = last_click_cursor.get();
@@ -51,38 +44,39 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						$scope.click_gains = click_data.gained;
 						$scope.click_message = click_data.msg;
 						//console.log(click_data);
-						$scope.$evalAsync();
+
+						$scope.$evalAsync(function () {
+						});
 					}
 					last_click_cursor.on('update', update_click_message);
-					update_click_message(last_click_cursor.get());
+					update_click_message();
 
 					// Note : debounce to not penalty a user on natural rebound
 					// mousedown = nothing except an animation
 					$scope.mousedown = _.debounce(function (src) {
 						console.log('mousedown', src);
 						// click is not sent here, @see mouseup
-						button_scale_transitionable.set(NORMAL_SCALE);
-						button_scale_transitionable.set(PRESSED_SCALE, {
+						button_scale_transitionable.set(VIEW_CONSTS.button.normal_scale);
+						button_scale_transitionable.set(VIEW_CONSTS.button.pressed_scale, {
 							curve: 'easeOutBounce',
-							duration: PRESS_DURATION_MS
+							duration: VIEW_CONSTS.button.animations.press_duration_ms
 						});
-					}, BUTTON_CLICK_DEBOUNCE_MS, true);
+					}, VIEW_CONSTS.button.click_debounce_ms, true);
 					// mouseup : real stuff is done here
 					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
 						// trigger model
 						model.subjects.clicks.onNext();
-						button_scale_transitionable.set(UNPRESSED_SCALE);
-						button_scale_transitionable.set(NORMAL_SCALE, {
+						button_scale_transitionable.set(VIEW_CONSTS.button.released_scale);
+						button_scale_transitionable.set(VIEW_CONSTS.button.normal_scale, {
 							curve: 'easeOutBounce',
-							duration: RELEASE_DURATION_MS
+							duration: VIEW_CONSTS.button.animations.release_duration_ms
 						});
-					}, BUTTON_CLICK_DEBOUNCE_MS, true);
+					}, VIEW_CONSTS.button.click_debounce_ms, true);
 				}],
 				link: function postLink($scope) {
-
-					$scope.STATS_PANEL_HEIGHT = 120;
-					$scope.STATS_PANEL_WIDTH = 320;
+					var VIEW_CONSTS = view_static_data;
+					var ADVENTURE_VIEW_CONSTS = VIEW_CONSTS.layout.panels.adventure;
 
 					$scope.dialog_position = [10, 10, 0];
 					$scope.dialog_size = [ 300, 200 ];
@@ -90,18 +84,27 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 					$scope.button_position = [10, 10, 0];
 					$scope.button_size = [ 300, 60 ];
 
-					var background_isolate = $famous.find('fa-surface.adventure-panel-background')[0];
+					//var background_isolate = $famous.find('fa-surface.adventure-panel-background')[0];
 
 					// dynamic sizing
 					var screen_size_cursor = state_tree.select('view', 'screen', 'size');
 
 					function on_screen_size_update() {
-						// get the size of our element
-						var background_element = $(background_isolate.renderNode._element);
-						var content_size = [background_element.width(), background_element.height()];
-						var world_size = [content_size[0], content_size[1] - $scope.STATS_PANEL_HEIGHT];
+						var screen_size = screen_size_cursor.get();
+						console.log('screen_size', screen_size);
 
-						if(! content_size[0]) {
+						// get the size of our element
+						//var background_element = $(background_isolate.renderNode._element);
+						//var content_size = [background_element.width(), background_element.height()];
+						var panel_size = [
+							screen_size[0],
+							screen_size[1] - VIEW_CONSTS.layout.header_height_px - VIEW_CONSTS.layout.footer_height_px
+						];
+
+						var world_size_width = panel_size[0];
+						var world_size_height = panel_size[1] - ADVENTURE_VIEW_CONSTS.stats_height_px;
+
+						if(! panel_size[0]) {
 							// for whatever reason, element size is not ready. Plan it later
 							// XXX TODO couple it with document visibility
 							console.log('element sizes not ready, reprogramming...');
@@ -110,60 +113,65 @@ function(offirmo_app, _, Rx, state_tree, model, tpl) {
 						}
 
 						console.log('on_screen_size_update : recomputing game content layout…',
-							content_size,
-							world_size
+							panel_size,
+							[world_size_width, world_size_height]
 						);
 
-						// are we constrained vertically or horizontally ?
+						$scope.button_size = [
+							ADVENTURE_VIEW_CONSTS.button.width_px,
+							ADVENTURE_VIEW_CONSTS.button.height_px
+						];
 
-						// The button is the most important : 14x3 units (20px)
-						var button_size = $scope.button_size = [ 280, 60 ];
+						// margin unit used in various calculations
+						var margin_unit = 20; // so far
 
-						// then it must be correctly centered
-						var remaining_side_size = Math.max(0, (world_size[0] - button_size[0]) / 2);
-						// should be separated from stats by 2 units (40px) but we'll accept less if not enough room
-						var vertical_button_margin = Math.min(40, remaining_side_size);
-						var margin_unit = vertical_button_margin / 2;
+						// are we constrained horizontally ?
+						var actual_button_side_margin = Math.max(0, (world_size_width - ADVENTURE_VIEW_CONSTS.button.width_px) / 2);
+						// button should be separated from borders by at last 2 units = 40px
+						// but we'll accept less if not enough room
+						if (actual_button_side_margin < (margin_unit * 2)) {
+							// we are constrained in width
+							console.info('constrained in width ', margin_unit, actual_button_side_margin / 2);
+							// scale accordingly
+							margin_unit = actual_button_side_margin / 2;
+						}
 
-						var DIALOG_IDEAL_WIDTH = 640;
-						var DIALOG_IDEAL_HEIGHT = 440;
-						//var DIALOG_IDEAL_WIDTH = 320;
-						//var DIALOG_IDEAL_HEIGHT = 240;
-						/*if(world_size[0] > 720) {
-							DIALOG_IDEAL_WIDTH = DIALOG_IDEAL_WIDTH * 2;
-							DIALOG_IDEAL_HEIGHT = DIALOG_IDEAL_HEIGHT * 2;
-						}*/
+						// aliases for understanding computations
+						var dialog_margin_top = margin_unit;
+						var dialog_margin_side = margin_unit;
+						var min_button_margin_top = margin_unit; // between dialog and button
+						var min_button_margin_bottom = margin_unit;
 
+
+						var max_possible_dialog_width = world_size_width - dialog_margin_side * 2;
+						var max_possible_dialog_height = world_size_height
+							- dialog_margin_top
+							- min_button_margin_top
+							- ADVENTURE_VIEW_CONSTS.button.height_px
+							- min_button_margin_bottom;
 						var dialog_size = $scope.dialog_size = [
-							Math.min(DIALOG_IDEAL_WIDTH, world_size[0] - margin_unit * 2),
-							DIALOG_IDEAL_HEIGHT // ideal
+							Math.min(ADVENTURE_VIEW_CONSTS.dialog.max_width_px, max_possible_dialog_width),
+							Math.min(ADVENTURE_VIEW_CONSTS.dialog.max_height_px, max_possible_dialog_height)
 						];
 
 						// are we constrained vertically ?
-						if ( (world_size[1] - button_size[1] - margin_unit - vertical_button_margin * 2) < DIALOG_IDEAL_HEIGHT) {
-							// yes.
-							// make vertical margin smaller
-							vertical_button_margin = margin_unit;
+						if ( ADVENTURE_VIEW_CONSTS.dialog.max_width_px > max_possible_dialog_width || ADVENTURE_VIEW_CONSTS.dialog.max_height_px > max_possible_dialog_height ) {
+							console.info('dialog was constrained in size');
 						}
 						// constrain the dialog size
-						dialog_size[1] = Math.min(DIALOG_IDEAL_HEIGHT, world_size[1] - button_size[1] - margin_unit - vertical_button_margin * 2);
+						//dialog_size[1] = Math.min(ADVENTURE_VIEW_CONSTS.dialog.max_height_px, world_size_height - ADVENTURE_VIEW_CONSTS.button.height_px - margin_unit - min_button_margin_top - min_button_margin_bottom);
 
 						// we can now compute positions
-						$scope.button_position = [
-							(world_size[0] - button_size[0]) / 2, // horizontally centered
-							//world_size[1] - button_size[1] - vertical_button_margin
-							margin_unit + dialog_size[1] + (world_size[1] - margin_unit - dialog_size[1] - button_size[1]) / 2,
-							0
-						];
-
-						// the dialog size and position can now be computed.
 						$scope.dialog_position = [
-							(world_size[0] - dialog_size[0]) / 2, // horizontally centered
-							margin_unit * 1,
-							0
+							(world_size_width - dialog_size[0]) / 2, // horizontally centered
+							margin_unit * 1
 						];
 
-						// TODO scale dialog font so that it fits
+						$scope.button_position = [
+							(world_size_width - ADVENTURE_VIEW_CONSTS.button.width_px) / 2, // horizontally centered
+							// vertically centered in the space below the dialog
+							dialog_margin_top + dialog_size[1] + (world_size_height - margin_unit - dialog_size[1] - ADVENTURE_VIEW_CONSTS.button.height_px) / 2
+						];
 
 						$scope.$evalAsync(function () {
 							console.info('Content sizes recomputed :',

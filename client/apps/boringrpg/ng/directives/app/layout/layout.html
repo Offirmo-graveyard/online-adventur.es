@@ -3,11 +3,11 @@
 	<fa-surface class="app-background"></fa-surface>
 
 	<fa-modifier fa-translate="[0,0,1.001]">
-		<fa-header-footer-layout fa-options="{headerSize: 60, footerSize: 60}">
+		<fa-header-footer-layout fa-options="{	headerSize: SIZES.header_height_px, footerSize: SIZES.footer_height_px }">
 
 			<!-- header -->
 			<fa-view>
-				<fa-modifier fa-translate="[0,0,5]">
+				<fa-modifier fa-translate="[0,0,0]">
 					<app-header></app-header>
 				</fa-modifier>
 			</fa-view>
@@ -19,7 +19,7 @@
 
 			<!-- footer -->
 			<fa-view>
-				<fa-modifier fa-translate="[0,0,5]">
+				<fa-modifier fa-translate="[0,0,0]">
 					<app-footer></app-footer>
 				</fa-modifier>
 			</fa-view>

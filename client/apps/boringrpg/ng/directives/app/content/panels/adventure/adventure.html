@@ -26,13 +26,13 @@
 			</fa-modifier>
 		</fa-modifier>
 
-		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, STATS_PANEL_HEIGHT]">
+		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, VIEW_CONSTS.stats_height_px]">
 
 			<!-- will fill all place with correct background -->
 			<fa-surface class="adventure-panel-stats-background"></fa-surface>
 
 			<!-- smaller surface, for small screens -->
-			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[STATS_PANEL_WIDTH, STATS_PANEL_HEIGHT]">
+			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[VIEW_CONSTS.stats_width_px, VIEW_CONSTS.stats_height_px]">
 				<fa-surface class="adventure-panel-stats container">
 
 					<div class="adventure-panel-stats-column col-xs-3">

@@ -40,7 +40,7 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 
 				// early error
 				if (! early_key && ! early_key_direct_message)
-					console.error(id + ' error : missing key or direct message !');
+					console.error(debug.id + ' error : missing key or direct message !');
 				else {
 					debug.key = (early_key_direct_message || early_key);
 					update_with_best_available_data_so_far();
@@ -74,18 +74,18 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 
 						var locale = explicit_locale || intl.locale;
 						if (! locale) {
-							console.error(id + ' error : couldn’t determine locale !');
+							console.error(debug.id + ' error : couldn’t determine locale !');
 							// non blocking, underlying lib will handle this case
 						}
 						debug.prefix = '[i18n|' + (locale ? (locale + '|') : '');
 						update_with_best_available_data_so_far();
 
 						if (! key && ! direct_message) {
-							console.error(id + ' error : missing key or direct message !');
+							console.error(debug.id + ' error : missing key or direct message !');
 							break resolution; // can't do anything
 						}
 						if (key && direct_message) {
-							console.error(id + ' error : competing key and direct message !');
+							console.error(debug.id + ' error : competing key and direct message !');
 							// non blocking, we'll use the message first
 						}
 						debug.key = (direct_message || key);

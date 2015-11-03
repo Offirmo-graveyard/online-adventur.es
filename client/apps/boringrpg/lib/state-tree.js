@@ -34,8 +34,22 @@ function(_, Baobab, Rx, config) {
 				app: {
 					// @see static-data/view/view.js
 					// which tab is currently selected ?
-					//selected_panel: 'adventure',
-					selected_panel: 'inventory',
+					selected_panel: 'adventure',
+					//selected_panel: 'inventory',
+				},
+				panels: {
+					adventure: {
+						dialog_position: [10, 10],
+						dialog_size: [ 300, 200 ],
+						button_position: [10, 10],
+						button_size: [ 300, 60 ]
+					},
+					inventory: {
+
+					},
+					knowledge: {
+
+					}
 				}
 			}
 		},
