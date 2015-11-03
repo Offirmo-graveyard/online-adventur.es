@@ -43,9 +43,10 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 							$scope.translations[panel.id] = [ screen_width * index, 0];
 						});
 
-						console.log('on_screen_size_update', $scope.translations);
+						//console.log('panels : on_screen_size_update', $scope.translations);
 					});
 				}
+
 				function on_selected_panel_update() {
 					$scope.$evalAsync(function () {
 						var active_panel = selected_panel_cursor.get();
@@ -68,17 +69,14 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 							});
 						});
 
-
-
-
-						console.log('on_selected_panel_update', active_panel, $scope.translations);
+						//console.log('on_selected_panel_update', active_panel, $scope.translations);
 					});
 				}
 
-				screen_size_cursor.on('update', on_screen_size_update);
 				on_screen_size_update();
-				selected_panel_cursor.on('update', on_selected_panel_update);
+				screen_size_cursor.on('update', on_screen_size_update);
 				on_selected_panel_update();
+				selected_panel_cursor.on('update', on_selected_panel_update);
 			}],
 			link: function postLink($scope) {
 

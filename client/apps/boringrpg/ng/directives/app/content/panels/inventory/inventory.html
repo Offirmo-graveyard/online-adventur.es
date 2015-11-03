@@ -5,26 +5,27 @@
 
 	<fa-modifier fa-translate="[0,0,1.001]">
 
-		<fa-modifier fa-translate="[20,20,0]" fa-size="[undefined, 200]">
-			<fa-container-surface class="inventory-panel-inventory">
-				<span i18n-content="inventory_widget_title"></span>
-				<fa-scroll-view
-					class="toto"
-					fa-pipe-from="scrollEventHandler"
-					fa-tap="logEvent('view tap', $event)"
-					fa-click="logEvent('view click', $event)"
-					fa-options="{clipSize: 200, direction: 1}">
-					<fa-view ng-repeat="surf in surfs">
-						<fa-surface
-							class="inventory-panel-inventory-entry"
-							fa-size="[undefined, 20]"
-							fa-pipe-to="scrollSurfacesEventHandler"
-							fa-tap="logEvent('surf tap', $event)"
-							fa-click="logEvent('surf click', $event)">
-							[{{$index+1}}] <span i18n-content="weapon" i18n-values="surf.weapon"></span>
-						</fa-surface>
-					</fa-view>
-				</fa-scroll-view>
+		<fa-modifier fa-translate="layout.bag_widget_position" fa-size="layout.bag_widget_size">
+			<fa-container-surface><!-- <- to be styled -->
+				<fa-modifier fa-translate="layout.bag_scrollview_relative_position" fa-size="layout.bag_scrollview_size">
+					<fa-scroll-view
+						class="toto"
+						fa-pipe-from="scrollEventHandler"
+						fa-tap="logEvent('view tap', $event)"
+						fa-click="logEvent('view click', $event)"
+						fa-options="{clipSize: layout.bag_scrollview_size[1], direction: 1}">
+						<fa-view ng-repeat="surf in surfs">
+							<fa-surface
+								class="inventory-panel-inventory-entry"
+								fa-size="[undefined, VIEW_CONSTS.bag_entry.height_px]"
+								fa-pipe-to="scrollSurfacesEventHandler"
+								fa-tap="logEvent('surf tap', $event)"
+								fa-click="logEvent('surf click', $event)">
+								[{{$index+1}}] <span i18n-content="weapon" i18n-values="surf.weapon"></span>
+							</fa-surface>
+						</fa-view>
+					</fa-scroll-view>
+				</fa-modifier>
 			</fa-container-surface>
 		</fa-modifier>
 
@@ -36,6 +37,7 @@
 			<!-- smaller surface, for small screens -->
 			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[320, 120]">
 				<fa-surface class="inventory-panel-controls container">
+					<span i18n-content="inventory_widget_title"></span>
 					TODO
 				</fa-surface>
 			</fa-modifier>

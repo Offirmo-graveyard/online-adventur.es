@@ -38,17 +38,20 @@ function(_, Baobab, Rx, config) {
 					//selected_panel: 'inventory',
 				},
 				panels: {
+					// @see layout-computer.js
 					adventure: {
-						dialog_position: [10, 10],
-						dialog_size: [ 300, 200 ],
-						button_position: [10, 10],
-						button_size: [ 300, 60 ]
+						dialog_size: [0, 0],
+						dialog_position: [0, 0],
+						button_size: [0, 0],
+						button_position: [0, 0],
 					},
 					inventory: {
-
+						bag_widget_size: [0, 0],
+						bag_widget_position: [0, 0],
+						bag_scrollview_size: [0, 0],
+						bag_scrollview_relative_position: [0, 0],
 					},
 					knowledge: {
-
 					}
 				}
 			}

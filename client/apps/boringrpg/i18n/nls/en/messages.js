@@ -45,6 +45,7 @@ define({
 	meta_report_bugs: 'Report a bug',
 
 	inventory_widget_title: 'Inventory',
+	knowledge_widget_title: 'Knowledge',
 
 	stats_level: 'Level',
 	stats_health: 'Health',

@@ -54,6 +54,16 @@ define({
 				},
 				stats_width_px: 320,
 				stats_height_px: 120,
+			},
+			inventory: {
+				bag: {
+					max_width_px: 640,
+					scrollview_vertical_margin_px: 5,
+					scrollview_horizontal_margin_px: 3,
+				},
+				bag_entry: {
+					height_px: 24
+				}
 			}
 		}
 	}

@@ -15,6 +15,7 @@ define([
 	'boringrpg/lib/update-detector',
 	'boringrpg/lib/screen-size-detector',
 	'boringrpg/lib/screenfull-detector',
+	'boringrpg/lib/layout-computer',
 	// base css
 	'css!client/apps/boringrpg/assets/icomoon-TBRPG.css',
 	'css!client/apps/boringrpg/index.css',

@@ -45,6 +45,7 @@ define({
 	meta_report_bugs: 'Signaler un bug',
 
 	inventory_widget_title: 'Inventaire',
+	knowledge_widget_title: 'Savoir',
 
 	stats_level: 'Niveau',
 	stats_health: 'Santé',

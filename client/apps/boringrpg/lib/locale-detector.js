@@ -36,7 +36,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 		document_lang ||
 		navigator_language;
 
-	console.info('localeDetector detected locale "' + final_locale + '" as best current locale' +
+	console.info('* localeDetector : detected locale "' + final_locale + '" as best candidate' +
 		' (usr:' + user_explicitly_selected_locale +
 		', doc:' + document_lang +
 		', req:' + requirejs_selected_locale +
@@ -48,7 +48,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 	/////// Reactive update ///////
 	requested_locale_cursor.on('update', function () {
 		var requested_locale = requested_locale_cursor.get();
-		console.log('Trying to update localization for : ' + requested_locale + '…');
+		console.log('* locale detector : Trying to update localization for : ' + requested_locale + '…');
 
 		if (requested_locale === autoselected_requirejs_i18n_bundle.locale) {
 			// cool, already have it
@@ -110,7 +110,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 						i18n_messages[key] = en_requirejs_i18n_bundle[key];
 					}
 					else {
-						console.error('Locale messages for "' + target_locale + '" has an extra key "' + key + '" !');
+						console.warn('Locale messages for "' + target_locale + '" has an extra key "' + key + '" !');
 						// extra, no need to fix
 					}
 				});

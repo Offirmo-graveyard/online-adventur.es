@@ -28,7 +28,7 @@ function(_, Rx, $, state_tree) {
 	.throttle(200) // ms
 	.distinctUntilChanged()
 	.subscribe(function(new_screen_size) {
-		console.info('screenSizeDetector : new stable screen size detected :', new_screen_size);
+		console.info('* screenSizeDetector : new stable screen size detected :', new_screen_size);
 		screen_size_cursor.set(new_screen_size);
 	});
 });

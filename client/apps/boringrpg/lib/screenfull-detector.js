@@ -11,7 +11,7 @@ function(_, screenfull, state_tree) {
 	var view_cursor = state_tree.select('view');
 
 	function update_fullscreen_state() {
-		console.info('screenfullDetector : New fullscreen state detected : ' + (screenfull.isFullscreen ? '' : 'not ') + 'in full screen');
+		console.info('* screenfullDetector : New fullscreen state detected : ' + (screenfull.isFullscreen ? '' : 'NOT ') + 'in full screen');
 		view_cursor.set('fullscreen', screenfull.isFullscreen);
 	}
 

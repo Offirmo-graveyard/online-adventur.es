@@ -3,9 +3,28 @@
 	<fa-surface class="knowledge-panel-background"></fa-surface>
 
 	<fa-modifier fa-translate="[0,0,1.001]">
+
 		<fa-surface class="knowledge-panel-foreground">
 			knowledge TODO
 		</fa-surface>
+
+
+
+		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, 120]">
+
+			<!-- will fill all place with correct background -->
+			<fa-surface class="knowledge-panel-controls-background"></fa-surface>
+
+			<!-- smaller surface, for small screens -->
+			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[320, 120]">
+				<fa-surface class="knowledge-panel-controls container">
+					<span i18n-content="knowledge_widget_title"></span>
+					TODO
+				</fa-surface>
+			</fa-modifier>
+
+		</fa-modifier>
+
 	</fa-modifier>
 
 </div>

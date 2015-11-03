@@ -1,14 +1,14 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
-	'rx',
+	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
 	'boringrpg/lib/weapon-generator',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.css'
 ],
-function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
+function(offirmo_app, _, view_static_data, state_tree, model, weapon_generator, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelInventory', [
@@ -21,6 +21,8 @@ function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 				controller: ['$scope', function($scope) {
 					var EventHandler = $famous['famous/core/EventHandler'];
 					var MouseSync    = $famous['famous/inputs/MouseSync'];
+
+					$scope.VIEW_CONSTS = view_static_data.layout.panels.inventory;
 
 					$scope.scrollEventHandler = new EventHandler();
 					$scope.scrollSurfacesEventHandler = new EventHandler();
@@ -41,7 +43,7 @@ function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 						});
 					}
 				}],
-				link: function postLink($scope, $element) {
+				linkxx: function postLink($scope, $element) {
 					setTimeout(function () {
 						// size our scrollview
 						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent().parent().parent();
@@ -51,6 +53,25 @@ function(offirmo_app, _, Rx, state_tree, model, weapon_generator, tpl) {
 						temp.css('width', '100%');
 						temp.css('height', '200');*/
 					}, 100);
+				},
+				link: function postLink($scope) {
+					var layout_cursor = state_tree.select('view', 'layout', 'panels', 'inventory');
+
+					function on_layout_update() {
+						$scope.layout = layout_cursor.get();
+
+						$scope.$evalAsync(function () {
+							setTimeout(function () {
+								var temp1 = $('.famous-surface.inventory-panel-inventory-entry').first();
+								var temp2 = temp1.parent().parent().parent();
+								temp2.addClass('inventory-panel-inventory');
+								console.warn('invent style', temp1, temp2);
+							}, 100);
+						});
+					}
+
+					on_layout_update();
+					layout_cursor.on('update', on_layout_update);
 				}
 			};
 		}
