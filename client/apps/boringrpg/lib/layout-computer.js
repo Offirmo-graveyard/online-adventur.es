@@ -44,6 +44,7 @@ function(_, Rx, view_static_data, state_tree) {
 		var layout = {
 			adventure: compute_adventure_panel_layout(),
 			inventory: compute_inventory_panel_layout(),
+			knowledge: compute_knowledge_panel_layout(),
 		};
 
 		console.info('* Layout computer : layout recomputed :', layout);
@@ -124,10 +125,10 @@ function(_, Rx, view_static_data, state_tree) {
 
 	function compute_inventory_panel_layout() {
 		var layout = {
-			bag_widget_size: [0, 0],
-			bag_widget_position: [0, 0],
-			bag_scrollview_size: [0, 0],
-			bag_scrollview_relative_position: [0, 0],
+			widget_size: [0, 0],
+			widget_position: [0, 0],
+			scrollview_size: [0, 0],
+			scrollview_relative_position: [0, 0],
 		};
 
 		// aliases for understanding computations
@@ -137,27 +138,31 @@ function(_, Rx, view_static_data, state_tree) {
 		var max_possible_bag_width = world_size_width - bag_margin_left_right * 2;
 		var max_possible_bag_height = world_size_height - bag_margin_top_bottom * 2;
 
-		layout.bag_widget_size = [
+		layout.widget_size = [
 			Math.min(INVENTORY_VIEW_CONSTS.bag.max_width_px, max_possible_bag_width),
 			max_possible_bag_height
 		];
 
-		layout.bag_widget_position = [
-			(world_size_width - layout.bag_widget_size[0]) / 2, // horizontally centered
+		layout.widget_position = [
+			(world_size_width - layout.widget_size[0]) / 2, // horizontally centered
 			layout_unit
 		];
 
-		layout.bag_scrollview_relative_position = [
+		layout.scrollview_relative_position = [
 			INVENTORY_VIEW_CONSTS.bag.scrollview_horizontal_margin_px,
 			INVENTORY_VIEW_CONSTS.bag.scrollview_vertical_margin_px,
 		];
 
-		layout.bag_scrollview_size = [
-			layout.bag_widget_size[0] - INVENTORY_VIEW_CONSTS.bag.scrollview_horizontal_margin_px * 2,
-			layout.bag_widget_size[1] - INVENTORY_VIEW_CONSTS.bag.scrollview_vertical_margin_px * 2,
+		layout.scrollview_size = [
+			layout.widget_size[0] - INVENTORY_VIEW_CONSTS.bag.scrollview_horizontal_margin_px * 2,
+			layout.widget_size[1] - INVENTORY_VIEW_CONSTS.bag.scrollview_vertical_margin_px * 2,
 		];
 
 		return layout;
+	}
+
+	function compute_knowledge_panel_layout() {
+		return compute_inventory_panel_layout();
 	}
 
 });

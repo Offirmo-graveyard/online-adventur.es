@@ -34,26 +34,15 @@ function(offirmo_app, _, view_static_data, state_tree, model, weapon_generator, 
 					scrollMouseSync.pipe($scope.scrollEventHandler); // then to sw
 
 					var maxSurfs = 30;
-					$scope.surfs = [];
+					$scope.items = [];
 					for(var i=0; i < maxSurfs; i++) {
 						var weapon = weapon_generator.generate();
-						$scope.surfs.push({
+						$scope.items.push({
 							content: 'view #' + (i + 1),
 							weapon: weapon_generator.generate()
 						});
 					}
 				}],
-				linkxx: function postLink($scope, $element) {
-					setTimeout(function () {
-						// size our scrollview
-						var temp = $('.famous-surface.inventory-panel-inventory-entry').first().parent().parent().parent();
-						temp.addClass('inventory-panel-inventory');
-						/*
-						temp.css('overflow', 'hidden');
-						temp.css('width', '100%');
-						temp.css('height', '200');*/
-					}, 100);
-				},
 				link: function postLink($scope) {
 					var layout_cursor = state_tree.select('view', 'layout', 'panels', 'inventory');
 

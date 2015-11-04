@@ -46,12 +46,16 @@ function(_, Baobab, Rx, config) {
 						button_position: [0, 0],
 					},
 					inventory: {
-						bag_widget_size: [0, 0],
-						bag_widget_position: [0, 0],
-						bag_scrollview_size: [0, 0],
-						bag_scrollview_relative_position: [0, 0],
+						widget_size: [0, 0],
+						widget_position: [0, 0],
+						scrollview_size: [0, 0],
+						scrollview_relative_position: [0, 0],
 					},
 					knowledge: {
+						widget_size: [0, 0],
+						widget_position: [0, 0],
+						scrollview_size: [0, 0],
+						scrollview_relative_position: [0, 0],
 					}
 				}
 			}

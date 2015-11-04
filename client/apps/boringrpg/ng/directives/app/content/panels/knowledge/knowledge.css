@@ -15,3 +15,11 @@
 .knowledge-panel-controls {
 
 }
+
+
+.knowledge-panel-book {
+	color: #543d46;
+	border: solid 3px #543d46;
+	background: #ffebbc;
+	overflow: hidden;
+}

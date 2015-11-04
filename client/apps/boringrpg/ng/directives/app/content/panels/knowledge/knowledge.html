@@ -4,11 +4,29 @@
 
 	<fa-modifier fa-translate="[0,0,1.001]">
 
-		<fa-surface class="knowledge-panel-foreground">
-			knowledge TODO
-		</fa-surface>
-
-
+		<fa-modifier fa-translate="layout.widget_position" fa-size="layout.widget_size">
+			<fa-container-surface><!-- <- to be styled -->
+				<fa-modifier fa-translate="layout.scrollview_relative_position" fa-size="layout.scrollview_size">
+					<fa-scroll-view
+						class="toto"
+						fa-pipe-from="scrollEventHandler"
+						fa-tap="logEvent('view tap', $event)"
+						fa-click="logEvent('view click', $event)"
+						fa-options="{clipSize: layout.scrollview_size[1], direction: 1}">
+						<fa-view ng-repeat="skill in skills">
+							<fa-surface
+								class="knowledge-panel-knowledge-entry"
+								fa-size="[undefined, VIEW_CONSTS.bag_entry.height_px]"
+								fa-pipe-to="scrollSurfacesEventHandler"
+								fa-tap="logEvent('surf tap', $event)"
+								fa-click="logEvent('surf click', $event)">
+								[{{$index+1}}] {{skill.id}}
+							</fa-surface>
+						</fa-view>
+					</fa-scroll-view>
+				</fa-modifier>
+			</fa-container-surface>
+		</fa-modifier>
 
 		<fa-modifier fa-align="[0.5,1]" fa-origin="[0.5,1]" fa-size="[undefined, 120]">
 
