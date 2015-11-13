@@ -2,11 +2,12 @@
  */
 define([
 	'lodash',
+	'moment',
 	'baobab',
 	'rx',
 	'client/common/config/config'
 ],
-function(_, Baobab, Rx, config) {
+function(_, moment, Baobab, Rx, config) {
 	'use strict';
 
 	console.info('Current app version :', config.version);
@@ -63,8 +64,8 @@ function(_, Baobab, Rx, config) {
 		model: {
 			click_count: 0,
 			last_click: {
-				date_moment_utc: undefined,
-				wait_interval_s: 1,
+				date_moment_utc: moment.utc(),
+				wait_interval_s: 0,
 				msg: 'no_clickmsg',
 				gained_coins: 0,
 				gained_item: undefined,

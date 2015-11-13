@@ -98,6 +98,7 @@ requirejs.config({
 		'famous'                   : 'bower_components/famous/dist/famous',
 		'famous-angular'           : 'bower_components/famous-angular/dist/famous-angular',
 		'famous-global'            : 'bower_components/famous/dist/famous-global',
+		'humanize-duration'        : 'bower_components/humanize-duration/humanize-duration',
 		// require.js extensions (plugin) to be able to load i18n bundles
 		'i18n'                     : 'bower_components/requirejs-i18n/i18n',
 		'intl-format-cache'        : 'bower_components/intl-format-cache/index',

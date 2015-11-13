@@ -47,6 +47,8 @@ define({
 	inventory_widget_title: 'Inventaire',
 	knowledge_widget_title: 'Savoir',
 
+	timer_text: '{delay_s, plural, =0 {Vous pouvez cliquer !} other {Encore {humanized_delay}…}}',
+
 	stats_level: 'Niveau',
 	stats_health: 'Santé',
 	stats_mana: ' Mana',

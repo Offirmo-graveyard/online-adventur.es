@@ -61,7 +61,16 @@
 	border: solid 3px #ffebbc;
 	background: #543d46;
 	text-align: center;
-	line-height: 54px;
-	font-size: 18px;
+}
+
+.adventure-panel-button-label {
+	margin-top: 15px;
+	line-height: 15px;
+	font-size: 20px;
 	text-rendering: optimizeLegibility;
+}
+
+.adventure-panel-button-timer {
+	line-height: 12px;
+	font-size: 12px;
 }

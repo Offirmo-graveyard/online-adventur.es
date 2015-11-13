@@ -40,7 +40,7 @@ function(_, moment, Rx, state_tree, adventures, weapon_generator) {
 		apply_adventure_instance(adventure_instance);
 		var click = _.extend({
 				date_moment_utc: click_date_utc,
-				wait_interval_s: 5,
+				wait_interval_s: 333,
 			},
 			adventure_instance
 		);

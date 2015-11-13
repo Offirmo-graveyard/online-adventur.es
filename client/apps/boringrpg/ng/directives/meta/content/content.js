@@ -96,13 +96,6 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 						disabled: true
 					},
 					{
-						icon: 'icomoon-github',
-						label: 'meta_fork',
-						on_click: _.debounce(function() {
-							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
-						}, 200, true)
-					},
-					{
 						icon: 'icomoon-floppy-disk',
 						label: 'meta_save',
 						disabled: true
@@ -182,6 +175,13 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 								throw new Error('Another test of unhandled error !');
 							}, 50);
 							throw new Error('Test of unhandled browser error !');
+						}, 200, true)
+					},
+					{
+						icon: 'icomoon-github',
+						label: 'meta_fork',
+						on_click: _.debounce(function() {
+							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
 						}, 200, true)
 					},
 				];

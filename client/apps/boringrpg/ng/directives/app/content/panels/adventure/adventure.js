@@ -1,19 +1,22 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
+	'moment',
+	'humanize-duration',
 	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.css'
 ],
-function(offirmo_app, _, view_static_data, state_tree, model, tpl) {
+function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree, model, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelAdventure', [
+		'$timeout',
 		'$q',
 		'$famous',
-		function ($q, $famous) {
+		function ($timeout, $q, $famous) {
 			return {
 				scope: {},
 				template: tpl,
@@ -22,11 +25,28 @@ function(offirmo_app, _, view_static_data, state_tree, model, tpl) {
 
 					var last_click_cursor = state_tree.select('model', 'last_click');
 					var model_cursor = state_tree.select('model');
+					var lang_cursor = state_tree.select('view', 'locale');
 
 					var VIEW_CONSTS = $scope.VIEW_CONSTS = view_static_data.layout.panels.adventure;
 
 					var button_scale_transitionable = new Transitionable(VIEW_CONSTS.button.normal_scale);
 					$scope.get_button_scale = function() { return button_scale_transitionable.get(); };
+
+					var timer_off = true;
+					var next_click_opening_moment_utc = null;
+					$scope.timer_data = {
+						delay_s: 0,
+						humanized_delay: '...'
+					};
+					var localizedHumanizeDuration = null;
+
+					function update_locale() {
+						localizedHumanizeDuration = humanizeDuration.humanizer({
+							language: lang_cursor.get() || 'en'
+						});
+					}
+					lang_cursor.on('update', update_locale);
+					update_locale();
 
 					// expose stats
 					function update_exposed_stats() {
@@ -44,11 +64,36 @@ function(offirmo_app, _, view_static_data, state_tree, model, tpl) {
 						$scope.click_message = click_data.msg;
 						//console.log(click_data);
 
+						next_click_opening_moment_utc = click_data.date_moment_utc
+							.clone()
+							.add(click_data.wait_interval_s, 's');
+
+						if (timer_off) {
+							timer_off = false;
+							update_timer();
+						}
+
 						$scope.$evalAsync(function () {
+							// ...
 						});
 					}
 					last_click_cursor.on('update', update_click_message);
 					update_click_message();
+
+					function update_timer() {
+						var now_utc = moment.utc();
+						var delay_s = Math.max(0, Math.ceil( next_click_opening_moment_utc.diff(now_utc) / 1000. ));
+						$scope.timer_data.delay_s = delay_s;
+						console.log(delay_s);
+						if (delay_s <= 0) {
+							timer_off = true;
+						}
+						else {
+							$scope.timer_data.humanized_delay = localizedHumanizeDuration(delay_s * 1000);
+							console.log($scope.timer_data.humanized_delay);
+							$timeout(update_timer, 1000);
+						}
+					}
 
 					// Note : debounce to not penalty a user on natural rebound
 					// mousedown = nothing except an animation
