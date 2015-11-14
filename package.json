@@ -50,7 +50,7 @@
     "environmentalist": "~1.0",
     "express": "^4.13.3",
     "express-slash": "~2.0",
-    "forky": "~0.3",
+    "forky": "~0.3.0",
     "intl": "~1.0.1",
     "intl-locales-supported": "~1.0",
     "jsdom": "^3",
