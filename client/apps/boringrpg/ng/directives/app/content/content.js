@@ -80,25 +80,6 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 			}],
 			link: function postLink($scope) {
 
-				// signal the loader to hide
-				/*if (window.offirmo_loader.stage < 2) {
-					window.offirmo_loader.change_stage(2);
-					window.onerror = window.offirmo_loader.display_unhandled_error; // reinstall
-				}*/
-
-				/*var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
-				function go_to_required_panel() {
-					var target_panel_id = selected_panel_cursor.get();
-
-					console.log('1 - trying to activate panel ', target_panel_id);
-					$scope.$evalAsync(function () {
-						console.log('2 - trying to activate panel ', target_panel_id);
-						$scope.panel_id = target_panel_id;
-						//$scope.$broadcast('panel_switch', target_panel_id);
-					});
-				}
-				go_to_required_panel();
-				selected_panel_cursor.on('update', go_to_required_panel);*/
 			}
 		};
 	}]);

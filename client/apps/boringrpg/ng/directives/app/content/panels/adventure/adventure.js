@@ -5,11 +5,11 @@ define([
 	'humanize-duration',
 	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
-	'boringrpg/lib/model',
+	'boringrpg/lib/on-click',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.css'
 ],
-function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree, model, tpl) {
+function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree, on_click, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelAdventure', [
@@ -84,13 +84,13 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						var now_utc = moment.utc();
 						var delay_s = Math.max(0, Math.ceil( next_click_opening_moment_utc.diff(now_utc) / 1000. ));
 						$scope.timer_data.delay_s = delay_s;
-						console.log(delay_s);
+						//console.log(delay_s);
 						if (delay_s <= 0) {
 							timer_off = true;
 						}
 						else {
 							$scope.timer_data.humanized_delay = localizedHumanizeDuration(delay_s * 1000);
-							console.log($scope.timer_data.humanized_delay);
+							//console.log($scope.timer_data.humanized_delay);
 							$timeout(update_timer, 1000);
 						}
 					}
@@ -110,7 +110,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
 						// trigger model
-						model.subjects.clicks.onNext();
+						on_click.clicks_subject.onNext();
 						button_scale_transitionable.set(VIEW_CONSTS.button.released_scale);
 						button_scale_transitionable.set(VIEW_CONSTS.button.normal_scale, {
 							curve: 'easeOutBounce',
@@ -123,17 +123,19 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 
 					function on_layout_update() {
 						var layout = layout_cursor.get();
-						$scope.dialog_size = layout.dialog_size;
-						$scope.dialog_position = layout.dialog_position;
-						$scope.button_size = layout.button_size;
-						$scope.button_position = layout.button_position;
 
 						$scope.$evalAsync(function () {
+							$scope.dialog_size = layout.dialog_size;
+							$scope.dialog_position = layout.dialog_position;
+							$scope.button_size = layout.button_size;
+							$scope.button_position = layout.button_position;
+
 							// signal the loader to hide if needed
-							if (window.offirmo_loader.stage < 2) {
-								window.offirmo_loader.change_stage(2);
+							if (window.offirmo_loader.stage < 2) setTimeout(function() {
 								window.onerror = window.offirmo_loader.display_unhandled_error; // reinstall
-							}
+								if (window.offirmo_loader.stage < 2)
+									window.offirmo_loader.change_stage(2);
+							}, 100); // extra wait for avoiding FOUC on localized strings
 						});
 					}
 

@@ -7,40 +7,23 @@ define([
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/static-data/model/adventures-checked',
 	'boringrpg/lib/weapon-generator',
+	'boringrpg/lib/on-click',
 ],
-function(_, moment, Rx, state_tree, adventures, weapon_generator) {
+function(_, moment, Rx, state_tree, adventures, weapon_generator, on_click) {
 	'use strict';
 
 	var model_cursor = state_tree.select('model');
 
-	var clicks_subject = new Rx.Subject();
-	var observable_clicks = clicks_subject.map(function() {
-		//console.log('new play click detected');
-		// we generate the click date ourselves
-		return moment.utc();
+	on_click.observable_clicks.subscribe(function(click) {
+		console.log('new play click detected :', click);
 	});
 
-	observable_clicks.subscribe(function(click_date_utc) {
-		console.log('new play click detected :', click_date_utc.format());
-	});
-
-	var observable_good_clicks = observable_clicks
-	.filter(function(click_date_utc) {
-		return true;
-	});
-
-	var observable_bad_clicks = observable_clicks
-	.filter(function(click_date_utc) {
-		return false;
-	});
-
-	observable_good_clicks.subscribe(function(click_date_utc) {
+	on_click.observable_good_clicks.subscribe(function(click) {
 		var adventure = select_next_adventure();
 		var adventure_instance = instantiate_adventure(adventure);
 		apply_adventure_instance(adventure_instance);
-		var click = _.extend({
-				date_moment_utc: click_date_utc,
-				wait_interval_s: 333,
+		_.extend(click, {
+				wait_interval_s: 5,
 			},
 			adventure_instance
 		);
@@ -119,10 +102,11 @@ function(_, moment, Rx, state_tree, adventures, weapon_generator) {
 		return currentData + 1;
 	};
 
+	/*
 	return {
 		subjects: {
 			clicks: clicks_subject
 		}
-	};
+	};*/
 
 });
