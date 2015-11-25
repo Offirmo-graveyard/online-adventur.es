@@ -1,7 +1,9 @@
 <div>
 
 	<fa-modifier fa-opacity="is_ui_stable ? 0 : 0.999999">
-		<fa-surface class="content-when-unstable-ui">
+		<fa-surface class="content-when-unstable-ui"
+		            fa-tap="log_event($event, 'tap')"
+		            fa-click="log_event($event, 'click')">>
 			<div style="width: 100%; position: absolute; top: 33%;">
 				<p style="font-size: 35px;">The Boring RPG</p>
 				<p style="font-size: 20px;">reloaded.</p>

@@ -12,6 +12,12 @@
 
 .inventory-panel-inventory-entry {
 	overflow-y: hidden;
+	padding: 3px;
+}
+
+.inventory-panel-inventory-entry-selected {
+	background: #ffebbc;
+	color: #543d46;
 }
 
 .inventory-panel-controls-background {

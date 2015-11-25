@@ -22,7 +22,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 			controller: ['$scope', function($scope) {
 				var Transitionable = $famous['famous/transitions/Transitionable'];
 
-				var SLIDE_DURATION_MS = 500;
+				var SLIDE_DURATION_MS = 300;
 
 				var panels = view_static_data.panels;
 				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
@@ -34,6 +34,10 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 				$scope.translations = {};
 				$scope.opacities = {};
 				$scope.screen_width = screen_width;
+
+				$scope.log_event = function($event, origin) {
+					console.log('placeholder', $event, origin);
+				};
 
 				function on_screen_size_update() {
 					$scope.$evalAsync(function () {
@@ -58,14 +62,18 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 						});
 
 						// scroll
+						console.log('starting tab transition...');
 						$scope.global_translation_able.set([-1 * screen_width * active_panel_index, 0, 0], {
 							duration: SLIDE_DURATION_MS,
 							curve: 'easeOut'
 						}, function on_animation_finished() {
-							// hide all panels except the active one
-							// reason : they could be seen when flipping app <-> meta
-							_.forEach(panels, function (panel, index) {
-								$scope.opacities[panel.id] = (panel.id === active_panel) ? 0.999999 : 0;
+							$scope.$evalAsync(function () {
+								// hide all panels except the active one
+								// reason : they could be seen when flipping app <-> meta
+								_.forEach(panels, function (panel, index) {
+									$scope.opacities[panel.id] = (panel.id === active_panel) ? 0.999999 : 0;
+								});
+								console.log('tab transition finished.');
 							});
 						});
 

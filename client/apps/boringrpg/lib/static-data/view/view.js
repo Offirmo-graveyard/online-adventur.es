@@ -58,8 +58,8 @@ define({
 			inventory: {
 				bag: {
 					max_width_px: 640,
-					scrollview_vertical_margin_px: 5,
-					scrollview_horizontal_margin_px: 3,
+					scrollview_vertical_margin_px: 2,
+					scrollview_horizontal_margin_px: 0,
 				},
 				bag_entry: {
 					height_px: 24

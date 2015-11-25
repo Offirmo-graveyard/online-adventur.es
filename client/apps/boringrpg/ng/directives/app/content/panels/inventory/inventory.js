@@ -26,6 +26,7 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 
 					$scope.scrollEventHandler = new EventHandler();
 					$scope.scrollSurfacesEventHandler = new EventHandler();
+					$scope.selected_index = 0;
 
 					// http://stackoverflow.com/questions/24229238/how-can-i-scroll-a-scrollview-using-a-mouse-drag-with-famo-us
 					$scope.scrollSurfacesEventHandler.pipe($scope.scrollEventHandler); // direct for taps
@@ -42,6 +43,14 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 							weapon: weapon
 						});
 					}
+					$scope.selected_item = $scope.items[$scope.selected_index];
+
+					$scope.on_inventory_entry_click = function(index, $event, origin) {
+						console.log(index, $event, origin);
+						$scope.selected_index = index;
+						$scope.selected_item = $scope.items[$scope.selected_index];
+					};
+
 				}],
 				link: function postLink($scope) {
 					var layout_cursor = state_tree.select('view', 'layout', 'panels', 'inventory');

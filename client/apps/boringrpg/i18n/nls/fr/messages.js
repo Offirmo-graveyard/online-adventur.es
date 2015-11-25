@@ -143,7 +143,7 @@ define({
 	weaponqualif1_solid: 'solide',
 	weaponqualif1_steel: 'd’acier',
 	weaponqualif1_strange: 'étrange',
-	weaponqualif1_subtile: 'subtile',
+	weaponqualif1_subtile: '{gender, select, male {subtil} other {subtile}}',
 	weaponqualif1_swift: 'rapide',
 	weaponqualif1_unwavering: 'inébranlable',
 	weaponqualif1_used: '{gender, select, male {usé} other {usée}}',
