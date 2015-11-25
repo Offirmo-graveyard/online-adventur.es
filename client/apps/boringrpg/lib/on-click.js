@@ -5,10 +5,8 @@ define([
 	'moment',
 	'rx',
 	'boringrpg/lib/state-tree',
-	'boringrpg/lib/static-data/model/adventures-checked',
-	'boringrpg/lib/weapon-generator',
 ],
-function(_, moment, Rx, state_tree, adventures, weapon_generator) {
+function(_, moment, Rx, state_tree) {
 	'use strict';
 
 	var model_cursor = state_tree.select('model');

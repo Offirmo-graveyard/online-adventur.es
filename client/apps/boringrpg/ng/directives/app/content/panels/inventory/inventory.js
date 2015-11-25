@@ -4,11 +4,11 @@ define([
 	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
 	'boringrpg/lib/model',
-	'boringrpg/lib/weapon-generator',
+	'boringrpg/lib/models/weapon',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/inventory/inventory.css'
 ],
-function(offirmo_app, _, view_static_data, state_tree, model, weapon_generator, tpl) {
+function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelInventory', [
@@ -36,10 +36,10 @@ function(offirmo_app, _, view_static_data, state_tree, model, weapon_generator, 
 					var maxSurfs = 30;
 					$scope.items = [];
 					for(var i=0; i < maxSurfs; i++) {
-						var weapon = weapon_generator.generate();
+						var weapon = Weapon.create();
 						$scope.items.push({
 							content: 'view #' + (i + 1),
-							weapon: weapon_generator.generate()
+							weapon: weapon
 						});
 					}
 				}],
