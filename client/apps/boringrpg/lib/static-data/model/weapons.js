@@ -396,5 +396,13 @@ define({
 		___: {
 			affinities: {}
 		},
+	},
+	////////////
+	quality: {
+		common: {},
+		uncommon: {},
+		rare: {},
+		epic: {},
+		legendary: {}
 	}
 });
