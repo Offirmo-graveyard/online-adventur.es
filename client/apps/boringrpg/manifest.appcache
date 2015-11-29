@@ -67,4 +67,5 @@ CACHE:
 # it isn't cached, and references to this file will bypass the cache,
 # always hitting the network (or trying to, if the user is offline).
 NETWORK:
+http://www.google-analytics.com/analytics.js
 #*
