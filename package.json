@@ -71,7 +71,7 @@
     "when": "~3.7.5"
   },
   "devDependencies": {
-    "eslint": "^1.10.2",
+    "eslint": "^1.10.3",
     "express-debug": "^1",
     "express-livereload": "^0",
     "mversion": "^1",
