@@ -1,46 +1,70 @@
+/**
+ * Routes for testing error handling.
+ */
 'use strict';
 
-
+var _ = require('lodash');
 var express = require('express');
-var router = new express.Router();
 
+var router = module.exports = new express.Router();
 
-module.exports = router;
+router.get('/', function (req, res) {
+	res.send(
+		'meta routes :<br />' +
+		'/no-error<br />' +
+		'/logger<br />' +
+		'/runtime-direct-error<br />' +
+		'/runtime-next-error<br />' +
+		'/sync-error<br />' +
+		'/async-error<br />' +
+		'/timeout<br />' +
+		'/timeout/:durationInSec<br />'
+	);
+});
 
+router.get('/no-error', function (req, res) {
+	res.send('correct !');
+});
 
-router.get('/runtime_error', function (req, res) {
+router.get('/logger', function (req, res) {
+	// TODO test your logger here
+
+	res.send('done.');
+});
+
+router.get('/runtime-direct-error', function (req, res) {
 	// bad
-	res.send(500, 'something blew up ! (handled from the middleware, error handlers not used)');
+	res.status(500).send('something blew up ! (handled manually, generic error middleware not used)');
 });
 
-router.get('/sync_error', function (req, res) {
-	throw new Error('An exception thrown synchronously !');
+router.get('/runtime-next-error', function (req, res, next) {
+	next(new Error('A test exception passed to next()  !'));
 });
 
-router.get('/async_error', function (req, res) {
+router.get('/sync-error', function () {
+	throw new Error('A test exception thrown synchronously !');
+});
+
+router.get('/async-error', function () {
 	setTimeout(function() {
-		throw new Error('An exception thrown asynchronously !');
+		throw new Error('A test exception thrown asynchronously !');
 	}, 0);
 });
 
-router.get('/timeout', function (req, res) {
+router.get('/timeout', function () {
 	// do nothing and let a timeout happen (hopefully)...
 });
-router.get('/timeout/:duration_in_sec', function (req, res) {
-	var timeout = Number(req.params.duration_in_sec);
-	if(_.isNaN(timeout)) {
+
+router.get('/timeout/:durationInSec', function (req, res) {
+	var timeout = Number(req.params.durationInSec);
+	if (_.isNaN(timeout)) {
 		var err = new Error('You must provide a number in second !');
 		err.status = 500;
 		throw err;
 	}
 	else {
 		setTimeout(function() {
-			res.send(200, 'I waited ' + req.params.duration_in_sec + ' second(s).');
-		}, timeout*1000);
+			res.send('I waited ' + req.params.durationInSec + ' second(s).');
+		}, timeout * 1000);
 	}
-});
-
-
-router.get('/toto/', function (req, res) {
-	res.send('correct /toto/ !');
 });

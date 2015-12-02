@@ -40,6 +40,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					};
 					var localizedHumanizeDuration = null;
 
+					// we need to listen to locale change for reconfiguring humanizeDuration
 					function update_locale() {
 						localizedHumanizeDuration = humanizeDuration.humanizer({
 							language: lang_cursor.get() || 'en'
