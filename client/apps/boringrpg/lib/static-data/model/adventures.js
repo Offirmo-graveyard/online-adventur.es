@@ -1,6 +1,12 @@
 'use strict';
 
 define({
+	bad: {
+		post: {
+			gains: {
+			}
+		}
+	},
 	bored_log: {
 		post: {
 			gains: {

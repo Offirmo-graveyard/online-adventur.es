@@ -67,6 +67,7 @@ function(_, moment, Baobab, Rx, config) {
 				date_moment_utc: moment.utc(),
 				wait_interval_s: 0,
 				msg: 'no_clickmsg',
+				is_valid: true,
 				gained_coins: 0,
 				gained_item: undefined,
 				replaced_item: undefined,

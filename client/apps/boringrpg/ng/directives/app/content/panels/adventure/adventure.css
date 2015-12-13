@@ -51,10 +51,15 @@
 	padding: 3px 7px;
 	color: #292830;
 	border: solid 3px #292830;
-	background: #ffebbc;
 	text-rendering: optimizeLegibility;
 	font-size: 15px;
 	line-height: 19px;
+}
+.adventure-panel-dialog-good-click {
+	background: #ffebbc;
+}
+.adventure-panel-dialog-bad-click {
+	background: #f2676a;
 }
 
 .adventure-panel-button {

@@ -51,6 +51,11 @@ define({
 				dialog: {
 					max_width_px: 640,
 					max_height_px: 440,
+
+					animations: {
+						out_duration_ms: 200,
+						in_duration_ms: 300,
+					}
 				},
 				stats_width_px: 320,
 				stats_height_px: 120,

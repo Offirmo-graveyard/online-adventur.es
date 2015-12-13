@@ -211,9 +211,12 @@ define({
 		return libs._s.words(parts.join(' ')).map(libs._s.capitalize).join(' ');
 	},
 
+	// meta
 	no_clickmsg:
 		'You’re eager to start adventuring!',
-
+	clickmsg_bad:
+		'You clicked too early!<br/>' +
+		'+{penalty_s}s !',
 	// original
 	clickmsg_bored_log:
 		'You were so bored, you punched a log for hours!<br/>' +

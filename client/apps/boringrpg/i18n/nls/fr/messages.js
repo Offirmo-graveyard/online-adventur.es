@@ -211,6 +211,9 @@ define({
 
 	no_clickmsg:
 		'Vous avez hâte de partir à l’aventure !',
+	clickmsg_bad:
+		'Vous avez cliqué trop tôt !<br/>' +
+		'+{penalty_s} secondes d’attente !',
 
 	// original
 	clickmsg_bored_log:

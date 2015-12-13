@@ -29,8 +29,16 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 
 					var VIEW_CONSTS = $scope.VIEW_CONSTS = view_static_data.layout.panels.adventure;
 
-					var button_scale_transitionable = new Transitionable(VIEW_CONSTS.button.normal_scale);
-					$scope.get_button_scale = function() { return button_scale_transitionable.get(); };
+					var transitionables = $scope.transitionables = {
+						message: {
+							translate: new Transitionable([0, 0, 0]),
+							rotate: new Transitionable(0),
+							scale: new Transitionable(1)
+						},
+						play_button: {
+							scale: new Transitionable(VIEW_CONSTS.button.normal_scale)
+						}
+					};
 
 					var timer_off = true;
 					var next_click_opening_moment_utc = null;
@@ -39,6 +47,8 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						humanized_delay: '...'
 					};
 					var localizedHumanizeDuration = null;
+					var message_out_deferred = $q.defer();
+					message_out_deferred.resolve(true); //init
 
 					// we need to listen to locale change for reconfiguring humanizeDuration
 					function update_locale() {
@@ -59,23 +69,40 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					update_exposed_stats();
 
 					function update_click_message() {
-						var click_data = last_click_cursor.get();
-						//console.log('new click_data', click_data);
-						$scope.click_gains = click_data.gained;
-						$scope.click_message = click_data.msg;
-						//console.log(click_data);
+						message_out_deferred.promise.finally(function() {
+							var click_data = last_click_cursor.get();
+							//console.log('new click_data', click_data);
+							$scope.click_data = click_data;
+							$scope.click_gains = click_data.gained;
+							$scope.click_message = click_data.msg;
+							console.log(click_data);
 
-						next_click_opening_moment_utc = click_data.date_moment_utc
-							.clone()
-							.add(click_data.wait_interval_s, 's');
+							next_click_opening_moment_utc = click_data.date_moment_utc
+								.clone()
+								.add(click_data.wait_interval_s, 's');
 
-						if (timer_off) {
-							timer_off = false;
-							update_timer();
-						}
+							if (timer_off) {
+								timer_off = false;
+								update_timer();
+							}
 
-						$scope.$evalAsync(function () {
-							// ...
+							$scope.$evalAsync(function () {
+								transitionables.message.scale.set(0);
+								transitionables.message.scale.set(1, {
+									curve: 'linear',
+									duration: VIEW_CONSTS.dialog.animations.in_duration_ms
+								});
+								transitionables.message.translate.set([$scope.dialog_size[0],0,0]);
+								transitionables.message.translate.set([0, 0, 0], {
+									curve: 'linear',
+									duration: VIEW_CONSTS.dialog.animations.in_duration_ms
+								});
+								transitionables.message.rotate.set(8);
+								transitionables.message.rotate.set(0, {
+									curve: 'linear',
+									duration: VIEW_CONSTS.dialog.animations.in_duration_ms
+								});
+							});
 						});
 					}
 					last_click_cursor.on('update', update_click_message);
@@ -101,19 +128,40 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					$scope.mousedown = _.debounce(function (src) {
 						console.log('mousedown', src);
 						// click is not sent here, @see mouseup
-						button_scale_transitionable.set(VIEW_CONSTS.button.normal_scale);
-						button_scale_transitionable.set(VIEW_CONSTS.button.pressed_scale, {
+
+						transitionables.play_button.scale.set(VIEW_CONSTS.button.normal_scale);
+						transitionables.play_button.scale.set(VIEW_CONSTS.button.pressed_scale, {
 							curve: 'easeOutBounce',
 							duration: VIEW_CONSTS.button.animations.press_duration_ms
 						});
+
+						message_out_deferred = $q.defer();
+						transitionables.message.scale.set(1);
+						transitionables.message.scale.set(0, {
+							curve: 'linear',
+							duration: VIEW_CONSTS.dialog.animations.out_duration_ms
+						});
+						transitionables.message.translate.set([0,0,0]);
+						transitionables.message.translate.set([-$scope.dialog_size[0], 0, 0], {
+							curve: 'linear',
+							duration: VIEW_CONSTS.dialog.animations.out_duration_ms
+						});
+						transitionables.message.rotate.set(0);
+						transitionables.message.rotate.set(-8, {
+							curve: 'linear',
+							duration: VIEW_CONSTS.dialog.animations.out_duration_ms
+						}, function() {
+							message_out_deferred.resolve(true);
+						});
+
 					}, VIEW_CONSTS.button.click_debounce_ms, true);
 					// mouseup : real stuff is done here
 					$scope.mouseup = _.debounce(function (src) {
 						console.log('mouseup', src);
 						// trigger model
 						on_click.clicks_subject.onNext();
-						button_scale_transitionable.set(VIEW_CONSTS.button.released_scale);
-						button_scale_transitionable.set(VIEW_CONSTS.button.normal_scale, {
+						transitionables.play_button.scale.set(VIEW_CONSTS.button.released_scale);
+						transitionables.play_button.scale.set(VIEW_CONSTS.button.normal_scale, {
 							curve: 'easeOutBounce',
 							duration: VIEW_CONSTS.button.animations.release_duration_ms
 						});

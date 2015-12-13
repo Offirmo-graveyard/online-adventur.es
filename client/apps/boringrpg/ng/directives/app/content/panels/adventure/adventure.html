@@ -4,16 +4,26 @@
 	<fa-modifier fa-translate="[0,0,1.001]">
 
 		<fa-modifier fa-translate="dialog_position" fa-size="dialog_size">
-			<fa-surface class="adventure-panel-dialog">
-				<p i18n-content="{{click_message}}"
-				   i18n-values="click_gains"
-				   i18n-watch></p>
-			</fa-surface>
+			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
+				<fa-modifier fa-translate="transitionables.message.translate.get()">
+					<fa-modifier fa-origin="[.5,.5,.5]" fa-align="[.5,.5,.5]"
+						fa-rotate-z="transitionables.message.rotate.get()"
+						fa-scale="transitionables.message.scale.get()">
+						<fa-surface class="adventure-panel-dialog"
+						ng-class="click_data.is_valid ? 'adventure-panel-dialog-good-click' : 'adventure-panel-dialog-bad-click'">
+							<p i18n-content="{{click_data.msg}}"
+								i18n-values="click_data.gained"
+								i18n-watch></p>
+						</fa-surface>
+					</fa-modifier>
+				</fa-modifier>
+			</fa-modifier>
 		</fa-modifier>
 
 		<fa-modifier fa-translate="button_position" fa-size="button_size">
 			<fa-modifier fa-align="[.5,.5]" fa-origin="[.5,.5]"> <!-- needed for centered effects -->
-				<fa-modifier fa-scale="get_button_scale()"> <!-- to add a nice scale effect on click -->
+				<fa-modifier fa-scale="transitionables.play_button.scale.get()"> <!-- to add a nice scale effect on click
+				 -->
 					<!-- note the touch + mouse versions, both are needed for mobile + desktop -->
 					<fa-surface class="adventure-panel-button clickable-area"
 					            ng-mousedown="mousedown('mousedown')"

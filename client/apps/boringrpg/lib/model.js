@@ -17,12 +17,25 @@ function(_, moment, Rx, state_tree, adventures, on_click) {
 		console.log('new play click detected :', click);
 	});
 
+
+	on_click.observable_bad_clicks.subscribe(function(click) {
+		var adventure_instance = instantiate_adventure(adventures['bad']);
+		adventure_instance.gained.penalty_s = 3;
+		_.extend(click, {
+				wait_interval_s: 7,
+			},
+			adventure_instance
+		);
+		model_cursor.set('last_click', click);
+	});
+
 	on_click.observable_good_clicks.subscribe(function(click) {
 		var adventure = select_next_adventure();
+		console.log(adventure);
 		var adventure_instance = instantiate_adventure(adventure);
 		apply_adventure_instance(adventure_instance);
 		_.extend(click, {
-				wait_interval_s: 5,
+				wait_interval_s: 3,
 			},
 			adventure_instance
 		);
@@ -100,12 +113,5 @@ function(_, moment, Rx, state_tree, adventures, on_click) {
 	var inc = function(currentData) {
 		return currentData + 1;
 	};
-
-	/*
-	return {
-		subjects: {
-			clicks: clicks_subject
-		}
-	};*/
 
 });
