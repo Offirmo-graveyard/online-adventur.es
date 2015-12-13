@@ -1,6 +1,6 @@
 {
   "name": "online-adventur.es",
-  "version": "0.0.34",
+  "version": "0.0.35",
   "dependencies": {
     "angular": "~1.4",
     "angular-rx": "~0.0.14",
