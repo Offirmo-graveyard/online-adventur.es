@@ -1,5 +1,7 @@
 #! /bin/bash
 
+## This script minifies a given offirmo web app
+
 ## http://stackoverflow.com/a/19622569/587407
 set -e
 trap 'exit' ERR

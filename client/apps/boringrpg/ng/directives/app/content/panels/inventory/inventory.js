@@ -46,7 +46,7 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 					$scope.selected_item = $scope.items[$scope.selected_index];
 
 					$scope.on_inventory_entry_click = function(index, $event, origin) {
-						console.log(index, $event, origin);
+						//console.log(index, $event, origin);
 						$scope.selected_index = index;
 						$scope.selected_item = $scope.items[$scope.selected_index];
 					};
@@ -63,7 +63,7 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 								var temp1 = $('.famous-surface.inventory-panel-inventory-entry').first();
 								var temp2 = temp1.parent().parent().parent();
 								temp2.addClass('inventory-panel-inventory');
-								console.warn('invent style', temp1, temp2);
+								//console.warn('inventory style', temp1, temp2);
 							}, 100);
 						});
 					}

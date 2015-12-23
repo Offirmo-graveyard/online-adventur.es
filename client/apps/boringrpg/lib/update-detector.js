@@ -19,7 +19,7 @@ function(_, Baobab, AppCacheNanny, state_tree) {
 
 	function signal_pending_update() {
 		if (! window.offirmo_loader.update_pending) {
-			console.info('update watcher : pending update detected !');
+			console.info('* update watcher : pending update detected !');
 			window.offirmo_loader.update_pending = true;
 			pending_update_cursor.set(true);
 		}

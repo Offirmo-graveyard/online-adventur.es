@@ -25,7 +25,7 @@ function(_, moment, Rx, state_tree) {
 
 		var elapsed_since_last_click_s = click_date_utc.diff(last_click.date_moment_utc)/1000.;
 
-		console.log('diff',
+		console.log('click diff',
 			click_date_utc.format(),
 			last_click.date_moment_utc.format(),
 			elapsed_since_last_click_s,

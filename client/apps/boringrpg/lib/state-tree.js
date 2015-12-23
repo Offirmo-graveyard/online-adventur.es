@@ -1,4 +1,4 @@
-/** This app global state
+/** This app global state.
  */
 define([
 	'lodash',
@@ -10,21 +10,19 @@ define([
 function(_, moment, Baobab, Rx, config) {
 	'use strict';
 
-	console.info('Current app version :', config.version);
+	//console.info('Current app version :', config.version);
 
 	// state, as a baobab tree
 	// https://github.com/Yomguithereal/baobab
 	var state_tree = new Baobab({
 		version: config.version,
-		update_pending: false,
+		update_pending: false, //<< is there a pending app update ?
 		view: {
 			requested_locale: undefined, // see the locale detector service.
 			                             // May not be followed if requested locale can't be loaded
 			locale: undefined, // actual locale
 			fullscreen: undefined,
 			screen: {
-				stable: true,
-				//stable: false,
 				size: [0, 0],
 			},
 			// global layout
@@ -33,8 +31,8 @@ function(_, moment, Baobab, Rx, config) {
 				//state: 'meta',
 				state: 'app',
 				app: {
-					// @see static-data/view/view.js
 					// which tab is currently selected ?
+					// @see static-data/view/view.js
 					selected_panel: 'adventure',
 					//selected_panel: 'inventory',
 				},

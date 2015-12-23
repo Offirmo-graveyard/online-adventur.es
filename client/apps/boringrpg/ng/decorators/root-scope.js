@@ -43,10 +43,10 @@ function(offirmo_app, _) {
 
 		$document.on('visibilitychange', function () {
 			if ($document.get(0).hidden) {
-				console.info('document is now hidden');
+				console.info('* document is now hidden');
 			}
 			else {
-				console.info('document is now visible');
+				console.info('* document is now visible');
 				//$rootScope.$digest();
 			}
 		});

@@ -7,8 +7,6 @@ define([
 function(_, Rx, $, state_tree) {
 	'use strict';
 
-	//console.log('installing screenSizeDetector...');
-
 	var screen_size_cursor = state_tree.select('view', 'screen', 'size');
 
 	var observable_screen_size = Rx.Observable.create(function(observer) {

@@ -22,6 +22,7 @@ requirejs.config({
 	map: {
 		'*': {
 			'css': 'bower_components/require-css/css',
+			'json': 'bower_components/requirejs-plugins/src/json',
 			//'css-builder': 'bower_components/require-css/css-builder',
 			//'normalize': 'bower_components/require-css/normalize',
 			// a require.js extension to be able to load less stylesheets with require.js
@@ -89,6 +90,7 @@ requirejs.config({
 		'baobab'                   : 'bower_components/baobab/build/baobab.min',
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
 		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',
+		'chai'                     : 'bower_components/chai/chai',
 		//'css'                      : 'bower_components/require-css/css',
 		// dust-full : this plugin MUST be aliased 'dust' for rdust to work properly, see 'dust' below
 		'dust'                     : 'bower_components/dustjs-linkedin/dist/dust-full',
@@ -106,9 +108,11 @@ requirejs.config({
 		'intl-relativeformat'      : 'bower_components/intl-relativeformat/dist/intl-relativeformat-with-locales',
 		'javascript-state-machine' : 'bower_components/javascript-state-machine/state-machine',
 		'jquery'                   : 'bower_components/jquery/dist/jquery',
+		'jsen'                     : 'bower_components/jsen/dist/jsen',
 		'lodash'                   : 'bower_components/lodash/lodash',
 		'messenger'                : 'bower_components/messenger/build/js/messenger',
 		'messenger-theme-future'   : 'bower_components/messenger/build/js/messenger-theme-future',
+		'mocha'                    : 'bower_components/mocha/mocha',
 		'moment'                   : 'bower_components/moment/min/moment-with-locales',
 		'offirmo-app-bootstrap'    : 'client/common/incubator/offirmo-app-bootstrap',
 		'onepage-scroll'           : 'bower_components/onepage-scroll/jquery.onepage-scroll',
@@ -243,6 +247,12 @@ requirejs.config({
 				'css!bower_components/messenger/build/css/messenger-theme-future'
 			],
 			exports: 'Messenger'
+		},
+		'mocha': {
+			deps: [
+				'css!bower_components/mocha/mocha'
+			],
+			exports: 'mocha'
 		},
 		'screenfull': {
 			exports: 'screenfull'

@@ -6,8 +6,6 @@ define([
 function(_, screenfull, state_tree) {
 	'use strict';
 
-	//console.log('installing screenfullDetector...');
-
 	var view_cursor = state_tree.select('view');
 
 	function update_fullscreen_state() {

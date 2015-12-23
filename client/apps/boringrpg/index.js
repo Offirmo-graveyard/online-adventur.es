@@ -38,7 +38,7 @@ function(offirmo_app, _, Carnet) {
 	offirmo_app.global_ng_module.config(['$provide', function($provide) {
 		$provide.decorator('$exceptionHandler', ['$log', '$delegate', function($log, $delegate) {
 				return function(exception, cause) {
-					console.log(arguments);
+					//console.log(arguments);
 					$log.error.apply($log, arguments);
 
 					var p = document.createElement('p');

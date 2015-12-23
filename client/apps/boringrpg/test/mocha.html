@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Mocha Tests</title>
+</head>
+
+<body>
+
+	<div id="mocha"></div>
+
+<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+<script src="../../../../bower_components/requirejs/require.js"></script>
+<script>
+	require([ '../../../common/requirejs-config' ], function() {
+		// adapt config for this file
+		requirejs.config({baseUrl: '../../../..'});
+		// Configuration loaded now, safe to do other require calls that depend on that config.
+		require([
+			'mocha',
+			'domReady!',
+
+			'client/apps/boringrpg/lib/models/adventure_spec',
+			'client/apps/boringrpg/lib/models/click_spec',
+		],
+		function(chai) {
+			mocha.checkLeaks();
+
+			console.log("Starting tests...");
+			mocha.run();
+		});
+	});
+</script>
+</body>
+</html>

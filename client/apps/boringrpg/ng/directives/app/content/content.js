@@ -62,7 +62,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 						});
 
 						// scroll
-						console.log('starting tab transition...');
+						//console.log('starting tab transition...');
 						$scope.global_translation_able.set([-1 * screen_width * active_panel_index, 0, 0], {
 							duration: SLIDE_DURATION_MS,
 							curve: 'easeOut'
@@ -73,7 +73,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 								_.forEach(panels, function (panel, index) {
 									$scope.opacities[panel.id] = (panel.id === active_panel) ? 0.999999 : 0;
 								});
-								console.log('tab transition finished.');
+								//console.log('tab transition finished.');
 							});
 						});
 

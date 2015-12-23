@@ -171,5 +171,14 @@ module.exports = function(app_radix, options) {
 		});
 	}
 
+	// tests route
+	var tests_route = default_route + '-test';
+	//console.log('* SPA ' + app_radix + ' : registering route ' + dev_route);
+	router.get(tests_route, no_cache, function serve_test(req, res) {
+		var test_index_absolute_path = __dirname + '/../../client/apps/' + app_radix + '/test/mocha.html';
+		console.log(test_index_absolute_path);
+		res.sendFile(test_index_absolute_path);
+	});
+
 	return router;
 };

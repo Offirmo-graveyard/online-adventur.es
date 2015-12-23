@@ -17,6 +17,7 @@
     "intl-relativeformat": "yahoo/intl-relativeformat#~1.1",
     "javascript-state-machine": "~2.3",
     "jquery": "^2",
+    "jsen": "~0.6.0",
     "lodash": "^3",
     "messenger": "~1.4",
     "moment": "~2.10.6",
@@ -32,7 +33,10 @@
     "when": "^3",
     "humanize-duration": "~3.3.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "latest",
+    "sinon-chai": "latest"
+  },
   "commented_out": {
     "angular-bootstrap": "~0.13",
     "angular-strap": "~2.3",

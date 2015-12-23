@@ -14,8 +14,8 @@ Our dir structure outlines a clear server/ client/ common/ :
 TODO
 http://docs.phonegap.com/
 https://github.com/lipka/piecon
-
 https://hub.openshift.com/quickstarts/128-node-js-0-12
+fix error handling in bash scripts
 
 
 function debug_observable(observable, name) {

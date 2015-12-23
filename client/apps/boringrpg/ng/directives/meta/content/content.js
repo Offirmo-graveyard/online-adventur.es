@@ -5,14 +5,13 @@ define([
 	'appcache-nanny',
 	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/meta/content/content.html',
-	'boringrpg/ng/services/angular-debounce',
 	'css!client/apps/boringrpg/ng/directives/meta/content/content.css',
 ],
 function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module
-	.directive('metaContent', ['angularDebounce', function (angular_debounce) {
+	.directive('metaContent', [function () {
 		return {
 			scope: {},
 			template: tpl,
@@ -192,7 +191,7 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 				layout_state_cursor.on('update', function () {
 					$scope.items = root_items;
 					if (! window.offirmo_loader.update_pending) {
-						console.log('checking for update...', window.applicationCache.status, AppCacheNanny.update());
+						//console.log('checking for update...', window.applicationCache.status, AppCacheNanny.update());
 						AppCacheNanny.update(); // check update
 						setTimeout(sync_appcache_handlers, 200);
 						setTimeout(sync_appcache_handlers, 500);
@@ -224,7 +223,7 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 
 				function cycle_locale() {
 					var current_locale = view_cursor.get('locale');
-					console.log('cycle_locale', current_locale);
+					//console.log('cycle_locale', current_locale);
 					// easy cycling : we have only 2 ;-)
 					if (current_locale === 'fr') {
 						view_cursor.set('requested_locale', 'en');

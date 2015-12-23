@@ -126,7 +126,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					// Note : debounce to not penalty a user on natural rebound
 					// mousedown = nothing except an animation
 					$scope.mousedown = _.debounce(function (src) {
-						console.log('mousedown', src);
+						//console.log('mousedown', src);
 						// click is not sent here, @see mouseup
 
 						transitionables.play_button.scale.set(VIEW_CONSTS.button.normal_scale);
@@ -157,7 +157,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					}, VIEW_CONSTS.button.click_debounce_ms, true);
 					// mouseup : real stuff is done here
 					$scope.mouseup = _.debounce(function (src) {
-						console.log('mouseup', src);
+						//console.log('mouseup', src);
 						// trigger model
 						on_click.clicks_subject.onNext();
 						transitionables.play_button.scale.set(VIEW_CONSTS.button.released_scale);

@@ -28,6 +28,7 @@ div#content {
 					<a href="/{.}">production</a>
 					| <a href="/{.}-minified-no-appcache">minified without appcache</a>
 					| <a href="/{.}-dev">dev</a>
+					| <a href="/{.}-test">tests</a>
 				</li>{/apps}
 			</ul>
 			Note : production and minified versions may not be up to date (depending on last minification)

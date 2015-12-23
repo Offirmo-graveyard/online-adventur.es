@@ -4,7 +4,6 @@ define([
 	'rx',
 	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/layout/layout.html',
-	//'css!client/apps/boringrpg/ng/directives/layout/layout.css',
 	'boringrpg/ng/directives/app/layout/layout',
 	'boringrpg/ng/directives/meta/layout/layout',
 ],

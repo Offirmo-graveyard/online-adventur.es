@@ -47,7 +47,7 @@ function(_, Rx, view_static_data, state_tree) {
 			knowledge: compute_knowledge_panel_layout(),
 		};
 
-		console.info('* Layout computer : layout recomputed :', layout);
+		//console.info('* Layout computer : layout recomputed :', layout);
 
 		layout_cursor.set(layout);
 	}
@@ -66,7 +66,7 @@ function(_, Rx, view_static_data, state_tree) {
 			// yes, we are constrained in width
 			// scale accordingly
 			unit = actual_button_side_margin / 2;
-			console.info('* layout computer : layout is constrained in width, margin : 20px -> ' + unit + 'px');
+			//console.info('* layout computer : layout is constrained in width, margin : 20px -> ' + unit + 'px');
 		}
 
 		return unit;
@@ -99,7 +99,7 @@ function(_, Rx, view_static_data, state_tree) {
 
 		// are we constrained vertically ?
 		if ( ADVENTURE_VIEW_CONSTS.dialog.max_width_px > max_possible_dialog_width || ADVENTURE_VIEW_CONSTS.dialog.max_height_px > max_possible_dialog_height ) {
-			console.info('* layout computer : dialog was constrained in size');
+			//console.info('* layout computer : dialog was constrained in size');
 		}
 
 		// we can now compute positions
