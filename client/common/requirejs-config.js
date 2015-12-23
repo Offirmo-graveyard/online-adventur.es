@@ -252,7 +252,11 @@ requirejs.config({
 			deps: [
 				'css!bower_components/mocha/mocha'
 			],
-			exports: 'mocha'
+			exports: 'mocha',
+			init: function () {
+				this.mocha.setup('bdd');
+				return this.mocha;
+			}
 		},
 		'screenfull': {
 			exports: 'screenfull'

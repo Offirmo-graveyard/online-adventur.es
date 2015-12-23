@@ -3,10 +3,12 @@
 define([
 	'lodash',
 	'jsen',
-	'json!./adventure-schema.json'
+	'json!./click-schema.json'
 ],
 function(_, jsen, schema) {
 	'use strict';
+
+	console.log(schema);
 
 	var DEFAULTS = {
 
@@ -15,18 +17,27 @@ function(_, jsen, schema) {
 	var is_schema_valid = jsen({"$ref": "http://json-schema.org/draft-04/schema#"})(schema);
 	if (! is_schema_valid) throw new Error('Click : internal schema is invalid !');
 
-	var validate_schema = jsen(schema);
+	var _validate = jsen(schema, {
+		greedy: true,
+		formats: {
+		}
+	});
+	var build = _validate.build;
 	function validate(data) {
-		var is_valid = validate_schema(data);
-		if (!is_valid)
+		console.log('validating...', data);
+		var is_valid = _validate(data);
+		console.log('valid', is_valid);
+		if (!is_valid) {
+			console.error('Click validation error', _validate.errors);
 			throw new Error('Click : provided data are invalid !');
+		}
 	}
 
 	function Click(data) {
-		if (data) validate(data);
-		data = data || {};
+		data = build(data || {}, { additionalProperties: false });
+		validate(data);
 
-		_.defaults(this, data, DEFAULTS);
+		_.defaults(this, data);
 	}
 
 	Click.create = function(data) {

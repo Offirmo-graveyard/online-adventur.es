@@ -1,6 +1,31 @@
 {
 	"title": "Click Schema",
 	"type": "object",
+	"additionalProperties": false,
 	"properties": {
+		"is_valid": {
+			"description": "is this click valid ?",
+			"type": "boolean",
+			"default": true
+		},
+		"date_moment_utc": {
+			"description": "exact date of the last click, in moment UTC format",
+			"format": "date-time",
+			"default": 0
+		},
+		"wait_interval_s": {
+			"description": "time the player should wait after this click before being allowed to click again, in s.",
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"msg": {
+			"description": "id of the i18n string for this message",
+			"type": "string",
+			"default": "no_clickmsg"
+		},
+		"gained": {
+			"description": "what was gained with this click"
+		}
 	}
 }
