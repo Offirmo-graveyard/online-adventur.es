@@ -68,7 +68,7 @@
     "serve-static": "~1.10.0",
     "simplyconfig": "~0.3.2",
     "trace": "~0.2",
-    "when": "~3.7.5"
+    "when": "~3.7.7"
   },
   "devDependencies": {
     "eslint": "^1.10.3",
