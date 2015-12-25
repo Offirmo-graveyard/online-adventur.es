@@ -1,4 +1,4 @@
-/** An adventure progress (result of a good click)
+/** An adventure progress, "instantiated" from an AdventureArchetype
  */
 define([
 	'lodash',
@@ -8,25 +8,35 @@ define([
 function(_, jsen, schema) {
 	'use strict';
 
-	var DEFAULTS = {
+	/////// Validation ///////
+	var is_schema_valid = jsen({'$ref': 'http://json-schema.org/draft-04/schema#'})(schema);
+	if (! is_schema_valid) throw new Error('Adventure model : internal schema is invalid !');
+	var _validate = jsen(schema, {
+		greedy: true,
+		formats: {}
+	});
 
-	};
+	var build = _validate.build;
 
-	var is_schema_valid = jsen({"$ref": "http://json-schema.org/draft-04/schema#"})(schema);
-	if (! is_schema_valid) throw new Error('Adventure : internal schema is invalid !');
-
-	var validate_schema = jsen(schema);
 	function validate(data) {
-		var is_valid = validate_schema(data);
-		if (!is_valid)
-			throw new Error('Adventure : provided data are invalid !');
+		var err = new Error('Adventure model : provided data are invalid !');
+		err.bad_data = _.cloneDeep(data);
+		err.validation_errors = [];
+
+		if (!_validate(data)) {
+			err.validation_errors = _.cloneDeep(_validate.errors);
+			console.error('Adventure model : validation error !', err.bad_data, err.validation_errors);
+			throw err;
+		}
 	}
 
-	function Adventure(data) {
-		if (data) validate(data);
-		data = data || {};
 
-		_.defaults(this, data, DEFAULTS);
+	/////// Methods ///////
+	function Adventure(data) {
+		data = build(data || {}, { additionalProperties: false });
+		validate(data);
+
+		_.defaults(this, data);
 	}
 
 	Adventure.create = function(data) {

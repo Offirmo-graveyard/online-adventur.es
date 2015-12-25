@@ -2,5 +2,108 @@
 	"title": "Adventure Schema",
 	"type": "object",
 	"properties": {
-	}
+		"archetype_id": {
+			"description": "...",
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 50
+		},
+		"msg_id": {
+			"description": "...",
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 60
+		},
+		"gains": {
+			"description": "what was gained through this adventure",
+			"type": "object",
+			"default": {},
+			"properties": {
+				"level": {
+					"description": "player's level gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"health": {
+					"description": "player's health gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"mana": {
+					"description": "player's mana gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"strength": {
+					"description": "player's strength gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"agility": {
+					"description": "player's agility gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"vitality": {
+					"description": "player's vitality gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"wisdom": {
+					"description": "player's wisdom gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"luck": {
+					"description": "player's luck gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"coins": {
+					"description": "player's gold gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"tokens": {
+					"description": "player's token gain through this adventure",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"weapon": {
+					"description": "player's weapon gain through this adventure",
+					"type": "boolean",
+					"default": false
+				},
+				"armor": {
+					"description": "player's armor gain through this adventure",
+					"type": "boolean",
+					"default": false
+				},
+				"weapon_improvement": {
+					"description": "player's weapon improvement gain through this adventure",
+					"type": "boolean",
+					"default": false
+				},
+				"armor_improvement": {
+					"description": "player's armor improvement gain through this adventure",
+					"type": "boolean",
+					"default": false
+				},
+				"flags": {
+					"description": "TODO player's flag (= story advancement) gain through this adventure"
+				}
+			}
+		}
+	},
+	"required": [ "archetype_id", "msg_id", "gains" ]
 }

@@ -3,6 +3,12 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
+		"random_seed": {
+			"description": "for repeatability, a seed for a pseudo-random generator used in the game",
+			"type": "integer",
+			"minimum": 0,
+			"default": 123
+		},
 		"click_count": {
 			"description": "count of player interactions (good or bad)",
 			"type": "integer",

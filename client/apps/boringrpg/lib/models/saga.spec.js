@@ -10,7 +10,7 @@ define([
 
 	var expect = chai.expect;
 
-	describe.only('Saga Model', function() {
+	describe('Saga Model', function() {
 		var clock;
 
 		beforeEach(function () {
@@ -31,7 +31,8 @@ define([
 
 				it('should provide sane defaults', function () {
 					var out = CUT.create();
-					expect(out).to.deep.equal({
+					var expected = {
+						random_seed: 123,
 						click_count: 0,
 						valid_click_count: 0,
 						next_allowed_click_date_moment_utc: moment.utc(),
@@ -54,15 +55,18 @@ define([
 						flags: {
 							recent_adventure_ids: []
 						}
-					});
+					};
+					expect(_.cloneDeep(out), 'full').to.deep.equal(_.cloneDeep(expected));
 				});
 
 			});
 
 
 			context('with data', function () {
+
 				it('should work', function () {
 					var out = CUT.create({
+						random_seed: 2345,
 						click_count: 10,
 						valid_click_count: 1,
 						next_allowed_click_date_moment_utc: 2345,
@@ -86,7 +90,8 @@ define([
 							recent_adventure_ids: [ 'foo', 'bar' ]
 						}
 					});
-					expect(out).to.deep.equal({
+					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
+						random_seed: 2345,
 						click_count: 10,
 						valid_click_count: 1,
 						next_allowed_click_date_moment_utc: 2345,
@@ -109,7 +114,7 @@ define([
 						flags: {
 							recent_adventure_ids: [ 'foo', 'bar' ]
 						}
-					});
+					}));
 				});
 
 				it('should validate', function () {
@@ -135,7 +140,8 @@ define([
 						}
 					});
 					console.log(out);
-					expect(out).to.deep.equal({
+					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
+						random_seed: 123,
 						click_count: 2,
 						valid_click_count: 0,
 						next_allowed_click_date_moment_utc: moment.utc(),
@@ -158,9 +164,50 @@ define([
 						flags: {
 							recent_adventure_ids: []
 						}
-					});
+					}));
 				});
 			})
 		});
+
+		describe('progress generation', function () {
+			var saga;
+
+			beforeEach(function() {
+				saga = CUT.create();
+			});
+
+			context('when the click is valid', function () {
+				beforeEach(function() {
+					clock.tick(1);
+				});
+
+				it('should generate a "good click" adventure', function () {
+					var adventure_instance = saga.generate_click_adventure();
+				});
+				it('should update stats accordingly', function () {
+
+				});
+				it('should update inventory accordingly', function () {
+
+				});
+				it('should update skills accordingly', function () {
+
+				});
+				it('should update flags accordingly', function () {
+
+				});
+				it('should NOT repeat the same adventure', function () {
+
+				});
+			});
+
+			context('when the click is INvalid', function () {
+				it('should generate a "bad click" adventure', function () {
+
+				});
+			});
+
+		});
+
 	});
 });
