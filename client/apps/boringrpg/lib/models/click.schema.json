@@ -1,0 +1,20 @@
+{
+	"title": "Click Schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"is_valid": {
+			"description": "is this click valid ?",
+			"type": "boolean",
+			"default": true
+		},
+		"msg": {
+			"description": "id of the i18n string for this message",
+			"type": "string",
+			"default": "no_clickmsg"
+		},
+		"gained": {
+			"description": "TODO what was gained with this click"
+		}
+	}
+}

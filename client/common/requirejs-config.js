@@ -120,6 +120,8 @@ requirejs.config({
 		//'rdust'                    : 'bower_components/require-dust/rdust',
 		'rx'                       : 'bower_components/rxjs/dist/rx.all',
 		'screenfull'               : 'bower_components/screenfull/dist/screenfull',
+		'sinon'                    : 'bower_components/sinon/pkg/sinon',
+		'sinon-chai'               : 'bower_components/sinon-chai/lib/sinon-chai',
 		'spin'                     : 'bower_components/spin.js/spin',
 		// require.js extensions (plugin) to be able to load any kind of text with require.js
 		'text'                     : 'bower_components/requirejs-text/text',
@@ -136,14 +138,14 @@ requirejs.config({
 	shim: {
 		/////// require.js extensions
 		//'ngload': ['angularAMD'],
-		'rdust' : {
+		rdust : {
 			deps: [ 'dust-helpers' ]
 		},
 
 		/////// AMD plugins
 
 		/////// shim plugins
-		'angular': {
+		angular: {
 			deps: [ 'jquery' ], // angular has its own jQlite, but will use main jQuery if already available
 			exports: 'angular'
 		},
@@ -177,7 +179,7 @@ requirejs.config({
 		//'angularAMD': {
 		//	deps: [ 'angular' ]
 		//},
-		'bootstrap': {
+		bootstrap: {
 			deps: [
 				// bootstrap js needs jQuery http://getbootstrap.com/getting-started/#whats-included
 				'jquery',
@@ -191,7 +193,7 @@ requirejs.config({
 				'css!client/common/other_components/bootswatch/cyborg/cyborg-bootstrap.min'
 			]
 		},
-		'dust': {
+		dust: {
 			// no deps
 			exports: 'dust'
 		},
@@ -199,7 +201,7 @@ requirejs.config({
 			deps: [ 'dust' ],
 			exports: 'dust'
 		},
-		'famous': {
+		famous: {
 			deps: [
 				'famous-global',
 				'css!bower_components/famous/dist/famous'
@@ -232,10 +234,10 @@ requirejs.config({
 		'jquery.poptrox': {
 			deps: [ 'jquery' ]
 		},
-		'lodash': {
+		lodash: {
 			exports: '_'
 		},
-		'messenger': {
+		messenger: {
 			deps: [
 				'jquery',
 				'css!bower_components/messenger/build/css/messenger'
@@ -248,7 +250,7 @@ requirejs.config({
 			],
 			exports: 'Messenger'
 		},
-		'mocha': {
+		mocha: {
 			deps: [
 				'css!bower_components/mocha/mocha'
 			],
@@ -258,10 +260,15 @@ requirejs.config({
 				return this.mocha;
 			}
 		},
-		'screenfull': {
+		screenfull: {
 			exports: 'screenfull'
 		},
-		'spin': {
+		'sinon-chai': {
+			deps: [
+				'sinon'
+			]
+		},
+		spin: {
 			exports: 'Spinner'
 		}
 	},

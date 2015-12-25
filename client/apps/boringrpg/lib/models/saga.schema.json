@@ -1,0 +1,120 @@
+{
+	"title": "Saga Schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"click_count": {
+			"description": "count of player interactions (good or bad)",
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"valid_click_count": {
+			"description": "count of *valid* player interactions",
+			"type": "integer",
+			"minimum": 0,
+			"default": 0
+		},
+		"next_allowed_click_date_moment_utc": {
+			"description": "exact date after when the user is allowed to click again, in moment.utc() format",
+			"format": "date-time",
+			"default": 0
+		},
+		"stats": {
+			"description": "player's stats",
+			"type": "object",
+			"additionalItems": false,
+			"properties": {
+				"level": {
+					"description": "player's level",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"health": {
+					"description": "player's health",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"mana": {
+					"description": "player's level",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"strength": {
+					"description": "player's strength",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"agility": {
+					"description": "player's agility",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"vitality": {
+					"description": "player's vitality",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"wisdom": {
+					"description": "player's wisdom",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				},
+				"luck": {
+					"description": "player's luck",
+					"type": "integer",
+					"minimum": 1,
+					"default": 1
+				}
+			}
+		},
+		"currencies": {
+			"description": "player's currencies",
+			"type": "object",
+			"additionalItems": false,
+			"properties": {
+				"coins": {
+					"description": "player's gold",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				},
+				"tokens": {
+					"description": "player's tokens (special use)",
+					"type": "integer",
+					"minimum": 0,
+					"default": 0
+				}
+			}
+		},
+		"inventory": {
+			"description": "player's inventory (weapons and special items)",
+			"type": "array"
+		},
+		"skills": {
+			"description": "TODO player's skills = special knowledge (spells, tactics, etc.)",
+			"type": "array"
+		},
+		"flags": {
+			"description": "story's flags (which things already happened, etc.)",
+			"type": "object",
+			"additionalItems": true,
+			"properties": {
+				"recent_adventures": {
+					"description": "recently played adventures, to avoid repetition",
+					"type": "array",
+					"maxItems": 10,
+					"uniqueItems": true,
+					"items": [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ]
+				}
+			}
+		}
+	}
+}

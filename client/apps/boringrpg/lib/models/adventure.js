@@ -3,7 +3,7 @@
 define([
 	'lodash',
 	'jsen',
-	'json!./adventure-schema.json'
+	'json!./adventure.schema.json'
 ],
 function(_, jsen, schema) {
 	'use strict';

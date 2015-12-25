@@ -3,26 +3,37 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define([
 	'chai',
 	'mocha',
+	'moment',
 	'client/apps/boringrpg/lib/models/click'
-], function(chai, mocha, CUT) {
+], function(chai, mocha, moment, CUT) {
 	'use strict';
 
 	var expect = chai.expect;
 
 	describe('Click', function() {
+		var clock;
+
+		beforeEach(function () {
+			clock = sinon.useFakeTimers(1234, 'Date'); // needed to have a reproducible timestamp
+		});
+		afterEach(function () {
+			clock.restore();
+		});
 
 		describe('creation', function () {
+
 			context('with no data', function () {
 
 				it('should work', function () {
 					var out = CUT.create();
+					expect(out).to.be.an.object;
 				});
 
 				it('should provide sane defaults', function () {
 					var out = CUT.create();
 					expect(out).to.deep.equal({
 						is_valid: true,
-						date_moment_utc: 0,
+						date_moment_utc: moment.utc(),
 						wait_interval_s: 0,
 						msg: 'no_clickmsg'
 					});
@@ -49,7 +60,7 @@ define([
 
 				it('should validate', function () {
 					var tempfn = function() { CUT.create({ wait_interval_s: -3}); };
-					expect(tempfn).to.throw(Error, 'Click : provided data are invalid !');
+					expect(tempfn).to.throw(Error, 'Click model : provided data are invalid !');
 				});
 
 				it('should strip extra properties', function () {
@@ -71,8 +82,9 @@ define([
 						msg: 'foo'
 					});
 				});
-				
+
 			})
 		});
+
 	});
 });

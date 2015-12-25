@@ -12,6 +12,7 @@
     "extended-exceptions.js": "~2.1",
     "famous": "~0.3.5",
     "famous-angular": "~0.5.2",
+    "humanize-duration": "~3.3.0",
     "intl": "~1",
     "intl-messageformat": "yahoo/intl-messageformat#~1.1",
     "intl-relativeformat": "yahoo/intl-relativeformat#~1.1",
@@ -30,11 +31,12 @@
     "rxjs": "~3.1",
     "screenfull": "~2.0",
     "underscore.string": "~3.2",
-    "when": "^3",
-    "humanize-duration": "~3.3.0"
+    "when": "^3"
   },
   "devDependencies": {
+    "chai": "latest",
     "mocha": "latest",
+    "sinon": "latest",
     "sinon-chai": "latest"
   },
   "commented_out": {
