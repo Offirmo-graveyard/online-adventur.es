@@ -4,10 +4,10 @@ define([
 	'chai',
 	'mocha',
 	'moment',
-	'client/apps/boringrpg/lib/models/saga',
+	'boringrpg/lib/models/saga',
 	'boringrpg/lib/static-data/model/db',
-	'client/apps/boringrpg/lib/models/adventure-archetype',
-	'client/apps/boringrpg/lib/models/adventure'
+	'boringrpg/lib/models/adventure-archetype',
+	'boringrpg/lib/models/adventure'
 ], function(chai, mocha, moment, CUT, StaticDb, AdventureArchetype, Adventure) {
 	'use strict';
 
@@ -228,7 +228,7 @@ define([
 			})
 		});
 
-		describe.only('progress generation', function () {
+		describe('progress generation', function () {
 			var saga;
 
 			beforeEach(function() {
@@ -242,6 +242,7 @@ define([
 
 				it('should generate a "good click" adventure', function () {
 					var adventure_instance = saga.generate_click_adventure();
+					expect([ 'good1', 'good2', 'good3' ]).to.contain(adventure_instance.archetype_id);
 					expect(adventure_instance).to.be.an.instanceOf(Adventure);
 				});
 
@@ -309,20 +310,28 @@ define([
 				});
 
 				it('should NOT repeat the same adventure', function () {
-					var inst1 = saga.generate_click_adventure();
+					for(var i = 0; i < 5; i++) {
+						saga = CUT.create();
 
-					var inst2 = saga.generate_click_adventure();
-					expect(inst2.archetype_id).to.not.equal(inst1.archetype_id);
+						clock.tick(100000); // for clicks to be valid
+						var inst1 = saga.generate_click_adventure();
 
-					var inst3 = saga.generate_click_adventure();
-					expect(inst3.archetype_id).to.not.equal(inst2.archetype_id);
-					expect(inst3.archetype_id).to.not.equal(inst1.archetype_id);
+						clock.tick(100000);
+						var inst2 = saga.generate_click_adventure();
+						expect(inst2.archetype_id).to.not.equal(inst1.archetype_id);
+
+						clock.tick(100000);
+						var inst3 = saga.generate_click_adventure();
+						expect(inst3.archetype_id).to.not.equal(inst2.archetype_id);
+						expect(inst3.archetype_id).to.not.equal(inst1.archetype_id);
+					}
 				});
 			});
 
 			context('when the click is INvalid', function () {
 				it('should generate a "bad click" adventure', function () {
 					var adventure_instance = saga.generate_click_adventure();
+					expect([ 'bad1' ]).to.contain(adventure_instance.archetype_id);
 					expect(adventure_instance).to.be.an.instanceOf(Adventure);
 				});
 			});

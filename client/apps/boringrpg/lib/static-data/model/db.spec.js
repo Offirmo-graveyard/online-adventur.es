@@ -11,6 +11,7 @@ define([
 
 	describe('Static DB', function() {
 		_.forEach({
+
 			AdventureArchetype: {
 				id: 'stare_cup',
 				msg_id: 'clickmsg_stare_cup',
@@ -35,7 +36,15 @@ define([
 						armor_improvement: false
 					}
 				}
+			},
+
+			WeaponComponent: {
+				id: 'qualifier1_arcanic',
+				msg_id: 'weapon_qualifier1_arcanic',
+				type: 'qualifier1',
+				affinities: {}
 			}
+
 		}, function (sample, model) {
 			it('should load and expose "' + model + '"', function () {
 				expect(OUT).to.have.property(model);
@@ -43,7 +52,7 @@ define([
 				expect(OUT[model].all).to.have.length.above(1);
 				expect(OUT[model]).to.have.property('by_id');
 				var temp = OUT[model].by_id[sample.id];
-				expect(OUT[model].by_id[sample.id], 'sample').to.deep.equal(sample);
+				expect(_.cloneDeep(OUT[model].by_id[sample.id]), 'sample').to.deep.equal(_.cloneDeep(sample));
 			});
 		});
 	});

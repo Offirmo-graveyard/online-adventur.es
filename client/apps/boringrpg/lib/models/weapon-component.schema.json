@@ -1,0 +1,28 @@
+{
+	"title": "WeaponComponent Schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"id": {
+			"type": "string",
+			"minLength": 1,
+			"maxLength": 50
+		},
+		"msg_id": {
+			"description": "i18n msg id for this element",
+			"type": "string",
+			"minLength": 3,
+			"maxLength": 60
+		},
+		"type": {
+			"description": "type of component (base, qualifier1, qualifier2, quality)",
+			"type": "string",
+			"default": "base"
+		},
+		"affinities": {
+			"description": "TODO",
+			"default": {}
+		}
+	},
+	"required": [ "id", "msg_id" ]
+}

@@ -4,7 +4,7 @@ define([
 	'chai',
 	'mocha',
 	'moment',
-	'client/apps/boringrpg/lib/models/click'
+	'boringrpg/lib/models/click'
 ], function(chai, mocha, moment, CUT) {
 	'use strict';
 

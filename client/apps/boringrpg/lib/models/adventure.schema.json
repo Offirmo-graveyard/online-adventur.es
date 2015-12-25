@@ -14,6 +14,10 @@
 			"minLength": 3,
 			"maxLength": 60
 		},
+		"good": {
+			"description": "wether this adventure is the result of a good or bad click",
+			"type": "boolean"
+		},
 		"gains": {
 			"description": "what was gained through this adventure",
 			"type": "object",
@@ -105,5 +109,5 @@
 			}
 		}
 	},
-	"required": [ "archetype_id", "msg_id", "gains" ]
+	"required": [ "archetype_id", "msg_id", "good", "gains" ]
 }

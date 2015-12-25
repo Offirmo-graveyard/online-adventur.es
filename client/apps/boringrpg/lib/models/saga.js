@@ -42,17 +42,10 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 
 
 	/////// Utils ///////
-	var get_bad_AdventureArchetypes = _.memoize(function () {
+	var get_AdventureArchetypes_by_click_validity = _.memoize(function (validity) {
 		return _.filter(StaticDb.AdventureArchetype.all, {
 			pre: {
-				good_click: false
-			}
-		});
-	});
-	var get_good_AdventureArchetypes = _.memoize(function () {
-		return _.filter(StaticDb.AdventureArchetype.all, {
-			pre: {
-				good_click: true
+				good_click: validity
 			}
 		});
 	});
@@ -72,7 +65,7 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 		var click_date_moment_utc = moment.utc();
 		var elapsed_since_click_allowed = click_date_moment_utc.diff(this.next_allowed_click_date_moment_utc);
 		var is_click_valid = elapsed_since_click_allowed > 0;
-		var adventure_archetypes_pool = is_click_valid ? get_good_AdventureArchetypes() : get_bad_AdventureArchetypes();
+		var adventure_archetypes_pool = get_AdventureArchetypes_by_click_validity(is_click_valid);
 
 		var selected_adventure_archetype = this._pick_acceptable_new_adventure_archetype(adventure_archetypes_pool);
 
@@ -87,15 +80,15 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 			infinite_loop_safety++;
 			if (infinite_loop_safety > 100) throw new Error('Infinite loop !');
 			var candidate = adventure_archetypes_pool[random.getRandomIndex(pool_length)];
-			console.log('* trying adventure archetype #' + candidate.id + '...');
+			//console.log('* trying adventure archetype #' + candidate.id + '...');
 			pertinence_check: {
 				if (_.contains(this.flags.recent_adventure_ids, candidate.id)) {
-					console.log('  REJECTED : too recently selected.');
+					//console.log('  REJECTED : too recently selected.');
 					break pertinence_check;
 				}
 
 				if (!this._is_adventure_archetype_matching_current_preconditions(candidate)) {
-					console.log('  REJECTED : preconditions not met.');
+					//console.log('  REJECTED : preconditions not met.');
 					break pertinence_check;
 				}
 
@@ -103,6 +96,12 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 				selected_adventure_archetype = candidate;
 			}
 		}
+
+		this.flags.recent_adventure_ids.push(selected_adventure_archetype.id);
+		var limit = schema.properties.flags.properties.recent_adventure_ids.maxItems;
+		if (this.flags.recent_adventure_ids.length > limit)
+			this.flags.recent_adventure_ids = this.flags.recent_adventure_ids.slice(-limit);
+
 		return selected_adventure_archetype;
 	};
 
@@ -116,6 +115,7 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 		var data = {
 			archetype_id: archetype.id,
 			msg_id: archetype.msg_id,
+			good: archetype.pre.good_click,
 			gains: archetype.post.gains
 		};
 

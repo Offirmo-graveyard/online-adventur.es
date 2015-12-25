@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define([
 	'chai',
 	'mocha',
-	'client/apps/boringrpg/lib/models/adventure-archetype'
+	'boringrpg/lib/models/adventure-archetype'
 ], function(chai, mocha, CUT) {
 	'use strict';
 

@@ -3,11 +3,7 @@
 define({
 	bad: {
 		pre: {
-
-		},
-		post: {
-			gains: {
-			}
+			good_click: false
 		}
 	},
 	bored_log: {

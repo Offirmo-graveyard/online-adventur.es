@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define([
 	'chai',
 	'mocha',
-	'client/apps/boringrpg/lib/models/adventure'
+	'boringrpg/lib/models/adventure'
 ], function(chai, mocha, CUT) {
 	'use strict';
 
@@ -18,11 +18,13 @@ define([
 				it('should work', function () {
 					var out = CUT.create({
 						archetype_id: 'hello',
-						msg_id: 'm_hello'
+						msg_id: 'm_hello',
+						good: true
 					});
 					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
+						good: true,
 						gains: {
 							level: 0,
 							health: 0,
@@ -45,7 +47,8 @@ define([
 				it('should validate', function () {
 					var tempfn = function() { CUT.create({
 						archetype_id: 'hello',
-						msg_id: 'x'
+						msg_id: 'x',
+						good: true
 					}); };
 					expect(tempfn).to.throw(Error, 'Adventure model : provided data are invalid !');
 				});
@@ -54,6 +57,7 @@ define([
 					var out = CUT.create({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
+						good: true,
 						foo: 'bar'
 					});
 					expect(out).to.not.have.property('foo');
@@ -63,6 +67,7 @@ define([
 					var out = CUT.create({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
+						good: true,
 						gains: {
 							level: 3
 						}
@@ -71,6 +76,7 @@ define([
 					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
+						good: true,
 						gains: {
 							level: 3,
 							health: 0,
