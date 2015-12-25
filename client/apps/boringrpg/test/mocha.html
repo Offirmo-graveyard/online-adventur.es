@@ -8,34 +8,37 @@
 
 	<div id="mocha"></div>
 
-<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
-<script src="../../../../bower_components/requirejs/require.js"></script>
-<script>
-	require([ '../../../common/requirejs-config' ], function() {
-		// adapt config for this file
-		requirejs.config({baseUrl: '../../../..'});
-		// Configuration loaded now, safe to do other require calls that depend on that config.
-		require([
-			'mocha',
-			'chai',
-			'sinon-chai',
-			'sinon',
+	<noscript>Your browser either does not support JavaScript, or has it turned off.</noscript>
+	<script src="../../../../bower_components/requirejs/require.js"></script>
+	<script>
+		require([ '../../../common/requirejs-config' ], function() {
+			// adapt config for this file
+			requirejs.config({baseUrl: '../../../..'});
+			// Configuration loaded now, safe to do other require calls that depend on that config.
+			require([
+				'mocha',
+				'chai',
+				'sinon-chai',
+				'sinon',
 
-			'domReady!',
+				'domReady!',
 
-			'client/apps/boringrpg/lib/static-data/model/model_loader.spec',
+				'client/apps/boringrpg/lib/static-data/model/model_loader.spec',
+				'client/apps/boringrpg/lib/static-data/model/db.spec',
 
-			'client/apps/boringrpg/lib/models/adventure.spec',
-			'client/apps/boringrpg/lib/models/click.spec',
-		],
-		function(mocha, chai, sinon_chai) {
-			mocha.checkLeaks();
-			chai.use(sinon_chai);
+				'client/apps/boringrpg/lib/models/adventure-archetype.spec',
+				'client/apps/boringrpg/lib/models/adventure.spec',
+				'client/apps/boringrpg/lib/models/saga.spec',
+				'client/apps/boringrpg/lib/models/click.spec',
+			],
+			function(mocha, chai, sinon_chai) {
+				mocha.checkLeaks();
+				chai.use(sinon_chai);
 
-			console.log("Starting tests...");
-			mocha.run();
+				console.log("Starting tests...");
+				mocha.run();
+			});
 		});
-	});
-</script>
+	</script>
 </body>
 </html>

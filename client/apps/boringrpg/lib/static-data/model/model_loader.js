@@ -1,9 +1,8 @@
 define([
 	'lodash',
-	'underscore.string',
 	'boringrpg/i18n/nls/en/messages',
 ],
-function(_, _s, i18n_messages) {
+function(_, i18n_messages) {
 	'use strict';
 
 
@@ -76,11 +75,10 @@ function(_, _s, i18n_messages) {
 			}
 		});
 
-		var data = _.values(raw_data_by_id);
-		// attach hashes
-		data.by_id = raw_data_by_id;
-
-		return data;
+		return {
+			all: _.values(raw_data_by_id),
+			by_id: raw_data_by_id
+		};
 	}
 
 	return load_model_from_static_data;

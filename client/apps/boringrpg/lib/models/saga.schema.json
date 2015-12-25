@@ -16,7 +16,7 @@
 			"default": 0
 		},
 		"next_allowed_click_date_moment_utc": {
-			"description": "exact date after when the user is allowed to click again, in moment.utc() format",
+			"description": "exact date after when the user is allowed to validly click again, in moment.utc() format",
 			"format": "date-time",
 			"default": 0
 		},
@@ -24,6 +24,7 @@
 			"description": "player's stats",
 			"type": "object",
 			"additionalItems": false,
+			"default": {},
 			"properties": {
 				"level": {
 					"description": "player's level",
@@ -38,7 +39,7 @@
 					"default": 1
 				},
 				"mana": {
-					"description": "player's level",
+					"description": "player's mana",
 					"type": "integer",
 					"minimum": 0,
 					"default": 0
@@ -79,6 +80,7 @@
 			"description": "player's currencies",
 			"type": "object",
 			"additionalItems": false,
+			"default": {},
 			"properties": {
 				"coins": {
 					"description": "player's gold",
@@ -96,20 +98,24 @@
 		},
 		"inventory": {
 			"description": "player's inventory (weapons and special items)",
-			"type": "array"
+			"type": "array",
+			"default": []
 		},
 		"skills": {
 			"description": "TODO player's skills = special knowledge (spells, tactics, etc.)",
-			"type": "array"
+			"type": "array",
+			"default": []
 		},
 		"flags": {
 			"description": "story's flags (which things already happened, etc.)",
 			"type": "object",
+			"default": {},
 			"additionalItems": true,
 			"properties": {
-				"recent_adventures": {
+				"recent_adventure_ids": {
 					"description": "recently played adventures, to avoid repetition",
 					"type": "array",
+					"default": [],
 					"maxItems": 10,
 					"uniqueItems": true,
 					"items": [ {}, {}, {}, {}, {}, {}, {}, {}, {}, {} ]

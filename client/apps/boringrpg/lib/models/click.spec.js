@@ -10,7 +10,7 @@ define([
 
 	var expect = chai.expect;
 
-	describe('Click', function() {
+	describe('Click Model', function() {
 		var clock;
 
 		beforeEach(function () {
@@ -22,7 +22,7 @@ define([
 
 		describe('creation', function () {
 
-			context('with no data', function () {
+			context('without data', function () {
 
 				it('should work', function () {
 					var out = CUT.create();

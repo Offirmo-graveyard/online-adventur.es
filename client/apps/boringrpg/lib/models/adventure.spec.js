@@ -12,7 +12,7 @@ define([
 	describe('Adventure', function() {
 
 		describe('creation', function () {
-			context('with no data', function () {
+			context('without data', function () {
 				it('should work', function () {
 					var out = CUT.create();
 				});

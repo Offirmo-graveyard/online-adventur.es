@@ -22,7 +22,9 @@ function(_, moment, jsen, schema) {
 	function validate(data) {
 		if (!_validate(data)) {
 			console.error('Click model : validation error !', _validate.errors);
-			throw new Error('Click model : provided data are invalid !');
+			var err = new Error('Click model : provided data are invalid !');
+			err.errors = _validate.errors;
+			throw err;
 		}
 	}
 

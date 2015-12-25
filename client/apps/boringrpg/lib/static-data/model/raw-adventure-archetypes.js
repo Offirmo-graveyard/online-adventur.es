@@ -2,6 +2,9 @@
 
 define({
 	bad: {
+		pre: {
+
+		},
 		post: {
 			gains: {
 			}
@@ -164,14 +167,14 @@ define({
 	rare_goods_seller: {
 		post: {
 			gains: {
-				weapon: 'xxx'
+				weapon: true
 			}
 		}
 	},
 	progress_loop: {
 		post: {
 			gains: {
-				weapon: 'xxx'
+				weapon: true
 			}
 		}
 	},
@@ -186,15 +189,9 @@ define({
 		post: {
 			gains: {
 				coins: 234,
-				weapon: '+1 enchat'
+				weapon_improvement: true
 			}
 		}
-	},
-	_make_friends: {
-		enabled: false,
-	},
-	_unicorns: {
-		enabled: false,
 	},
 	bad_village: {
 		post: {
@@ -203,17 +200,23 @@ define({
 			}
 		}
 	},
-	_arrown_in_the_knee: {
-		enabled: false,
-	},
-	_black_mage_again: {
-		enabled: false,
-	},
 	mana_mana: {
 		post: {
 			gains: {
 				mana: 1
 			}
 		}
+	},
+	_make_friends: {
+		// TODO necro + follower ?
+	},
+	_unicorns: {
+		// TODO
+	},
+	_arrown_in_the_knee: {
+		// TODO
+	},
+	_black_mage_again: {
+		// TODO
 	}
 });

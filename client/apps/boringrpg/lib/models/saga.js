@@ -20,9 +20,20 @@ function(_, moment, jsen, schema) {
 	var build = _validate.build;
 
 	function validate(data) {
+		var err = new Error('Saga model : provided data are invalid !');
+		err.bad_data = _.cloneDeep(data);
+		err.validation_errors = [];
+
 		if (!_validate(data)) {
-			console.error('Saga model : validation error !', _validate.errors);
-			throw new Error('Saga model : provided data are invalid !');
+			err.validation_errors = _.cloneDeep(_validate.errors);
+			console.error('Saga model : validation error !', err.bad_data, err.validation_errors);
+			throw err;
+		}
+
+		if (data.valid_click_count > data.click_count) {
+			err.validation_errors.push('valid_click_count must be <= click_count');
+			console.error('Saga model : validation error !', err.bad_data, err.validation_errors);
+			throw err;
 		}
 	}
 
@@ -35,7 +46,7 @@ function(_, moment, jsen, schema) {
 
 		_.defaults(this, data);
 
-		this.date_moment_utc = this.date_moment_utc || moment.utc();
+		this.next_allowed_click_date_moment_utc = this.next_allowed_click_date_moment_utc || moment.utc();
 	}
 
 

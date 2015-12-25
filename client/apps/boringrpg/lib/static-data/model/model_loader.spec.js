@@ -9,7 +9,7 @@ define([
 
 	var expect = chai.expect;
 
-	describe.only('Static Model Loader', function() {
+	describe('Static Model Loader', function() {
 		var TestModel, raw_data;
 
 		beforeEach(function () {
@@ -53,14 +53,14 @@ define([
 			});
 
 			it('should return an array of instances', function () {
-				expect(data).to.have.length(2);
-				expect(data[0], '0').to.be.an.instanceOf(TestModel);
-				expect(data[0], '0').to.deep.equal({
+				expect(data.all).to.have.length(2);
+				expect(data.all[0], '0').to.be.an.instanceOf(TestModel);
+				expect(data.all[0], '0').to.deep.equal({
 					id: 'foo',
 					limit: 33
 				});
-				expect(data[1], '1').to.be.an.instanceOf(TestModel);
-				expect(data[1], '1').to.deep.equal({
+				expect(data.all[1], '1').to.be.an.instanceOf(TestModel);
+				expect(data.all[1], '1').to.deep.equal({
 					id: 'bar',
 					limit: 42
 				});
@@ -81,7 +81,7 @@ define([
 			});
 
 			it('should filter out commented entries', function () {
-				expect(data).to.have.length(2);
+				expect(data.all).to.have.length(2);
 				expect(data.by_id).to.not.have.property('_commented');
 			});
 
@@ -122,12 +122,12 @@ define([
 			});
 
 			it('should return an array of instances, enriched with i18n info', function () {
-				expect(data[0], '0').to.deep.equal({
+				expect(data.all[0], '0').to.deep.equal({
 					id: 'foo',
 					limit: 33,
 					msg_id: 'testmsg_foo'
 				});
-				expect(data[1], '1').to.deep.equal({
+				expect(data.all[1], '1').to.deep.equal({
 					id: 'baz',
 					limit: 99,
 					msg_id: 'testmsg_baz'
@@ -135,9 +135,9 @@ define([
 			});
 
 			it('should validate i18n messages against available messages', function () {
-				expect(data).to.have.length(2); // and not 3
-				expect(data[0].id, '0').to.not.equal('bar');
-				expect(data[1].id, '1').to.not.equal('bar');
+				expect(data.all).to.have.length(2); // and not 3
+				expect(data.all[0].id, '0').to.not.equal('bar');
+				expect(data.all[1].id, '1').to.not.equal('bar');
 				expect(console.error).to.have.been
 					.calledWith('Static data declare model "testmsg_bar" which has no i18n entry !');
 				expect(console.error).to.have.been
