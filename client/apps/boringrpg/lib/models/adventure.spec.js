@@ -9,7 +9,7 @@ define([
 
 	var expect = chai.expect;
 
-	describe.only('Adventure', function() {
+	describe('Adventure', function() {
 
 		describe('creation', function () {
 
