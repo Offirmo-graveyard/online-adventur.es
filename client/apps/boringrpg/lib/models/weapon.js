@@ -67,6 +67,10 @@ function(_, jsen, schema, StaticDb, random) {
 		_.defaults(this, data);
 	}
 
+	Weapon.prototype.get = function () {
+		return build(this); // REM : perform a copy
+	};
+
 	// A hash for this weapon components only
 	Weapon.prototype.get_components_hash = function () {
 		return [data.base.id, data.qualifier1.id, data.qualifier2.id, data.quality.id].join('+');

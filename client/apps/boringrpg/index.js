@@ -2,6 +2,17 @@
 
 window.offirmo_app_global_ng_module_dependencies = ['famous.angular'];
 
+// http://devdocs.io/requirejs/index#requirejsonerror
+requirejs.onError = function (err) {
+	console.error('X requirejs.onError "' + err.requireType + '" caught :', err);
+	if (err.requireType === 'timeout') {
+		console.error('X problematic modules : ' + err.requireModules);
+	}
+
+	// rethrow
+	throw err;
+};
+
 define([
 	'offirmo-app-bootstrap',
 	'lodash',

@@ -222,6 +222,7 @@ define({
 	// meta
 	no_clickmsg:
 		'You’re eager to start adventuring!',
+
 	clickmsg_bad:
 		'You clicked too early!<br/>' +
 		'+{penalty_s}s !',

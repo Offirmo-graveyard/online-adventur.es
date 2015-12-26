@@ -39,6 +39,18 @@ function(_, jsen, schema) {
 		_.defaults(this, data);
 	}
 
+	Adventure.prototype.get = function () {
+		var data = build(this); // REM : perform a copy
+
+		if (data.gains.weapon)
+			data.gains.weapon = data.gains.weapon.get();
+
+		if (data.gains.armor)
+			data.gains.armor = data.gains.armor.get();
+
+		return data;
+	};
+
 	Adventure.create = function(data) {
 		return new Adventure(data);
 	};

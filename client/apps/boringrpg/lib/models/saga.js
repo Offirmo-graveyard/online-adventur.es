@@ -86,6 +86,14 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 		this.next_allowed_click_date_moment_utc = this.next_allowed_click_date_moment_utc || moment.utc();
 	}
 
+	Saga.prototype.get = function () {
+		var data = build(this); // REM : perform a copy
+		data.inventory = _.map(data.inventory, function(item) {
+			return item.get();
+		});
+		return data;
+	};
+
 	Saga.prototype.generate_click_adventure = function() {
 		var click_date_moment_utc = moment.utc();
 		var elapsed_since_click_allowed = click_date_moment_utc.diff(this.next_allowed_click_date_moment_utc);
@@ -161,17 +169,17 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 		else delete data.gains.weapon;
 
 		if (archetype.post.gains.armor) {
-			throw new Error('Not Implemented !');
+			console.error('XXX Not Implemented !');
 		}
 		else delete data.gains.armor;
 
 		if (archetype.post.gains.weapon_improvement) {
-			throw new Error('Not Implemented !');
+			console.error('XXX Not Implemented !');
 		}
 		else delete data.gains.weapon_improvement;
 
 		if (archetype.post.gains.armor_improvement) {
-			throw new Error('Not Implemented !');
+			console.error('XXX Not Implemented !');
 		}
 		else delete data.gains.armor_improvement;
 

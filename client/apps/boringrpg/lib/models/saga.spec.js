@@ -360,7 +360,7 @@ define([
 
 		});
 
-		describe.only('inventory', function () {
+		describe('inventory', function () {
 			describe('addition', function () {
 				context('when the inventory has room', function () {
 					it('should add it to the inventory');
@@ -370,6 +370,72 @@ define([
 					it('should add it to the inventory AND drop the other least precious non-equipped item');
 				});
 			})
+		});
+
+		describe('get()', function () {
+			it('should return a JSON representation', function () {
+				var test_weapon = Weapon.create().get();
+				var out = CUT.create({
+					random_seed: 2345,
+					click_count: 10,
+					valid_click_count: 1,
+					next_allowed_click_date_moment_utc: 2345,
+					stats: {
+						agility: 2,
+						health: 3,
+						level: 4,
+						luck: 5,
+						mana: 6,
+						strength: 7,
+						vitality: 8,
+						wisdom: 9
+					},
+					currencies: {
+						coins: 10,
+						tokens: 11
+					},
+					inventory: [
+						test_weapon
+					],
+					skills: [],
+					flags: {
+						recent_adventure_ids: [ 'foo', 'bar' ]
+					}
+				});
+				var expected = {
+					random_seed: 2345,
+					click_count: 10,
+					valid_click_count: 1,
+					next_allowed_click_date_moment_utc: 2345,
+					stats: {
+						agility: 2,
+						health: 3,
+						level: 4,
+						luck: 5,
+						mana: 6,
+						strength: 7,
+						vitality: 8,
+						wisdom: 9
+					},
+					currencies: {
+						coins: 10,
+						tokens: 11
+					},
+					inventory: [
+						test_weapon
+					],
+					skills: [],
+					flags: {
+						recent_adventure_ids: [ 'foo', 'bar' ]
+					}
+				};
+				var json = out.get();
+				expect(json).to.be.an.object;
+				expect(json).to.not.be.an.instanceOf(CUT);
+				//console.log('actual', _.cloneDeep(json));
+				//console.log('expected', _.cloneDeep(expected));
+				expect(_.cloneDeep(json)).to.deep.equal(_.cloneDeep(expected));
+			});
 		});
 
 	});

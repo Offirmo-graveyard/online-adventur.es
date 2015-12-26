@@ -60,38 +60,8 @@ function(_, moment, Baobab, Rx, config) {
 			}
 		},
 		model: {
-			click_count: 0,
-			last_click: {
-				date_moment_utc: moment.utc(),
-				wait_interval_s: 0,
-				msg: 'no_clickmsg',
-				is_valid: true,
-				gained_coins: 0,
-				gained_item: undefined,
-				replaced_item: undefined,
-			},
-			stats: {
-				level: 1,
-				health: 1,
-				mana: 0,
-
-				strength: 1,
-				agility: 1,
-				vitality: 1,
-				wisdom: 1,
-				luck: 1,
-			},
-			currencies: {
-				coins: 0,
-				tokens: 0
-			},
-			inventory: [
-				{
-					type: 'weapon',
-					id: 'spoon' // TODOOO
-				}
-			],
-			skills: []
+			saga: {},
+			last_adventure: {}
 		}
 	});
 

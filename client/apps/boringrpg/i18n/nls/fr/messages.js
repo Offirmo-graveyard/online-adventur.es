@@ -206,12 +206,12 @@ define({
 	weapon_quality_legendary: 'légendaire',
 
 	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
-		var weapon_gender = libs.format('weapongender_' + weapon.type.id, {});
+		var weapon_gender = libs.format('weapongender_' + weapon.base.id.slice(5), {});
 
 		var parts = libs.format_multiple([
-			weapon.type.msg_key,
-			weapon.qualif1.msg_key,
-			weapon.qualif2.msg_key
+			weapon.base.msg_id,
+			weapon.qualifier1.msg_id,
+			weapon.qualifier2.msg_id
 		], {gender: weapon_gender});
 
 		return parts.join(' ');

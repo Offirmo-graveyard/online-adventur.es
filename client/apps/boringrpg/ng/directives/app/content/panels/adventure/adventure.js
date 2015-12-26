@@ -5,11 +5,11 @@ define([
 	'humanize-duration',
 	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
-	'boringrpg/lib/on-click',
+	'boringrpg/lib/model',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/adventure/adventure.css'
 ],
-function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree, on_click, tpl) {
+function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree, model, tpl) {
 	'use strict';
 
 	offirmo_app.global_ng_module.directive('appContentPanelAdventure', [
@@ -23,7 +23,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 				controller: ['$scope', function($scope) {
 					var Transitionable = $famous['famous/transitions/Transitionable'];
 
-					var last_click_cursor = state_tree.select('model', 'last_click');
+					var last_adventure_cursor = state_tree.select('model', 'last_adventure');
 					var model_cursor = state_tree.select('model');
 					var lang_cursor = state_tree.select('view', 'locale');
 
@@ -47,8 +47,8 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						humanized_delay: '...'
 					};
 					var localizedHumanizeDuration = null;
-					var message_out_deferred = $q.defer();
-					message_out_deferred.resolve(true); //init
+					var message_out_deferred = $q.defer(); // sync message update with graphical animation
+					message_out_deferred.resolve(true); // init
 
 					// we need to listen to locale change for reconfiguring humanizeDuration
 					function update_locale() {
@@ -57,29 +57,27 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						});
 					}
 					lang_cursor.on('update', update_locale);
-					update_locale();
+					update_locale(); // init
 
-					// expose stats
-					function update_exposed_stats() {
+					// expose full model
+					function update_exposed_model() {
 						$scope.$evalAsync(function () {
 							$scope.model = model_cursor.get();
+							//console.log('* updated model', $scope.model);
 						});
 					}
-					model_cursor.on('update', update_exposed_stats);
-					update_exposed_stats();
+					model_cursor.on('update', update_exposed_model);
+					update_exposed_model();
 
 					function update_click_message() {
+						// defer update until the graphical animation "old adventure disappears" has ended
 						message_out_deferred.promise.finally(function() {
-							var click_data = last_click_cursor.get();
-							//console.log('new click_data', click_data);
-							$scope.click_data = click_data;
-							$scope.click_gains = click_data.gained;
-							$scope.click_message = click_data.msg;
-							console.log(click_data);
+							var last_adventure = last_adventure_cursor.get();
+							console.log('* new last_adventure', last_adventure);
+							$scope.last_adventure = last_adventure;
 
-							next_click_opening_moment_utc = click_data.date_moment_utc
-								.clone()
-								.add(click_data.wait_interval_s, 's');
+							// REM : saga has already updated on its own
+							next_click_opening_moment_utc = $scope.model.saga.next_allowed_click_date_moment_utc;
 
 							if (timer_off) {
 								timer_off = false;
@@ -105,7 +103,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 							});
 						});
 					}
-					last_click_cursor.on('update', update_click_message);
+					last_adventure_cursor.on('update', update_click_message);
 					update_click_message();
 
 					function update_timer() {
@@ -159,7 +157,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 					$scope.mouseup = _.debounce(function (src) {
 						//console.log('mouseup', src);
 						// trigger model
-						on_click.clicks_subject.onNext();
+						model.click();
 						transitionables.play_button.scale.set(VIEW_CONSTS.button.released_scale);
 						transitionables.play_button.scale.set(VIEW_CONSTS.button.normal_scale, {
 							curve: 'easeOutBounce',

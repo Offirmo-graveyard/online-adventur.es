@@ -34,7 +34,9 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 					$scope.scrollSurfacesEventHandler.pipe(scrollMouseSync); // to this one for clicks
 					scrollMouseSync.pipe($scope.scrollEventHandler); // then to sw
 
-					var maxSurfs = 30;
+					var inventory_cursor = state_tree.select('model', 'saga', 'inventory');
+
+					/*var maxSurfs = 30;
 					$scope.items = [];
 					for(var i=0; i < maxSurfs; i++) {
 						var weapon = Weapon.create();
@@ -43,12 +45,23 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 							weapon: weapon
 						});
 					}
-					$scope.selected_item = $scope.items[$scope.selected_index];
+					*/
+
+					function update_inventory() {
+						$scope.$evalAsync(function () {
+							$scope.inventory = inventory_cursor.get() || [];
+							console.log('* inventory updated :', $scope.inventory);
+							$scope.selected_index = 0;
+							$scope.selected_item = $scope.inventory.length ? $scope.inventory[$scope.selected_index] : null;
+						});
+					}
+					inventory_cursor.on('update', update_inventory);
+					update_inventory(); // init
 
 					$scope.on_inventory_entry_click = function(index, $event, origin) {
 						//console.log(index, $event, origin);
 						$scope.selected_index = index;
-						$scope.selected_item = $scope.items[$scope.selected_index];
+						$scope.selected_item = $scope.inventory[$scope.selected_index];
 					};
 
 				}],

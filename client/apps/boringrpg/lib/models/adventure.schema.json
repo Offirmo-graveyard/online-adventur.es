@@ -4,7 +4,7 @@
 	"additionalProperties": false,
 	"properties": {
 		"archetype_id": {
-			"description": "...",
+			"description": "(optional) archetype from which this adventure was instantiated",
 			"type": "string",
 			"minLength": 1,
 			"maxLength": 50
@@ -106,5 +106,5 @@
 			}
 		}
 	},
-	"required": [ "archetype_id", "msg_id", "good", "gains" ]
+	"required": [ "msg_id", "good", "gains" ]
 }

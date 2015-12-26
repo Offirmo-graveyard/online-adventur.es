@@ -10,9 +10,9 @@
 						fa-rotate-z="transitionables.message.rotate.get()"
 						fa-scale="transitionables.message.scale.get()">
 						<fa-surface class="adventure-panel-dialog"
-						ng-class="click_data.is_valid ? 'adventure-panel-dialog-good-click' : 'adventure-panel-dialog-bad-click'">
-							<p i18n-content="{{click_data.msg}}"
-								i18n-values="click_data.gained"
+						ng-class="last_adventure.good ? 'adventure-panel-dialog-good-click' : 'adventure-panel-dialog-bad-click'">
+							<p i18n-content="{{last_adventure.msg_id}}"
+								i18n-values="last_adventure.gains"
 								i18n-watch></p>
 						</fa-surface>
 					</fa-modifier>
@@ -59,12 +59,12 @@
 
 					<div class="adventure-panel-stats-column col-xs-3">
 						<ul>
-							<li><span>{{model.stats.health}}</span>
-							<li><span>{{model.stats.mana}}</span>
-							<li><span>{{model.currencies.coins}}</span>
-							<li><span>{{model.inventory.length}}</span>
-							<li><span>{{model.currencies.tokens}}</span>
-							<li><span>{{model.click_count}}</span>
+							<li><span>{{model.saga.stats.health}}</span>
+							<li><span>{{model.saga.stats.mana}}</span>
+							<li><span>{{model.saga.currencies.coins}}</span>
+							<li><span>{{model.saga.inventory.length}}</span>
+							<li><span>{{model.saga.currencies.tokens}}</span>
+							<li><span>{{model.saga.click_count}}</span>
 						</ul>
 					</div>
 
@@ -81,12 +81,12 @@
 
 					<div class="adventure-panel-stats-column col-xs-3">
 						<ul>
-							<li><span>{{model.stats.level}}</span>
-							<li><span>{{model.stats.strength}}</span>
-							<li><span>{{model.stats.agility}}</span>
-							<li><span>{{model.stats.vitality}}</span>
-							<li><span>{{model.stats.wisdom}}</span>
-							<li><span>{{model.stats.luck}}</span>
+							<li><span>{{model.saga.stats.level}}</span>
+							<li><span>{{model.saga.stats.strength}}</span>
+							<li><span>{{model.saga.stats.agility}}</span>
+							<li><span>{{model.saga.stats.vitality}}</span>
+							<li><span>{{model.saga.stats.wisdom}}</span>
+							<li><span>{{model.saga.stats.luck}}</span>
 						</ul>
 					</div>
 
