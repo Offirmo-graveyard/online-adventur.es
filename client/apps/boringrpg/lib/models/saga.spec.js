@@ -120,7 +120,6 @@ define([
 
 			});
 
-
 			context('with data', function () {
 
 				it('should work', function () {

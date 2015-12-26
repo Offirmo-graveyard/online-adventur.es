@@ -1,0 +1,107 @@
+{
+	"title": "Weapon Schema",
+	"type": "object",
+	"additionalProperties": false,
+	"properties": {
+		"components_hash": {
+			"description": "A hash for this weapon. For quick comparison only, made from component ids concatenated.",
+			"type": "string",
+			"minLength": 7,
+			"maxLength": 200
+		},
+		"base": {
+			"description": "The 'base' component of this weapon",
+			"type": "object",
+			"default": {},
+			"properties": {
+				"id": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 50
+				},
+				"msg_id": {
+					"description": "i18n msg id for this element",
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 60
+				}
+			}
+		},
+		"qualifier1": {
+			"description": "The 'qualifier1' component of this weapon",
+			"type": "object",
+			"default": {},
+			"properties": {
+				"id": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 50
+				},
+				"msg_id": {
+					"description": "i18n msg id for this element",
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 60
+				}
+			}
+		},
+		"qualifier2": {
+			"description": "The 'qualifier2' component of this weapon",
+			"type": "object",
+			"default": {},
+			"properties": {
+				"id": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 50
+				},
+				"msg_id": {
+					"description": "i18n msg id for this element",
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 60
+				}
+			}
+		},
+		"quality": {
+			"description": "The 'quality' component of this weapon",
+			"type": "object",
+			"default": {},
+			"properties": {
+				"id": {
+					"type": "string",
+					"minLength": 1,
+					"maxLength": 50
+				},
+				"msg_id": {
+					"description": "i18n msg id for this element",
+					"type": "string",
+					"minLength": 3,
+					"maxLength": 60
+				}
+			}
+		},
+		"base_strength": {
+			"description": "this weapon base strength (Actual strength depends on the enhancement level)",
+			"type": "integer",
+			"minimum": 1,
+			"default": 1
+		},
+		"enhancement_level": {
+			"description": "this weapon enhancement level",
+			"type": "integer",
+			"minimum": 0,
+			"maximum": 10,
+			"default": 0
+		}
+	},
+	"required": [
+		"components_hash",
+		"base",
+		"qualifier1",
+		"qualifier2",
+		"quality",
+		"base_strength",
+		"enhancement_level"
+	]
+}

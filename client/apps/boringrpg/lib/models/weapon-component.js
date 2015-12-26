@@ -5,10 +5,8 @@ define([
 	'moment',
 	'jsen',
 	'json!./weapon-component.schema.json',
-	'boringrpg/lib/static-data/model/db',
-	'client/common/incubator/random',
 ],
-function(_, moment, jsen, schema, StaticDb, random) {
+function(_, moment, jsen, schema) {
 	'use strict';
 
 	/////// Validation ///////
@@ -38,14 +36,6 @@ function(_, moment, jsen, schema, StaticDb, random) {
 			throw err;
 		}
 	}
-
-
-	/////// Utils ///////
-	var get_components_by_type = _.memoize(function (type) {
-		return _.filter(StaticDb.WeaponComponent.all, {
-			type: type
-		});
-	});
 
 
 	/////// Methods ///////

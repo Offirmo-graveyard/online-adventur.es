@@ -12,7 +12,7 @@ define([
 
 	var expect = chai.expect;
 
-	describe.only('WeaponComponent Model', function() {
+	describe('WeaponComponent Model', function() {
 
 		describe('creation', function () {
 
@@ -115,10 +115,6 @@ define([
 					}));
 				});
 			})
-		});
-
-		describe('random generation', function () {
-
 		});
 
 	});
