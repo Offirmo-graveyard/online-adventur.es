@@ -153,6 +153,7 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 		}, this);
 
 		if (archetype.post.gains.weapon) {
+			// TODO ensure no weapon duplication
 			// TODO scale weapon according level ?
 			data.gains.weapon = Weapon.create();
 			this.add_to_inventory(data.gains.weapon);

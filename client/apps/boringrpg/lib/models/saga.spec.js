@@ -304,26 +304,15 @@ define([
 				});
 
 				describe('weapon addition', function () {
-
-					context('when the inventory has room', function () {
-						it('should add it to the inventory');
+					it('should add it to the inventory', function () {
+						expect(saga.inventory).to.have.length(1); // default length
+						var adventure_instance = saga.generate_click_adventure();
+						expect(saga.inventory).to.have.length(2); // a weapon was added
 					});
-
-					context('when the inventory is full', function () {
-						it('should add it to the inventory AND drop the other least precious non-equipped item');
-					});
-
 				});
 
 				describe('armor addition', function () {
-
-					context('when the inventory has room', function () {
-						it('should add it to the inventory');
-					});
-
-					context('when the inventory is full', function () {
-						it('should add it to the inventory AND drop the other least precious non-equipped item');
-					});
+					it('should add it to the inventory');
 				});
 
 				describe('skill addition', function () {
@@ -369,6 +358,18 @@ define([
 				});
 			});
 
+		});
+
+		describe.only('inventory', function () {
+			describe('addition', function () {
+				context('when the inventory has room', function () {
+					it('should add it to the inventory');
+				});
+
+				context('when the inventory is full', function () {
+					it('should add it to the inventory AND drop the other least precious non-equipped item');
+				});
+			})
 		});
 
 	});
