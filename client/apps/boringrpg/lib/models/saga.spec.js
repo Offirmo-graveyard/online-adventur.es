@@ -7,8 +7,9 @@ define([
 	'boringrpg/lib/models/saga',
 	'boringrpg/lib/static-data/model/db',
 	'boringrpg/lib/models/adventure-archetype',
-	'boringrpg/lib/models/adventure'
-], function(chai, mocha, moment, CUT, StaticDb, AdventureArchetype, Adventure) {
+	'boringrpg/lib/models/adventure',
+	'boringrpg/lib/models/weapon'
+], function(chai, mocha, moment, CUT, StaticDb, AdventureArchetype, Adventure, Weapon) {
 	'use strict';
 
 	var expect = chai.expect;
@@ -16,6 +17,7 @@ define([
 
 	describe('Saga Model', function() {
 		var clock;
+		var expected_default_weapon;
 
 		beforeEach(function () {
 			clock = sinon.useFakeTimers(1234, 'Date'); // needed to have a reproducible timestamp
@@ -25,6 +27,25 @@ define([
 		});
 
 		beforeEach(function () {
+			expected_default_weapon = Weapon.create({
+				base_strength: 1,
+				base: {
+					id: 'base_spoon',
+					msg_id: 'weapon_base_spoon'
+				},
+				qualifier1: {
+					id: 'qualifier1_crafted',
+					msg_id: 'weapon_qualifier1_crafted'
+				},
+				qualifier2: {
+					id: 'qualifier2_noob',
+					msg_id: 'weapon_qualifier2_noob'
+				},
+				quality: {
+					id: 'quality_common',
+					msg_id: 'weapon_quality_common'
+				}
+			});
 			var template = {
 				// gain everything !!
 				post: {
@@ -39,7 +60,8 @@ define([
 						luck: 3,
 						coins: 3,
 						tokens: 3,
-						//weapon: true,
+						weapon: true,
+						// TODO :
 						//armor: true,
 						//weapon_improvement: true,
 						//armor_improvement: true
@@ -86,6 +108,7 @@ define([
 				it('should work', function () {
 					var out = CUT.create();
 					expect(out).to.be.an.object;
+					expect(out).to.be.an.instanceOf(CUT);
 				});
 
 				it('should provide sane defaults', function () {
@@ -109,7 +132,9 @@ define([
 							coins: 0,
 							tokens: 0
 						},
-						inventory: [],
+						inventory: [
+							expected_default_weapon
+						],
 						skills: [],
 						flags: {
 							recent_adventure_ids: []
@@ -123,6 +148,7 @@ define([
 			context('with data', function () {
 
 				it('should work', function () {
+					var test_weapon = Weapon.create();
 					var out = CUT.create({
 						random_seed: 2345,
 						click_count: 10,
@@ -142,13 +168,15 @@ define([
 							coins: 10,
 							tokens: 11
 						},
-						inventory: [],
+						inventory: [
+							test_weapon
+						],
 						skills: [],
 						flags: {
 							recent_adventure_ids: [ 'foo', 'bar' ]
 						}
 					});
-					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
+					var expected = {
 						random_seed: 2345,
 						click_count: 10,
 						valid_click_count: 1,
@@ -167,12 +195,17 @@ define([
 							coins: 10,
 							tokens: 11
 						},
-						inventory: [],
+						inventory: [
+							test_weapon
+						],
 						skills: [],
 						flags: {
 							recent_adventure_ids: [ 'foo', 'bar' ]
 						}
-					}));
+					};
+					//console.log('actual', _.cloneDeep(out));
+					//console.log('expected', _.cloneDeep(expected));
+					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep(expected));
 				});
 
 				it('should validate', function () {
@@ -197,7 +230,6 @@ define([
 							level: 3
 						}
 					});
-					console.log(out);
 					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
 						random_seed: 123,
 						click_count: 2,
@@ -217,7 +249,9 @@ define([
 							coins: 0,
 							tokens: 0
 						},
-						inventory: [],
+						inventory: [
+							expected_default_weapon
+						],
 						skills: [],
 						flags: {
 							recent_adventure_ids: []

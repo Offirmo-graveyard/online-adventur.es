@@ -81,7 +81,6 @@ define([
 
 				it('should provide sane defaults for missing properties', function () {
 					var out = CUT.create({ id: 'hello', msg_id: 'hello' });
-					console.log(out);
 					expect(out).to.deep.equal({
 						id: 'hello',
 						msg_id: 'hello',

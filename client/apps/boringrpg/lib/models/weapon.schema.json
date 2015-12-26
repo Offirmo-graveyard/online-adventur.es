@@ -3,12 +3,6 @@
 	"type": "object",
 	"additionalProperties": false,
 	"properties": {
-		"components_hash": {
-			"description": "A hash for this weapon. For quick comparison only, made from component ids concatenated.",
-			"type": "string",
-			"minLength": 7,
-			"maxLength": 200
-		},
 		"base": {
 			"description": "The 'base' component of this weapon",
 			"type": "object",
@@ -82,10 +76,10 @@
 			}
 		},
 		"base_strength": {
-			"description": "this weapon base strength (Actual strength depends on the enhancement level)",
+			"description": "this weapon base strength (Actual strength depends on quality and enhancement level)",
 			"type": "integer",
 			"minimum": 1,
-			"default": 1
+			"maximum": 20
 		},
 		"enhancement_level": {
 			"description": "this weapon enhancement level",
@@ -96,7 +90,6 @@
 		}
 	},
 	"required": [
-		"components_hash",
 		"base",
 		"qualifier1",
 		"qualifier2",

@@ -19,9 +19,14 @@ define([
 					var out = CUT.create({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
-						good: true
+						good: true,
+						gains: {
+							weapon: {
+								id: 'foo'
+							}
+						}
 					});
-					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
+					var expected = {
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
 						good: true,
@@ -36,12 +41,15 @@ define([
 							luck: 0,
 							coins: 0,
 							tokens: 0,
-							weapon: false,
-							armor: false,
-							weapon_improvement: false,
-							armor_improvement: false
+							weapon: {
+								id: 'foo'
+							}
+							//armor:
+							//weapon_improvement:
+							//armor_improvement:
 						}
-					}));
+					};
+					expect(_.cloneDeep(out)).to.deep.equal(expected);
 				});
 
 				it('should validate', function () {
@@ -72,7 +80,6 @@ define([
 							level: 3
 						}
 					});
-					console.log(out);
 					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
 						archetype_id: 'hello',
 						msg_id: 'm_hello',
@@ -88,10 +95,10 @@ define([
 							luck: 0,
 							coins: 0,
 							tokens: 0,
-							weapon: false,
-							armor: false,
-							weapon_improvement: false,
-							armor_improvement: false
+							//weapon:
+							//armor:
+							//weapon_improvement:
+							//armor_improvement:
 						}
 					}));
 				});

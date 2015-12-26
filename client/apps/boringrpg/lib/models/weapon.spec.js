@@ -22,21 +22,27 @@ define([
 				});
 
 				it('should provide sane defaults', function () {
-					var out = CUT.create();
-					expect(out).to.have.property('base_strength', 1);
-					expect(out).to.have.property('enhancement_level', 0);
-					expect(out).to.have.deep.property('base.id');
-					expect(out).to.have.deep.property('base.msg_id');
-					expect(out).to.have.deep.property('qualifier1.id');
-					expect(out).to.have.deep.property('qualifier1.msg_id');
-					expect(out).to.have.deep.property('qualifier2.id');
-					expect(out).to.have.deep.property('qualifier2.msg_id');
-					expect(out).to.have.deep.property('quality.id');
-					expect(out).to.have.deep.property('quality.msg_id');
-					expect(out).to.have.property(
-						'components_hash',
-						[ out.base.id, out.qualifier1.id, out.qualifier2.id, out.quality.id ].join('+')
-					);
+					for(var i = 0; i < 10; ++i) {
+						var out = CUT.create();
+						expect(out).to.have.property('base_strength');
+						expect(out.base_strength).to.be.above(0);
+						expect(out.base_strength).to.be.below(21);
+						expect(out).to.have.property('enhancement_level', 0);
+						expect(out).to.have.deep.property('base.id');
+						expect(out).to.have.deep.property('base.msg_id');
+						expect(out).to.have.deep.property('qualifier1.id');
+						expect(out).to.have.deep.property('qualifier1.msg_id');
+						expect(out).to.have.deep.property('qualifier2.id');
+						expect(out).to.have.deep.property('qualifier2.msg_id');
+						expect(out).to.have.deep.property('quality.id');
+						expect(out).to.have.deep.property('quality.msg_id');
+						/*
+						expect(out).to.have.property(
+							'components_hash',
+							[ out.base.id, out.qualifier1.id, out.qualifier2.id, out.quality.id ].join('+')
+						);
+						*/
+					}
 				});
 			});
 
@@ -59,10 +65,10 @@ define([
 						quality: {
 							id: 'quality',
 							msg_id: 'm_quality'
-						}
+						},
+						base_strength: 7
 					});
 					expect(_.cloneDeep(out)).to.deep.equal(_.cloneDeep({
-						components_hash: 'base+qualifier1+qualifier2+quality',
 						base: {
 							id: 'base',
 							msg_id: 'm_base'
@@ -79,7 +85,7 @@ define([
 							id: 'quality',
 							msg_id: 'm_quality'
 						},
-						base_strength: 1,
+						base_strength: 7,
 						enhancement_level: 0
 					}));
 				});
@@ -125,10 +131,6 @@ define([
 						id: 'quality',
 						msg_id: 'm_quality'
 					});
-					expect(out).to.have.property(
-						'components_hash',
-						[ 'base', out.qualifier1.id, out.qualifier2.id, 'quality' ].join('+')
-					);
 				});
 			})
 		});

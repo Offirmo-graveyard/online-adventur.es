@@ -105,7 +105,8 @@
 		"inventory": {
 			"description": "player's inventory (weapons and special items)",
 			"type": "array",
-			"default": []
+			"default": [],
+			"maxItems": 20
 		},
 		"skills": {
 			"description": "TODO player's skills = special knowledge (spells, tactics, etc.)",

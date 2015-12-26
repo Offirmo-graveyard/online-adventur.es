@@ -14,7 +14,7 @@ function(_, moment, Rx, state_tree, adventures, on_click) {
 	var model_cursor = state_tree.select('model');
 
 	on_click.observable_clicks.subscribe(function(click) {
-		console.log('new play click detected :', click);
+		console.log('* new play click detected :', click);
 	});
 
 

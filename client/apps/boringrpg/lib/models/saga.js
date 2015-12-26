@@ -8,8 +8,9 @@ define([
 	'boringrpg/lib/static-data/model/db',
 	'client/common/incubator/random',
 	'boringrpg/lib/models/adventure',
+	'boringrpg/lib/models/weapon',
 ],
-function(_, moment, jsen, schema, StaticDb, random, Adventure) {
+function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 	'use strict';
 
 	/////// Validation ///////
@@ -52,8 +53,32 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 
 
 	/////// Methods ///////
+	var STARTING_WEAPON_DATA = {
+		base_strength: 1,
+		base: {
+			id: 'base_spoon',
+			msg_id: 'weapon_base_spoon'
+		},
+		qualifier1: {
+			id: 'qualifier1_crafted',
+			msg_id: 'weapon_qualifier1_crafted'
+		},
+		qualifier2: {
+			id: 'qualifier2_noob',
+			msg_id: 'weapon_qualifier2_noob'
+		},
+		quality: {
+			id: 'quality_common',
+			msg_id: 'weapon_quality_common'
+		}
+	};
 	function Saga(data) {
 		data = build(data || {}, { additionalProperties: false });
+		if (! data.inventory.length)
+			data.inventory.push(STARTING_WEAPON_DATA);
+		data.inventory = _.map(data.inventory, function (data) {
+			return Weapon.create(data);
+		});
 		validate(data);
 
 		_.defaults(this, data);
@@ -116,7 +141,7 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 			archetype_id: archetype.id,
 			msg_id: archetype.msg_id,
 			good: archetype.pre.good_click,
-			gains: archetype.post.gains
+			gains: _.cloneDeep(archetype.post.gains)
 		};
 
 		_.forEach(schema.properties.stats.properties, function(etc, key) {
@@ -128,24 +153,46 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure) {
 		}, this);
 
 		if (archetype.post.gains.weapon) {
-			throw new Error('Not Implemented !');
+			// TODO scale weapon according level ?
+			data.gains.weapon = Weapon.create();
+			this.add_to_inventory(data.gains.weapon);
 		}
+		else delete data.gains.weapon;
+
 		if (archetype.post.gains.armor) {
 			throw new Error('Not Implemented !');
 		}
+		else delete data.gains.armor;
+
 		if (archetype.post.gains.weapon_improvement) {
 			throw new Error('Not Implemented !');
 		}
+		else delete data.gains.weapon_improvement;
+
 		if (archetype.post.gains.armor_improvement) {
 			throw new Error('Not Implemented !');
 		}
+		else delete data.gains.armor_improvement;
+
 		if (archetype.post.gains.flags) {
 			throw new Error('Not Implemented !');
 		}
+		else delete data.gains.flags;
 
 		return Adventure.create(data);
 	};
 
+	Saga.prototype.add_to_inventory = function(gear) {
+		this.inventory.push(gear);
+		// TODO sort
+		if (this.inventory.length > schema.properties.inventory.maxItems)
+			this._make_room_in_inventory();
+	};
+
+	Saga.prototype._make_room_in_inventory = function() {
+		var least_precious_item;
+		xxx
+	};
 
 	/////// Creation ///////
 	Saga.create = function(data) {
