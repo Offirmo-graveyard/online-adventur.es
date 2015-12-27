@@ -71,5 +71,12 @@ define({
 				}
 			}
 		}
+	},
+	local_storage_keys: {
+		user_explicitly_selected_locale: 'offirmo.online-adventures.user_explicitly_selected_locale',
+		user_saga: 'offirmo.online-adventures.user_saga',
+		outdated: [
+			'offirmo.online-adventures.user_explicitely_selected_locale'
+		]
 	}
 });

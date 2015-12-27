@@ -10,13 +10,11 @@ define([
 	'offirmo-formatjs/lib/typeset-icu-message',
 	'boringrpg/lib/state-tree',
 	'i18n!client/apps/boringrpg/i18n/nls/messages',
-	'client/apps/boringrpg/i18n/nls/en/messages'
+	'client/apps/boringrpg/i18n/nls/en/messages',
+	'boringrpg/lib/static-data/view/view',
 ],
-function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_tree, autoselected_requirejs_i18n_bundle, en_requirejs_i18n_bundle) {
+function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_tree, autoselected_requirejs_i18n_bundle, en_requirejs_i18n_bundle, view_static_data) {
 	'use strict';
-
-	var USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY =
-		'offirmo.online-adventures.user_explicitly_selected_locale';
 
 	//console.log('installing localeDetector...');
 
@@ -25,7 +23,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 	var requested_locale_cursor = view_cursor.select('requested_locale');
 
 	/////// Initial detection ///////
-	var user_explicitly_selected_locale = window.localStorage.getItem(USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY);
+	var user_explicitly_selected_locale = window.localStorage.getItem(view_static_data.local_storage_keys.user_explicitly_selected_locale);
 	var requirejs_selected_locale = autoselected_requirejs_i18n_bundle.locale; // supposedly intelligently computed by requirejs
 	var document_lang = document.documentElement.lang; // supposedly intelligently set by the server
 	var navigator_language = navigator.language || navigator.browserLanguage;
@@ -76,7 +74,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 			var improved_messages = auto_improve_messages(i18n_messages);
 			i18n_data.set_icu_data(i18n_messages.locale, improved_messages, i18n_messages.custom_formats);
 			view_cursor.set('locale', i18n_messages.locale);
-			window.localStorage.setItem(USER_EXPLICITLY_SELECTED_LOCALE_STORAGE_KEY, i18n_messages.locale);
+			window.localStorage.setItem(view_static_data.local_storage_keys.user_explicitly_selected_locale, i18n_messages.locale);
 			//console.info('locale has been switched to', i18n_messages.locale);
 		}
 	}
