@@ -5,7 +5,7 @@
 	baseUrl: '../../..',
 	mainConfigFile: '../../common/requirejs-config.js',
 	name: 'app-boringrpg',
-	locale: "en",
+	locale: 'en',
 	preserveLicenseComments: false,
 	out: '../../apps-minified/boringrpg/all_js.concat+min.js'
 })

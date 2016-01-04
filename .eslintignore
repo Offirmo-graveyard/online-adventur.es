@@ -3,5 +3,7 @@ bower_components
 client/apps-minified
 client/common/other_components
 common/incubator/carnet/node_modules
+common/incubator/easyconf/node_modules
 common/incubator/offirmo-formatjs/node_modules
+common/incubator/rapport/node_modules
 tosort

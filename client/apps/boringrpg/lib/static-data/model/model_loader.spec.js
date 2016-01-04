@@ -4,7 +4,7 @@ define([
 	'chai',
 	'mocha',
 	'boringrpg/lib/static-data/model/model_loader'
-], function(chai, mocha, FUT) {
+], function(chai, mocha, fut) {
 	'use strict';
 
 	var expect = chai.expect;
@@ -49,7 +49,7 @@ define([
 					}
 				};
 
-				data = FUT(TestModel, raw_data);
+				data = fut(TestModel, raw_data);
 			});
 
 			it('should return an array of instances', function () {
@@ -109,7 +109,7 @@ define([
 					}
 				};
 
-				data = FUT(TestModel, raw_data, {
+				data = fut(TestModel, raw_data, {
 					msg_radix: 'testmsg_',
 					i18n_messages: {
 						testmsg_foo: 'Fou',
