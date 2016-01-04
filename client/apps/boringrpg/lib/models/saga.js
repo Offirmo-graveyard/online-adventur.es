@@ -4,7 +4,7 @@ define([
 	'lodash',
 	'moment',
 	'jsen',
-	'json!./saga.schema.json',
+	'json!boringrpg/lib/models/saga.schema.json',
 	'boringrpg/lib/static-data/model/db',
 	'client/common/incubator/random',
 	'boringrpg/lib/models/adventure',

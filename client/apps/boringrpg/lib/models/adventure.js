@@ -3,7 +3,7 @@
 define([
 	'lodash',
 	'jsen',
-	'json!./adventure.schema.json'
+	'json!boringrpg/lib/models/adventure.schema.json'
 ],
 function(_, jsen, schema) {
 	'use strict';

@@ -12,5 +12,5 @@ define([
 	item gold value
 
 	click delay (good and bad)
-	
+
 });

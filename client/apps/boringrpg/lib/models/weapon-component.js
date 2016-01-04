@@ -4,7 +4,7 @@ define([
 	'lodash',
 	'moment',
 	'jsen',
-	'json!./weapon-component.schema.json',
+	'json!boringrpg/lib/models/weapon-component.schema.json',
 ],
 function(_, moment, jsen, schema) {
 	'use strict';

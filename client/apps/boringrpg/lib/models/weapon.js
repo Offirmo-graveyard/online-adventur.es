@@ -1,7 +1,7 @@
 define([
 	'lodash',
 	'jsen',
-	'json!./weapon.schema.json',
+	'json!boringrpg/lib/models/weapon.schema.json',
 	'boringrpg/lib/static-data/model/db',
 	'client/common/incubator/random',
 ],

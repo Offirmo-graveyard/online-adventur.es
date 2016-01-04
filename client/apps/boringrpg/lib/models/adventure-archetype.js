@@ -4,7 +4,7 @@ define([
 	'lodash',
 	'moment',
 	'jsen',
-	'json!./adventure-archetype.schema.json'
+	'json!boringrpg/lib/models/adventure-archetype.schema.json'
 ],
 function(_, moment, jsen, schema) {
 	'use strict';
