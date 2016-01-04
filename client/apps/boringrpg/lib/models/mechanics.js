@@ -6,12 +6,11 @@ define([
 	'use strict';
 
 	TODO !!!!
-		
+
 	item score
 
 	item gold value
 
 	click delay (good and bad)
-
-
+	
 });
