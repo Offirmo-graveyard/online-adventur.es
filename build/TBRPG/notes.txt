@@ -7,6 +7,12 @@ content (blue)   #5da7ae
 font    (yellow) #ffebbc
 
 
+TODO
+- fix click count
+- temporisation algorithm
+- fix inventory bug
+- inventory sorting
+
 
 http://bradfrost.com/demo/ish/?url=http%3A%2F%2Fwww.online-adventur.es#m
 
@@ -41,3 +47,4 @@ updateReady
 
 https://github.com/Offirmo/nomrpg/blob/master/app/models/the_boring_rpg/TBRPGGame.hpp
 https://github.com/Offirmo/nomrpg/blob/master/app/models/the_boring_rpg/TBRPGGame.cpp
+
