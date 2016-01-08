@@ -75,7 +75,7 @@
     "eslint": "^1.10.3",
     "express-debug": "^1",
     "express-livereload": "^0",
-    "mversion": "^1",
+    "mversion": "^1.10.1",
     "nodemon": "^1.8.1",
     "pre-commit": "^1",
     "requirejs": "^2.1.22",
