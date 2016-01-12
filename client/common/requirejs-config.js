@@ -5,8 +5,6 @@
  *  - no extra stuff
  */
 
-//console.log('Loading require js config…');
-
 requirejs.config({
 
 	// base URL from which component files will be searched
@@ -26,7 +24,7 @@ requirejs.config({
 			//'css-builder': 'bower_components/require-css/css-builder',
 			//'normalize': 'bower_components/require-css/normalize',
 			// a require.js extension to be able to load less stylesheets with require.js
-			'less': 'bower_components/require-less/less',
+			//'less': 'bower_components/require-less/less',
 			// a require.js extension to be able to load dust.js templates easily
 			//'rdust': 'bower_components/require-dust/rdust',
 			// a require.js extension to be able to wait for the DOM to be ready

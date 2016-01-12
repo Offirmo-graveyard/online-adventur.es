@@ -12,6 +12,8 @@
   },
   "scripts": {
     "bower": "bower update --config.interactive=false",
+    "jspm-install": "jspm registry create bower jspm-bower-endpoint -y && jspm install -y",
+    "jspm-install-dev": "jspm clean && jspm install && jspm update",
     "postinstall": "npm run bower && cd common/incubator/carnet && npm install && cd ../offirmo-formatjs && npm install",
     "lint": "eslint .",
     "nodemon": "nodemon",
@@ -24,7 +26,7 @@
     "build": "npm run build-appcache && npm run build-helloworld && npm run build-famous-base && npm run build-jeudunombre && npm run build-boringrpg",
     "bump": "mversion patch && ./scripts/bump.bash && echo \"DON'T FORGET TO COMMIT ,TAG AND PUSH !! git tag -a v0.0.x -m v0.0.x\"",
     "cleardeps": "rm -rf node_modules && rm -rf bower_components && rm -rf common/incubator/carnet/node_modules && rm -rf common/incubator/offirmo-formatjs/node_modules",
-    "install_globals": "npm install --global nodemon && npm update -g nodemon",
+    "install_globals": "npm install --global nodemon jspm && npm update -g nodemon jspm",
     "devinstall": "npm run install_globals && npm prune && npm install && npm update && npm run devbower && cd common/incubator/carnet && npm prune && npm install && npm update && cd ../offirmo-formatjs && npm prune && npm install && npm update",
     "devbower": "bower prune && bower install && bower update",
     "bb": "npm run devbower",
@@ -32,7 +34,7 @@
     "ii": "npm run devinstall"
   },
   "engines": {
-    "node": "^4.2.3"
+    "node": "^4.2.4"
   },
   "dependencies": {
     "amdefine": "~1.0.0",
@@ -75,6 +77,7 @@
     "eslint": "^1.10.3",
     "express-debug": "^1",
     "express-livereload": "^0",
+    "jspm": "0.16.22",
     "mversion": "^1.10.1",
     "nodemon": "^1.8.1",
     "pre-commit": "^1",
