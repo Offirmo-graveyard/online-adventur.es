@@ -1,5 +1,5 @@
 <noscript>
-	{@formatMessage _key="warning_nojs"/}
+	{@formatMessage _key="warning_nojs"/} <a href="http://www.enable-javascript.com/" target="_blank"></a>
 </noscript>
 
 <!--[if lt IE 9]>
