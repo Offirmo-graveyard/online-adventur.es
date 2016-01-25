@@ -48,7 +48,7 @@
     "dust-intl": "~1.1",
     "dustjs-helpers": "~1.7",
     "dustjs-linkedin": "~2.7.2",
-    "engine.io": "~1.6.6",
+    "engine.io": "~1.6.8",
     "environmentalist": "~1.0",
     "express": "^4.13.3",
     "express-slash": "~2.0",
