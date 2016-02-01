@@ -45,7 +45,7 @@
     "compression": "~1.6.1",
     "consolidate": "~0.14.0",
     "domain-middleware": "~0.1",
-    "dust-intl": "~1.1",
+    "dust-intl": "~1.1.1",
     "dustjs-helpers": "~1.7",
     "dustjs-linkedin": "~2.7.2",
     "engine.io": "~1.6.8",
