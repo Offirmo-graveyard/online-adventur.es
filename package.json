@@ -59,7 +59,7 @@
     "jsen": "^0.6.0",
     "json-htmlize": "~0.1",
     "locale": "~0.0",
-    "lodash": "^4.2.1",
+    "lodash": "^4.3.0",
     "morgan": "~1.6",
     "node-mandrill": "~1.0.1",
     "prettyjson": "~1.1.3",
