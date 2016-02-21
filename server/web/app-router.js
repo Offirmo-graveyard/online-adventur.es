@@ -100,7 +100,7 @@ module.exports = function(app_radix, options) {
 		// analytics
 		analytics_enabled: config.analytics.enabled,
 		version: config.version
-		
+
 	}, options.template_data);
 
 	/////// routes ///////
@@ -123,7 +123,7 @@ module.exports = function(app_radix, options) {
 			lang: req.locale,
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
-		//console.log('template data', template_data);
+		console.log('template data', template_data);
 		res.render(template_path, template_data);
 	});
 
@@ -139,6 +139,7 @@ module.exports = function(app_radix, options) {
 			lang: req.locale,
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
+		console.log(template_data);
 		res.render(template_path, template_data);
 	});
 
@@ -154,7 +155,7 @@ module.exports = function(app_radix, options) {
 			lang: req.locale,
 			intl: formatJS_intls[req.locale]
 		}, common_view_data);
-		//console.log(template_data);
+		console.log(template_data);
 		res.render(template_path, template_data);
 	});
 
