@@ -17,6 +17,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 				scope: {},
 				template: tpl,
 				controller: ['$scope', function($scope) {
+					$scope.debug = {id: 'directive/appContentPanelChat'};
 				}],
 				link: function postLink($scope) {
 				}

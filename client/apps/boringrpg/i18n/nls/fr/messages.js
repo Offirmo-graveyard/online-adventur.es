@@ -353,7 +353,7 @@ define({
 	clickmsg_:
 		'',
 	*/
-
+/*
 	skill_spell_meteor:
 		'Météorite',
 	skill_spell_meteor_shower:
@@ -364,7 +364,7 @@ define({
 		'Tempête d’éclairs',
 	skill_necromancy_animate_dead:
 		'Animation des morts',
-
+*/
 
 	object_found: 'You found a [+1 Common Spiky Shield]!',
 

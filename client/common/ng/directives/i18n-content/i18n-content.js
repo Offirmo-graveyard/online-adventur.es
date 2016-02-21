@@ -12,20 +12,21 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 	offirmo_app.global_ng_module
 	.directive('i18nContent', ['$parse', '$q', function ($parse, $q) {
 		return {
-			restrict: 'A',
+			restrict: 'A', // attribute
 			template: '<span>[xxx i18n-content on scope #{{$id}}]</span>',
 			//scope: {},
 			controller: ['$scope', function($scope) {
 			}],
 			link: function postLink($scope, $element, attrs, controller) {
 				var i18n_content_id = unique_i18n_content_id++;
-				var directive_id = i18n_content_id + '$' + $scope.$id;
+				var directive_id = '$' + $scope.$id + '#' + i18n_content_id;
+				if ($scope.debug) directive_id = $scope.debug.id + directive_id;
 				var intl;
 				var resolved_content;
 
 				// debugging
 				var debug = {
-					prefix: '[i18n|',
+					prefix: '[i18n|' + (attrs.i18nLabel ? (attrs.i18nLabel + ':') : ''),
 					key: '???',
 					suffix: '|' + directive_id + ']',
 				};
@@ -77,7 +78,9 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 							console.error(debug.id + ' error : couldn’t determine locale !');
 							// non blocking, underlying lib will handle this case
 						}
-						debug.prefix = '[i18n|' + (locale ? (locale + '|') : '');
+						debug.prefix = '[i18n|' +
+							(locale ? (locale + '|') : '') +
+							(attrs.i18nLabel ? (attrs.i18nLabel + ':') : '');
 						update_with_best_available_data_so_far();
 
 						if (! key && ! direct_message) {
@@ -98,7 +101,8 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 							resolved_content = format_icu_message(direct_message, values, intl, custom_formats, directive_id);
 						}
 						else {
-							resolved_content = format_key(key, values, intl, custom_formats, directive_id);
+							var debug_string = resolved_content; // so far
+							resolved_content = format_key(key, values, intl, custom_formats, debug_string);
 						}
 					}
 

@@ -17,6 +17,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 				scope: {},
 				template: tpl,
 				controller: ['$scope', function($scope) {
+					$scope.debug = {id: 'directive/appContentPanelKnowledge'};
 					var EventHandler = $famous['famous/core/EventHandler'];
 					var MouseSync    = $famous['famous/inputs/MouseSync'];
 

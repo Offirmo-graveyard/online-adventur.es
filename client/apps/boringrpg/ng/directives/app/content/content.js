@@ -20,6 +20,8 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/appContent'};
+				
 				var Transitionable = $famous['famous/transitions/Transitionable'];
 
 				var SLIDE_DURATION_MS = 300;

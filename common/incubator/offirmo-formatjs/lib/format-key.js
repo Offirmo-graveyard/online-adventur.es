@@ -27,7 +27,7 @@ function(_, _s, i18n_data, format_icu_message) {
 	 * @param intl.formats [not recommended]
 	 * @returns {String}
 	 */
-	function format_single_key(key, values, intl, parent_debug_id) {
+	function format_single_key(key, values, intl, custom_formats, parent_debug_id) {
 
 		//console.log('key', key);
 		//console.log('values', values);
@@ -98,7 +98,7 @@ function(_, _s, i18n_data, format_icu_message) {
 						format_multiple: _.partialRight(format_multiple_keys, intl, debug.id),
 					};
 
-					formatted_msg = build_message(values, intl, exposed);
+					formatted_msg = build_message(values, intl, exposed, parent_debug_id);
 					if(! _.isString(formatted_msg)) {
 						console.error(debug.id + ' error : custom formatting function associated to key "' + key + '" didn’t return a string !');
 						update_with_best_available_data_so_far();
@@ -115,7 +115,7 @@ function(_, _s, i18n_data, format_icu_message) {
 				}
 			}
 			catch (e) {
-				console.error('error while formatting', e);
+				console.error('error while formatting', e, '@' + parent_debug_id);
 				update_with_best_available_data_so_far();
 			}
 		}
@@ -123,18 +123,18 @@ function(_, _s, i18n_data, format_icu_message) {
 		return formatted_msg;
 	}
 
-	function format_multiple_keys(keys, values, intl, parent_debug_id) {
+	function format_multiple_keys(keys, values, intl, custom_formats, parent_debug_id) {
 		var formatted_msgs = keys.map(function(key) {
 			return format(key, values, intl, parent_debug_id);
 		});
 		return formatted_msgs;
 	}
 
-	function format(key, values, intl, parent_debug_id) {
+	function format(key, values, intl, custom_formats, parent_debug_id) {
 		if(_.isArray(key))
-			return format_multiple_keys(key, values, intl, parent_debug_id);
+			return format_multiple_keys(key, values, intl, custom_formats, parent_debug_id);
 		else
-			return format_single_key(key, values, intl, parent_debug_id);
+			return format_single_key(key, values, intl, custom_formats, parent_debug_id);
 	}
 
 	return format;

@@ -6,5 +6,9 @@ module.exports = {
 		enabled: false
 	},
 
+	analytics: {
+		enabled: true
+	},
+
 	express_debug_enabled: false
 };

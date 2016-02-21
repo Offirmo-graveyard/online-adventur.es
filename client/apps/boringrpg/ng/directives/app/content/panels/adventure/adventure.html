@@ -11,7 +11,7 @@
 						fa-scale="transitionables.message.scale.get()">
 						<fa-surface class="adventure-panel-dialog"
 						ng-class="last_adventure.good ? 'adventure-panel-dialog-good-click' : 'adventure-panel-dialog-bad-click'">
-							<p i18n-content="{{last_adventure.msg_id}}"
+							<p ng-if="last_adventure.msg_id" i18n-content="{{last_adventure.msg_id}}"
 								i18n-values="last_adventure.gains"
 								i18n-watch></p>
 						</fa-surface>

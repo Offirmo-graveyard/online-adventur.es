@@ -16,6 +16,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function ($scope) {
+				$scope.debug = {id: 'directive/appFooter'};
 				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
 
 				$scope.panels = view_static_data.panels;
@@ -30,6 +31,12 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 				$scope.go_to = function(panel_id) {
 					console.log(panel_id);
 					selected_panel_cursor.set(panel_id);
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'UX',
+						eventAction: 'pageview',
+						eventValue: '/app/' + panel_id,
+					});
 				};
 
 				selected_panel_cursor.on('update', function () {

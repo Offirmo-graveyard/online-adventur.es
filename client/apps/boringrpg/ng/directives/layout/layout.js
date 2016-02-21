@@ -16,6 +16,7 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/layout'};
 				var Transitionable = $famous['famous/transitions/Transitionable'];
 
 				var APP_SCALE = 1;
@@ -75,6 +76,12 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 						// then flip
 						flip_meta(FLIP_DURATION_MS);
 					});
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'UX',
+						eventAction: 'pageview',
+						eventValue: '/meta',
+					});
 				}
 
 				function go_to_app() {
@@ -83,6 +90,12 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 					scale_transitionable.set(APP_SCALE, {
 						curve: 'linear',
 						duration: ZOOM_DURATION_MS
+					});
+					ga('send', {
+						hitType: 'event',
+						eventCategory: 'UX',
+						eventAction: 'pageview',
+						eventValue: '/app',
 					});
 				}
 

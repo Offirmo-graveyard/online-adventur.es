@@ -2,6 +2,9 @@
 
 var _ = require('lodash');
 
+// XXX TOSORT : also in rapport !!!
+
+
 module.exports = {
 
 	// Get local IPs for display at start, ease debug with my VM
@@ -14,7 +17,7 @@ module.exports = {
 		.filter(function(val){
 			return (val.family === 'IPv4' && val.internal === false);
 		})
-		.pluck('address')
+		.map('address')
 		.value();
 	},
 

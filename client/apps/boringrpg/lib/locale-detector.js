@@ -76,6 +76,7 @@ function(require, _, Rx, $, i18n_data, typeset_lib, icu_message_typeset, state_t
 			view_cursor.set('locale', i18n_messages.locale);
 			window.localStorage.setItem(view_static_data.local_storage_keys.user_explicitly_selected_locale, i18n_messages.locale);
 			//console.info('locale has been switched to', i18n_messages.locale);
+			ga('set', 'language', i18n_messages.locale);
 		}
 	}
 

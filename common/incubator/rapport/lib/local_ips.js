@@ -15,7 +15,7 @@ function get_local_ips() {
 	.filter(function(val){
 		return (val.family === 'IPv4' && val.internal === false);
 	})
-	.pluck('address')
+	.map('address')
 	.value();
 }
 

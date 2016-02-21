@@ -1,6 +1,2 @@
 <!-- js -->
-{?livereload_enabled}{LRScript|s}{/livereload_enabled}
-<!--<script src="bower_components/pace/pace.min.js"></script>-->
-<script>
-	//...
-</script>
+{>"layout/head/tags/index" /}

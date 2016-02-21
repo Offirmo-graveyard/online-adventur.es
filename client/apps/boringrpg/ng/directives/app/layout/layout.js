@@ -17,6 +17,7 @@ function(offirmo_app, _, view_static_data, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/appLayout'};
 				$scope.SIZES = view_static_data.layout;
 			}]
 		};

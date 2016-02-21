@@ -16,6 +16,7 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/metaContent'};
 
 				var version_cursor = state_tree.select('version');
 				var pending_update_cursor = state_tree.select('update_pending');
@@ -87,12 +88,28 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 					{
 						icon: 'icomoon-facebook2',
 						label: 'meta_facebook',
-						disabled: true
+						disabled: true,
+						on_click: _.debounce(function() {
+							// TODOOO
+							ga('send', 'social', {
+								socialNetwork: 'facebook',
+								socialAction: 'visit',
+								socialTarget: 'http://foo.com'
+							});
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-twitter2',
 						label: 'meta_twitter',
-						disabled: true
+						disabled: true,
+						on_click: _.debounce(function() {
+							// TODOOO
+							ga('send', 'social', {
+								socialNetwork: 'twitter',
+								socialAction: 'visit',
+								socialTarget: 'http://foo.com'
+							});
+						}, 200, true)
 					},
 					{
 						icon: 'icomoon-floppy-disk',
@@ -106,6 +123,12 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 						on_click: _.debounce(function() {
 							$scope.$evalAsync(function () {
 								$scope.items = dev_items;
+							});
+							ga('send', {
+								hitType: 'event',
+								eventCategory: 'UX',
+								eventAction: 'pageview',
+								eventValue: '/meta/dev',
 							});
 						}, 200, true)
 					},
@@ -139,6 +162,12 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 						on_click: _.debounce(function() {
 							$scope.$evalAsync(function () {
 								$scope.items = root_items;
+							});
+							ga('send', {
+								hitType: 'event',
+								eventCategory: 'UX',
+								eventAction: 'pageview',
+								eventValue: '/meta/root',
 							});
 						}, 200, true)
 					},
@@ -180,7 +209,13 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 						icon: 'icomoon-github',
 						label: 'meta_fork',
 						on_click: _.debounce(function() {
-							window.open('https://github.com/Offirmo/online-adventur.es','_blank');
+							var target = 'https://github.com/Offirmo/online-adventur.es';
+							window.open(target,'_blank');
+							ga('send', 'social', {
+								socialNetwork: 'github',
+								socialAction: 'visit',
+								socialTarget: target
+							});
 						}, 200, true)
 					},
 				];

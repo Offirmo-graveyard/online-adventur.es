@@ -98,6 +98,15 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 		var click_date_moment_utc = moment.utc();
 		var elapsed_since_click_allowed = click_date_moment_utc.diff(this.next_allowed_click_date_moment_utc);
 		var is_click_valid = elapsed_since_click_allowed > 0;
+
+		ga('send', {
+			hitType: 'event',
+			eventCategory: 'Gameplay',
+			eventAction: 'NewAdventure',
+			eventLabel: 'NewAdventure',
+			eventValue: is_click_valid ? 1 : 0,
+		});
+
 		var adventure_archetypes_pool = get_AdventureArchetypes_by_click_validity(is_click_valid);
 
 		var selected_adventure_archetype = this._pick_acceptable_new_adventure_archetype(adventure_archetypes_pool);

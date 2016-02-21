@@ -4,10 +4,15 @@ window.offirmo_app_global_ng_module_dependencies = ['famous.angular'];
 
 // http://devdocs.io/requirejs/index#requirejsonerror
 requirejs.onError = function (err) {
-	console.error('X requirejs.onError "' + err.requireType + '" caught :', err);
-	if (err.requireType === 'timeout') {
-		console.error('X problematic modules : ' + err.requireModules);
-	}
+	var msg = 'X requirejs.onError "' + err.requireType + '" caught !';
+	if (err.requireType === 'timeout')
+		msg += ' Problematic modules = ' + err.requireModules;
+	console.error(msg, err);
+
+	ga('send', 'exception', {
+		exDescription: msg + err.message,
+		exFatal: true
+	});
 
 	// rethrow
 	throw err;
@@ -35,6 +40,7 @@ define([
 	// preload some commonly used angular modules
 	//'client/common/ng/services/i18n-data/i18n-data',
 	'client/common/ng/directives/i18n-content/i18n-content',
+	'autotrack'
 ],
 function(offirmo_app, _, Carnet) {
 	'use strict';

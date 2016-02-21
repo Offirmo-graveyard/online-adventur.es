@@ -18,6 +18,10 @@ module.exports = {
 		watched_extensions: [ 'dust', 'html', 'css', 'js', 'png', 'gif', 'jpg' ],
 		debug: true // ?
 	},
+	
+	analytics: {
+		enabled: false
+	},
 
 	// https://github.com/devoidfury/express-debug
 	express_debug_enabled: false,

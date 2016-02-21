@@ -85,6 +85,7 @@ requirejs.config({
 		'angular-rx'               : 'bower_components/angular-rx/dist/rx.angular',
 		//'angularAMD'               : 'bower_components/angularAMD/angularAMD',
 		'appcache-nanny'           : 'bower_components/appcache-nanny/appcache-nanny',
+		'autotrack'                : 'bower_components/autotrack/autotrack',
 		'baobab'                   : 'bower_components/baobab/build/baobab.min',
 		'bootstrap'                : 'bower_components/bootstrap-css/js/bootstrap',
 		'bootstrap-with-cyborg-theme': 'bower_components/bootstrap-css/js/bootstrap',

@@ -15,6 +15,7 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/appHeader'};
 
 				var selected_panel_cursor = state_tree.select('view', 'layout', 'app', 'selected_panel');
 				var layout_state_cursor = state_tree.select('view', 'layout');

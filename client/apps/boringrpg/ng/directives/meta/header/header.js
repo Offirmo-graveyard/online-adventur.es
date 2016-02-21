@@ -14,6 +14,7 @@ function(offirmo_app, _, state_tree, tpl) {
 			scope: {},
 			template: tpl,
 			controller: ['$scope', function($scope) {
+				$scope.debug = {id: 'directive/metaHeader'};
 				var layout_state_cursor = state_tree.select('view', 'layout');
 
 				$scope.request_app = function(event) {

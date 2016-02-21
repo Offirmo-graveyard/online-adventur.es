@@ -21,6 +21,10 @@
 		var p = document.createElement("p");
 		p.textContent = 'XXX ' + errorMsg;
 		error_console.appendChild(p);
+		/*ga('send', 'exception', {
+			exDescription: errorMsg,
+			exFatal: true
+		});*/
 	}
 	var original_window_on_error = window.onerror;
 	window.onerror = display_unhandled_error;

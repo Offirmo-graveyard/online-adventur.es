@@ -21,6 +21,7 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 				scope: {},
 				template: tpl,
 				controller: ['$scope', function($scope) {
+					$scope.debug = {id: 'directive/appContentPanelAdventure'};
 					var Transitionable = $famous['famous/transitions/Transitionable'];
 
 					var last_adventure_cursor = state_tree.select('model', 'last_adventure');
@@ -162,6 +163,12 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						transitionables.play_button.scale.set(VIEW_CONSTS.button.normal_scale, {
 							curve: 'easeOutBounce',
 							duration: VIEW_CONSTS.button.animations.release_duration_ms
+						});
+						ga('send', {
+							hitType: 'event',
+							eventCategory: 'Gameplay',
+							eventAction: 'play',
+							eventLabel: 'play',
 						});
 					}, VIEW_CONSTS.button.click_debounce_ms, true);
 				}],
