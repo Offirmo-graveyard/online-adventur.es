@@ -6,7 +6,7 @@
     "angular-rx": "~0.0.14",
     "angular-ui-router": "~0.2",
     "appcache-nanny": "~1.0",
-    "autotrack": "git@github.com:googleanalytics/autotrack.git#^0.5.0",
+    "autotrack": "googleanalytics/autotrack.git#^0.5.0",
     "baobab": "~1.1.2",
     "bootstrap-css": "~3.3",
     "eventemitter2": "~0.4",
