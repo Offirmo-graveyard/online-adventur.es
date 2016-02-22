@@ -32,10 +32,8 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 					console.log(panel_id);
 					selected_panel_cursor.set(panel_id);
 					ga('send', {
-						hitType: 'event',
-						eventCategory: 'UX',
-						eventAction: 'pageview',
-						eventValue: '/app/' + panel_id,
+						'hitType': 'pageview',
+						'page': '/app/' + panel_id,
 					});
 				};
 

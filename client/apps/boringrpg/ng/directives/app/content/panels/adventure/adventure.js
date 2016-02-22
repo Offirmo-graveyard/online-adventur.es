@@ -167,8 +167,8 @@ function(offirmo_app, _, moment, humanizeDuration, view_static_data, state_tree,
 						ga('send', {
 							hitType: 'event',
 							eventCategory: 'Gameplay',
-							eventAction: 'play',
-							eventLabel: 'play',
+							eventAction: 'Play',
+							eventLabel: 'Play',
 						});
 					}, VIEW_CONSTS.button.click_debounce_ms, true);
 				}],

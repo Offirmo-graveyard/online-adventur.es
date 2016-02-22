@@ -104,7 +104,7 @@ function(_, moment, jsen, schema, StaticDb, random, Adventure, Weapon) {
 			eventCategory: 'Gameplay',
 			eventAction: 'NewAdventure',
 			eventLabel: 'NewAdventure',
-			eventValue: is_click_valid ? 1 : 0,
+			eventValue: (is_click_valid ? 1 : 0),
 		});
 
 		var adventure_archetypes_pool = get_AdventureArchetypes_by_click_validity(is_click_valid);

@@ -77,10 +77,8 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 						flip_meta(FLIP_DURATION_MS);
 					});
 					ga('send', {
-						hitType: 'event',
-						eventCategory: 'UX',
-						eventAction: 'pageview',
-						eventValue: '/meta',
+						'hitType': 'pageview',
+						'page': '/meta',
 					});
 				}
 
@@ -92,10 +90,8 @@ function(offirmo_app, _, Rx, state_tree, tpl) {
 						duration: ZOOM_DURATION_MS
 					});
 					ga('send', {
-						hitType: 'event',
-						eventCategory: 'UX',
-						eventAction: 'pageview',
-						eventValue: '/app',
+						'hitType': 'pageview',
+						'page': '/app',
 					});
 				}
 

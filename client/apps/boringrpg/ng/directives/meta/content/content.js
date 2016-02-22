@@ -125,10 +125,8 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 								$scope.items = dev_items;
 							});
 							ga('send', {
-								hitType: 'event',
-								eventCategory: 'UX',
-								eventAction: 'pageview',
-								eventValue: '/meta/dev',
+								'hitType': 'pageview',
+								'page': '/meta/dev',
 							});
 						}, 200, true)
 					},
@@ -164,10 +162,8 @@ function(offirmo_app, _, screenfull, AppCacheNanny, state_tree, tpl) {
 								$scope.items = root_items;
 							});
 							ga('send', {
-								hitType: 'event',
-								eventCategory: 'UX',
-								eventAction: 'pageview',
-								eventValue: '/meta/root',
+								'hitType': 'pageview',
+								'page': '/meta/root',
 							});
 						}, 200, true)
 					},
