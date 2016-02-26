@@ -353,6 +353,11 @@ define({
 	clickmsg_:
 		'',
 	*/
+
+	/*
+	 "I know that the stars are not really stars, that they're just thousands of helicopters up there in the sky." Then she looked up at the clouds, and started crying.
+
+	 */
 /*
 	skill_spell_meteor:
 		'Météorite',
