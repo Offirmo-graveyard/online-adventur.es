@@ -74,7 +74,7 @@
     "when": "~3.7.7"
   },
   "devDependencies": {
-    "eslint": "^2.2.0",
+    "eslint": "^2.3.0",
     "express-debug": "^1",
     "express-livereload": "^0",
     "jspm": "0.16.29",
