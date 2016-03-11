@@ -79,7 +79,7 @@
     "express-livereload": "^0",
     "jspm": "0.16.31",
     "mversion": "^1.10.1",
-    "nodemon": "^1.9.0",
+    "nodemon": "^1.9.1",
     "pre-commit": "^1",
     "requirejs": "^2.1.22",
     "shipit-cli": "^1.4.1",
