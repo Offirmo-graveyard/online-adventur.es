@@ -5,7 +5,6 @@
 ## - minification (of important apps only)
 
 ## http://stackoverflow.com/a/19622569/587407
-set -e
 trap 'exit' ERR
 
 echo "* Starting pre-update checks... [$0]"

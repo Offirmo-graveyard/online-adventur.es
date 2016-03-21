@@ -1,7 +1,6 @@
 #! /bin/bash
 
 ## http://stackoverflow.com/a/19622569/587407
-set -e
 trap 'exit' ERR
 
 echo "* Updating manifest version for app $1... [$0]"
