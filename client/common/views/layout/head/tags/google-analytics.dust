@@ -18,8 +18,8 @@
 </script>
 <!-- End Google Analytics -->
 {:else}
- <script>
-	  // console.info.apply(console, arguments)
+<script>
+	// console.info.apply(console, arguments)
 	window.ga = function() {};
- </script>
+</script>
 {/analytics_enabled}
