@@ -76,7 +76,7 @@
   "devDependencies": {
     "eslint": "^2.3.0",
     "express-debug": "^1",
-    "express-livereload": "^0",
+    "express-livereload": "^0.0.24",
     "jspm": "0.16.31",
     "mversion": "^1.10.1",
     "nodemon": "^1.9.1",
