@@ -77,7 +77,7 @@
     "eslint": "^2.6.0",
     "express-debug": "^1",
     "express-livereload": "^0.0.24",
-    "jspm": "0.16.31",
+    "jspm": "0.16.33",
     "mversion": "^1.10.1",
     "nodemon": "^1.9.1",
     "pre-commit": "^1",
