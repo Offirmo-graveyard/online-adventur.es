@@ -207,9 +207,9 @@ define({
 
 	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
 		var parts = libs.format_multiple([
-			weapon.qualif2.msg_key,
-			weapon.qualif1.msg_key,
-			weapon.type.msg_key
+			weapon.qualifier2.msg_id,
+			weapon.qualifier1.msg_id,
+			weapon.base.msg_id
 		], {});
 
 		if (libs._s.startsWith(parts[0], 'of')) {
