@@ -39,7 +39,7 @@
   "dependencies": {
     "amdefine": "~1.0.0",
     "async": "1.5.2",
-    "bower": "^1.7.7",
+    "bower": "^1.7.9",
     "chalk": "~1.1.3",
     "clarify": "~1",
     "compression": "~1.6.1",
