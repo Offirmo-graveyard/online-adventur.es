@@ -1,6 +1,6 @@
 .social-panel-background {
 	xbackground: #543d46;
-	background: url(../../../../../../assets/imgs/social_bg.jpg);
+	background: url(/client/apps/boringrpg/assets/imgs/social_bg.jpg);
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

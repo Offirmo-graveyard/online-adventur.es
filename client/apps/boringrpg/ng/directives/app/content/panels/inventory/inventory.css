@@ -1,7 +1,7 @@
 .inventory-panel-background {
 	xbackground: #5da7ae;
 	color: #ffebbc;
-	background: url(../../../../../../assets/imgs/inventory_bg.jpg);
+	background: url(/client/apps/boringrpg/assets/imgs/inventory_bg.jpg);
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

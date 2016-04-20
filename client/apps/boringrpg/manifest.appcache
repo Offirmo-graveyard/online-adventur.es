@@ -14,6 +14,12 @@ CACHE:
 ## REM : style sheets are all embedded in minified bundle (below)
 
 #style sheet images
+"/client/apps/boringrpg/assets/imgs/achievements_bg.jpg"
+"/client/apps/boringrpg/assets/imgs/adventures/fieldsofgold.jpg"
+"/client/apps/boringrpg/assets/imgs/chat_bg.jpg"
+"/client/apps/boringrpg/assets/imgs/inventory_bg.jpg"
+"/client/apps/boringrpg/assets/imgs/knowledge_bg.jpg"
+"/client/apps/boringrpg/assets/imgs/social_bg.jpg"
 
 
 #javascript files

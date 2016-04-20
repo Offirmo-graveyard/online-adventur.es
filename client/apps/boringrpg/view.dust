@@ -46,7 +46,7 @@
 		console.log('~~ splash for boringrpg : executing…');
 
 		function activate_splash_when_ready() {
-			//console.log('~~ slash for boringrpg : Font detection for splash :', window.offirmo_loader.font_detector.offsetWidth, window.offirmo_loader.font_detector);
+			console.log('~~ slash for boringrpg : Font detection for splash :', window.offirmo_loader.font_detector.offsetWidth, window.offirmo_loader.font_detector);
 			if(window.offirmo_loader.font_detector.offsetWidth > 155 &&
 				window.offirmo_loader.font_detector.offsetWidth < 165) {
 				// expected size -> font is loaded -> activate the nice splash

@@ -1,6 +1,6 @@
 .achievements-panel-background {
 	xbackground: #543d46;
-	background: url(../../../../../../assets/imgs/achievements_bg.jpg);
+	background: url(/client/apps/boringrpg/assets/imgs/achievements_bg.jpg);
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
