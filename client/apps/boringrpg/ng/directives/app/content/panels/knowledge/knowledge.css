@@ -1,5 +1,10 @@
 .knowledge-panel-background {
-	background: #5da7ae;
+	xbackground: #5da7ae;
+	background: url(../../../../../../assets/imgs/knowledge_bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .knowledge-panel-foreground {
@@ -9,7 +14,7 @@
 }
 
 .knowledge-panel-controls-background {
-	background: #543d46;
+	background: rgba(84, 61, 70, 0.5);
 }
 
 .knowledge-panel-controls {
@@ -20,6 +25,6 @@
 .knowledge-panel-book {
 	color: #543d46;
 	border: solid 3px #543d46;
-	background: #ffebbc;
+	background: rgba(255, 235, 188, 0.5);
 	overflow: hidden;
 }

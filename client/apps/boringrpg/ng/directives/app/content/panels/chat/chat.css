@@ -1,5 +1,10 @@
 .chat-panel-background {
-	background: #5da7ae;
+	xbackground: #5da7ae;
+	background: url(../../../../../../assets/imgs/chat_bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .chat-panel-foreground {

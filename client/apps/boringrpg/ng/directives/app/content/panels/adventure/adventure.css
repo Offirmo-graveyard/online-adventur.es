@@ -1,9 +1,14 @@
 .adventure-panel-background {
-	background: #5da7ae;
+	xbackground: #5da7ae;
+	background: url(../../../../../../assets/imgs/adventures/fieldsofgold.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .adventure-panel-stats-background {
-	background: #543d46;
+	background: rgba(84, 61, 70, 0.5);
 }
 .adventure-panel-stats {
 	padding: 2px;
@@ -56,7 +61,7 @@
 	line-height: 19px;
 }
 .adventure-panel-dialog-good-click {
-	background: #ffebbc;
+	background: rgba(255, 235, 188, 0.33);
 }
 .adventure-panel-dialog-bad-click {
 	background: #f2676a;

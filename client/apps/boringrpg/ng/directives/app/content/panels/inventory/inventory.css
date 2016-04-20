@@ -1,12 +1,17 @@
 .inventory-panel-background {
-	background: #5da7ae;
+	xbackground: #5da7ae;
 	color: #ffebbc;
+	background: url(../../../../../../assets/imgs/inventory_bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .inventory-panel-inventory {
 	color: #ffebbc;
 	border: solid 3px #ffebbc;
-	background: #543d46;
+	background: rgba(84, 61, 70, 0.5);
 	overflow: hidden;
 }
 
@@ -21,7 +26,7 @@
 }
 
 .inventory-panel-controls-background {
-	background: #543d46;
+	background: rgba(84, 61, 70, 0.5);
 }
 
 .inventory-panel-controls {

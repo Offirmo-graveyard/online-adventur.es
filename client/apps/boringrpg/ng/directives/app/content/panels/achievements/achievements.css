@@ -1,5 +1,10 @@
 .achievements-panel-background {
-	background: #543d46;
+	xbackground: #543d46;
+	background: url(../../../../../../assets/imgs/achievements_bg.jpg);
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .achievements-panel-foreground {
