@@ -1,6 +1,7 @@
 .chat-panel-background {
-	xbackground: #5da7ae;
-	background: url(/client/apps/boringrpg/assets/imgs/chat_bg.jpg);
+	background-color: #5da7ae;
+	background-image: url(/client/apps/boringrpg/assets/imgs/chat_bg.jpg);
+	background-position: bottom;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -10,5 +11,4 @@
 .chat-panel-foreground {
 	text-align: center;
 	line-height: 300px;
-	color: #292830;
 }

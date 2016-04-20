@@ -1,6 +1,7 @@
 .knowledge-panel-background {
-	xbackground: #5da7ae;
-	background: url(/client/apps/boringrpg/assets/imgs/knowledge_bg.jpg);
+	background-color: #5da7ae;
+	background-image: url(/client/apps/boringrpg/assets/imgs/knowledge_bg.jpg);
+	background-position: top;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
