@@ -51,7 +51,7 @@
     "express": "^4.13.4",
     "express-slash": "~2.0",
     "forky": "~0.3.0",
-    "intl": "~1.1.0",
+    "intl": "~1.2.4",
     "intl-locales-supported": "~1.0",
     "jsdom": "^3",
     "jsen": "^0.6.1",
