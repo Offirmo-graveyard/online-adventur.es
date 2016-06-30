@@ -1,5 +1,7 @@
 'use strict';
 
+// http://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
+
 module.exports = localizer_factory;
 
 var _ = require('lodash');
@@ -18,30 +20,6 @@ function localizer_factory(supported_locales, options) {
 	options = options || {};
 	if(! _.isObject(options)) throw new Error('localizer.js : if defined, options must be an object !');
 	var logger = options.logger || console;
-
-	// taken from formatjs/guides/runtime-environments/#server
-	/*var Intl = global.Intl;
-	(function polyfill_intl() {
-		if (! Intl) {
-			// No `Intl`, so use and load the polyfill.
-			Intl = require('intl');
-		}
-		else {
-			// Determine if the built-in `Intl` has the locale data we need.
-			var has_data_for_my_supported_locales = supported_locales.every(function (locale) {
-				return Intl.NumberFormat.supportedLocalesOf(locale)[0] === locale &&
-					Intl.DateTimeFormat.supportedLocalesOf(locale)[0] === locale;
-			});
-
-			if (!has_data_for_my_supported_locales) {
-				// `Intl` exists, but it doesn't have the data we need, so load the
-				// polyfill and replace the constructors with need with the polyfill's.
-				var IntlPolyfill = require('intl');
-				Intl.NumberFormat   = IntlPolyfill.NumberFormat;
-				Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
-			}
-		}
-	})();*/
 
 	/** validate that given locale is a correct "BCP 47 locale code" and try to fix it if needed.
 	 * returns undef if not valid.
