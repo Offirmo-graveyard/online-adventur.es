@@ -62,6 +62,11 @@ define({
 	stats_token_count: 'Tokens',
 	stats_click_count: 'Clicks',
 
+	inventory_control_quality: 'Quality:',
+	inventory_control_damage: 'Damage: {base_strength, number}',
+	inventory_control_cmd_sell: 'Sell',
+	inventory_control_cmd_equip: 'Equip',
+
 	weapon_base_axe: 'axe',
 	weapongender_axe: 'neutral',
 	weapon_base_bow: 'bow',
@@ -216,6 +221,7 @@ define({
 			var q2 = parts.shift();
 			parts.push(q2);
 		}
+
 		return libs._s.words(parts.join(' ')).map(libs._s.capitalize).join(' ');
 	},
 

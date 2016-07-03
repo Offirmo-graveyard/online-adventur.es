@@ -62,6 +62,11 @@ define({
 	stats_token_count: 'Jetons',
 	stats_click_count: 'Clics',
 
+	inventory_control_quality: 'Qualité :',
+	inventory_control_damage: 'Dégâts : {base_strength, number}',
+	inventory_control_cmd_sell: 'Vendre',
+	inventory_control_cmd_equip: 'équiper',
+
 	weapon_base_axe: 'hache',
 	weapongender_axe: 'female',
 	weapon_base_bow: 'arc',
@@ -214,6 +219,7 @@ define({
 			weapon.qualifier2.msg_id
 		], {gender: weapon_gender});
 
+		parts[0] = libs._.capitalize(parts[0])
 		return parts.join(' ');
 	},
 

@@ -44,15 +44,15 @@
 					<div class="container">
 						<span class="inventory-panel-controls-icon icomoon-battle-gear"></span>
 						<ul>
-							<li><span ng-if="selected_item" ng-class="selected_item.quality.id"
+							<li><span ng-if="selected_item"
 										 i18n-content="weapon"
 										 i18n-values="selected_item"
 										 i18n-label="weapon details"
 										 i18n-watch></span></li>
-							<li>qualité</li>
-							<li>dégâts</li>
-							<li>équiper</li>
-							<li>vendre (x gold)</li>
+							<li><span i18n-content="inventory_control_quality"></span>
+								<span ng-if="selected_item" ng-class="selected_item.quality.id" i18n-content="{{selected_item.quality.msg_id}}" i18n-watch></span></li>
+							<li><span ng-if="selected_item" i18n-content="inventory_control_damage" i18n-values="selected_item" i18n-watch></span></li>
+							<li><span i18n-content="inventory_control_cmd_equip"></span> <span i18n-content="inventory_control_cmd_sell"></span></li>
 						</ul>
 					</div>
 				</fa-surface>

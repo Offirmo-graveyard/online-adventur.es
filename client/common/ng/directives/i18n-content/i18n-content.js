@@ -98,11 +98,21 @@ function(offirmo_app, _, i18n_data, format_icu_message, format_key) {
 						var custom_formats = intl.formats;
 
 						if (direct_message) {
-							resolved_content = format_icu_message(direct_message, values, intl, custom_formats, directive_id);
+							try {
+								resolved_content = format_icu_message(direct_message, values, intl, custom_formats, directive_id);
+							}
+							catch (err) {
+								console.error(debug.id + ' format_icu_message error :' + err);
+							}
 						}
 						else {
 							var debug_string = resolved_content; // so far
-							resolved_content = format_key(key, values, intl, custom_formats, debug_string);
+							try {
+								resolved_content = format_key(key, values, intl, custom_formats, debug_string);
+							}
+							catch (err) {
+								console.error(debug.id + ' format_key error :' + err);
+							}
 						}
 					}
 
