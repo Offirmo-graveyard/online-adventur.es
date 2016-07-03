@@ -33,8 +33,8 @@ function(_, moment, Baobab, Rx, config) {
 				app: {
 					// which tab is currently selected ?
 					// @see static-data/view/view.js
-					selected_panel: 'adventure',
-					//selected_panel: 'inventory',
+					//selected_panel: 'adventure',
+					selected_panel: 'inventory',
 				},
 				panels: {
 					// @see layout-computer.js
@@ -55,6 +55,13 @@ function(_, moment, Baobab, Rx, config) {
 						widget_position: [0, 0],
 						scrollview_size: [0, 0],
 						scrollview_relative_position: [0, 0],
+					},
+					social: {
+
+					},
+					achievements: {
+						widget_size: [0, 0],
+						widget_position: [0, 0]
 					}
 				}
 			}

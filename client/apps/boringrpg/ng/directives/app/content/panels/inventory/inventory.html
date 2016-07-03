@@ -20,7 +20,12 @@
 								fa-pipe-to="scrollSurfacesEventHandler"
 								fa-tap="on_inventory_entry_click($index, $event, 'surf tap')"
 								fa-click="on_inventory_entry_click($index, $event, 'surf click')">
-								[{{$index+1}}] <span i18n-content="weapon" i18n-values="item" i18n-label="weapon in list"></span>
+
+								[<span ng-class="item.quality.id">{{$index+1}}</span>]
+								<span ng-class="item.quality.id"
+									i18n-content="weapon"
+									i18n-values="item"
+									i18n-label="weapon in list"></span>
 							</fa-surface>
 						</fa-view>
 					</fa-scroll-view>
@@ -35,13 +40,21 @@
 
 			<!-- smaller surface, for small screens -->
 			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[320, 120]">
-				<fa-surface class="inventory-panel-controls container">
-					<span ng-if="selected_item"
-						i18n-content="weapon"
-						i18n-values="selected_item"
-						i18n-label="weapon details"
-						i18n-watch></span>
-					TODO
+				<fa-surface class="inventory-panel-controls">
+					<div class="container">
+						<span class="inventory-panel-controls-icon icomoon-battle-gear"></span>
+						<ul>
+							<li><span ng-if="selected_item" ng-class="selected_item.quality.id"
+										 i18n-content="weapon"
+										 i18n-values="selected_item"
+										 i18n-label="weapon details"
+										 i18n-watch></span></li>
+							<li>qualité</li>
+							<li>dégâts</li>
+							<li>équiper</li>
+							<li>vendre (x gold)</li>
+						</ul>
+					</div>
 				</fa-surface>
 			</fa-modifier>
 

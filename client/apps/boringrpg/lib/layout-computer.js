@@ -42,9 +42,11 @@ function(_, Rx, view_static_data, state_tree) {
 
 		// output
 		var layout = {
-			adventure: compute_adventure_panel_layout(),
-			inventory: compute_inventory_panel_layout(),
-			knowledge: compute_knowledge_panel_layout(),
+			adventure:    compute_adventure_panel_layout(),
+			inventory:    compute_inventory_panel_layout(),
+			knowledge:    compute_knowledge_panel_layout(),
+			social:       compute_social_panel_layout(),
+			achievements: compute_achievements_panel_layout()
 		};
 
 		//console.info('* Layout computer : layout recomputed :', layout);
@@ -163,6 +165,22 @@ function(_, Rx, view_static_data, state_tree) {
 
 	function compute_knowledge_panel_layout() {
 		return compute_inventory_panel_layout();
+	}
+
+	function compute_social_panel_layout() {
+		var layout = {
+
+		};
+
+		return layout;
+	}
+
+	function compute_achievements_panel_layout() {
+		var layout = {
+
+		};
+
+		return layout;
 	}
 
 });

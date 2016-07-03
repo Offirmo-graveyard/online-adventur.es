@@ -1,7 +1,7 @@
 define([
 	'offirmo-app-bootstrap',
 	'lodash',
-		'boringrpg/lib/static-data/view/view',
+	'boringrpg/lib/static-data/view/view',
 	'boringrpg/lib/state-tree',
 	'text!client/apps/boringrpg/ng/directives/app/content/panels/knowledge/knowledge.html',
 	'css!client/apps/boringrpg/ng/directives/app/content/panels/knowledge/knowledge.css'
@@ -21,10 +21,11 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 					var EventHandler = $famous['famous/core/EventHandler'];
 					var MouseSync    = $famous['famous/inputs/MouseSync'];
 
-					$scope.VIEW_CONSTS = view_static_data.layout.panels.inventory;
+					$scope.VIEW_CONSTS = view_static_data.layout.panels.knowledge;
 
 					$scope.scrollEventHandler = new EventHandler();
 					$scope.scrollSurfacesEventHandler = new EventHandler();
+					$scope.selected_index = 0;
 
 					// http://stackoverflow.com/questions/24229238/how-can-i-scroll-a-scrollview-using-a-mouse-drag-with-famo-us
 					$scope.scrollSurfacesEventHandler.pipe($scope.scrollEventHandler); // direct for taps
@@ -34,14 +35,68 @@ function(offirmo_app, _, view_static_data, state_tree, tpl) {
 
 					$scope.skills = [
 						{
-							id: 'TODO'
+							id: '???'
 						},
 						{
-							id: 'TODO'
+							id: '???'
 						},
 						{
-							id: 'TODO'
-						}
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
+						{
+							id: '???'
+						},
 					];
 				}],
 				link: function postLink($scope) {

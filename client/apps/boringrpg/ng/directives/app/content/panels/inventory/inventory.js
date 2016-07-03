@@ -48,6 +48,7 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 								);
 							$scope.selected_index = 0;
 							$scope.selected_item = $scope.inventory.length ? $scope.inventory[$scope.selected_index] : null;
+							console.log($scope.selected_item)
 						});
 					}
 					inventory_cursor.on('update', update_inventory);

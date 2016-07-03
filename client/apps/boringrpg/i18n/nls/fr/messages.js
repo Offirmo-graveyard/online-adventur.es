@@ -260,8 +260,8 @@ define({
 
 	// me
 	clickmsg_meet_old_wizard:
-		'Vous rencontrez un vieux magicien mystérieux…<br/>' +
-		'Avant de vous confier la quête, il vous raconte son histoire : Vous gagnez +1 en sagesse !',
+		'Vous rencontrez un vieux magicien mystérieux… Avant de vous confier la quête,<br/>' +
+		'il vous raconte son histoire : Vous gagnez +1 en sagesse !',
 	// electricbunnycomics.com
 	clickmsg_good_necromancer:
 		'Vous croisez un enfant sanglotant sur son hamster mort… Grâce à la nécromancie, vous le ranimez en hamster-zombie !<br/>' +
@@ -274,7 +274,8 @@ define({
 		'En bon aventurier, vous aviez gardé une potion de soin "au cas où".<br/>' +
 		'Bien joué : votre santé est parfaite : +1 vitalité !',
 	clickmsg_lost:
-		'Avec toutes ces quêtes, vous en avez oublié où vous deviez aller… Mais tourner en rond d’un coin à l’autre de la région est un bon exercice : +1 en vitalité !',
+		'Avec toutes ces quêtes, vous en avez oublié où vous deviez aller…<br/>' +
+		'Mais tourner en rond d’un coin à l’autre de la région est un bon exercice : +1 en vitalité !',
 	// DK
 	clickmsg_fate_sword:
 		'Pour vous remercier d’avoir sauvé sa femme et ses enfants, ' +
@@ -291,8 +292,8 @@ define({
 		'Et surtout, +1 en force pour avoir réussi à vous retenir malgré les 28 potions que vous avez bu !',
 	// cad-comic.com
 	clickmsg_rematch:
-		'Vous avez été battu par un gobelin ! Honteux, vous parcourez le pays, acceptant quête sur quête pour vous entraîner.<br/>' +
-		'Hélas, il en a fait autant de son côté et vous bat à nouveau ! Enfin bon, le +1 en niveau que vous aviez gagné servira bien un jour…',
+		'Vous avez été battu par un gobelin ! Honteux, vous parcourez le pays, acceptant quête sur quête pour vous entraîner, avant de le défier à nouveau<br/>' +
+		'Hélas, il s’est entraîné aussi de son côté et vous bat à nouveau ! Enfin bon, le +1 en niveau que vous aviez gagné servira bien un jour…',
 	// paintraincomic.com
 	clickmsg_useless:
 		'Arrivé au village, le maire vous assure que le pays n’est pas dangereux ; La sorcière dont vous aviez entendu parler s’est trouvé quelqu’un et ne maudis plus personne ; ' +
@@ -301,13 +302,15 @@ define({
 		'Vous vous sentez inutile et réfléchissez à votre place en ce monde… +1 en sagesse !',
 	// memecenter.com
 	clickmsg_escort:
-		'Vous devez escorter un NPC important.<br/>' +
+		'Vous devez escorter un NPC important. ' +
 		'Hélas, si vous marchez il va plus vite que vous, mais si vous courrez c’est vous qui allez plus vite !<br/>' +
-		'En zigzagant et en tournant en rond ça passe.<br/>' +
+		'En zigzagant et en tournant en rond ça passe. ' +
 		'+1 en vitalité grâce à tout cet exercice !',
 	// memecenter.com
 	clickmsg_rare_goods_seller:
-		'Vous croisez sur la route un vieil homme habillé de façon excentrique. Gagné, c’est un vendeur d’objets rares !<br/>Il vous fait un très bon prix sur une [TODO weapon].',
+		'Vous croisez sur la route un vieil homme habillé de façon excentrique. ' +
+		'Gagné, c’est un vendeur d’objets rares !<br/>' +
+		'Il vous fait un très bon prix sur une [TODO weapon].',
 	// memecenter.com
 	clickmsg_progress_loop:
 		'Il vous faudrait un meilleur équipement pour pouvoir monter en niveau. ' +
@@ -316,14 +319,15 @@ define({
 		'Heureusement, vous trouvez un [TODO weapon] au fond d’un puits !',
 	// memecenter.com/motohorse
 	clickmsg_idiot_bandits:
-		'On parle de vous depuis que vous avez tué le dragon et la sorcière maléfique !<br/>' +
+		'On parle de vous depuis que vous avez tué le dragon et la sorcière maléfique ! ' +
 		'Des bandits vous tendent une embuscade pour voler votre butin.<br/>' +
 		'Quelle drôle d’idée ! Vous lisez dans leurs yeux qu’ils le comprennent, juste avant que votre boule de feu les réduise en cendre.<br/>' +
 		'Heureusement, les pièces d’or ne brûlent pas&nbsp: +{coins, number} écus !',
 	// don't remember the source for this one
 	clickmsg_princess:
-		'« Vous n’emporterez pas la princesse ! » vous crie le terrible mage noir, alors que vous parvenez au sommet du dongeon. ' +
-		'Vous le rassurez : seul le butin vous intéresse.<br/>' +
+		'« Vous n’emporterez pas la princesse ! » vous crie le terrible mage noir, ' +
+		'alors que vous parvenez au sommet du dongeon.<br/>' +
+		'Vous le rassurez : seul le butin vous intéresse.' +
 		'Il vous laisse vous servir (+{coins, number} écus) et enchante même une arme pour vous ! ([TODO weapon])',
 	// "make friends" necromancy
 	xclickmsg_make_friends:
@@ -333,9 +337,9 @@ define({
 		'',
 	// DM of the ring
 	clickmsg_bad_village:
-		'Vous arrivez dans un village. Il n’y a pas de marchand d’armes ou de potions !<br/>' +
+		'Vous arrivez dans un village. Il n’y a pas de marchand d’armes ou de potions ! ' +
 		'Et l’auberge ne propose pas de quêtes !!<br/>' +
-		'C’en est trop : sur votre ordre, les éclairs et les météorites tombent du ciel pour raser ce pitoyable endroit.<br/>' +
+		'C’en est trop : sur votre ordre, les éclairs et les météorites tombent du ciel pour raser ce pitoyable endroit. ' +
 		'Au passage, bonne occasion de pratiquer votre magie : +1 mana.',
 	// memes
 	xclickmsg_arrown_in_the_knee:
@@ -345,9 +349,9 @@ define({
 		'',
 	// ?
 	clickmsg_mana_mana:
-		'« Mah na mah na »<br/>' +
+		'« Mah na mah na » ' +
 		'« Tou tou tou dou dou »<br/>' +
-		'+1 mana !<br/>',
+		'+1 mana !',
 		/*
 	// ?
 	clickmsg_:

@@ -1,6 +1,7 @@
 <div>
 
-	<fa-surface class="knowledge-panel-background"></fa-surface>
+	<fa-surface class="knowledge-panel-background">
+	</fa-surface>
 
 	<fa-modifier fa-translate="[0,0,1.001]">
 
@@ -10,17 +11,16 @@
 					<fa-scroll-view
 						class="toto"
 						fa-pipe-from="scrollEventHandler"
-						fa-tap="logEvent('view tap', $event)"
-						fa-click="logEvent('view click', $event)"
-						fa-options="{clipSize: layout.scrollview_size[1], direction: 1}">
+						fa-options="{clipSize: clip_size, direction: 1}">
 						<fa-view ng-repeat="skill in skills">
 							<fa-surface
 								class="knowledge-panel-knowledge-entry"
-								fa-size="[undefined, VIEW_CONSTS.bag_entry.height_px]"
+								ng-class="$index === selected_index ? 'knowledge-panel-knowledge-entry-selected' : ''"
+								fa-size="[undefined, VIEW_CONSTS.list_entry.height_px]"
 								fa-pipe-to="scrollSurfacesEventHandler"
-								fa-tap="logEvent('surf tap', $event)"
-								fa-click="logEvent('surf click', $event)">
-								[{{$index+1}}] {{skill.id}}
+								fa-tap="on_inventory_entry_click($index, $event, 'surf tap')"
+								fa-click="on_inventory_entry_click($index, $event, 'surf click')">
+								[{{$index+1}}] ???
 							</fa-surface>
 						</fa-view>
 					</fa-scroll-view>

@@ -69,6 +69,16 @@ define({
 				bag_entry: {
 					height_px: 24
 				}
+			},
+			knowledge: {
+				list: {
+					max_width_px: 640,
+					scrollview_vertical_margin_px: 2,
+					scrollview_horizontal_margin_px: 0,
+				},
+				list_entry: {
+					height_px: 24
+				}
 			}
 		}
 	},

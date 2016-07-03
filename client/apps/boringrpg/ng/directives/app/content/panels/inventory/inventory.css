@@ -12,9 +12,19 @@
 .inventory-panel-inventory {
 	color: #ffebbc;
 	border: solid 3px #ffebbc;
-	background: rgba(84, 61, 70, 0.5);
+	background: rgba(84, 61, 70, 0.7);
 	overflow: hidden;
 }
+
+/* http://wowwiki.wikia.com/wiki/API_GetItemQualityColor
+ * http://rgb.to/hex/ffaa4d
+ */
+.inventory-panel-inventory .quality_common    { color: #a6a6a6; }
+.inventory-panel-inventory .quality_uncommon  { color: #a3ff4d; }
+.inventory-panel-inventory .quality_rare      { color: #4da3ff; }
+.inventory-panel-inventory .quality_epic      { color: #bb7bff; }
+.inventory-panel-inventory .quality_legendary { color: #ffa34d; }
+
 
 .inventory-panel-inventory-entry {
 	overflow-y: hidden;
@@ -25,11 +35,34 @@
 	background: #ffebbc;
 	color: #543d46;
 }
+.inventory-panel-inventory-entry-selected .quality_common    { color: #505050; }
+.inventory-panel-inventory-entry-selected .quality_uncommon  { color: #6BB73D; }
+.inventory-panel-inventory-entry-selected .quality_rare      { color: #0080ff; }
+.inventory-panel-inventory-entry-selected .quality_epic      { color: #8000ff; }
+.inventory-panel-inventory-entry-selected .quality_legendary { color: #ff8000; }
 
 .inventory-panel-controls-background {
 	background: rgba(84, 61, 70, 0.5);
 }
 
 .inventory-panel-controls {
+	padding: 0;
+}
 
+.inventory-panel-controls .container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 0;
+}
+
+.inventory-panel-controls .container > ul {
+	list-style-type: none;
+	display: inline;
+	padding: 10px;
+}
+
+.inventory-panel-controls-icon {
+	xx-line-height: 116px;
+	font-size: 75px;
 }
