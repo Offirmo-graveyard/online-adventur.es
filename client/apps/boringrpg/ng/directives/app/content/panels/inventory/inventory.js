@@ -28,6 +28,10 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 					$scope.scrollEventHandler = new EventHandler();
 					$scope.scrollSurfacesEventHandler = new EventHandler();
 					$scope.selected_index = 0;
+					$scope.selected_details = {
+						stars: [],
+						dots: []
+					};
 
 					// http://stackoverflow.com/questions/24229238/how-can-i-scroll-a-scrollview-using-a-mouse-drag-with-famo-us
 					$scope.scrollSurfacesEventHandler.pipe($scope.scrollEventHandler); // direct for taps
@@ -47,24 +51,54 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 									$scope.inventory.length * 24
 								);
 							$scope.selected_index = 0;
-							$scope.selected_item = $scope.inventory.length ? $scope.inventory[$scope.selected_index] : null;
-							console.log($scope.selected_item)
+							update_selected_item();
 						});
 					}
+
+					function update_selected_item() {
+						var item = $scope.selected_item = $scope.inventory.length ? $scope.inventory[$scope.selected_index] : null;
+						console.log(item);
+						if (!item) return;
+
+						$scope.selected_details.stars =
+							_.map(qualityToStars(item.quality.id), function(t) { return 'icomoon-star-' + t});
+						$scope.selected_details.dots =
+							_.map(Array(10), function(t, n) { return n >= item.enhancement_level ? 'icomoon-radio-unchecked' : 'icomoon-radio-checked' });
+console.log($scope.selected_details.dots)
+					}
+
+					function qualityToStars(quality) {
+						switch (quality) {
+							case 'quality_uncommon':
+								return ['full', 'empty', 'empty', 'empty'];
+							case 'quality_rare':
+								return ['full', 'full', 'empty', 'empty'];
+							case 'quality_epic':
+								return ['full', 'full', 'full', 'empty'];
+							case 'quality_legendary':
+								return ['full', 'full', 'full', 'full'];
+							case 'quality_common':
+							default:
+								return ['half', 'empty', 'empty', 'empty'];
+						}
+					}
+
 					inventory_cursor.on('update', update_inventory);
 					update_inventory(); // init
 
 					$scope.on_inventory_entry_click = function(index, $event, origin) {
 						//console.log(index, $event, origin);
 						$scope.selected_index = index;
-						$scope.selected_item = $scope.inventory[$scope.selected_index];
+						update_selected_item();
 					};
 
 				}],
+
 				link: function postLink($scope) {
 					var layout_cursor = state_tree.select('view', 'layout', 'panels', 'inventory');
 
 					var inventory_element_styled = false;
+
 					function style_famous_inventory_element() {
 						if (inventory_element_styled) return;
 
@@ -89,6 +123,7 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 							setTimeout(style_famous_inventory_element, 100);
 						}
 					}
+
 					function on_layout_update() {
 						$scope.layout = layout_cursor.get();
 						$scope.clip_size = Math.min(

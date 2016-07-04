@@ -26,6 +26,7 @@
 									i18n-content="weapon"
 									i18n-values="item"
 									i18n-label="weapon in list"></span>
+								<span ng-class="item.quality.id" ng-show="item.enhancement_level">+{{item.enhancement_level}}</span>
 							</fa-surface>
 						</fa-view>
 					</fa-scroll-view>
@@ -41,18 +42,44 @@
 			<!-- smaller surface, for small screens -->
 			<fa-modifier fa-translate="[0,0,1.001]" fa-align="[.5,.5]" fa-origin="[.5,.5]" fa-size="[320, 120]">
 				<fa-surface class="inventory-panel-controls">
-					<div class="container">
-						<span class="inventory-panel-controls-icon icomoon-battle-gear"></span>
-						<ul>
-							<li><span ng-if="selected_item"
-										 i18n-content="weapon"
+					<div class="container" ng-if="selected_item">
+						<ul class="controls">
+							<li><span class="inventory-panel-controls-icon icomoon-sword-spade"></span></li>
+							<li><span i18n-content="inventory_control_cmd_equip"></span></li>
+							<li><span i18n-content="inventory_control_cmd_sell"></span></li>
+						</ul>
+						<ul class="details">
+							<li><span i18n-content="weapon"
 										 i18n-values="selected_item"
 										 i18n-label="weapon details"
 										 i18n-watch></span></li>
 							<li><span i18n-content="inventory_control_quality"></span>
-								<span ng-if="selected_item" ng-class="selected_item.quality.id" i18n-content="{{selected_item.quality.msg_id}}" i18n-watch></span></li>
-							<li><span ng-if="selected_item" i18n-content="inventory_control_damage" i18n-values="selected_item" i18n-watch></span></li>
-							<li><span i18n-content="inventory_control_cmd_equip"></span> <span i18n-content="inventory_control_cmd_sell"></span></li>
+								<span ng-class="selected_item.quality.id">
+									<span ng-class="selected_details.stars[0]"></span>
+									<span ng-class="selected_details.stars[1]"></span>
+									<span ng-class="selected_details.stars[2]"></span>
+									<span ng-class="selected_details.stars[3]"></span>
+									<span i18n-content="{{selected_item.quality.msg_id}}"
+											i18n-watch></span>
+								</span>
+							</li>
+							<li><span i18n-content="inventory_control_enchant_level"
+										 i18n-values="selected_item" i18n-watch></span>
+								<span class="enhancement_viz">
+									<span ng-class="selected_details.dots[0]"></span>
+									<span ng-class="selected_details.dots[1]"></span>
+									<span ng-class="selected_details.dots[2]"></span>
+									<span ng-class="selected_details.dots[3]"></span>
+									<span ng-class="selected_details.dots[4]"></span>
+									<span ng-class="selected_details.dots[5]"></span>
+									<span ng-class="selected_details.dots[6]"></span>
+									<span ng-class="selected_details.dots[7]"></span>
+									<span ng-class="selected_details.dots[8]"></span>
+									<span ng-class="selected_details.dots[9]"></span>
+								</span>
+								<span ng-if="selected_item.enhancement_level">&nbsp;&nbsp;{{selected_item.enhancement_level}}/10</span>
+							</li>
+							<li><span i18n-content="inventory_control_damage" i18n-values="selected_item" i18n-watch></span></li>
 						</ul>
 					</div>
 				</fa-surface>

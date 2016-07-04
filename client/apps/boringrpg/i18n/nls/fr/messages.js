@@ -62,10 +62,11 @@ define({
 	stats_token_count: 'Jetons',
 	stats_click_count: 'Clics',
 
-	inventory_control_quality: 'Qualité :',
+	inventory_control_quality: 'Rareté',
+	inventory_control_enchant_level: 'Améliorations',
 	inventory_control_damage: 'Dégâts : {base_strength, number}',
 	inventory_control_cmd_sell: 'Vendre',
-	inventory_control_cmd_equip: 'équiper',
+	inventory_control_cmd_equip: 'Équiper',
 
 	weapon_base_axe: 'hache',
 	weapongender_axe: 'female',

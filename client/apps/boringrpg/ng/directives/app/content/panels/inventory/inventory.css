@@ -57,16 +57,36 @@
 .inventory-panel-controls .container {
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
 	padding: 0;
 }
 
 .inventory-panel-controls .container > ul {
 	list-style-type: none;
-	display: inline;
+	display: block;
+	padding: 0;
+}
+.inventory-panel-controls .container > ul.details {
 	padding: 10px;
+}
+.inventory-panel-controls .container > ul.controls {
+	text-align: center;
+}
+.inventory-panel-controls .container > ul.controls li:nth-child(1) {
+	margin: 0 0 -2px 0;
+}
+.inventory-panel-controls .container > ul.controls li:nth-child(n+2) {
+	margin: 2px 0;
+	padding: 2px 0;
+	border: solid 1px;
+}
+.inventory-panel-controls .container .enhancement_viz {
+	letter-spacing: -2px;
+	font-size: 10px;
+	line-height: 14px;
 }
 
 .inventory-panel-controls-icon {
-	line-height: 116px;
-	font-size: 75px;
+	line-height: 60px;
+	font-size: 60px;
 }

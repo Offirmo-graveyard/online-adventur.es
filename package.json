@@ -32,7 +32,7 @@
     "ii": "npm run devinstall"
   },
   "engines": {
-    "node": "^4.4.6"
+    "node": "^4"
   },
   "dependencies": {
     "amdefine": "~1.0.0",

@@ -33,8 +33,8 @@ function(_, moment, Baobab, Rx, config) {
 				app: {
 					// which tab is currently selected ?
 					// @see static-data/view/view.js
-					selected_panel: 'adventure',
-					//selected_panel: 'inventory',
+					//selected_panel: 'adventure',
+					selected_panel: 'inventory',
 				},
 				panels: {
 					// @see layout-computer.js
