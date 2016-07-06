@@ -1,6 +1,7 @@
 'use strict';
 
 // http://stackoverflow.com/questions/1043339/javascript-for-detecting-browser-language-preference
+// http://gu.illau.me/posts/the-problem-of-user-language-lists-in-javascript/
 
 module.exports = localizer_factory;
 
