@@ -1,7 +1,11 @@
 
 0.0.45
 - fix start panel
--
+- new weapon quality: artifact
+- improved weapon base strength randomization
+- weapon damage spread
+- enhanced inventory :
+  - weapon damage display
 
 0.0.44
 - icomoon updated

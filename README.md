@@ -45,8 +45,7 @@ npm run bump
 git add .
 git commit
 git tag -a v0.0.x -m v0.0.x
-git push
-git push --tags
+git push && git push --tags
 ```
 
 

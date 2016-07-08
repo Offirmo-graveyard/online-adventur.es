@@ -126,5 +126,6 @@ define({
 	quality_uncommon: {},
 	quality_rare: {},
 	quality_epic: {},
-	quality_legendary: {}
+	quality_legendary: {},
+	quality_artifact: {}
 });

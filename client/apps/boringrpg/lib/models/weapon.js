@@ -41,20 +41,33 @@ function(_, jsen, schema, StaticDb, random) {
 	// pick a random component of given type
 	function pick_new_random_component (type) {
 		var pool = get_components_by_type(type);
+		// TODO restrict "artifact" quality
 		return pool[random.getRandomIndex(pool.length)];
 	}
 
 	// auto-fill missing parts in given data
+	var QUALITY_BONUS = {
+		quality_common:      0,
+		quality_uncommon:    1,
+		quality_rare:        3,
+		quality_epic:        4,
+		quality_legendary:   5,
+		quality_artifact:    6
+	};
 	function generate_missing_components (data) {
-		if (_.isUndefined(data.base_strength))
-			data.base_strength = random.getRandomIntInclusive( 1, schema.properties.base_strength.maximum );
-
 		[ 'base', 'qualifier1', 'qualifier2', 'quality' ].forEach(function(type) {
 			if (data[type].id) return;
-			// TODO pick matching components thanks to affinities
+			// TODO pick matching components thanks to affinities ?
 			var component = pick_new_random_component(type);
 			data[type] = _.pick(component, [ 'id', 'msg_id' ]);
 		});
+
+		if (! _.isNumber(QUALITY_BONUS[data.quality.id])) {
+			console.error(data, data.quality, QUALITY_BONUS[data.quality.id], schema.properties.base_strength.maximum);
+			throw new Error('Internal error at weapon generation !');
+		}
+		if (_.isUndefined(data.base_strength))
+			data.base_strength = random.getRandomIntInclusive( 1 + QUALITY_BONUS[data.quality.id], schema.properties.base_strength.maximum );
 	}
 
 
@@ -88,14 +101,33 @@ function(_, jsen, schema, StaticDb, random) {
 		quality_uncommon:   19,
 		quality_rare:       46,
 		quality_epic:       91,
-		quality_legendary: 182
+		quality_legendary: 182,
+		quality_artifact:  333
+	};
+	var QUALITY_SPREAD = {
+		quality_common:      6,
+		quality_uncommon:    5,
+		quality_rare:        4,
+		quality_epic:        3,
+		quality_legendary:   2,
+		quality_artifact:    1
 	};
 	var ENHANCEMENT_MULTIPLIER = 0.2;
 	Weapon.prototype.get_strength = function () {
-		if (! this.quality.id || ! QUALITY_STRENGTH_MULTIPLIER[this.quality.id])
+		if (! this.quality.id || ! QUALITY_STRENGTH_MULTIPLIER[this.quality.id]|| ! QUALITY_SPREAD[this.quality.id])
 			throw new Error('Weapon strength computation : invalid quality "' + this.quality.id + '" !');
 
-		return this.base_strength
+		var spread = QUALITY_SPREAD[this.quality.id];
+		var min_strength = Math.max(this.base_strength - spread, 1);
+		var max_strength = Math.min(this.base_strength + spread, 20);
+		return [
+			this.strengthToDamage(min_strength),
+			this.strengthToDamage(max_strength)
+		]
+	};
+
+	Weapon.prototype.strengthToDamage = function(strength) {
+		return strength
 			* QUALITY_STRENGTH_MULTIPLIER[this.quality.id]
 			* (1 + ENHANCEMENT_MULTIPLIER * this.enhancement_level);
 	};

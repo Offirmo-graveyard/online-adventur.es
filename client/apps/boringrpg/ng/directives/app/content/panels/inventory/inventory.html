@@ -55,12 +55,10 @@
 										 i18n-watch></span></li>
 							<li><span i18n-content="inventory_control_quality"></span>
 								<span ng-class="selected_item.quality.id">
+									<span i18n-content="{{selected_item.quality.msg_id}}" i18n-watch></span>
 									<span ng-class="selected_details.stars[0]"></span>
 									<span ng-class="selected_details.stars[1]"></span>
 									<span ng-class="selected_details.stars[2]"></span>
-									<span ng-class="selected_details.stars[3]"></span>
-									<span i18n-content="{{selected_item.quality.msg_id}}"
-											i18n-watch></span>
 								</span>
 							</li>
 							<li><span i18n-content="inventory_control_enchant_level"
@@ -79,7 +77,7 @@
 								</span>
 								<span ng-if="selected_item.enhancement_level">&nbsp;&nbsp;{{selected_item.enhancement_level}}/10</span>
 							</li>
-							<li><span i18n-content="inventory_control_damage" i18n-values="selected_item" i18n-watch></span></li>
+							<li><span i18n-content="inventory_control_damage" i18n-values="selected_details.damages" i18n-watch></span></li>
 						</ul>
 					</div>
 				</fa-surface>

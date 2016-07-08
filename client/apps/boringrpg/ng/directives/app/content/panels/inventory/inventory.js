@@ -57,29 +57,39 @@ function(offirmo_app, _, view_static_data, state_tree, model, Weapon, tpl) {
 
 					function update_selected_item() {
 						var item = $scope.selected_item = $scope.inventory.length ? $scope.inventory[$scope.selected_index] : null;
-						console.log(item);
 						if (!item) return;
 
+						var weapon = new Weapon(item);
+
 						$scope.selected_details.stars =
-							_.map(qualityToStars(item.quality.id), function(t) { return 'icomoon-star-' + t});
+							_.map(qualityToStars(item.quality.id), function (t) {
+								return 'icomoon-star-' + t
+							});
 						$scope.selected_details.dots =
-							_.map(Array(10), function(t, n) { return n >= item.enhancement_level ? 'icomoon-radio-unchecked' : 'icomoon-radio-checked' });
-console.log($scope.selected_details.dots)
+							_.map(Array(10), function (t, n) {
+								return n >= item.enhancement_level ? 'icomoon-radio-unchecked' : 'icomoon-radio-checked'
+							});
+						$scope.selected_details.damages = {
+							min_damage: weapon.get_strength()[0],
+							max_damage:	weapon.get_strength()[1]
+						}
 					}
 
 					function qualityToStars(quality) {
 						switch (quality) {
-							case 'quality_uncommon':
-								return ['full', 'empty', 'empty', 'empty'];
-							case 'quality_rare':
-								return ['full', 'full', 'empty', 'empty'];
-							case 'quality_epic':
-								return ['full', 'full', 'full', 'empty'];
+							case 'quality_artifact':
+								return ['full', 'full', 'full'];
 							case 'quality_legendary':
-								return ['full', 'full', 'full', 'full'];
+								return ['full', 'full', 'half'];
+							case 'quality_epic':
+								return ['full', 'full', 'empty'];
+							case 'quality_uncommon':
+								return ['full', 'half', 'empty'];
+							case 'quality_rare':
+								return ['full', 'empty', 'empty'];
 							case 'quality_common':
 							default:
-								return ['half', 'empty', 'empty', 'empty'];
+								return ['half', 'empty', 'empty'];
 						}
 					}
 

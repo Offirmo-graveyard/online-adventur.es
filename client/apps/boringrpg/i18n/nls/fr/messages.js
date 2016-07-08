@@ -64,7 +64,7 @@ define({
 
 	inventory_control_quality: 'Rareté',
 	inventory_control_enchant_level: 'Améliorations',
-	inventory_control_damage: 'Dégâts : {base_strength, number}',
+	inventory_control_damage: 'Dégâts : {min_damage, number} - {max_damage, number}',
 	inventory_control_cmd_sell: 'Vendre',
 	inventory_control_cmd_equip: 'Équiper',
 
@@ -210,6 +210,7 @@ define({
 	weapon_quality_rare: 'rare',
 	weapon_quality_epic: 'épique',
 	weapon_quality_legendary: 'légendaire',
+	weapon_quality_artifact: 'artefact',
 
 	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
 		var weapon_gender = libs.format('weapongender_' + weapon.base.id.slice(5), {});

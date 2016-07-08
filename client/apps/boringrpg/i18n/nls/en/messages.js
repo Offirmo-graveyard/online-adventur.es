@@ -64,7 +64,7 @@ define({
 
 	inventory_control_quality: 'Rarity',
 	inventory_control_enchant_level: 'Enhancements',
-	inventory_control_damage: 'Damage: {base_strength, number}',
+	inventory_control_damage: 'Damage : {min_damage, number} - {max_damage, number}',
 	inventory_control_cmd_sell: 'Sell',
 	inventory_control_cmd_equip: 'Equip',
 
@@ -210,6 +210,7 @@ define({
 	weapon_quality_rare: 'rare',
 	weapon_quality_epic: 'epic',
 	weapon_quality_legendary: 'legendary',
+	weapon_quality_artifact: 'artifact',
 
 	weapon: function build_weapon_name(weapon, intl, libs, debug_id) {
 		var parts = libs.format_multiple([
