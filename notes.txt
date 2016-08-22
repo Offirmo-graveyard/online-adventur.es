@@ -11,9 +11,16 @@ Our dir structure outlines a clear server/ client/ common/ :
 * Everything heavy that should NOT be watched (bower components, node modules)
   should NOT be in either client/ server/ or common/
 
+
 TODO
+typing https://github.com/akZhy/typebot
 https://github.com/lipka/piecon
+https://github.com/sindresorhus/is-online
 https://hub.openshift.com/quickstarts/128-node-js-0-12
+better manifest http://www.slideshare.net/brucelawson/bruce-lawson-progressive-web-apps-the-future-of-apps
+http://spin.js.org/
+http://masonry.desandro.com/layout.html
+
 fix error handling in bash scripts
 
 Chat simulé
