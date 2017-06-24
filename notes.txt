@@ -12,40 +12,9 @@ Our dir structure outlines a clear server/ client/ common/ :
   should NOT be in either client/ server/ or common/
 
 
-TODO
-typing https://github.com/akZhy/typebot
-https://github.com/lipka/piecon
-https://github.com/sindresorhus/is-online
-https://hub.openshift.com/quickstarts/128-node-js-0-12
-better manifest http://www.slideshare.net/brucelawson/bruce-lawson-progressive-web-apps-the-future-of-apps
-http://spin.js.org/
-http://masonry.desandro.com/layout.html
 
 fix error handling in bash scripts
 
-Chat simulé
-http://www.minecraftforum.net/forums/off-topic/forum-games/431299-big-list-of-minecraft-forum-usernames
-Filtrer mots
-https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words
-comptes
-https://github.com/marteinn/The-Big-Username-Blacklist
-
-function debug_observable(observable, name) {
-	observable.subscribe(
-		function (x) {
-			console.log('@' + name + ' - Next:', x);
-		},
-		function (err) {
-			console.log('@' + name + ' - Error:', err);
-		},
-		function () {
-			console.log('@' + name + ' - Completed.');
-		}
-	);
-}
-
-
-http://getstream.io/features/
 
 
 Notes
@@ -199,12 +168,9 @@ http://www.2ality.com/2015/10/google-analytics-api.html
 TOSORT
 ======
 
-
-
 http://www.producthunt.com/kylebrussell/collections/best-games-of-2014
 
 http://www.afjv.com/news/4541_dreamirl-une-plateforme-innovante-de-jeux-independants.htm
-
 
 technos intéressantes
 * https://github.com/robertleeplummerjr/thaw.js
@@ -212,6 +178,3 @@ technos intéressantes
 * offline webapp bootloader https://github.com/substack/hyperboot
 * https://hacks.mozilla.org/2014/12/introducing-the-javascript-internationalization-api/
 * http://jakearchibald.com/2014/offline-cookbook/
-
-
-g
